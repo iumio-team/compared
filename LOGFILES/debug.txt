@@ -1,0 +1,10 @@
+Welcome to debugger file 
+This file able you to locate which file or function doesn't run 
+ 
+ Debugger file is starting ! 
+ 
+wui::Pointer.php exist
+ wui::require Pointer.php
+ wui::ClassLoader.php exist
+ wui::statApp()
+ 

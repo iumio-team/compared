@@ -1,0 +1,111 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | Mentions Légales {%endblock%}
+{%block menu %}
+    <ul>
+                        <li><a href="Wui.php?run=getHomePage&argument=void"><i class="fa fa-home"></i>Accueil</a></li>
+                        <li ><a href="Wui.php?run=prepareComparison&argument=void"><div class="divFaCompare"><i class="fa fa-mobile-phone faCompare" style="padding-left: 0px;"></i><i class="fa fa-mobile-phone faCompare"></i></div><span>Faire une comparaison</span></a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="Wui.php?run=getHomePage&argument=void#manufacturer"><i class="fa fa-mobile"></i>Les constructeurs</a></li>
+                        <li><a href="Wui.php?run=getHomePage&argument=void#articles"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="Wui.php?run=getHomePage&argument=void#contact"><i class="fa fa-wrench"></i>Contact</a></li>
+
+                    </ul>
+{%endblock%}
+{%block sectionHero %} <section class="hero"> {%endblock%}
+{%block silder %}
+     <div class="row hero-content padding-text">
+            <div class="col-md-4  col-sm-4 text-center padding-text">
+                <h2 class="blackColor">Mentions Légales</h2>
+                <ul class='font-resize bgBlackMediumOpacity padding-text ' style='list-style: none;'> 
+                    <li>Créateur : RAFINA DANY </li>
+                    <li>Propriétaire : RAFINA DANY </li>
+                    <li>Webmaster : RAFINA DANY </li>
+                     <li>Créateur du logo  : KEVIN HURON </li>
+                </ul>
+              
+            </div>
+            <div class="col-md-8  col-sm-8 text-center font-resize padding-top-desc bgBlackMediumOpacity">
+               <img class="img-logo" src="PUBLIC/IMAGE/logoCompared4.png" alt="COMPARED Logo">
+                <h2 style="font-size:30px;">The smartphone comparator</h2>
+                <h2 style="font-size:30px;">En version : <span class="border_numbers">0.30 BETA </span></h2>
+                
+            </div>
+
+
+        </div>
+{%endblock%}
+{%block content %}
+    
+     <section class="showcase borderSection" >
+            <div class="showcase-wrap" style="padding:30px 0 ;" >
+                <div class="texture-overlay"></div>
+                <div class="container">
+                    <div class="row news">
+                        <div class="col-md-6 borderSection fixed_height_100 text-center white_font font_size_20 " >
+                       
+                            <h3 class='margin_top_10'>Hébergeur</h3>
+                           
+
+                            Hébergé sur <a href="server.unflux.fr">server.unflux.fr</a>
+
+                    </div>
+                        <div class="col-md-6 borderSection fixed_height_100 text-center white_font font_size_20">
+                       
+                              Epaulé par <span class="text_pr text_pr_mod_sengine"> SENGINE </span>
+                              <h4>(Moteur de comparaison)</h4>
+
+                  </div>
+
+
+                    <div class="col-md-12 text-center"> 
+
+                        
+                        <p class='white_font font_size_20'><span class='fa'>COMPARED</span> est issu du projet <em><strong>Octimum</strong></em> ( Projet visant à créer 3 sites web )
+                        <ul class="font_size_20 white_font" >
+                            <li><a href="http://zoctium.fr.nf">Zoctium</a> - Une page d'accueil pour navigateur</li>
+                            <li><a href="http://octimum.com">Octimum</a> - Blog sur le monde du numérique </li>
+                            <li> COMPARED  </li>
+                        </ul>
+                        </p>
+                                <p class='white_font font_size_20 '>C'est un site web de type blog mais également un comparateur de smartphone </p>
+                                <p class='white_font font_size_20'>Il est épaulé par un moteur de comparaison appelé SENGINE <p>
+                        
+                    </div>
+
+                </div>                 
+
+                
+                            <div class="col-md-12 text-center  font_size_20  borderSection  white_font" style="padding-bottom: 10px;"  >
+
+
+
+                               Les données récoltés sont stockées sur votre navigateur via la technologie LocalStorage (Procédé consitant à sauvegarder des données dans votre navigateur web ).
+                                    Conformément à la loi « informatique et libertés » du 6 janvier 1978 modifiée en 2004, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent.
+                                    Vous pouvez également, pour des motifs légitimes, vous opposer au traitement des données vous concernant et donc ne pas utiliser cette page .
+
+                               
+                               
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+        </section>
+    
+    {%endblock%}
+
+{%block contact %}{%endblock%}
+{%block menuB %}
+    <ul id="downMenu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#manufacturer">Les constructeurs</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li ><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+    </ul>
+{%endblock%}

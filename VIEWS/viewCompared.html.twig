@@ -1,0 +1,1584 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | La comparaison {%endblock%}
+{%block menu %}
+<ul id="menu">
+    <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+    <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+    <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+    <li class="last"><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+</ul>
+{%endblock%}
+{% block silder %}
+<div class="col-md-12 gallery" style="height: 300px!important">
+
+    <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
+        <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+            <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                <h2 style="font-size:40px; ">Comparaison terminée </h2>
+
+
+            </div>
+
+        </div>
+        <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+            <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                <h2 style="font-size:30px;">{{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}</h2>
+            </div>
+        </div>
+        <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+            <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                <h2 style="font-size:30px;">{{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h2>
+            </div>
+        </div>
+
+    </div>
+</div>
+{%endblock%}
+{% block content %}
+{%if winner != 'EQUIVALENT' %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6 project">
+                <h3 id="counter">0 </h3>
+                <h4>Point(s) en faveur du {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}</h4>
+            </div>
+            <div class="col-md-6 project">
+                <h3 id="counter1">0</h3>
+                <h4>Point(s) en faveur du {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h4>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 cBusiness">
+                <a id="specSm1" href="#"><h3 id="sm1" > <i class="fa fa-search"></i>Voir les caractéristiques du  {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}</h3></a>
+                <a id="specSm2" href="#">   <h3 id="sm2"> <i class="fa fa-search"></i>Voir les caractéristiques du  {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h3></a>
+                <a  href="#tblc">   <h3 > <i class="fa fa-spinner"></i>Voir le tableau de comparaison</h3></a>
+                <a  href="#result">   <h3 > <i class="fa fa-check-circle"></i>Conclusion de cette comparaison</h3></a>
+                <a  href="Wui.php?run=show&argument=viewStartCompared">   <h3 > <i class="fa fa-rotate-left"></i>Refaire une comparaison</h3></a>
+
+
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<div id="abouta">
+    <div class="line2">
+        <div class="container">
+            <div class="row Fresh">
+                <div class="col-md-12 Fully">
+                    <i class="fa fa-tablet"></i>
+                    <h1>Tableau de comparaison</h1>
+                    <h3> {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }} contre {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }} </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 hr1">
+            <hr/>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div data-backdrop='static' data-keyboard='true' class='modal  fade ' id='myModalSm1' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+    <div class='modal-dialog' style="width:98%">
+        <div class='modal-content'>
+            <div class='modal-header'>
+                <div class="center-block row"> <img src="PUBLIC/IMAGE/constructor/{{sm1.getConstructorSm|lower}}.png" class="img-const-compare col-md-3 col-sm-3" />
+                    <h4 class='modal-title text-center col-md-9 col-sm-9 ' id='myModalLabel'>Caractéristiques du  {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}</h4></div>
+            </div>
+            <div class='modal-body center-block '>
+                <div class="row">
+                    <div class="col-md-12 cBusiness">
+
+                        <h4 > Référence : {{ sm1.codeNameSm }} </h4>
+
+                        <h4 >  Date de sortie : {{ sm1.releaseDateSm|date("d-m-Y")  }} </h4>
+
+                        {% if  sm1.prixSm != NULL %}
+                            <h4> Prix : {{ sm1.prixSm }} </h4>
+
+                        {% endif %}
+                        <br>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+                                <div class="media media-left feature">
+                                    <a class="pull-right" href="#">
+                                        <i class="fa fa-mobile-phone fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">&Eacute;cran</h3>
+                                        <ul>
+                                            <li> Type : {{ sm1.screen.typeS  }}</li>
+                                            <li>Taille : {{ sm1.screen.sizeS  }} pouces</li>
+                                            <li> Densité : {{ sm1.screen.densityS  }} pp </li>
+                                            <li> Définition : {{ sm1.screen.capacityS }} </li>
+                                            <li> Résolution : {{ sm1.screen.resolutionS }} </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="media media-left feature">
+                                    <a class="pull-right" href="#">
+                                        <i class="fa fa-cogs fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Processeur</h3>
+                                        <ul>
+                                            <li> Constructeur : {{ sm1.processor.constructorP  }} </li>
+                                            <li> Nom : {{ sm1.processor.nameP  }} </li>
+                                            <li> Version : {{ sm1.processor.versionP  }} </li>
+                                            <li>Fréquence : {{ sm1.processor.frequencyP  }} Ghz</li>
+                                            <li> Nombre de coeurs : {{ sm1.processor.nbOfCoreP  }} </li>
+                                            <li> Architecture :{% if sm1.processor.archP != 0 %}} {{ sm1.processor.archP  }} bits{% else %} ARM {% endif %}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="media media-left feature">
+                                    <a class="pull-right" href="#">
+                                        {% set fa = "" %}
+                                        {%if  "Android" in sm1.os.name %}
+                                            {% set fa = "fa-android" %}
+                                        {%elseif  "Windows" in sm1.os.name %}
+                                            {% set fa = "fa-windows" %}
+                                        {%elseif  "iOS" in sm1.os.name %}
+                                            {% set fa = "fa-apple" %}
+                                        {%elseif  "Ubuntu" in sm1.os.name %}
+                                            {% set fa = "fa-ubuntu" %}
+                                        {%endif%}
+                                        <i class="fa  {{fa}} fa-3x "></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Système d'exploitation</h3>
+                                        <ul >
+                                            <li> Nom : {{ sm1.os.constructor  }} {{ sm1.os.name  }} </li>
+                                            <li> Version : {{ sm1.os.version  }} </li>
+                                            <li> Date de création : {{ sm1.os.releaseDate|date("d-m-Y")  }} </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="media media-left feature">
+                                    <a class="pull-right" href="#">
+                                        <i class="fa fa-spinner fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Carte graphique</h3>
+                                        <ul >
+                                            <li> Nom : {{ sm1.gpu.name  }} </li>
+                                            <li> Version :  {{ sm1.gpu.version  }}</li>
+                                            <li> Constructeur :   {{ sm1.gpu.constructor  }}</li>
+                                            <li> Fréquence : {{ sm1.gpu.frequency  }} Mhz </li>
+                                                {%if sm1.gpu.gflops != '' %}
+                                                <li> Flops :  {{ sm1.gpu.gflops  }} GFlops</li>
+                                                {%endif%}
+                                                {%if sm1.gpu.print != '' %}
+                                                <li> Gravure :  {{ sm1.gpu.print  }} nanomètre </li>
+                                                {%endif%}
+                                                {%if sm1.gpu.directXV != '' %}<li> Version Direct X :  {{ sm1.gpu.directXV  }} </li> {%endif%}
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="col-md-4 col-sm-4">
+                                <img src="PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5" alt=""/>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+                                <div class="media feature">
+                                    <a class="pull-left" href="#">
+                                        <i class="fa fa-exclamation-triangle fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Taille et Poids</h3>
+                                        <ul>
+                                            <li> Largeur : {{ sm1.heightSm }} mm</li>
+                                            <li>Longueur : {{ sm1.widthSm }} mm</li>
+                                            <li> &Eacute;ppaisseur :  {{ sm1.thinknessSm }}mm</li>
+                                            <li> Poids :  {{ sm1.weightSm }} g </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="media feature">
+                                    <a class="pull-left" href="#">
+                                        <i class="fa fa-hdd-o fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Mémoire vive </h3>
+                                        <ul>
+                                            <li> RAM : {{ sm1.ramSm }} Go </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="media feature">
+                                    <a class="pull-left" href="#">
+                                        <i class="fa fa-rouble fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Autonomie</h3>
+                                        <ul>
+                                            <li> Capacité de la batterie : {{ sm1.batteryCSm }} mAh </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="media feature">
+                                    <a class="pull-left" href="#">
+                                        <i class="fa fa-picture-o fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Photo</h3>
+                                        <ul>
+                                            <li> Appareil photo avant
+                                                <ul>
+                                                    <li> Définition : {{ sm1.photoFrontSm }} Mpx </li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li>
+
+                                                Appareil photo arrière
+                                                <ul>
+                                                    <li> Définition : {{ sm1.photoBackSm }} Mpx </li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+
+                                    </div>
+                                </div>
+                                <div class="media feature">
+                                    <a class="pull-left" href="#">
+                                        <i class="fa fa-video-camera fa-3x"></i>
+                                    </a>
+                                    <div class="media-body">
+                                        <h3 class="media-heading">Vidéo</h3>
+                                        <ul>
+
+                                            <li> Video avant
+                                                <ul>
+                                                    <li> Résolution : {{ sm1.resolutionVideoBackSm }} pixels </li>
+                                                    <li> Définition: {{ sm1.videoFrontSm }} </li>
+
+                                                </ul>
+                                            </li>
+
+                                            <li> Video arrière
+                                                <ul>
+                                                    <li> Résolution : {{ sm1.resolutionVideoFrontSm }} pixels </li>
+                                                    <li> Définition : {{ sm1.videoBackSm }} </li>
+
+                                                </ul>
+
+                                                </div>
+                                                </div>
+                                                <div class="media feature">
+                                                    <a class="pull-left" href="#">
+                                                        <i class="fa fa-hdd-o fa-3x"></i>
+                                                    </a>
+                                                    <div class="media-body">
+                                                        <h3 class="media-heading">Stokage</h3>
+                                                        <ul>
+                                                            <li> Capacité interne : {{ sm1.internalStSm }} Go </li>
+                                                                {%if sm1.ExternalStSm != "NULL" %}
+                                                                <li> Capacité externe maximale : {{ sm1.ExternalStSm }} Go</li>
+                                                                {%endif%}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                <div class='modal-footer'>
+
+                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Retour</button>
+                                                </div></div></div></div>
+
+                                                <div data-backdrop='static' data-keyboard='true' class='modal  fade ' id='myModalSm2' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                                                    <div class='modal-dialog' style="width:98%">
+                                                        <div class='modal-content'>
+                                                            <div class='modal-header'>
+                                                                <div class="center-block row"> <img src="PUBLIC/IMAGE/constructor/{{sm2.getConstructorSm|lower}}.png" class="img-const-compare col-md-3 col-sm-3" />
+                                                                    <h4 class='modal-title text-center col-md-9 col-sm-9 ' id='myModalLabel'>Caractéristiques du  {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h4></div>
+                                                            </div>
+                                                            <div class='modal-body center-block'>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 cBusiness">
+
+                                                                        <h4 > Référence : {{ sm2.codeNameSm }} </h4>
+
+                                                                        <h4 >  Date de sortie : {{ sm2.releaseDateSm|date("d-m-Y")  }} </h4>
+
+                                                                        {% if  sm2.prixSm != NULL %}
+                                                                            <h4> Prix : {{ sm2.prixSm }} </h4>
+
+                                                                        {% endif %}
+                                                                        <br>
+                                                                        <div class="row">
+                                                                            <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+                                                                                <div class="media media-left feature">
+                                                                                    <a class="pull-right" href="#">
+                                                                                        <i class="fa fa-mobile-phone fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">&Eacute;cran</h3>
+                                                                                        <ul>
+                                                                                            <li> Type : {{ sm2.screen.typeS  }}</li>
+                                                                                            <li>Taille : {{ sm2.screen.sizeS  }} pouces</li>
+                                                                                            <li> Densité : {{ sm2.screen.densityS  }} pp </li>
+                                                                                            <li> Définition : {{ sm2.screen.capacityS }} </li>
+                                                                                            <li> Résolution : {{ sm2.screen.resolutionS }} </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media media-left feature">
+                                                                                    <a class="pull-right" href="#">
+                                                                                        <i class="fa fa-cogs fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Processeur</h3>
+                                                                                        <ul>
+                                                                                            <li> Constructeur : {{ sm2.processor.constructorP  }} </li>
+                                                                                            <li> Nom : {{ sm2.processor.nameP  }} </li>
+                                                                                            <li> Version : {{ sm2.processor.versionP  }} </li>
+                                                                                            <li>Fréquence : {{ sm2.processor.frequencyP  }} Ghz</li>
+                                                                                            <li> Nombre de coeurs : {{ sm2.processor.nbOfCoreP  }} </li>
+                                                                                            <li> Architecture :{% if sm2.processor.archP != 0 %}} {{ sm2.processor.archP  }} bits{% else %} ARM {% endif %}</li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media media-left feature">
+                                                                                    <a class="pull-right" href="#">
+                                                                                        {% set fa = "" %}
+                                                                                        {%if  "Android" in sm2.os.name %}
+                                                                                            {% set fa = "fa-android" %}
+                                                                                        {%elseif  "Windows" in sm2.os.name %}
+                                                                                            {% set fa = "fa-windows" %}
+                                                                                        {%elseif  "iOS" in sm2.os.name %}
+                                                                                            {% set fa = "fa-apple" %}
+                                                                                        {%elseif  "Ubuntu" in sm2.os.name %}
+                                                                                            {% set fa = "fa-ubuntu" %}
+                                                                                        {%endif%}
+                                                                                        <i class="fa  {{fa}} fa-3x "></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Système d'exploitation</h3>
+                                                                                        <ul >
+                                                                                            <li> Nom : {{ sm2.os.constructor  }} {{ sm2.os.name  }} </li>
+                                                                                            <li> Version : {{ sm2.os.version  }} </li>
+                                                                                            <li> Date de création : {{ sm2.os.releaseDate|date("d-m-Y")  }} </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <div class="media media-left feature">
+                                                                                    <a class="pull-right" href="#">
+                                                                                        <i class="fa fa-spinner fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Carte graphique</h3>
+                                                                                        <ul >
+                                                                                            <li> Nom : {{ sm2.gpu.name  }} </li>
+                                                                                            <li> Version :  {{ sm2.gpu.version  }}</li>
+                                                                                            <li> Constructeur :   {{ sm2.gpu.constructor  }}</li>
+                                                                                            <li> Fréquence : {{ sm2.gpu.frequency  }} Mhz </li>
+                                                                                                {%if sm2.gpu.gflops != '' %}
+                                                                                                <li> Flops :  {{ sm2.gpu.gflops  }} GFlops</li>
+                                                                                                {%endif%}
+                                                                                                {%if sm2.gpu.print != '' %}
+                                                                                                <li> Gravure :  {{ sm2.gpu.print  }} nanomètre </li>
+                                                                                                {%endif%}
+                                                                                                {%if sm2.gpu.directXV != '' %}<li> Version Direct X :  {{ sm2.gpu.directXV  }} </li> {%endif%}
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+
+
+
+
+                                                                            </div>
+
+                                                                            <div class="col-md-4 col-sm-4">
+                                                                                <img src="PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5" alt=""/>
+                                                                            </div>
+
+                                                                            <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+                                                                                <div class="media feature">
+                                                                                    <a class="pull-left" href="#">
+                                                                                        <i class="fa fa-exclamation-triangle fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Taille et Poids</h3>
+                                                                                        <ul>
+                                                                                            <li> Largeur : {{ sm2.heightSm }} mm</li>
+                                                                                            <li>Longueur : {{ sm2.widthSm }} mm</li>
+                                                                                            <li> &Eacute;ppaisseur :  {{ sm2.thinknessSm }}mm</li>
+                                                                                            <li> Poids :  {{ sm2.weightSm }} g </li>
+
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media feature">
+                                                                                    <a class="pull-left" href="#">
+                                                                                        <i class="fa fa-hdd-o fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Mémoire vive </h3>
+                                                                                        <ul>
+                                                                                            <li> RAM : {{ sm2.ramSm }} Go </li>
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media feature">
+                                                                                    <a class="pull-left" href="#">
+                                                                                        <i class="fa fa-rouble fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Autonomie</h3>
+                                                                                        <ul>
+                                                                                            <li> Capacité de la batterie : {{ sm2.batteryCSm }} mAh </li>
+
+                                                                                        </ul>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media feature">
+                                                                                    <a class="pull-left" href="#">
+                                                                                        <i class="fa fa-picture-o fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Photo</h3>
+                                                                                        <ul>
+                                                                                            <li> Appareil photo avant
+                                                                                                <ul>
+                                                                                                    <li> Résolution : {{ sm2.photoFrontSm }} Mpx </li>
+
+                                                                                                </ul>
+                                                                                            </li>
+
+                                                                                            <li>
+
+                                                                                                Appareil photo arrière
+                                                                                                <ul>
+                                                                                                    <li> Résolution : {{ sm2.photoBackSm }} Mpx </li>
+                                                                                                </ul>
+                                                                                            </li>
+
+                                                                                        </ul>
+
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="media feature">
+                                                                                    <a class="pull-left" href="#">
+                                                                                        <i class="fa fa-video-camera fa-3x"></i>
+                                                                                    </a>
+                                                                                    <div class="media-body">
+                                                                                        <h3 class="media-heading">Vidéo</h3>
+                                                                                        <ul>
+
+                                                                                            <li> Video avant
+                                                                                                <ul>
+                                                                                                    <li> Résolution : {{ sm2.resolutionVideoBackSm }} pixels </li>
+                                                                                                    <li> Définition: {{ sm2.videoFrontSm }} </li>
+
+                                                                                                </ul>
+                                                                                            </li>
+
+                                                                                            <li> Video arrière
+                                                                                                <ul>
+                                                                                                    <li> Résolution : {{ sm2.resolutionVideoFrontSm }} pixels </li>
+                                                                                                    <li> Définition : {{ sm2.videoBackSm }} </li>
+
+                                                                                                </ul>
+
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                <div class="media feature">
+                                                                                                    <a class="pull-left" href="#">
+                                                                                                        <i class="fa fa-hdd-o fa-3x"></i>
+                                                                                                    </a>
+                                                                                                    <div class="media-body">
+                                                                                                        <h3 class="media-heading">Stokage</h3>
+                                                                                                        <ul>
+                                                                                                            <li> Capacité interne : {{ sm2.internalStSm }} Go </li>
+                                                                                                                {%if sm2.ExternalStSm != "NULL" %}
+                                                                                                                    {%if sm2.ExternalStSm != "NULL" %}
+                                                                                                                    <li> Capacité externe maximale : {{ sm2.ExternalStSm }} Go</li>
+                                                                                                                    {%endif%}
+                                                                                                                {%endif%}
+                                                                                                        </ul>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                </div>
+                                                                                                <div class='modal-footer'>
+
+                                                                                                    <button type='button' class='btn btn-default' data-dismiss='modal'>Retour</button>
+                                                                                                </div></div></div></div>
+
+                                                                                                <div style="position: relative;" id="tblc">
+
+                                                                                                    <div class="container" >
+                                                                                                        <div class="row ">
+                                                                                                            <div class="col-md-12 text-center">
+                                                                                                                <table  class=" table_mod table-bordered table-responsive table-condensed col-md-12  table-hover table-striped ">
+
+                                                                                                                    <tr class="header " >
+
+                                                                                                                        <th class="middle">{{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }} </th>
+
+                                                                                                                        <th class="middle" >{{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</th>
+
+                                                                                                                    </tr>
+
+
+                                                                                                                    <tr>
+
+                                                                                                                        <td >
+                                                                                                                            <img src="PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5 center-block img-resize-sm" alt=""/>
+                                                                                                                        </td>
+
+                                                                                                                        <td>
+                                                                                                                            <img src="PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5 center-block img-resize-sm" alt=""/>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+
+                                                                                                                    <tr>
+                                                                                                                        <th colspan="4" class="text-left fa-2x">Taille et poids <div class="pull-right"><span class="icon-minus forSizeWeight"></span></div></th>
+                                                                                                                    </tr>
+                                                                                                                    <tr id="size_weight" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+
+                                                                                                                                {%if dimens['width'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Longueur du smartphone
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ dimens['width']['sm1']}} mm
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if dimens['width']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm</h3>
+                                                                                                                                                {%if dimens['width']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ dimens['width']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{dimens['width']['sm2']}} mm
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if dimens['height'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Largeur du smartphone
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ dimens['height']['sm1']}} mm
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if dimens['height']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Est plus large de {{dimens['weight']['difference']|round(1, 'floor')}} mm </h3>
+                                                                                                                                                {%if dimens['height']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ dimens['height']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{dimens['height']['sm2']}} mm
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if dimens['thickness'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            &Eacute;paisseur du smartphone
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ dimens['thickness']['sm1']}} mm
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if dimens['thickness']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Est plus &eacute;pais de {{dimens['thickness']['difference']|round(1, 'floor')}} mm </h3>
+                                                                                                                                                {%if dimens['thickness']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ dimens['thickness']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{dimens['thickness']['sm2']}} mm
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if dimens['height'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Poids du smartphone
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ dimens['weight']['sm1']}} g
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if dimens['weight']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Est moins lourds de {{dimens['weight']['difference']|round(1, 'floor')}} gramme(s) </h3>
+                                                                                                                                                {%if dimens['weight']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ dimens['weight']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{dimens['weight']['sm2']}} g
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+
+                                                                                                                            </table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+
+
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Autonomie<div class="pull-right"><span class="icon-minus forBattery"></span></div></th></tr>
+                                                                                                                    <tr id="battery" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if battery != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Batterie
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ battery['battery1']}} mAh
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if battery['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+
+                                                                                                                                                <h3 style="display:inline">{{battery['difference']}} mAh en plus</h3>
+                                                                                                                                                {%if battery['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ battery['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ battery['battery2']}} mAh
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                            </table>
+                                                                                                                    </tr>
+                                                                                                                    <tr>
+                                                                                                                        <th colspan="4" class="text-left fa-2x">Processeur <div class="pull-right"><span class="icon-minus forProcessor"></span></div></th>
+                                                                                                                    </tr>
+                                                                                                                    <tr id="processor" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+
+                                                                                                                                {%if processor['version'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Version du processeur
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ processor['version']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if processor['version']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Version supérieure</h3>
+                                                                                                                                                {%if processor['version']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ processor['version']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{processor['version']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if processor['frequency'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Fréquence
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ processor['frequency']['sm1']}} Ghz
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if processor['frequency']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ processor['frequency']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Ghz de plus</h3>
+                                                                                                                                                {%if processor['frequency']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ processor['frequency']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{processor['frequency']['sm2']}} Ghz
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if processor['nbCore'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Nombre de coeurs
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ processor['nbCore']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if processor['nbCore']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ processor['nbCore']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">coeur(s) en plus</h3>
+                                                                                                                                                {%if processor['nbCore']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ processor['nbCore']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{processor['nbCore']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if processor['arch'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Architecture du processeur
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ processor['arch']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if processor['arch']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Architecture supérieure</h3>
+                                                                                                                                                {%if processor['arch']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ processor['arch']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{processor['arch']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+
+                                                                                                                            </table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+
+
+                                                                                                                    <tr>
+                                                                                                                        <th colspan="4" class="text-left fa-2x">&Eacute;cran <div class="pull-right"><span class="icon-minus forScreen"></span></div></th>
+                                                                                                                    </tr>
+                                                                                                                    <tr id="screen" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+
+                                                                                                                                {%if screen['size'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Taille d'écran
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ screen['size']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if screen['size']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Pouces de plus</h3>
+                                                                                                                                                {%if screen['size']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ screen['size']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{screen['size']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if screen['definition'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Défintion de l'écran
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ screen['definition']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if screen['definition']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+                                                                                                                                                <h3 style="display:inline">Dispose de la </h3>
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ screen['definition']['difference']}}</span></div>
+
+                                                                                                                                                {%if screen['defintion']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ screen['definition']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{screen['definition']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if screen['density'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Densité
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ screen['density']['sm1']}} ppp
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if screen['density']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger"></span>
+                                                                                                                                                {%endif%}
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ screen['density']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Pixels par pouce en plus </h3>
+                                                                                                                                                {%if screen['density']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ screen['density']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{screen['density']['sm2']}} ppp
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+
+
+                                                                                                                            </table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Carte graphique<div class="pull-right"><span class="icon-minus forGpu"></span></div></th></tr>
+                                                                                                                    <tr id="gpu" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if gpu['GPUVersion'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Version
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ gpu['GPUVersion']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+
+                                                                                                                                                <h3 style="display:inline">Possède une version supérieure</h3>
+                                                                                                                                                {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ gpu['GPUVersion']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{gpu['GPUVersion']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if gpu['GPUFrequency'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Fréquence de la carte graphique
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ gpu['GPUFrequency']['sm1']}} Mhz
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ gpu['GPUFrequency']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Mhz en plus </h3>
+                                                                                                                                                {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ gpu['GPUFrequency']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{gpu['GPUFrequency']['sm2']}} Mhz
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if gpu['GPUFlops'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Opération à virgule flottante
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ gpu['GPUFlops']['sm1']}} GFlops
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if gpu['GPUFlops']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ gpu['GPUFlops']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">GFlops en plus </h3>
+                                                                                                                                                {%if screen['defintion']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ gpu['GPUFlops']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{gpu['GPUFlops']['sm2']}} GFlops
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if gpu['GPUPrint'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Taille de la gravure
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ gpu['GPUPrint']['sm1']}} nm
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if gpu['GPUPrint']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger"></span>
+                                                                                                                                                {%endif%}
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ gpu['GPUPrint']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Nanomètres en moins </h3>
+                                                                                                                                                {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ gpu['GPUPrint']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{gpu['GPUPrint']['sm2']}} nm
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+
+                                                                                                                                {%if gpu['GPUDirectx'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Version de DirectX
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ gpu['GPUDirectx']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if gpu['GPUDirectx']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <h3 style="display:inline">Dispose de la version supérieure</h3>
+                                                                                                                                                {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ gpu['GPUDirectx']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{gpu['GPUDirectx']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+
+
+                                                                                                                            </table>
+                                                                                                                        </td>
+                                                                                                                    </tr>
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Système d'exploitation<div class="pull-right"><span class="icon-minus forOs"></span></div></th></tr>
+                                                                                                                    <tr id="os" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if os != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Version
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ os['os1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if os['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+
+                                                                                                                                                <h3 style="display:inline">Possède une version supérieure</h3>
+                                                                                                                                                {%if os['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ os['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ os['os2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                            </table>
+                                                                                                                    </tr>
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Réseaux<div class="pull-right"><span class="icon-minus forNetwork"></span></div></th></tr>
+                                                                                                                    <tr id="network" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if network != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Réseau mobile
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ network['network1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if network['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+
+                                                                                                                                                <h3 style="display:inline">Possède la {{network['difference']}} </h3>
+                                                                                                                                                {%if network['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ network['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ network['network2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                            </table>
+                                                                                                                    </tr>
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Mémoire<div class="pull-right"><span class="icon-minus forMemory"></span></div></th></tr>
+                                                                                                                    <tr id="memory" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if ram != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Mémoire vive ( RAM )
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ ram['ram1']}} Go
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if ram['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ ram['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Gigaoctect(s) en plus </h3>
+                                                                                                                                                {%if ram['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ ram['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ ram['ram2']}} Go
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if storage['internal'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Mémoire externe
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ storage['internal']['sm1']}} Go
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if storage['internal']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ storage['internal']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Gigaoctect(s) en plus </h3>
+                                                                                                                                                {%if storage['internal']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ storage['internal']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ storage['internal']['sm2']}} Go
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if storage['external'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Mémoire interne
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ storage['external']['sm1']}} Go
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if storage['external']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ storage['external']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">Gigaoctect(s) en plus </h3>
+                                                                                                                                                {%if storage['external']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ storage['external']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ storage['external']['sm2']}} Go
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                            </table>
+                                                                                                                    </tr>
+                                                                                                                    <tr><th colspan="4" class="text-left fa-2x">Photo et Vid&eacute;o<div class="pull-right"><span class="icon-minus forPhotoVideo"></span></div></th></tr>
+                                                                                                                    <tr id="photo_video" >
+                                                                                                                        <td colspan="4" >
+                                                                                                                            <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                                                                                                                {%if photo['photoFront'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Appareil photo avant
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ photo['photoFront']['sm1']}} Mpx
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if photo['photoFront']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ photo['photoFront']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">MégaPixels en plus </h3>
+                                                                                                                                                {%if photo['photoFront']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ photo['photoFront']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ photo['photoFront']['sm2']}} Mpx
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if photo['photoBack'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Appareil photo arrière
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ photo['photoBack']['sm1']}} Mpx
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if photo['photoBack']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><span class="percent">{{ photo['photoBack']['difference']}}</span></div>
+                                                                                                                                                <h3 style="display:inline">MégaPixels en plus </h3>
+                                                                                                                                                {%if photo['photoBack']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ photo['photoBack']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ photo['photoBack']['sm2']}} Mpx
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if video['videoFront'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Caméra avant
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ video['videoFront']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if video['videoFront']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><h3 style="display:inline">Peut filmer en </h3><span class="percent">{{ video['videoFront']['difference']}}</span></div>
+
+                                                                                                                                                {%if video['videoFront']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ video['videoFront']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ video['videoFront']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+                                                                                                                                {%endif%}
+                                                                                                                                {%if video['videoBack'] != NULL %}
+                                                                                                                                    <tr>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            Caméra arrière
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ video['videoBack']['sm1']}}
+                                                                                                                                        </td>
+                                                                                                                                        <td >
+
+                                                                                                                                            <div >
+                                                                                                                                                {%if video['videoBack']['pointFor'] == 'LEFT'%}
+                                                                                                                                                    <span class="icon-arrow-left paddinger "></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                                <div class="rounded progB blueColor"  style="display: inline-block" ><h3 style="display:inline">Peut filmer en </h3><span class="percent">{{ video['videoBack']['difference']}}</span></div>
+
+                                                                                                                                                {%if video['videoBack']['pointFor'] == 'RIGHT'%}
+                                                                                                                                                    <span class="icon-arrow-right paddinger"></span>
+                                                                                                                                                {%endif%}
+
+                                                                                                                                            </div>
+                                                                                                                                            <div>{{ video['videoBack']['sentence']}}</div>
+
+
+                                                                                                                                        </td>
+                                                                                                                                        <td class="col-md-2 ">
+                                                                                                                                            {{ video['videoBack']['sm2']}}
+                                                                                                                                        </td>
+                                                                                                                                    </tr>
+
+                                                                                                                                {%endif%}
+                                                                                                                            </table>
+                                                                                                                    </tr>
+                                                                                                                </table>
+
+                                                                                                            </div>
+                                                                                                        </div>
+
+
+                                                                                                        <script type="text/javascript">
+                                                                                                            jQuery(window).load(function () {
+                                                                                                            items_set = [
+                                                                                                            {category: 'branding', lika_count: '77', view_count: '234', src: 'PUBLIC/IMAGE/prettyPhotoImages/pic9.jpg', title: 'Foil Mini Badges', content: ''},
+                                                                                                            {category: 'polygraphy', lika_count: '45', view_count: '100', src: 'PUBLIC/IMAGE/prettyPhotoImages/pic7.jpg', title: 'Darko – Business Card Mock Up', content: ''},
+                                                                                                            {category: 'text_styles', lika_count: '22', view_count: '140', src: 'PUBLIC/IMAGE/prettyPhotoImages/pic8.jpg', title: 'Woody Poster Text Effect', content: ''}
+
+
+                                                                                                            ];
+                                                                                                                    jQuery('.portfolio_block').portfolio_addon({
+                                                                                                            type: 1, // 2-4 columns simple portfolio
+                                                                                                                    load_count: 3,
+                                                                                                                    items: items_set
+                                                                                                            });
+                                                                                                                    $('#container').isotope({
+                                                                                                            animationOptions: {
+                                                                                                            duration: 900,
+                                                                                                                    queue: false
+                                                                                                            }
+                                                                                                            });
+                                                                                                            });                                                                                                            </script>
+                                                                                                    </div>
+
+
+                                                                                                    <div id="result">
+                                                                                                        <div class="line2">
+                                                                                                            <div class="container">
+                                                                                                                <div class="row Fresh">
+                                                                                                                    <div id="ccl" class="col-md-12 Fully">
+                                                                                                                        <i class="fa fa-tablet"></i>
+                                                                                                                        <h1>Conclusion de cette comparaison</h1>
+                                                                                                                        <h3>{{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }} comparé au {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h3>
+                                                                                                                    </div>
+                                                                                                                </div>
+                                                                                                            </div>
+                                                                                                        </div>
+
+                                                                                                    </div>
+
+                                                                                                    <div style="position: relative;">
+
+                                                                                                        <div class="container">
+                                                                                                            <div class="row about">
+                                                                                                                <div class="col-md-12 text-center">
+                                                                                                                    <h3>Selon la comparaison effectuée, il serait préférable de choisir le
+                                                                                                                        {%if winner =='LEFT' %}
+                                                                                                                            {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }} plûtot que le {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}
+                                                                                                                        {%elseif winner =='RIGHT' %}
+                                                                                                                            {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }} plûtot que le {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}
+                                                                                                                        {%endif %}
+                                                                                                                    </h3>
+
+                                                                                                                    <div> <div class="progB chart" data-percent="{{count1}}"  data-animate="3500" style="display: inline-block" ><span class="percent">84</span></div>  point(s) en faveur du {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }} </div>
+
+                                                                                                                    <p>contre </p>
+                                                                                                                    <div> <div class="progB chart" data-percent="{{count2}}"  data-animate="3500" style="display: inline-block" ><span class="percent"  >84 </span></div> point(s) en faveur du {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }} </div>
+                                                                                                                </div>
+
+                                                                                                            </div>
+                                                                                                        </div></div>
+                                                                                                    {%else%}
+                                                                                                    <div class="container">
+
+                                                                                                        <div class="row">
+                                                                                                            <div class="col-md-6 project">
+                                                                                                                <h3 id="counter">0 </h3>
+                                                                                                                <h4>Point(s) en faveur du {{ sm1.getConstructorSm}} {{ sm1.getFullNameSm }}</h4>
+                                                                                                            </div>
+                                                                                                            <div class="col-md-6 project">
+                                                                                                                <h3 id="counter1">0</h3>
+                                                                                                                <h4>Point(s) en faveur du {{ sm2.getConstructorSm}} {{ sm2.getFullNameSm }}</h4>
+
+                                                                                                            </div>
+                                                                                                            <div class="col-md-12 ">
+                                                                                                                <h3 class="text-center" style='margin-top:15px;'>Votre comparaison a aboutie à une équivalence des deux smartphones </h3>
+                                                                                                                <h3 class="text-center">Mais n'abandonnez pas ! Refaite une comparaison </h3>
+                                                                                                            </div>
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                {%endif%}
+                                                                                                <div class="line7">
+                                                                                                    <div class="container">
+                                                                                                        <div class="row footer">
+                                                                                                            <div class="col-md-12">
+                                                                                                                <h3>Comparaison effectuée par le comparateur SENGINE via COMPARED </h3>
+                                                                                                                <p><a style="background-color: black;font-size: 30px;color:white;text-align: center" href="Wui.php?run=show&argument=viewStartCompared"> Refaire une comparaison</a></p>
+                                                                                                            </div>
+                                                                                                            <div class="soc col-md-12">
+                                                                                                                <ul>
+                                                                                                                    <li class="soc2"><a href="https://www.facebook.com/comparedsm?ref=hl"></a></li>
+
+
+                                                                                                                    <li class="soc7"><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g"></a></li>
+
+
+                                                                                                                </ul>
+                                                                                                            </div>
+
+                                                                                                        </div>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            {%endblock%}
+
+                                                                                            {% block menuB %}
+                                                                                                <ul id="downMenu">
+                                                                                                    <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+                                                                                                    <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+                                                                                                    <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+                                                                                                    <li class="last"><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+                                                                                                    <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+                                                                                                </ul>
+      <script>
+
+                                                                                                            $(document).ready(function () {
+
+                                                                                                                $('#specSm1').each(function () {
+                                                                                                                    $(this).bind('click', function (e) {
+
+                                                                                                                        $('#myModalSm1').modal('show');
+                                                                                                                    });
+                                                                                                                });
+                                                                                                                $('#specSm2').each(function () {
+                                                                                                                    $(this).bind('click', function (e) {
+
+                                                                                                                        $('#myModalSm2').modal('show');
+                                                                                                                    });
+                                                                                                                });
+
+</script>
+                                                                                                                                                     {%endblock%}
+

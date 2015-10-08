@@ -1,0 +1,426 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+<!DOCTYPE html>
+<html lang="fr">
+    <!--ViewHomePage -->
+    <head>
+        <title>Comparez deux smartphone</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/font-awesome.css">
+        <link rel='stylesheet' id='camera-css'  href='PUBLIC/CSS/camera.css' type='text/css' media='all'>
+
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/slicknav.css">
+        <link rel="stylesheet" href="PUBLIC/CSS/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/style.css">
+
+
+        <script type="text/javascript" src="PUBLIC/JS/jquery-1.8.3.min.js"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="PUBLIC/JS/jquery.mobile.customized.min.js"></script>
+        <script type="text/javascript" src="PUBLIC/JS/jquery.easing.1.3.js"></script> 
+        <script type="text/javascript" src="PUBLIC/JS/camera.min.js"></script>
+        <script type="text/javascript" src="PUBLIC/JS/myscript.js"></script>
+        <script src="PUBLIC/JS/sorting.js" type="text/javascript"></script>
+        <script src="PUBLIC/JS/jquery.isotope.js" type="text/javascript"></script>
+        <!--script type="text/javascript" src="js/jquery.nav.js"></script-->
+
+
+        <script>
+            jQuery(function () {
+                jQuery('#camera_wrap_1').camera({
+                    transPeriod: 500,
+                    time: 3000,
+                    height: '490px',
+                    thumbnails: false,
+                    pagination: true,
+                    playPause: false,
+                    loader: false,
+                    navigation: false,
+                    hover: false
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+
+        <!--home start-->
+
+        <div id="home">
+            <div class="headerLine">
+                  <div class="head"></div>
+                <div id="menuF" class="default">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo col-md-4">
+                                <div>
+                                    <a href="Wui.php?run=getHomePage&argument=void">
+                                        <img src="PUBLIC/IMAGE/logo-cp1.png" height="70px" >
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="navmenu"style="text-align: center;">
+                                    <ul id="menu">
+                                        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+                                        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+                                        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+                                        <li class="last"><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container" >
+                    <div class="row wrap">
+                        <div class="col-md-12 gallery" style="height: 300px!important"> 
+
+                            <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:40px; ">Effectuez une comparaison</h2>
+
+
+                                    </div>
+
+                                </div>
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:40px;">Pour choisir le bon smartphone</h2>
+                                    </div>
+                                </div>
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:30px;">&copy 2015 COMPARED Website / Version 0.10 Public Preview / Octimum project</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 project">
+                    <div ><h3 id="counter" style="display: inline;margin-right: 15px">0</h3> <i class="fa fa-2x fa-check" id="valid" style="display: none"></i></div>
+                    <h4>Smartphone(s) selectionné(s)</h4>
+                </div>
+                
+                
+                    <!--<div class="col-md-4 project"> 
+                 <input  id="searchPattern" type="search" placeholder="Rechercher" style="width: 80%;margin-top: 43px;"/><i class="glyphicon glyphicon-search" style="font-size: 13px; color:#a5a5a5;" id="iS"></i>
+                  </div>-->
+                
+                 
+                    <div class="col-md-4 project"> 
+                        <form method="GET" action="Wui.php" id="form_compared" class="form-compared">
+                            <input class="ftsm" type="hidden" name="sm1" value=""/>
+                             <input class="sdsm" type="hidden" name="sm2" value=""/>
+                              <input type="hidden" name="run" value="compared"/>
+                              <span class="sm1" style="display: none"></span>
+                              <span class="sm2" style="display: none"></span>
+                        <button type="submit" id="starter" class="btn btn-danger fa-2x " style="display:none">Commencer la comparaison</button>
+                        </form>
+                    </div>
+                
+            </div>                     
+
+            <div id="unknown">
+
+                <div class="container" style="padding-bottom: 30px;">
+                    <div class="row news ">
+                        {% for item in phoneList %}
+                            <div class="col-md-4 text-center hovered to-comparator " style="padding-bottom: 20px;"  >
+                                <h2 class="borderA">{{ item['constructorS']}} {{ item['fullNameS']}}</h2>
+                                
+                                <span class="toShow redColor" style="display:none"><span class="fa-2x">TO COMPARE !</span> <i class="fa fa-2x fa-check"></i></span>
+                                <img class="img-responsive picsGall img-resize center-block" src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg"/>
+                               <input type="hidden" name="phone" value="{{item['idS']}}" />
+                            </div>
+                        {% endfor %}
+                       
+                         
+                     
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+       
+
+
+    <script type="text/javascript">
+        jQuery(window).load(function () {
+            items_set = [
+                {category: 'branding', lika_count: '77', src: 'PUBLIC/IMAGE/constructor/acer.jpg', title: 'ACER', content: ''},
+                {category: 'polygraphy', lika_count: '45', src: 'PUBLIC/IMAGE/constructor/motorola.jpg', title: 'MOTOROLA', content: ''},
+                {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/xiaomi.png', title: 'XIAOMI', content: ''},
+                {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/meizu.jpg', title: 'MEIZU', content: ''},
+                {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/oneplus.png', title: 'OnePlus', content: ''}
+
+
+
+            ];
+            jQuery('.portfolio_block').portfolio_addon({
+                type: 1, // 2-4 columns simple portfolio
+                load_count: 5,
+                items: items_set
+            });
+            $('#container').isotope({
+                animationOptions: {
+                    duration: 900,
+                    queue: false
+                }
+            });
+        });
+    </script>
+</div>
+</div>    
+
+<!--news start-->
+
+<!--about start-->    
+
+
+    <div class="lineBlack">
+        <div class="container">
+            <div class="row downLine">
+                
+                <div class="col-md-6 text-left copy">
+                    <p>&copy; 2015 COMPARED Website. Tous droits réservés (Octimum Project)</p>
+                </div>
+                <div class="col-md-6 text-right dm">
+                    <ul id="downMenu">
+                        <li class="active" ><a href="#home">Accueil</a></li>
+                        <li><a href="Wui.php?run=show&argument=viewStartCompared">Faire une comparaison</a></li>
+                        <li><a href="#smartphones">Smartphones</a></li>
+                        <li><a href="#articles">Articles</a></li>
+                        <li class="last"><a href="#contact">Contact</a></li>
+                        <li><a href="Wui.php?run=show&argument=viewML">Mentions Légales</a></li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+    </div>
+	
+
+
+<script src="PUBLIC/JS/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+<script src="PUBLIC/JS/bootstrap.min.js"></script>
+<script src="PUBLIC/JS/jquery.slicknav.js"></script>
+<script src="PUBLIC/JS/lc_ad.js"></script>
+<script>
+                    $(document).ready(function () {
+                        $(".to-comparator").click(function(){   
+                              $a = parseInt($('#counter').text());
+                            if($a < 2 ) {
+                                if(!$(this).hasClass("select")) {
+                                    $(this).addClass("select");
+                                     $count = parseInt($('#counter').text()) + 1;
+                                     
+                                     $('#counter').text($count);
+                                     $(this).find("span.toShow").css({display:"inline"});
+                                     if($('input.ftsm').val() !== $(this).find("input").val() && ($('input.ftsm').val() !== "")){
+                                         $('input.sdsm').val( $(this).find("input").val());
+                                          $('#form_compared').find("span.sm2").text( $(this).find("h2").text());
+                                     }
+                                     else if ($('input.sdsm').val() !== $(this).find("input").val() && ($('input.sdsm').val() !== "")){
+                                          $('input.sdsm').val( $(this).find("input").val());
+                                          $('#form_compared').find("span.sm2").text( $(this).find("h2").text());
+                                      }
+                                      else {
+                                           $('input.ftsm').val( $(this).find("input").val());
+                                           $('#form_compared').find("span.sm1").text( $(this).find("h2").text());
+                                      }
+                                     //console.log($(this).find("input").val());
+                                }
+                                else {
+                                     $(this).removeClass("select");
+                                      $(this).find("span.toShow").css({display:"none"}); 
+                                      $count = parseInt($('#counter').text()) - 1;
+                                      $('#counter').text($count);
+                                      $('#starter').removeClass("btn-success").addClass("btn-danger").removeClass("textAnimated").css({display:"none"});
+                                      if($('input.ftsm').val() === $(this).find("input").val() && $('input.ftsm').val() !== ""){
+                                         $('input.ftsm').val("");
+                                         $('#form_compared').find("span.sm1").text("");
+                                      }
+                                      else if ($('input.sdsm').val() !== $(this).find("input").val() && $('input.sdsm').val() !== ""){
+                                          $('input.sdsm').val("");
+                                          $('#form_compared').find("span.sm2").text("");
+                                     }
+
+                                 }
+                                 if(parseInt($('#counter').text()) === 2){
+                                      $('#valid').fadeIn(450);
+                                      $('#valid').css({display:"inline"});
+                                      $('#starter').removeClass("btn-danger").addClass("btn-success").addClass("textAnimated").css({display:"inline"});
+
+                                 }
+                                 else {
+                                      $('#valid').css({display:"none"});
+                                      $('#starter').removeClass("btn-success").addClass("btn-danger").removeClass("textAnimated").css({display:"none"});
+                                 }
+                             }
+                             else {
+                                   if($(this).hasClass("select")) {
+                                    $(this).removeClass("select");
+                                      $(this).find("span.toShow").css({display:"none"}); 
+                                      $count = parseInt($('#counter').text()) - 1;
+                                      $('#counter').text($count);
+                                      $('#valid').css({display:"none"});
+                                       $('#starter').removeClass("btn-success").addClass("btn-danger").removeClass("textAnimated").css({display:"none"});
+                                      if($('input.ftsm').val() === $(this).find("input").val() ){
+                                         $('input.ftsm').val("");
+                                         $('#form_compared').find("span.sm1").text("");
+                                      }
+                                      else if ($('input.sdsm').val() === $(this).find("input").val() ){
+                                          $('input.sdsm').val("");
+                                          $('#form_compared').find("span.sm2").text("");
+                                     }
+                                    }
+                                
+                             }
+                        });
+                        $(".bhide").click(function () {
+                            $(".hideObj").slideDown();
+                            $(this).hide(); //.attr()
+                            return false;
+                        });
+                        $(".bhide2").click(function () {
+                            $(".container.hideObj2").slideDown();
+                            $(this).hide(); // .attr()
+                            return false;
+                        });
+
+                        $('.heart').mouseover(function () {
+                            $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
+                        }).mouseout(function () {
+                            $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
+                        });
+
+                        function sdf_FTS(_number, _decimal, _separator)
+                        {
+                            var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
+                            var separator = (typeof (_separator) != 'undefined') ? _separator : '';
+                            var r = parseFloat(_number)
+                            var exp10 = Math.pow(10, decimal);
+                            r = Math.round(r * exp10) / exp10;
+                            rr = Number(r).toFixed(decimal).toString().split('.');
+                            b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
+                            r = (rr[1] ? b + '.' + rr[1] : b);
+
+                            return r;
+                        }
+
+                        setTimeout(function () {
+                            $('#counter').text('0');
+                            $('#counter1').text('0');
+                            $('#counter2').text('0');
+                            setInterval(function () {
+
+                                var curval = parseInt($('#counter').text());
+                                var curval1 = parseInt($('#counter1').text().replace(' ', ''));
+                                var curval2 = parseInt($('#counter2').text());
+                                $('#counter1').text('0');
+                                $('#counter').text({{nbC}});
+                                /*if(curval=<{{nbS}}){
+                                 $('#counter').text(curval);
+                                     }
+                                 if(curval1 < {{nbC}}){
+                                 $('#counter1').text(sdf_FTS((curval1));
+                                 }
+                                 if(curval2<=245){
+                                 $('#counter2').text(curval2+1);
+                                 }*/
+                            }, 2);
+
+                        }, 500);
+                    });
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function () {
+        jQuery('#menu').slicknav();
+
+    });
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+    
+        var $menu = $("#menuF");
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100 && $menu.hasClass("default")) {
+                $menu.fadeOut('fast', function () {
+                    $(this).removeClass("default")
+                            .addClass("fixed transbg")
+                            .fadeIn('fast');
+                });
+            } else if ($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+                $menu.fadeOut('fast', function () {
+                    $(this).removeClass("fixed transbg")
+                            .addClass("default")
+                            .fadeIn('fast');
+                });
+            }
+        });
+    });
+    //jQuery
+</script>
+<script>
+    /*menu*/
+    function calculateScroll() {
+        var contentTop = [];
+        var contentBottom = [];
+        var winTop = $(window).scrollTop();
+        var rangeTop = 200;
+        var rangeBottom = 500;
+        $('.navmenu').find('a').each(function () {
+            contentTop.push($($(this).attr('href')).offset().top);
+            contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
+        })
+        $.each(contentTop, function (i) {
+            if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
+                $('.navmenu li')
+                        .removeClass('active')
+                        .eq(i).addClass('active');
+            }
+        })
+    }
+    ;
+
+    $(document).ready(function () {
+        calculateScroll();
+        $(window).scroll(function (event) {
+            calculateScroll();
+        });
+        $('.navmenu ul li a').click(function () {
+            $('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 800);
+            return false;
+        });
+    });
+</script>	
+<script type="text/javascript" charset="utf-8">
+
+    jQuery(document).ready(function () {
+        jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({animation_speed: 'normal', theme: 'light_square', slideshow: 3000, autoplay_slideshow: true, social_tools: ''});
+
+    });
+</script>
+</body>
+
+</html>

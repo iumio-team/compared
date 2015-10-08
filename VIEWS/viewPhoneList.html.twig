@@ -1,0 +1,69 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | {{ phoneList[0]['constructorS']}}{%endblock%}
+{%block menu %}
+    <ul id="menu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li class="last"><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+    </ul>
+{%endblock%}
+{% block silder %}
+                        <div class="col-md-12 gallery" style="height: 300px!important"> 
+
+                            <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:40px; ">Smartphone de la marque</h2>
+
+
+                                    </div>
+
+                                </div>
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:40px;">{{phoneList[0]['constructorS']}}</h2>
+                                    </div>
+                                </div>
+                                <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                        <h2 style="font-size:30px;">&copy 2015 COMPARED Website / Version 0.10 Public Preview / Octimum project</h2>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                                        {%endblock%}
+                                        {% block content %}
+            <div id="apropos">
+
+                <div class="container" style="padding-bottom: 30px;">
+                            
+                    <div class="row news ">
+                
+                        {% for item in phoneList %}
+                            <div class="col-md-3 text-center hovered to-comparator " style="padding-bottom: 20px;" onClick="location.href='Wui.php?run=getSpec&argument={{item['idS']}}'" >
+                                <h2 class="borderA">{{ item['fullNameS']}}</h2>
+                                <img class="img-responsive picsGall img-resize center-block" src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg"/>
+                            </div>
+                        {% endfor %}
+                       
+                         
+                     
+                    </div>
+                </div>
+
+            </div>
+                        {%endblock%}
+{%block contact %}{%endblock%}
+{%block menuB %}
+    <ul id="downMenu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li ><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+        <li class="last"><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+    </ul>
+{%endblock%}

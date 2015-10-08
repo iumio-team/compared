@@ -1,0 +1,282 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | Fiche Technique{%endblock%}
+{%block menu %}
+<ul>
+<li><a href="Wui.php?run=getHomePage&argument=void"><i class="fa fa-home"></i>Accueil</a></li>
+<li ><a href="Wui.php?run=prepareComparison&argument=void"><div class="divFaCompare"><i class="fa fa-mobile-phone faCompare" style="padding-left: 0px;"></i><i class="fa fa-mobile-phone faCompare"></i></div><span>Faire une comparaison</span></a></li>
+</ul>
+<ul>
+<li><a href="Wui.php?run=getHomePage&argument=void#manufacturer"><i class="fa fa-mobile"></i>Les constructeurs</a></li>
+<li><a href="Wui.php?run=getHomePage&argument=void#articles"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+</ul>
+<ul>
+<li><a href="Wui.php?run=getHomePage&argument=void#contact"><i class="fa fa-wrench"></i>Contact</a></li>
+
+</ul>
+{%endblock%}
+{%block sectionHero %} <section class="hero hero-height colorNoBg" style="background: url('PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}-landscape.jpg') no-repeat center center;background-size:cover" > {%endblock%}
+{% block silder %}
+<div class="row hero-content padding-text">
+<div class="col-md-4  col-sm-4 text-center padding-text">
+<img src="PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}.jpg" class="text-center borderImg center-block img-resize-2 img-responsive scrollpoint  sp-effect5" alt=""/>
+<div class="mark center-block">Note : 4.5</div>
+</div>
+<div class="col-md-8  col-sm-8 text-center font-resize padding-top-desc colorBgSm margin-top-text">
+<h2 style="font-size:30px;"> {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}</h2>
+<h4 > Référence : {{ sm.codeNameSm }} </h4>
+
+<h4 >  Date de sortie : {{ sm.releaseDateSm  }} </h4>
+
+{% if  sm.prixSm != NULL %}
+<h4> Prix : {{ sm.prixSm }} </h4>
+
+{% endif %}
+</div>
+
+
+</div>
+<div class="row  row-mod">
+
+<div class="col-md-12">
+<table class="table table-responsive table-bordered table-mod ">
+<tr class="text-center success">
+<th><i class="fa-cpu" ></i> Processeur</th>
+<th > &Eacute;cran</th>
+<th > Mémoire vive</th>
+<th > Batterie</th>
+</tr>
+<tr class="warning" >
+<td>
+{{ sm.processor.constructorP  }} {{ sm.processor.nameP  }} {{ sm.processor.versionP  }}
+
+( {{ sm.processor.nbOfCoreP  }}x{{ sm.processor.frequencyP  }}  Ghz )
+</td>
+<td>
+{{ sm.screen.sizeS  }} pouces  {{ sm.screen.capacityS }} 
+</td>
+<td>
+{{ sm.ramSm }} Go
+</td>
+<td>
+{{ sm.batteryCSm }} mAh
+</td>
+
+</tr>
+</table>
+</div>
+
+</div>
+
+
+</div>
+{%endblock%}
+{%block content %}
+<div class="container">
+<div class="row">
+
+<h2 class='text-center  '>Caractéristiques  {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}</h2>
+</div>
+<div class="row">
+<div class="padding_top_carac">
+
+<div class="col-md-12">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+<img src="PUBLIC/IMAGE/icon/cpu.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Processeur</h3>
+<em><span class="text_pr"> 
+
+{{ sm.processor.constructorP  }} {{ sm.processor.nameP  }} {{ sm.processor.versionP  }}
+</span></em>
+</div>
+
+
+<div class="col-md-4 ">Fréquence : {{ sm.processor.frequencyP  }} Ghz</div>
+<div class="col-md-4">Nombre de coeurs : {{ sm.processor.nbOfCoreP  }}</div>
+<div class="col-md-4">Architecture :{% if sm.processor.archP != 0 %} {{ sm.processor.archP  }} bits{% else %} ARM {% endif %}</div>
+
+</div>
+
+</div>
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+{% set icon = "" %}
+{%if  "Android" in sm.os.name %}
+{% set icon = "android" %}
+{%elseif  "Windows" in sm.os.name %}
+{% set icon = "windows" %}
+{%elseif  "iOS" in sm.os.name %}
+{% set icon = "apple" %}
+{%elseif  "Ubuntu" in sm.os.name %}
+{% set icon = "ubuntu" %}
+{%endif%}
+<img src="PUBLIC/IMAGE/os_logo/{{icon}}.png" class="icon-proc " alt=""/>
+
+
+<h3 class="display_inline text_pr">Système d'exploitation </h3>
+<em><span class="text_pr"> 
+{{ sm.os.constructor  }} {{ sm.os.name  }}
+</span></em>
+</div>
+
+<div class="col-md-6 ">Version : {{ sm.os.version  }}</div>
+<div class="col-md-6">Date de sortie : {{ sm.os.releaseDate  }}</div>
+
+</div>
+
+</div>
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel_head" style="background:rgba(192,192,192,0.3);">
+<div class="col-md-7 col-sm-7">
+<img src="PUBLIC/IMAGE/icon/screen.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">&Eacute;cran de type </h3>
+<em><span class="text_pr"> 
+
+{{ sm.screen.typeS  }}
+</span></em>
+</div>
+<div class="col-md-5 col-sm-5"> 
+
+
+<img src="PUBLIC/IMAGE/icon/size.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Taille </h3> <em><span class="text_pr">  {{ sm.screen.sizeS  }} pouces</span></em>
+</div>
+</div>
+
+
+<div class="col-md-4">Densité : {{ sm.screen.densityS  }} pp</div>
+<div class="col-md-4">Définition : {{ sm.screen.capacityS }}</div>
+<div class="col-md-4">Résolution : {{ sm.screen.resolutionS }} pixels</div>
+
+</div>
+
+</div>
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+<img src="PUBLIC/IMAGE/icon/weight.jpg" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Poids</h3>
+<em><span class="text_pr"> 
+{{ sm.weightSm }} g
+</span></em>
+</div>
+
+<div class="col-md-4 "> Largeur : {{ sm.heightSm }} mm</div>
+<div class="col-md-4">Longueur : {{ sm.widthSm }} mm</div>
+<div class="col-md-4">&Eacute;ppaisseur :  {{ sm.thinknessSm }} mm</div>
+
+</div>
+
+</div>
+
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+<img src="PUBLIC/IMAGE/icon/ram.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Mémoire vive</h3>
+<em><span class="text_pr"> 
+{{ sm.ramSm }} Go
+</span></em>
+</div>
+
+<div class="col-md-6 "> Capacité interne : {{ sm.internalStSm }} Go </div>
+<div class="col-md-6"> {%if sm.ExternalStSm != "NULL" %}
+Dispose d'un slot microSD de taille maximale  {{ sm.ExternalStSm }} Go 
+{%else %}
+Mémoire extensible : Sans slot microSD
+{%endif%}
+</div>
+</div>
+
+</div>
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+<img src="PUBLIC/IMAGE/icon/gpu.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Puce graphique </h3>
+<em><span class="text_pr"> 
+{{ sm.gpu.constructor  }} {{ sm.gpu.name  }} {{ sm.gpu.version  }}
+</span></em>
+</div>                       
+
+<div class="col-md-3 "> Fréquence : {{ sm.gpu.frequency  }} Mhz</div>
+<div class="col-md-3">{%if sm.gpu.gflops != '' %}
+Flops :  {{ sm.gpu.gflops  }} GFlops
+{%else %}
+Flops : Non renseigné 
+{%endif%}
+</div>
+<div class="col-md-3"> {%if sm.gpu.print != '' %}
+Gravure :  {{ sm.gpu.print  }} nanomètre 
+{%else %}
+Gravure : Non renseigné 
+{%endif%}</div>
+<div class="col-md-3"> {%if sm.gpu.directXV != '' %} Version DirectX :  {{ sm.gpu.directXV  }} {%else%} Version DirectX : Non renseigné {%endif%}</div>
+
+</div>
+
+</div>                                    
+
+
+<div class="col-md-12 padding-top-desc">
+<div class="new-panel border_panel" >
+<div class="panel-heading " style="background:rgba(192,192,192,0.3);">
+<img src="PUBLIC/IMAGE/icon/photo.png" class="icon-proc " alt=""/>
+<h3 class="display_inline text_pr">Appareil photo</h3>
+</div>
+
+<div class="col-md-6 "> Résolution de l'appareil avant : {{ sm.photoFrontSm }} Mpx</div>
+<div class="col-md-6"> Résolution de l'appareil arrière : {{ sm.photoBackSm }} Mpx </div>
+</div>
+</div>
+<div class="col-md-12 padding-top-desc padding-bottom">
+<div class="new-panel border_panel" >
+<div class="panel_head" style="background:rgba(192,192,192,0.3);">
+<div class="col-md-7 col-sm-7">
+    <img src="PUBLIC/IMAGE/icon/video.png" class="icon-proc " alt=""/>
+    <h3 class="display_inline text_pr">Caméra avant</h3>
+    <em><span class="text_pr"> 
+            {{ sm.videoFrontSm }}
+        </span></em>
+</div>
+<div class="col-md-5 col-sm-5"> 
+
+
+    <img src="PUBLIC/IMAGE/icon/video.png" class="icon-proc " alt=""/>
+    <h3 class="display_inline text_pr">Caméra arrière  </h3> <em><span class="text_pr"> {{ sm.videoBackSm }}</span></em>
+</div>
+</div>
+
+
+<div class="col-md-6">Résolution caméra avant : {{ sm.resolutionVideoFrontSm }} pixels</div>
+<div class="col-md-6">Résolution caméra arrière : {{ sm.resolutionVideoBackSm }} pixels</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+{%endblock%}
+{%block contact %}{%endblock%}
+{%block follow %} {%endblock%}
+{%block menuB %}
+<li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+<li ><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+<li><a href="#manufacturer">Les constructeurs</a></li>
+<li><a href="#articles">Articles</a></li>
+<li ><a href="#contact">Contact</a></li>
+<li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+{%endblock%}

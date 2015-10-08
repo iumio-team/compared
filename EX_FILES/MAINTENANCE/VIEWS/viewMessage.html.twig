@@ -1,0 +1,75 @@
+{% extends "viewTemplateDashboard.html.twig" %}
+{%block title %}COMPARED | Messages{%endblock%}
+{%block other %}
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+                Messages
+
+            </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- The time line -->
+                    <ul class="timeline">
+                        <!-- timeline time label -->
+
+                        <!-- /.timeline-label -->
+                        <!-- timeline item -->
+
+                        {%for item in messages|reverse %}
+                            <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+                                <div class="timeline-item">
+                                    <span class="time"><i class="fa fa-times-circle"></i> Le {{item['date']}}</span>
+                                    <h3 class="timeline-header"><a href="#">{{item['name']}}</a> ( {{item['email']}} )</h3>
+                                    <div class="timeline-body">
+                                        <div > <i class="fa fa-support"></i> Objet : {{item['object']}}</div>
+                                        {{item['content']}}
+
+                                    </div>
+                                    <div class='timeline-footer'>
+
+                                        <a   class="btn btn-danger btn-xs deleteMessage"  data="{{item['id']}}" href="#">Suppprimer</a>
+                                    </div>
+                                </div>
+                            </li>
+                           
+                        {%endfor%}
+                        
+                    </ul>
+                        {%if message is empty %}
+                            
+                                <h2>Il n'y a aucun message</h2>
+                                {%endif%}
+                </div>
+                        
+            </div><!-- /.row -->
+            <div data-backdrop='static' data-keyboard='true' class='modal  fade ' id='myModal' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                <div class='modal-dialog' >
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <div class=" row"> 
+                                <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-remove"></i>&nbsp;Suppression du message </h4></div>
+                        </div>
+                        <div class='modal-body text-center '>
+                            Voulez-vous vraiment supprimer ce message ?
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' data="" class='btn btn-success deleteMessageValidate' >Oui</button>
+                            <button type='button' class='btn btn-danger' data-dismiss='modal'>Non</button>
+                        </div></div></div></div>
+
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{%endblock%}

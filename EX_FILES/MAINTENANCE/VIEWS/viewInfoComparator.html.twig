@@ -1,0 +1,35 @@
+{% extends "viewTemplateDashboard.html.twig" %}
+{%block title %}COMPARED | Infos sur le comparateur{%endblock%}
+{%block other %}
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+            Informations sur le comparateur
+
+            </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- The time line -->
+                    <h2>Nom : {{comparator_name}}</h2>
+                    <h2>Slogan{{comparator_slogan}}</h2>
+                      <div class="col-md-12 project">
+                 
+                        <h4>Lien vers le comparateur : <a href="{{comparator_link}}">{{comparator_link}}</a></h4>
+                    <h4>Clé : {{comparator_token}} </h4>
+                    <h4>Status : {{comparator_status}}</h4>
+                
+            </div>                 
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{%endblock%}

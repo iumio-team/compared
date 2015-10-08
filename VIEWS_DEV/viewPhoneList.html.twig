@@ -1,0 +1,82 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | {{ phoneList[0]['constructorS']}}{%endblock%}
+{%block sectionHero %} <section class="hero hero-height " > {%endblock%}
+    {% block silder %}
+        <div class="row hero-content padding-text">
+            <div class="col-md-4  col-sm-4 text-center padding-text">
+                <h2 class="blackColor">{{phoneList[0]['constructorS']|upper}}</h2>
+                <img class="center-block img-logo" src="PUBLIC/IMAGE/constructor/{{constructor.name|lower}}.png" style="width:80%;" />
+                <h2 style="font-size:20px;color:black">{{countSm}} smartphone(s) rencensé(s) </h2>
+            </div>
+            <div class="col-md-8  col-sm-8 text-center font-resize padding-top-desc">
+                {{constructor.description}}
+                <!-- <h2 style="font-size:40px;">{{phoneList[0]['constructorS']}}</h2>-->
+            </div>
+
+
+        </div>
+
+
+    {%endblock%}
+    {% block content %}
+
+        <section class="showcase borderSection" >
+            <div class="showcase-wrap" style="padding:30px 0 ;" >
+                <div class="texture-overlay"></div>
+                <div class="container">
+                    <div class="row news">
+                        {% for item in phoneList %}
+                            <div class="col-md-3 col-sm-6 col-lg-3 text-center oneSm grid blog">
+
+                                <img class="img-responsive picsGall img-resizer center-block " src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg"/>
+
+
+                                <div class="center-block text-center" style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);"> {{ item['fullNameS']}}</div>
+                                <span id="span_show" class="span_bg_blue span_font ">
+                                    <i class="fa fa-book"></i>
+                                    <a href="Wui.php?run=getSpec&argument={{item['idS']}}">Voir la fiche ...</a>
+                                </span>
+                                <!-- <div class="c100 p25 small" style="">
+                                <span>25%</span>
+                                <div class="slice">
+                                <div class="bar"></div>
+                                <div class="fill"></div>
+                                </div>
+                                </div>--> 
+
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-striped active" role="progressbar"
+                                         aria-valuenow="4.5" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                        4.5
+                                    </div>
+                                </div>
+
+                            </div>
+                        {% endfor %}       
+                    </div>
+                </div></div>
+        </section>
+    {%endblock%}
+{%block contact %}{%endblock%}
+{%block menu %}
+    <ul>
+        <li><a href="Wui.php?run=getHomePage&argument=void"><i class="fa fa-home"></i>Accueil</a></li>
+        <li ><a href="Wui.php?run=prepareComparison&argument=void"><div class="divFaCompare"><i class="fa fa-mobile-phone faCompare" style="padding-left: 0px;"></i><i class="fa fa-mobile-phone faCompare"></i></div><span>Faire une comparaison</span></a></li>
+    </ul>
+    <ul>
+        <li><a href="Wui.php?run=getHomePage&argument=void#manufacturer"><i class="fa fa-mobile"></i>Les constructeurs</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+    </ul>
+    <ul>
+        <li><a href="Wui.php?run=getHomePage&argument=void#contact"><i class="fa fa-wrench"></i>Contact</a></li>
+
+    </ul>
+{%endblock%}
+{%block menuB %}
+    <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+    <li ><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+    <li><a href="#manufacturer">Les constructeurs</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li ><a href="#contact">Contact</a></li>
+    <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+{%endblock%}

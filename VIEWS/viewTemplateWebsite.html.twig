@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <!--ViewHomePage -->
+    <head>
+        <title>{%block title %}COMPARED | Home page {%endblock%}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/bootstrap.css">
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/font-awesome.css">
+        <link rel='stylesheet' id='camera-css'  href='PUBLIC/CSS/camera.css' type='text/css' media='all'>
+
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/slicknav.css">
+        <link rel="stylesheet" href="PUBLIC/CSS/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/style.css">
+
+
+        <script type="text/javascript" src="PUBLIC/JS/jquery-1.8.3.min.js"></script>
+
+        <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700|Open+Sans:700' rel='stylesheet' type='text/css'>
+        <script type="text/javascript" src="PUBLIC/JS/jquery.mobile.customized.min.js"></script>
+        <script type="text/javascript" src="PUBLIC/JS/jquery.easing.1.3.js"></script> 
+        <script type="text/javascript" src="PUBLIC/JS/camera.min.js"></script>
+        <script type="text/javascript" src="PUBLIC/JS/myscript.js"></script>
+        <script src="PUBLIC/JS/sorting.js" type="text/javascript"></script>
+        <script src="PUBLIC/JS/jquery.isotope.js" type="text/javascript"></script>
+        <!--script type="text/javascript" src="js/jquery.nav.js"></script-->
+
+
+        <script>
+            jQuery(function () {
+                jQuery('#camera_wrap_1').camera({
+                    transPeriod: 500,
+                    time: 3000,
+                    height: '490px',
+                    thumbnails: false,
+                    pagination: true,
+                    playPause: false,
+                    loader: false,
+                    navigation: false,
+                    hover: false
+                });
+            });
+        </script>
+
+    </head>
+    <body>
+       <!-- <div id="wpadminbar" class="nojq nojs">
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Barre d&rsquo;outils" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-menu-toggle"><a class="ab-item"  href="#"><span class="ab-icon"></span><span class="screen-reader-text">Menu</span></a>		</li>
+		<li id="wp-admin-bar-wp-logo" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://octimum.com/wp-admin/about.php"><span class="ab-icon"></span><span class="screen-reader-text">À propos de WordPress</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wp-logo-default" class="ab-submenu">
+		<li id="wp-admin-bar-about"><a class="ab-item"  href="http://octimum.com/wp-admin/about.php">À propos de WordPress</a>		</li></ul><ul id="wp-admin-bar-wp-logo-external" class="ab-sub-secondary ab-submenu">
+		<li id="wp-admin-bar-wporg"><a class="ab-item"  href="http://www.wordpress-fr.net/">Site de WordPress-FR</a>		</li>
+		<li id="wp-admin-bar-documentation"><a class="ab-item"  href="https://codex.wordpress.org/">Documentation</a>		</li>
+		<li id="wp-admin-bar-support-forums"><a class="ab-item"  href="http://www.wordpress-fr.net/support">Forums d&rsquo;entraide</a>		</li>
+		<li id="wp-admin-bar-feedback"><a class="ab-item"  href="https://wordpress.org/support/forum/requests-and-feedback">Remarque</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://octimum.com/">Octimum</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-view-site"><a class="ab-item"  href="http://octimum.com/">Aller sur le site</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-updates"><a class="ab-item"  href="http://octimum.com/wp-admin/update-core.php" title="3 mises à jour d&rsquo;extensions, 2 mises à jour de thèmes"><span class="ab-icon"></span><span class="ab-label">5</span><span class="screen-reader-text">3 mises à jour d&rsquo;extensions, 2 mises à jour de thèmes</span></a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item"  href="http://octimum.com/wp-admin/edit-comments.php" title="0 commentaire en attente de modération"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0">0</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://octimum.com/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">Créer</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item"  href="http://octimum.com/wp-admin/post-new.php">Article</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item"  href="http://octimum.com/wp-admin/media-new.php">Fichier média</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item"  href="http://octimum.com/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item"  href="http://octimum.com/wp-admin/user-new.php">Utilisateur</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-wpseo-menu" class="menupop"><a class="ab-item"  aria-haspopup="true" href="http://octimum.com/wp-admin/admin.php?page=wpseo_dashboard">SEO</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-menu-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-kwresearch" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Recherche de mots-clés</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-kwresearch-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-adwordsexternal"><a class="ab-item"  href="http://adwords.google.com/keywordplanner" target="_blank">AdWords External</a>		</li>
+		<li id="wp-admin-bar-wpseo-googleinsights"><a class="ab-item"  href="http://www.google.com/insights/search/#q=&#038;cmpt=q" target="_blank">Tendances des recherches sur Google </a>		</li>
+		<li id="wp-admin-bar-wpseo-wordtracker"><a class="ab-item"  href="http://tools.seobook.com/keyword-tools/seobook/?keyword=" target="_blank">SEO Book</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-wpseo-settings" class="menupop"><div class="ab-item ab-empty-item"  aria-haspopup="true">Réglages SEO</div><div class="ab-sub-wrapper"><ul id="wp-admin-bar-wpseo-settings-default" class="ab-submenu">
+		<li id="wp-admin-bar-wpseo-general"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_dashboard">Généraux</a>		</li>
+		<li id="wp-admin-bar-wpseo-titles"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_titles">Titres &amp; Métas</a>		</li>
+		<li id="wp-admin-bar-wpseo-social"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_social">Réseaux sociaux</a>		</li>
+		<li id="wp-admin-bar-wpseo-xml"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_xml">Sitemaps XML</a>		</li>
+		<li id="wp-admin-bar-wpseo-wpseo_advanced"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_advanced">Avancé</a>		</li>
+		<li id="wp-admin-bar-wpseo-licenses"><a class="ab-item"  href="http://octimum.com/wp-admin/admin.php?page=wpseo_licenses">Extensions</a>		</li></ul></div>		</li></ul></div>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item"  aria-haspopup="true" href="http://octimum.com/wp-admin/profile.php">Hello, Dany<img alt='' src='http://1.gravatar.com/avatar/7d0786712b8b899b0d968841473820e6?s=26&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7d0786712b8b899b0d968841473820e6?s=52&amp;d=mm&amp;r=g 2x' class='avatar avatar-26 photo' height='26' width='26' /></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+                            <li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="http://octimum.com/wp-admin/profile.php"><img alt='' src='http://1.gravatar.com/avatar/7d0786712b8b899b0d968841473820e6?s=64&#038;d=mm&#038;r=g' srcset='http://1.gravatar.com/avatar/7d0786712b8b899b0d968841473820e6?s=128&amp;d=mm&amp;r=g 2x' class='avatar avatar-64 photo' height='64' width='64' /><span class='display-name'>Dany</span></li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item"  href="http://octimum.com/wp-admin/profile.php">Modifier mon profil</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item"  href="http://octimum.com/wp-login.php?action=logout&#038;_wpnonce=93dd5b276a">Se déconnecter</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="http://octimum.com/wp-login.php?action=logout&#038;_wpnonce=93dd5b276a">Se déconnecter</a>
+					</div>
+
+            <style type="text/css" media="print">#wpadminbar { display:none; }</style>
+        <div id="home">  
+            <!--<div class='center-block col-md-12 black hd' >
+                
+                <div class='pull-left'>COMPARED <i class='fa fa-dashboard'></i> Dashboard</div>
+                <div class='pull-right user-hover'><i class='fa fa-user'></i> Dany RAFINA</div>
+            </div>-->
+            
+          
+            <div class="headerLine">
+                <div class="head"></div>
+                <div id="menuF" class="default">
+                    <div class="container">
+                        <div class="row">
+                            <div class="logo col-md-4">
+                                <div>
+                                    <a href="Wui.php?run=getHomePage&argument=void">
+                                        <img src="PUBLIC/IMAGE/logo-cp1.png" height="70px" >
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="col-md-8">
+                                {%block menu %}
+                                    <div class="navmenu"style="text-align: center;">
+                                        <ul id="menu">
+                                            <li class="active" ><a href="#home">Accueil</a></li>
+                                            <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+                                            <li><a href="#smartphones">Smartphones</a></li>
+                                            <li><a href="#articles">Articles</a></li>
+                                            <li class="last"><a href="#contact">Contact</a></li>
+                                        </ul>
+                                    </div>
+                                {%endblock%}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                            
+                <div class="container">
+                    <div class="row wrap">
+                        {% block silder %}
+                        <div class="col-md-12 gallery"> 
+                            
+                                <div class="camera_wrap camera_white_skin" id="camera_wrap_1">
+                                    <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                        <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                                            <h2 style="font-size:50px; ">COMPARED</h2>
+                                            <h3>Le comparateur de smartphone français !</h3>
+                                            <h3>Effectuez une comparaison </h3>
+                                            <button type="button" onclick="location.href = 'Wui.php?run=prepareComparison&argument=void'" style="border-radius: 90px;height:70px;width:70px;color:black;font-size: 20px">GO !</button>
+                                        </div>
+                                    </div>
+                                    <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                        <div class="img-responsive camera_caption fadeFromBottom ">
+                                            <h2 style="font-size:40px;">Votre dernière comparaison</h2>
+                                            <h3 id="comparedUser"></h3>
+                                        </div>
+                                    </div>
+                                    <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                                        <div class="img-responsive camera_caption fadeFromBottom">
+                                            <h2 style="font-size:50px;">&copy 2015 COMPARED Website</h2>
+                                            <h3>Powered by SENGINE COMPARATOR 0.01 BETA </h3>
+
+                                            <h3>Version 0.10 PUBLIC PREVIEW</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            {%endblock%}<!-- #camera_wrap_1 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+                            {% block content %}
+            <div class="container">
+
+                <div class="row ">
+                    <div class="col-md-6 project text-center center-block ">
+                        <h3 id="counter">0</h3>
+                        <h4>Comparaisons effectuées</h4>
+                        <p>Vous êtes nombreux à faire des comparaisons </p>
+                    </div>
+                    <div class="col-md-6 project text-center">
+                        <h3 id="counter1">0</h3>
+                        <h4>Smartphones enregistrés</h4>
+                        <p> Ce nombre ne cesse d'augmenter. Nous espérons atteindre les 500 smartphones </p>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 cBusiness">
+                        <h3>Voici les dernières comparaisons effectuées</h3>
+                        <h4>Il se peut que votre comparaison se trouve dans cette liste :-o</h4>
+                    </div>
+                </div>
+            </div>
+            <div id="myCarousel" class="carousel slide container" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators "> 
+                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#myCarousel" data-slide-to="1" ></li>
+                    <li data-target="#myCarousel" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner col-md-4" role="listbox">
+
+                    {% set count = 0 %}
+                    {% for oneC in recentC %}
+                        {% if count == 0 %}
+                            {% set count = count + 1 %}
+                            <div class="row news border changer center-block item active  col-md-9 col-sm-9 " onClick='location.href = "Wui.php?run=compared&sm1={{oneC['sm1']['id']}}&sm2={{oneC['sm2']['id']}}"'>
+                            {%else %}
+                                <div class="row news border changer center-block item  col-md-9 col-sm-9 " onClick='location.href = "Wui.php?run=compared&sm1={{oneC['sm1']['id']}}&sm2={{oneC['sm2']['id']}}"'>     
+                                {%endif%}           
+                                <div class="col-md-1"></div>
+                                <div class="col-md-4 text-center to-comparator " style=""  >
+                                    <h2 class="">{{ oneC['sm1']['fullName']}}</h2>
+
+
+                                    <img class="img-responsive picsGall img-resize center-block" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm1']['picture']}}.jpg"/>
+
+                                </div>
+                                <h1 class="col-md-2 red text-center">VS</h1>
+                                <div class="col-md-4 text-center to-comparator " style=""  >
+                                    <h2 class="">{{ oneC['sm2']['fullName']}}</h2>
+
+
+                                    <img class="img-responsive picsGall img-resize center-block" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm2']['picture'] }}.jpg"/>
+
+                                </div>
+
+                                <div class="col-md-1"></div>
+
+                            </div>
+
+                        {%endfor%}
+
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev" style="background: none">
+                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next" style="background: none">
+                        <span class="glyphicon glyphicon-chevron-right " aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+
+
+            </div>
+            <div id="smartphones">    	
+                <div class="line3">
+                    <div class="container">
+
+                        <div class="row Ama">
+                            <div class="col-md-12">
+                                <span name="projects" id="projectss"></span>
+                                <h3>Smartphones</h3>
+                                <p> Rechercher un smartphone pour voir ses caractéristiques</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>          
+
+
+                <div class="container">
+
+                    <div class="row">
+                        <!-- filter_block -->
+
+
+
+                        <div class=" columns3   pretty" data-animated="fadeIn" style="padding-top: 50px;height:auto!important">	
+                            <div class="element col-sm-4   gall branding" >
+                                <a class="plS" href="#" >
+                                    <img class="img-responsive picsGall img-resize-small center-block" src="PUBLIC/IMAGE/constructor/htc.png" alt="HTC"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">HTC</a></h3>
+
+                                </div>
+                            </div>
+                            <div class="element col-sm-4  gall branding">
+                                <a class="plS" href="Wui.php?run=phoneList&argument=Samsung">
+                                    <img class="img-responsive picsGall img-resize-m center-block" src="PUBLIC/IMAGE/constructor/samsung.png" alt="SAMSUNG"/>
+                                </a>
+                                <div class="view project_descr center">
+                                    <h3><a href="#">SAMSUNG</a></h3>
+
+                                </div>
+                            </div>
+                            <div class="element col-sm-4  gall web">
+                                <a class="plS" href="Wui.php?run=phoneList&argument=Sony">
+                                    <img class="img-responsive picsGall img-resize-m center-block" src="PUBLIC/IMAGE/constructor/sony.png" alt="SONY"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">SONY</a></h3>
+
+                                </div>
+                            </div>
+
+
+
+                            <div class="element col-sm-4  gall  web">
+                                <a class="plS" href="#">
+                                    <img class="img-responsive picsGall img-resize-m center-block" src="PUBLIC/IMAGE/constructor/huawei.png" alt="Huawei"/>
+                                </a>
+                                <div class="view project_descr center">
+                                    <h3><a href="#">HUAWEI</a></h3>
+
+                                </div>
+                            </div>
+                            <div class="element col-sm-4  gall  polygraphy">
+                                <a class="plS" href="#">
+                                    <img class="img-responsive picsGall img-resize-m center-block" src="PUBLIC/IMAGE/constructor/microsoft.png" alt="pic1 Gallery"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">MICROSOFT</a></h3>
+
+                                </div>
+                            </div>		
+                            <div class="element col-sm-4   gall branding">
+                                <a class="plS" href="Wui.php?run=phoneList&argument=Apple">
+                                    <img class="img-responsive picsGall img-resize-small center-block" src="PUBLIC/IMAGE/constructor/apple.png" alt="APPLE" style="width: 40%important;"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">APPLE</a></h3>
+
+                                </div>
+                            </div>
+
+                            <div class="element col-sm-4  gall text_styles">
+                                <a class="plS" href="#">
+                                    <img class="img-responsive picsGall img-resize-m center-block" src="PUBLIC/IMAGE/constructor/lg.png" alt="LG"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">LG</a></h3>
+
+                                </div>
+                            </div>
+
+
+                            <div class="element col-sm-4  gall polygraphy">
+                                <a class="plS" href="#">
+                                    <img class="img-responsive picsGall img-resize-small center-block" src="PUBLIC/IMAGE/constructor/motorola.png" alt="Motorola"/>
+                                </a>
+                                <div class="view project_descr ">
+                                    <h3><a href="#">Motorola</a></h3>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+
+                <script type="text/javascript">
+                    jQuery(window).load(function () {
+                        items_set = [
+                            {category: 'branding', lika_count: '77', src: 'PUBLIC/IMAGE/constructor/acer.png', title: 'ACER', content: '', class: ''},
+                            {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/xiaomi.png', title: 'XIAOMI', content: ''},
+                            {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/meizu.png', title: 'MEIZU', content: ''},
+                            {category: 'text_styles', lika_count: '22', src: 'PUBLIC/IMAGE/constructor/oneplus.png', title: 'OnePlus', content: ''}
+
+
+
+                        ];
+                        jQuery('.portfolio_block').portfolio_addon({
+                            type: 1, // 2-4 columns simple portfolio
+                            load_count: 5,
+                            items: items_set
+                        });
+                        $('#container').isotope({
+                            animationOptions: {
+                                duration: 900,
+                                queue: false
+                            }
+                        });
+                    });
+                </script>
+            </div>
+        </div>    
+
+        <!--news start-->
+
+        <div id="articles">
+            <div class="line4">		
+                <div class="container">
+                    <div class="row Ama">
+                        <div class="col-md-12">
+                            <h3>Articles ( Très prochainement )</h3>
+                            <p> <i class="fa fa-eye fa-4x"></i></p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+               
+        </div>
+        <!--about start-->    
+
+        <div id="about">
+
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 hr1">
+                        <hr/>
+                    </div>
+                </div>
+            </div>		
+
+
+
+            <!--<div class="container">
+                <div class="row aboutUs">
+                    <div class="col-md-12 ">
+                        <h3>Des avis sur COMPARED ?</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div style="position: relative;">
+
+                <div class="container">
+                    <div class="row about">
+            {%for notice in noticeList %}
+                <div class="col-md-6">
+
+                    <div class="about">
+                        <img class="pic1Ab" src="PUBLIC/IMAGE/picAbout/aboutP1.png">
+                        <h3>{{notice['nomInter']}}.</h3>
+                        <p>{{notice['content']}}</p>
+                    </div>
+
+                </div>
+            {%endfor%}
+
+        </div>
+    </div>
+
+</div>
+</div>-->
+            {%endblock%}
+            <div id="contact">
+                {% block contact %}
+                <div class="line5">					
+                    <div class="container">
+                        <div class="row Ama">
+                            <div class="col-md-12">
+                                <h3>Une question ? Nous somme là pour vous aider </h3>
+                                <p>Alors contactez-nous !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-9 col-xs-12 forma">
+                            <form id="form_help" method="POST" action="Wui.php">
+                                <input type="text" class="col-md-6 col-xs-12 name" name='name' placeholder='Nom *' required="required" />
+                                <input type="email" class="col-md-6 col-xs-12 email" name='email' placeholder='Email *' required="required" />
+                                <input type="text" class="col-md-12 col-xs-12 subject" name='objet' placeholder='Objet du message *' required="required" />
+                                <textarea type="text" class="col-md-12 col-xs-12 content" name='content' placeholder='Message *' required="required" ></textarea>
+                                <div class="cBtn col-xs-12">
+                                    <button type="reset" class="btn btn-danger clear">Remise à zéro </button>
+                                    <button type="submit" class="btn btn-success send">Envoyer</button>
+
+                                </div>
+                            </form>
+                            <span class="fa-2x" id="good"></span>
+                        </div>
+                        <div class="col-md-3 col-xs-12 cont">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-envelope"></i>websites.octimum@gmail.com</li></a>
+
+                                <li><a href="https://www.facebook.com/comparedsm?ref=hl"><i class="fa fa-facebook-square"></i>Facebook</li></a>
+
+                                <li><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g"><i class="fa fa-google-plus-square"></i>Google Plus</li></a>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                    
+                <!--<div class="line6">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d48386.401887313725!2d-73.9407136!3d40.7147117!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sua!4v1402409149092" width="100%" height="750" frameborder="0" style="border:0"></iframe>
+                </div>-->
+                {%endblock%}
+                {%block follow %}
+                <div class="line7">
+                    <div class="container">
+                        <div class="row footer">
+                            <div class="col-md-12">
+                                <h3>Suivez-nous</h3>
+                                <p>Et oui , nous sommes sur les réseaux sociaux . Alors venez-nous soutenir :-)</p>
+                            </div>
+                            <div class="soc col-md-12">
+                                <ul>
+                                    <li class="soc2"><a href="https://www.facebook.com/comparedsm?ref=hl"></a></li>
+
+
+                                    <li class="soc7"><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g"></a></li>
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    {%endblock%}
+                <div class="lineBlack">
+                    <div class="container">
+                        <div class="row downLine">
+                            <!--div class="col-md-12 text-right">
+                                <!--input  id="searchPattern" type="search" name="pattern" value="Search the Site" onblur="if(this.value=='') {this.value='Search the Site'; }" onfocus="if(this.value =='Search the Site' ) this.value='';this.style.fontStyle='normal';" style="font-style: normal;"/-->
+                                <!--<input  id="searchPattern" type="search" placeholder="Rechercher"/><i class="glyphicon glyphicon-search" style="font-size: 13px; color:#a5a5a5;" id="iS"></i>
+                            </div>-->
+                            <div class="col-md-6 text-left copy">
+                                <p>&copy; 2015 COMPARED Website. Tous droits réservés . (Octimum Project)</p>
+                            </div>
+                            <div class="col-md-6 text-right dm">
+                                {% block menuB %}
+                                    <ul id="downMenu">
+                                        <li class="active" ><a href="#home">Accueil</a></li>
+                                        <li><a href="Wui.php?run=show&argument=viewStartCompared">Faire une comparaison</a></li>
+                                        <li><a href="#smartphones">Smartphones</a></li>
+                                        <li><a href="#articles">Articles</a></li>
+                                        <li class="last"><a href="#contact">Contact</a></li>
+                                        <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+                                    </ul>
+                                {%endblock%}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>		
+
+
+            <script src="PUBLIC/JS/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+            <script src="PUBLIC/JS/bootstrap.min.js"></script>
+            <script src="PUBLIC/JS/jquery.slicknav.js"></script>
+            <script src="PUBLIC/JS/lc.js"></script>
+            <script>
+                    $(document).ready(function () {
+                        $(".bhide").click(function () {
+                            $(".hideObj").slideDown();
+                            $(this).hide(); //.attr()
+                            return false;
+                        });
+                        $(".bhide2").click(function () {
+                            $(".container.hideObj2").slideDown();
+                            $(this).hide(); // .attr()
+                            return false;
+                        });
+
+                        $('.heart').mouseover(function () {
+                            $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
+                        }).mouseout(function () {
+                            $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
+                        });
+
+                        function sdf_FTS(_number, _decimal, _separator)
+                        {
+                            var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
+                            var separator = (typeof (_separator) != 'undefined') ? _separator : '';
+                            var r = parseFloat(_number)
+                            var exp10 = Math.pow(10, decimal);
+                            r = Math.round(r * exp10) / exp10;
+                            rr = Number(r).toFixed(decimal).toString().split('.');
+                            b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
+                            r = (rr[1] ? b + '.' + rr[1] : b);
+
+                            return r;
+                        }
+
+                        setTimeout(function () {
+                            $('#counter').text('0');
+                            $('#counter1').text('0');
+                            $('#counter2').text('0');
+                            setInterval(function () {
+
+                                var curval = parseInt($('#counter').text());
+                                var curval1 = parseInt($('#counter1').text().replace(' ', ''));
+                                var curval2 = parseInt($('#counter2').text());
+                                $('#counter1').text({{nbS}});
+                                $('#counter').text({{nbC}});
+                                /*if(curval=<{{nbS}}){
+                                 $('#counter').text(curval);
+                                 }
+                                 if(curval1 < {{nbC}}){
+                                 $('#counter1').text(sdf_FTS((curval1));
+                                 }
+                                 if(curval2<=245){
+                                 $('#counter2').text(curval2+1);
+                                 }*/
+                            }, 2);
+
+                        }, 500);
+                    });
+            </script>
+            <script type="text/javascript">
+                jQuery(document).ready(function () {
+                    jQuery('#menu').slicknav();
+
+                });
+            </script>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+
+                    var $menu = $("#menuF");
+
+                    $(window).scroll(function () {
+                        if ($(this).scrollTop() > 100 && $menu.hasClass("default")) {
+                            $menu.fadeOut('fast', function () {
+                                $(this).removeClass("default")
+                                        .addClass("fixed transbg")
+                                        .fadeIn('fast');
+                            });
+                        } else if ($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+                            $menu.fadeOut('fast', function () {
+                                $(this).removeClass("fixed transbg")
+                                        .addClass("default")
+                                        .fadeIn('fast');
+                            });
+                        }
+                    });
+                });
+                //jQuery
+            </script>
+            <script>
+                /*menu*/
+                function calculateScroll() {
+                    var contentTop = [];
+                    var contentBottom = [];
+                    var winTop = $(window).scrollTop();
+                    var rangeTop = 200;
+                    var rangeBottom = 500;
+                    $('.navmenu').find('a').each(function () {
+                        contentTop.push($($(this).attr('href')).offset().top);
+                        contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
+                    })
+                    $.each(contentTop, function (i) {
+                        if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
+                            $('.navmenu li')
+                                    .removeClass('active')
+                                    .eq(i).addClass('active');
+                        }
+                    })
+                }
+                ;
+
+                $(document).ready(function () {
+                    calculateScroll();
+                    $(window).scroll(function (event) {
+                        calculateScroll();
+                    });
+                    $('.navmenu ul li a').click(function () {
+                        $('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 800);
+                        return false;
+                    });
+                });
+            </script>	
+            <script type="text/javascript" charset="utf-8">
+
+                jQuery(document).ready(function () {
+                    jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({animation_speed: 'normal', theme: 'light_square', slideshow: 3000, autoplay_slideshow: true, social_tools: ''});
+
+                });
+            </script>
+    </body>
+
+</html>

@@ -1,0 +1,265 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | Fiche Technique{%endblock%}
+{%block menu %}
+    <ul id="menu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li class="last"><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+    </ul>
+{%endblock%}
+
+{%block silder %}
+    <div class="col-md-12 gallery" style="height: 300px!important"> 
+
+        <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
+            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 style="font-size:40px; ">Fiche Technique</h2>
+                </div>
+            </div>
+            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 style="font-size:40px;"> {{ sm.getConstructorSm}} {{ sm.getFullNameSm }}</h2>
+                </div>
+            </div>
+            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 style="font-size:30px;">&copy 2015 COMPARED Website / Version 0.10 Public Preview / Octimum project</h2>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{%endblock%}
+{%block content %}
+    <div class="container">
+        <div class="row">
+
+            <h2 class='text-center  '>Caractéristiques  {{ sm.getConstructorSm}} {{ sm.getFullNameSm }}</h2>
+            <img class="center-block " src="PUBLIC/IMAGE/constructor/{{sm.getConstructorSm|lower}}.png" style="width:20%;" />
+            <div class="col-md-12 cBusiness">
+
+                <h4 > Référence : {{ sm.codeNameSm }} </h4>
+
+                <h4 >  Date de sortie : {{ sm.releaseDateSm|date("d-m-Y")  }} </h4>
+
+                {% if  sm.prixSm != NULL %}
+                    <h4> Prix : {{ sm.prixSm }} </h4>
+
+                {% endif %}
+                <br>
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-mobile-phone fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">&Eacute;cran</h3>
+                                <ul>
+                                    <li> Type : {{ sm.screen.typeS  }}</li>
+                                    <li>Taille : {{ sm.screen.sizeS  }} pouces</li>
+                                    <li> Densité : {{ sm.screen.densityS  }} pp </li>
+                                    <li> Définition : {{ sm.screen.capacityS }} </li>
+                                    <li> Résolution : {{ sm.screen.resolutionS }} pixels</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-cogs fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Processeur</h3>
+                                <ul>
+                                    <li> Constructeur : {{ sm.processor.constructorP  }} </li>
+                                    <li> Nom : {{ sm.processor.nameP  }} </li>
+                                    <li> Version : {{ sm.processor.versionP  }} </li>
+                                    <li>Fréquence : {{ sm.processor.frequencyP  }} Ghz</li>
+                                    <li> Nombre de coeurs : {{ sm.processor.nbOfCoreP  }} </li>
+                                    <li> Architecture :{% if sm.processor.archP != 0 %}} {{ sm.processor.archP  }} bits{% else %} ARM {% endif %}</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                {% set fa = "" %}
+                                {%if  "Android" in sm.os.name %}
+                                    {% set fa = "fa-android" %}
+                                {%elseif  "Windows" in sm.os.name %}
+                                    {% set fa = "fa-windows" %}
+                                {%elseif  "iOS" in sm.os.name %}
+                                    {% set fa = "fa-apple" %}
+                                {%elseif  "Ubuntu" in sm.os.name %}
+                                    {% set fa = "fa-ubuntu" %}
+                                {%endif%}
+                                <i class="fa  {{fa}} fa-3x "></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Système d'exploitation</h3>
+                                <ul >
+                                    <li> Nom : {{ sm.os.constructor  }} {{ sm.os.name  }} </li>
+                                    <li> Version : {{ sm.os.version  }} </li>
+                                    <li> Date de création : {{ sm.os.releaseDate|date("d-m-Y")  }} </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="media media-left feature">
+                            <a class="pull-right" href="#">
+                                <i class="fa fa-spinner fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Carte graphique</h3>
+                                <ul >
+                                    <li> Nom : {{ sm.gpu.name  }} </li>
+                                    <li> Version :  {{ sm.gpu.version  }}</li>
+                                    <li> Constructeur :   {{ sm.gpu.constructor  }}</li>
+                                    <li> Fréquence : {{ sm.gpu.frequency  }} Mhz </li>
+                                        {%if sm.gpu.gflops != '' %}
+                                        <li> Flops :  {{ sm.gpu.gflops  }} GFlops</li>
+                                        {%endif%}
+                                        {%if sm.gpu.print != '' %}
+                                        <li> Gravure :  {{ sm.gpu.print  }} nanomètre </li>
+                                        {%endif%}
+                                        {%if sm.gpu.directXV != '' %}<li> Version Direct X :  {{ sm.gpu.directXV  }} </li> {%endif%}
+                                </ul>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <img src="PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5" alt=""/>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-exclamation-triangle fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Taille et Poids</h3>
+                                <ul>
+                                    <li> Largeur : {{ sm.heightSm }} mm</li>
+                                    <li>Longueur : {{ sm.widthSm }} mm</li>
+                                    <li> &Eacute;ppaisseur :  {{ sm.thinknessSm }}mm</li>
+                                    <li> Poids :  {{ sm.weightSm }} g </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-hdd-o fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Mémoire vive </h3>
+                                <ul>
+                                    <li> RAM : {{ sm.ramSm }} Go </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-rouble fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Autonomie</h3>
+                                <ul> 
+                                    <li> Capacité de la batterie : {{ sm.batteryCSm }} mAh </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-picture-o fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Photo</h3>
+                                <ul>
+                                    <li> Appareil photo avant
+                                        <ul>
+                                            <li> Résolution : {{ sm.photoFrontSm }} Mpx </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li>
+
+                                        Appareil photo arrière
+                                        <ul>
+                                            <li> Résolution : {{ sm.photoBackSm }} Mpx </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-video-camera fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Vidéo</h3>
+                                <ul>
+
+                                    <li> Video avant 
+                                        <ul>
+                                            <li> Résolution : {{ sm.resolutionVideoBackSm }} pixels </li>
+                                            <li> Définition: {{ sm.videoFrontSm }} </li>
+
+                                        </ul>
+                                    </li>
+
+                                    <li> Video arrière
+                                        <ul>
+                                            <li> Résolution : {{ sm.resolutionVideoFrontSm }} pixels </li>
+                                            <li> Définition : {{ sm.videoBackSm }} </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                        <div class="media feature">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-hdd-o fa-3x"></i>
+                            </a>
+                            <div class="media-body">
+                                <h3 class="media-heading">Stokage</h3>
+                                <ul> 
+                                    <li> Capacité interne : {{ sm.internalStSm }} Go </li>
+                                        {%if sm.ExternalStSm != "NULL" %}
+                                        <li> Capacité externe maximale : {{ sm.ExternalStSm }} Go</li>
+                                        {%endif%}
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}
+{%block contact %}{%endblock%}
+{%block follow %} {%endblock%}
+{%block menuB %}
+    <ul id="downMenu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li ><a href="Wui.php?run=getHomePage&argument=void#contact">Contact</a></li>
+        <li class="last"><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+    </ul>
+{%endblock%}
