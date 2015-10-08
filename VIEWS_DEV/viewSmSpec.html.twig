@@ -1,6 +1,63 @@
 {% extends "viewTemplateWebsite.html.twig" %}
 {%block title %}COMPARED | Fiche Technique{%endblock%}
 {%block menu %}
+    <style>
+    	.rating {
+    //float:left;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+.rating:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+    clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+    float:right;
+    width:1em;
+    padding:0 .1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:200%;
+    line-height:1.2;
+    color:#ddd;
+    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+    content: '★ ';
+}
+
+.rating > input:checked ~ label {
+    color: #f70;
+    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: gold;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
+    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+    position:relative;
+    top:2px;
+    left:2px;
+}
+</style>
 <ul>
 <li><a href="Wui.php?run=getHomePage&argument=void"><i class="fa fa-home"></i>Accueil</a></li>
 <li ><a href="Wui.php?run=prepareComparison&argument=void"><div class="divFaCompare"><i class="fa fa-mobile-phone faCompare" style="padding-left: 0px;"></i><i class="fa fa-mobile-phone faCompare"></i></div><span>Faire une comparaison</span></a></li>
@@ -264,10 +321,50 @@ Gravure : Non renseigné
 
 </div>
 
+
+
+
 </div>
 
 
+
 </div>
+<section class="showcase borderSection">
+            <div class="showcase-wrap" style="padding:30px 0 ;min-height: 350px!important">
+                <div class="texture-overlay"></div>
+                <div class="container">
+                    <div class="row news">
+                                  <div class="col-md-6">                 
+                           <h2 class="white_font ">Notez le {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}  <i class="fa fa-mobile"></i></h2>
+                                    <p  style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Ce smarphone vous plaît ? Ou alors il est horrible ? Exprimez-vous alors avec cette note !</p>
+                                
+   <fieldset class="rating">
+    <legend> De 1 à 5:</legend>
+    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+</fieldset>                        
+                    </div>    
+                                                      <div class="col-md-6">                 
+                           <h2 class="white_font">Partager cette page sur les réseaux sociaux <i class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></h2>
+                                    <p  style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Donnez la possibilité à d'autres personnes de connaître ce smartphone en le partageant !</p>
+                                
+                          <div class=" col-md-12  " style="padding-bottom: 45px;">
+                            <ul class="list-unstyled list-group text-center screenshots-new">
+                                <li class=" col-md-6 list-group-item social-network-item"><i class="fa fa-facebook-square"></i>  <a href="https://www.facebook.com/comparedsm?ref=hl">Facebook</a></li>
+
+
+                                <li class="col-md-6 list-group-item social-network-item"><i class="fa fa-google-plus-square"></i><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g">Google+</a></li>
+
+
+                            </ul>
+                        </div>
+                    </div>  
+                    </div>
+                </div></div>
+        </section>
 
 {%endblock%}
 {%block contact %}{%endblock%}

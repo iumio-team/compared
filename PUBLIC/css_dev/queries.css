@@ -27,6 +27,13 @@
 @media screen and (max-width:558px){
         .text1,.text2,.text3,.text4{display: none!important;}
          .textH3{width: 26%!important;}
+}
+
+@media screen and (max-width:550px){
+         span.startComparisonSentence{
+             font-size: 10px;
+         }
+         
 
         
 
