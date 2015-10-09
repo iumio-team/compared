@@ -17,6 +17,17 @@ z-index:-1;
 /*
 * Corrects `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.
 */
+
+.texture-overlay-md {
+    background-color: #CEDDEA!important;
+
+}
+.no_background {
+    background: none!important;
+}
+.features-slider-md {
+    background-color: rgb(119, 161, 204)!important;
+}
 audio, canvas, video {
     display: inline-block;
     *display: inline;
@@ -47,16 +58,16 @@ p.font_size_20{
     font-size: 15px;
 }
 .style_result {
-background: rgba(203, 218, 11, 0.5);
+    background: rgba(203, 218, 11, 0.5);
     padding: 10px;
 }
 .vs {
-        background: rgba(39, 197, 151, 0.18);
+    background: rgba(39, 197, 151, 0.18);
     padding: 5px;
 }
 
 .sengine {
-        text-align: center;
+    text-align: center;
     padding-top: 0px;
     font-size: 16px;
     font-style: italic;
@@ -766,21 +777,21 @@ Features Slider
     font-size: 17px;
     font-weight: 700;
     padding-bottom: 15px;
-    
+
 }
 .padding-text{
     padding-top: 6px;
 }
 
 .span_font {
-  
+
     font-weight: 700;
-    
+
 }
 .span_font a {
-      font-size:  20px ;
-      color:white;
-      font-family: Lucida Calligraphy;
+    font-size:  20px ;
+    color:white;
+    font-family: Lucida Calligraphy;
 }
 .padding-top-desc {
     padding-top: 30px;
@@ -825,44 +836,44 @@ h3.text_pr {
     text-shadow: 5px 5px 5px 5px blue;
 }
 span.text_pr {
-   font-size: 20px;
+    font-size: 20px;
     font-weight: 600;
     color:blue;
     padding-left: 2px;
     text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
     animation: flash 1s ease;
     -webkit-animation: flash 1s ease;
 }
 
 .text_name {
     padding-top: 5px;
-     font-size: 22px;
+    font-size: 22px;
     font-weight: 700;
     color:white;
     padding-left: 2px;
     text-shadow: 0 1px 0 #ccc,
-               0 2px 0 #c9c9c9,
-               0 3px 0 #bbb,
-               0 4px 0 #b9b9b9,
-               0 5px 0 #aaa,
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+        0 2px 0 #c9c9c9,
+        0 3px 0 #bbb,
+        0 4px 0 #b9b9b9,
+        0 5px 0 #aaa,
+        0 6px 1px rgba(0,0,0,.1),
+        0 0 5px rgba(0,0,0,.1),
+        0 1px 3px rgba(0,0,0,.3),
+        0 3px 5px rgba(0,0,0,.2),
+        0 5px 10px rgba(0,0,0,.25),
+        0 10px 10px rgba(0,0,0,.2),
+        0 20px 20px rgba(0,0,0,.15);
     animation: flash 1s ease;
     -webkit-animation: flash 1s ease;
 }
@@ -893,10 +904,10 @@ h3#comparedUser a {
     font-weight: 600;
 }
 .display_inline_block{
-     display: inline-block!important;
+    display: inline-block!important;
 }
 .table-mod tr td , .table-mod tr th{
-   text-align: center;
+    text-align: center;
     color:black;
 }
 .table-mod{
@@ -912,25 +923,25 @@ h3#comparedUser a {
 } 
 .colorBgSm {
     background-color: rgba(52, 82, 113, 0.7);
-    
+
 }
 .hero-height{
     min-height: 400px;
 }
 h1.link_animate_pulse :hover{
     color: white;
-   
+
 }
 
 #comparedUser a {
     line-height: 22px;
     font-size: 20px;
-   
+
 }
 
 
 #comparedUser a:hover {
-   color: rgb(6, 101, 117);
+    color: rgb(6, 101, 117);
 }
 .backgroud_rgba_silver {
     background: rgba(188, 188, 188,0.5);
@@ -941,10 +952,10 @@ h1.link_animate_pulse :hover{
     color:white;
 }
 .bg_blue_rgba {
-       background-color: rgba(63, 97, 132, 0.85)!important;
+    background-color: rgba(63, 97, 132, 0.85)!important;
 }
 .span_bg_blue{
-       background-color: rgba(63, 97, 132, 0.85);
+    background-color: rgba(63, 97, 132, 0.85);
     text-align: center;
     font-size: 15px;
     opacity: 0;
@@ -955,10 +966,10 @@ h1.link_animate_pulse :hover{
     padding: 40% 0;
     width: 100%;
     height: 100%;
-    
+
 }
 .progress_bar_mod {
-        width: 90%;
+    width: 90%;
     height: 90px;
     font-size: 30px;
     padding-top: 15px;
@@ -981,7 +992,7 @@ h1.link_animate_pulse :hover{
     font-size: 9em;
 }
 .btn_search {
-        height: 48px;
+    height: 48px;
     margin-top: -3px;
 }
 span.startComparisonSentence {
@@ -1003,16 +1014,16 @@ span.startComparisonSentence {
     background-color: greenyellow;
     font-size: 25px;
     font-weight: 900;
-   margin-bottom: 20px;
-   border-style: double;
-   border-width: 5px;
+    margin-bottom: 20px;
+    border-style: double;
+    border-width: 5px;
     width: 50%;
 
 }
 
 .border_panel{
-      border-style: solid;
-   border-width: 1px;
+    border-style: solid;
+    border-width: 1px;
 }
 .new-panel .col-md-4, .new-panel .col-md-3  , .new-panel .col-md-6 {
     background-color: white;
@@ -1021,7 +1032,7 @@ span.startComparisonSentence {
     border-color: black;
     padding: 20px 20px 20px 20px;
     text-align: center;
-    
+
 }
 .padding-bottom {
     padding-bottom: 30px;
@@ -1037,8 +1048,8 @@ span.startComparisonSentence {
 .close_position{
     font-size: 30px;
     position: relative;
-   bottom:  100px;
-    
+    bottom:  100px;
+
 }
 #span_show_compare a {
     color:black;
@@ -1055,17 +1066,17 @@ span.startComparisonSentence {
     font: 17px Lucida Calligraphy ;
     font-weight: 600;
     color:black;
-    
+
 }
 .screenshots-new li:hover {
-   background: rgba(255,255,0,0.3);
-   animation: pulse 1s ease-in-out;
-   -webkit-animation: pulse 1s ease-in-out;
+    background: rgba(255,255,0,0.3);
+    animation: pulse 1s ease-in-out;
+    -webkit-animation: pulse 1s ease-in-out;
 }
 .social-network-item a {
     padding-left: 5px;
 }
- 
+
 
 .screenshots-new li {
     float: none!important;
@@ -1097,7 +1108,7 @@ span.startComparisonSentence {
     color:black;
     margin-top: 0px;
     padding-top: 160px;
-    
+
 }
 .padd i {
     padding-right: 5px;
@@ -1124,16 +1135,16 @@ span.startComparisonSentence {
     border-style: solid;
     border-width: 2px;
     border-color: blue;
- width: 200px;
- height: 200px;
- background-size: cover;
- display: block;
- border-top-left-radius: 100px;
- -webkit-border-top-left-radius: 100px;
- -moz-border-top-left-radius: 100px;
- border-bottom-right-radius: 100px;
- -webkit-border-bottom-right-radius: 100px;
- -moz-border-bottom-right-radius: 100px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    display: block;
+    border-top-left-radius: 100px;
+    -webkit-border-top-left-radius: 100px;
+    -moz-border-top-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    -webkit-border-bottom-right-radius: 100px;
+    -moz-border-bottom-right-radius: 100px;
 }
 
 
@@ -1166,7 +1177,7 @@ span.startComparisonSentence {
     width: 90%;
 }
 .img-resizer {
-   height: 200px!important;
+    height: 200px!important;
 }
 .img-resize-sm1{
     width: 45%;
@@ -1383,7 +1394,7 @@ Screenshots
 }
 .resize-big-logo {
     width: 40%!important;
-    
+
 }
 .screenshots figure img {
     width:90%;
@@ -1488,7 +1499,7 @@ footer ul {
 }
 .onHover:hover {
     background-color: black;
-    
+
 }
 
 .project{
@@ -1542,7 +1553,7 @@ footer li {
 }
 footer li a {
     //color: #3f6184
-   font-size: 16px;
+    font-size: 16px;
     color:white;
     font-weight: 700;
 }

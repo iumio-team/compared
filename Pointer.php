@@ -42,7 +42,7 @@ class Pointer {
                 return $_SESSION['twig']->render('viewStartCompared.html.twig', array('phoneList' => $argArray[1]));
                 break;
             case 'viewPhoneList':
-                return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1],'constructor'=>$argArray[2],'countSm'=>$argArray[3]));
+                    return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1],'constructor'=>  $argArray[2],'countSm'=>$argArray[3]));
                 break;
             case 'viewSmSpec':
                 return $_SESSION['twig']->render('viewSmSpec.html.twig', array('sm' => $argArray[1]));

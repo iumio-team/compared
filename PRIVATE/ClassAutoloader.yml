@@ -24,6 +24,8 @@ REGISTER_AUTOLOADER :
     ENTITIES/Usertype.php
     ENTITIES/User.php
     ENTITIES/HelpMessage.php
+    ENTITIES/Score.php
+    ENTITIES/SScore.php
     CONTROLLER/INCLUDES/UtilityFunctions.php
     MAINTENANCE/Router.php
     MAINTENANCE/M_CONTROLLER/INCLUDES/M_UtilityFunctions.php
