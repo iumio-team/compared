@@ -2,7 +2,7 @@
 
 namespace GException;
 use Exception;
-
+error_reporting(0);
 /**
  * This is a could to DATABASE EXCEPTIONS
  * @author RAFINA
@@ -17,7 +17,7 @@ class PDORNException extends Exception{
                 parent::__construct;
 		self::$errorMessage = $errorMessage;
 		
-		echo  $_SESSION['twig']->render('viewError.html.twig',array('error' => $errorMessage));
+		echo  $_SESSION['twig']->render('viewError.html.twig',array('error' => $errorMessage,'type'=>'PDO'));
                 
             } catch (PDOException $exc) {
                 echo $exc->getTraceAsString();

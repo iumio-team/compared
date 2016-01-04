@@ -13,7 +13,7 @@ class Score {
     protected $scoreValue;
     protected $creationDateTime;
     
-    public function __construct(int $idScore,float $scoreValue=NULL, DateTime $creationDateTime=NULL){ 
+    public function __construct(int $idScore,float $scoreValue=NULL, String $creationDateTime=NULL){ 
         $this->idScore = $idScore;
         if($scoreValue !== NULL && $creationDateTime !== NULL){
             $this->scoreValue = $scoreValue;
@@ -22,13 +22,13 @@ class Score {
 
     }
     
-    public function getIdScore(): int {
+    public function getIdScore():int {
         return $this->idScore;
     }
     public function getScoreValue():float {
         return $this->scoreValue;
     }
-    public function getCreationDateTime():DateTime {
+    public function getCreationDateTime():String {
         return $this->creationDateTime;
     }
     
@@ -39,7 +39,7 @@ class Score {
     public function setScoreValue(float $scoreValue):void {
         $this->scoreValue = $scoreValue;
     }
-    public function setCreationDateTime(DateTime $creationDateTime):void {
+    public function setCreationDateTime(String $creationDateTime):void {
         $this->creationDateTime = $creatipnDateTime;
     }
     

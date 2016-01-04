@@ -5,7 +5,7 @@
 }
 @media screen and (max-width:991px){
     .img-logo{
-        width: 60%;
+        width: 146px;
     }
 	.feature-1,.feature-2{margin-bottom:50px;}
 	.device{display:none;}
@@ -83,8 +83,13 @@
 }
 @media screen and (max-width:530px){
     .img-logo{
-        width: 75%;
+        width: 146px;
     }
+}
+
+section
+{
+    border : 1px silver solid;
 }
 @media screen and (max-width:770px){
         .img-resize-sm1{width: 60%!important;}

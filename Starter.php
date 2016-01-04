@@ -1,33 +1,33 @@
 <?php
-
+//echo phpinfo();
 /**
  * This files enables to make verification of app .
  * @since 0.09
  * @author RAFINA DANY <danyrafina@gmail.com>
  * @version 0.30
- * @php_version 7.00 RC4
+ * @php_version 7.00 RTM
  */
 use GException\{LoadingError,EngineComparatorException,PDORNException,MaintenanceException};
 use LayerConnector\MDA;
 
 class Starter {
 
-    public static $isReady = 0;
-    public static $isMaintenance=0;
+    public $isReady = 0;
+    public $isMaintenance = 0;
 
-    public static function switchOnApp() {
-        $a = new Starter();
-        $array = $a->initAutoloader();
-        $a->__autoloader($array);
-        $a->initTwig();
-        $a->isMaintenance();
-        $a->verifyDatabase();
-        $a->initApp();
-        self::isComparatorAvailable();
-        }
+    public function __construct()
+    {
+        $array = $this->initAutoloader();
+        $this->__autoloader($array);
+        $this->initTwig();
+        $this->isMaintenance();
+        $this->verifyDatabase();
+        $this->initApp();
+        $this->isComparatorAvailable();
+    }
     
     
-    public function __autoloader($array) {
+    private function __autoloader($array) {
         include_once 'Autoloader.php';
         foreach ($array as $one) {
             Autoloader::register ($one);
@@ -35,29 +35,28 @@ class Starter {
     }
   
     public function isMaintenance() {
-         $yamlFile = self::getMasterFile();
+         $yamlFile = $this->getMasterFile();
          $isM = $yamlFile['MAINTENANCE'];
          if($isM['MAINTENANCE_MODE'] == "ENABLED"){
-             self::$isReady =0;
-             self::$isMaintenance=1;
+             $this->isReady = 0 ;
+             $this->isMaintenance = 1;
              throw new MaintenanceException("Maintenance de COMPARED");
-           
          }
          else {
-             self::$isReady =1;
-              self::$isMaintenance=0;
+             $this->isReady = 1;
+             $this->isMaintenance = 0;
          }
     }
-    public function initAutoloader(){
+    protected function initAutoloader(){
         try {
-         self::initYamlAutoloader();
+         $this->initYamlAutoloader();
          $array = $_SESSION['AUTOLOADER']['REGISTER_AUTOLOADER'];
-         self::$isReady =1;
+            $this->isReady = 1;
          return  $array;
             
             
         } catch (Exception $exc) {
-            self::$isReady = 0;
+            $this->isReady = 0;
             $error = "Erreur d'execution de l'autoloader ";
             include 'VIEWS/viewError.html.twig';
         }
@@ -65,8 +64,8 @@ class Starter {
        
     }
 
-    public static function isComparatorAvailable() {
-        $yamlFile = self::getMasterFile();
+    public function isComparatorAvailable() {
+        $yamlFile = $this->getMasterFile();
         $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
         $data = array('Action' => 'ISAVAILABLE', 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'appname' => $yamlFile["APP_NAME"]);
         $ch = curl_init($url);
@@ -77,39 +76,31 @@ class Starter {
         $response = curl_exec($ch);
         curl_close($ch);
         $message = json_decode($response);
-        if (is_array($message) && isset($message[0]) && $message[0] == 'ISAVAILABLE' ) {
-            
-            static::$isReady = 1;
-        }
-        else if(self::isComparatorLink() == false){
-            static::$isReady = 1;
-        }
+        if (is_array($message) && isset($message[0]) && $message[0] == 'ISAVAILABLE' )
+            $this->isReady = 1;
+        else if ($this->isComparatorLink() == false)
+            $this->isReady = 1;
         else {
-            static::$isReady = 0;
-                throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $message->code . "]");
+            $this->isReady = 0;
+            throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $message->code . "]");
         }
     }
 
-    public static function isComparatorLink() {
-        $yamlFile = self::getMasterFile();
+    public function isComparatorLink() {
+        $yamlFile = $this->getMasterFile();
         $info = $yamlFile['ENGINE_COMPARATOR']['LINK'];
-        if($info === "NOTATTACHED"){
-            return false;
-        }
-        else {
-            return true;
-        }
+        return ($info === "NOTATTACHED")? false : true;
     }
     
-    static public function getMasterFile() {
+    public function getMasterFile() {
         try {
             return Spyc::YAMLLoad('PRIVATE/AppInfo.yml');
         } catch (Exception $ex) {
             throw new LoadingError('Erreur de chargement du module YAML');
         }
     }
-    public static function linkAppToComparator() {
-        $yamlFile = self::getMasterFile();
+    public function linkAppToComparator() {
+        $yamlFile = $this->getMasterFile();
         $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
         $data = array('Action' => 'linkCToA', 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'appname' => $yamlFile["APP_NAME"]);
         $ch = curl_init($url);
@@ -120,75 +111,68 @@ class Starter {
         $response = curl_exec($ch);
         curl_close($ch);
         $message = json_decode($response);
-        if (is_array($message) && isset($message[0]) && $message[0] == 'ISAVAILABLE') {
-            static::$isReady = 1;
-        } else {
-            static::$isReady = 0;
+        if (is_array($message) && isset($message[0]) && $message[0] == 'ISAVAILABLE')
+            $this->isReady = 1;
+        else {
+            $this->isReady = 0;
             return $message;
         }
     }
 
-    public function verifyDatabase() {
+    private function verifyDatabase() {
         try {
             $result = MDA::checkAdministrator();
-            if ($result) {
-                static::$isReady = 1;
-            } else {
-                new PDORNException("Une erreur a été généré par COMPARED : Vous ne pouvez pas utiliser lapplication COMPARED sans administrateur");
-                static::$isReady = 0;
+            if ($result)
+                $this->isReady = 1;
+            else {
+                new PDORNException("Une erreur a été généré par COMPARED : Vous ne pouvez pas utiliser l'application COMPARED sans administrateur");
+                $this->isReady = 0;
             }
         } catch (Exception $ex) {
             new PDORNException('Une erreur a été généré par COMPARED : Erreur de base de donnée ', NULL, NULL);
-            static::$isReady = 0;
+            $this->isReady = 0;
         }
     }
 
-    public function initApp() {
+    private function initApp() {
         if (file_exists('Pointer.php')) {
-            static::$isReady = 1;
-            if (class_exists('Pointer')) {
-                static::$isReady = 1;
-                
-            } else {
-
-                static::$isReady = 0;
+            $this->isReady = 1;
+            if (class_exists('Pointer'))
+                $this->isReady = 1;
+            else {
+                $this->isReady = 0;
                 $loadingError = "Erreur de chargement du routeur de l'application";
                 throw new LoadingError($loadingError);
             }
-        } else {
+        }
+        else {
 
-            static::$isReady = 0;
+            $this->isReady = 0;
             $loadingError = "Erreur d'importation du routeur de l'application";
-
             throw new LoadingError($loadingError);
         }
     }
 
-    public function initTwig() {
+    protected function initTwig() {
         try {
             Twig_Autoloader::register();
-            $_SESSION['twigLoader'] = new Twig_Loader_Filesystem('VIEWS_DEV');
-
-            $_SESSION['twig'] = new Twig_Environment($_SESSION['twigLoader'], array('cache' => false,'debug'=>true));
-           
-            
-            static::$isReady = 1;
-            
+            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem('VIEWS_DEV'), array('cache' => false,'debug'=>true));
+            $this->isReady = 1;
         } catch (Exception $e) {
-            static::$isReady = 0;
+            $this->isReady = 0;
             $error = "Twig n'est pas disponible";
             include 'VIEWS/viewError.html.twig';
         }
     }
 
     
-     public static function initYamlAutoloader() {
+     protected function initYamlAutoloader() {
         try {
             include('ENGINE_YAML/Spyc.php');
             $_SESSION['AUTOLOADER'] = Spyc::YAMLLoad('PRIVATE/ClassAutoloader.yml');
-            static::$isReady = 1;
+            $this->isReady = 1;
         } catch (Exception $ex) {
-            static::$isReady = 0;
+            $this->isReady = 0;
             $error = "Erreur d'execution du moteur yaml";
             include 'VIEWS/viewError.html.twig';
         }

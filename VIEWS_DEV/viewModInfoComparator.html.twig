@@ -1,16 +1,16 @@
 {% extends "viewTemplateDashboard.html.twig" %}
-{%block title %}COMPARED | Modification des infos sur le comparateur{%endblock%}
-{%block other %}
+{% block title %}COMPARED | Modification des infos sur le comparateur{% endblock %}
+{% block other %}
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1 >
+            <h1>
                 Modification des informations sur le comparateur
 
             </h1>
-                            <h4 class="pulser">{%if success  != NULL %} {{ success}} {%endif%}</h4>
+            <h4 class="pulser">{% if success  != NULL %} {{ success }} {% endif %}</h4>
         </section>
 
         <!-- Main content -->
@@ -19,36 +19,43 @@
             <!-- row -->
             <div class="row">
                 <div class='col-md-12'>
-                    <form class="form-inline md" method="POST" action="Wui.php"  >
+                    <form class="form-inline md" method="POST" action="Wui.php">
 
                         <!-- The time line -->
                         <div class="form-group">
-                            <label for='1'>Nom </label> <input  id="1" class="form-control" type='text' name='name' value='{{comparator_name}}' required="required"/>
+                            <label for='1'>Nom </label> <input id="1" class="form-control" type='text' name='name'
+                                                               value='{{ comparator_name }}' required="required"/>
                         </div>
                         <div class="form-group">
-                            <label for='2'>Version </label> <input id="2" class="form-control" type='text' name='version' value='{{comparator_version}}'/>
+                            <label for='2'>Version </label> <input id="2" class="form-control" type='text'
+                                                                   name='version' value='{{ comparator_version }}'/>
                         </div>
                         <div class="form-group">
-                            <label for='3'>Slogan</label> <input id="3" class="form-control" type='text' name='slogan' value='{{comparator_slogan}}'/>
+                            <label for='3'>Slogan</label> <input id="3" class="form-control" type='text' name='slogan'
+                                                                 value='{{ comparator_slogan }}'/>
                         </div>
                         <div class="form-group">
-                            <label for='4'>Lien</label> 
-                            <input  id="4" class="form-control" type='text' name='link' value='{{comparator_link}}'/>
+                            <label for='4'>Lien</label>
+                            <input id="4" class="form-control" type='text' name='link' value='{{ comparator_link }}'/>
                         </div>
                         <div class="form-group">
-                            <label for='5'>Clé</label> <input id="5" class="form-control" type='text' name='token' value='{{comparator_token}}'/>
+                            <label for='5'>Clé</label> <input id="5" class="form-control" type='text' name='token'
+                                                              value='{{ comparator_token }}'/>
                         </div>
-                     
-                            <input type="hidden" name="run" value="submitFormComparator" />
+
+                        <input type="hidden" name="run" value="submitFormComparator"/>
 
                         <div class="form-group">
                             <button type='submit' class='btn btn-success'>Valider</button>
-                            <button type='button' onClick="location.href = 'Wui.php?run=getInfoComparator&argument=void'" class='btn btn-info'>Annuler</button>
+                            <button type='button'
+                                    onClick="location.href = 'Wui.php?run=getInfoComparator&argument=void'"
+                                    class='btn btn-info'>Annuler
+                            </button>
                         </div>
                     </form>
-                               
+
                 </div>
             </div>
         </section><!-- /.content -->
     </aside><!-- /.right-side -->
-{%endblock%}
+{% endblock %}

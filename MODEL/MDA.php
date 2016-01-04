@@ -1,19 +1,20 @@
 <?php
 
 /**
- * Welcome on COMPARED Modele Database Access FILE
+ * Welcome on COMPARED Model Database Access FILE
  * This file content all quieres required to run COMPARED application
  * This file was created on the 10th of October in 2014
  * @since 0.03
- * @version 0.30
+ * @version 0.60
  * @author RAFINA DANY <danyrafina@gmail.com>
- * @PHPVersion 7.00 RC4
+ * @PHPVersion 7.00 RC5
  */
 
 namespace LayerConnector;
 
 use ConnectorDB\Connector;
 use PDOStatement;
+use DateTime;
 
 class MDA {
     
@@ -23,9 +24,9 @@ class MDA {
      * @param array $sqlArgs Argument to execute query
      * @return PDOStatement The query result
      */
-    static public function customQuery(string $sqlQuery,array $sqlArgs=NULL): PDOStatement {
+    public function customQuery(string $sqlQuery,array $sqlArgs = NULL): PDOStatement {
         $query = $sqlQuery;
-        $prepare = Connector::prepare($query,$sqmArgs);
+        $prepare = Connector::prepare($query,$sqlArgs);
         return $prepare;
     }
     
@@ -34,7 +35,7 @@ class MDA {
      * @param String $arg Argument to search smartphone
      * @return PDOStatement The query result
      */
-    static public function searchSmartphones(string $arg):PDOStatement{
+     public function searchSmartphones(string $arg):PDOStatement{
         $query = "SELECT * FROM Smartphone WHERE constructorS like %?% OR fullNameS like %?% OR codeNameS like %?% ;";
         $prepare = Connector::prepare($query, array($arg,$arg,$arg));
         return $prepare;
@@ -43,7 +44,7 @@ class MDA {
     /** Check if exists administrator in database
      * @return boolean True is if exists administrator
      */
-    static public function checkAdministrator() {
+     public function checkAdministrator(){
         $query = "SELECT * FROM User inner join UserType on User.idUT = UserType.idUT WHERE UserType = 'Administrator' ;";
         $prepare = Connector::prepare($query, array());
         if (empty($prepare))
@@ -51,13 +52,14 @@ class MDA {
         else
             return true;
     }
+    
 
     /** Get one user 
      * @param string $pseudo 
      * @param string $passwd User password
      * @return PDOStatement Query result
      */
-    static public function getOneUser($pseudo, $passwd) {
+     public function getOneUser(string $pseudo, string $passwd):PDOStatement {
         $query = "SELECT * FROM User inner join UserType on User.idUT = UserType.idUT WHERE pseudoU= ? AND passwordU = ?;";
         $prepare = Connector::prepare($query, array($pseudo, $passwd));
         return $prepare;
@@ -70,7 +72,7 @@ class MDA {
      * @param string $idName
      * @return PDOStatement Query result
      */
-    static public function countLine($table, $idName,$argument = NULL) {
+     public function countLine(string $table, string $idName, array $argument = NULL) {
         if($argument == NULL){
             $query = "SELECT count($idName) as count from $table;";
             $prepare = Connector::prepare($query, NULL);
@@ -92,42 +94,9 @@ class MDA {
      * @param string $table Le nom de la table
      * @return PDOStatement $prepare Résultat de la requête
      */
-    static public function findAll($table) {
+     public function findAll(string $table):PDOStatement {
         $query = "SELECT * FROM $table";
         $prepare = Connector::prepare($query, array());
-        return $prepare;
-    }
-
-    /** Requête sans argument avec la clause INNER JOIN
-     * 
-     * @param string Nom de la requête à sélectionner
-     * @return PDOStatement Résultat de la requête
-     */
-    static public function findAllWIJ($argument) {
-
-        $arrayQuery = array(
-            /*  Récupérer l'ensemble des informations des utilisateurs ayant une société */
-            'Client' => "select * from (user_company inner join User on user_company.idU = User.idU )inner join Company on user_company.idC = Company.idC",
-            /* */
-            'Clients' => "SELECT nameP, namingPT, lastnameU, firstnameU, namingUT
-                                        FROM  `Project`
-                                        INNER JOIN ProjectType ON Project.idPT = ProjectType.idPT
-                                        INNER JOIN State ON Project.idS = State.idS
-                                        INNER JOIN user_project ON Project.idP = user_project.idP
-                                        INNER JOIN User ON user_project.idU = User.idU
-                                        INNER JOIN UserType ON User.idUT = UserType.idUT
-                                        WHERE namingUT =  'Client'",
-            /* Récupérer l'ensemble des informations des utilisateurs qui ne sont pas admnistrateur */
-            'Client/Presta' => "select * from User inner join UserType on User.idUT = UserType.idUT where namingUT != 'Administrator' ;",
-            /* Récupérer l'ensemble des informations des utilisateurs comprenant le type de l'utilisateur */
-            'AllUser' => "select * from User inner join UserType on User.idUT = UserType.idUT ;",
-            /* Récupérer l'ensemble des informations des utilisateurs qui sont admnistrateur et effectue un classemet par nom de famille */
-            // REQUETE A REVOIR
-            'searchUser' => "select * from User inner join UserType on User.idUT = UserType.idUT where namingUT='Administrator ORDER lastNameU' ;",
-            /* Récupérer l'ensemble des informations des utilisateurs qui n'ont pas une entreprise mais qui ne sont pas administrateur */
-            'UserNotCompany' => "select * from User where idU NOT IN (select idU from user_company ) and idUT != 1"
-        );
-        $prepare = Connector::prepare($arrayQuery["$argument"], NULL);
         return $prepare;
     }
 
@@ -139,21 +108,20 @@ class MDA {
      * 
      * @return PDOStatement Résultat de la requête
      */
-    static public function findOneById($table, $id, $idName, $argument) {
+     public function findOneById(string $table, string $id, string $idName, string $argument) {
         $query = "SELECT $argument FROM $table WHERE $idName = ?";
         $prepare = Connector::prepare($query, array($id));
         return $prepare;
     }
 
     /** Récupérér une donnée d'une table avec condition
-     * @param string $table Le nom de la table
-     * @param string $conditionValue Valeur de la condition
-     * @param Object $conditionName Nom de la condition
+     * @param string|string $table Le nom de la table
+     * @param string|string $conditionValue Valeur de la condition
+     * @param string|string $conditionName Nom de la condition
      * @param strig $argument Nom de la ou les données à récupérer
-     * 
-     * @return type resultat de la requête
+     * @return PDOStatement resultat de la requête
      */
-    static public function findOne($table, $conditionValue, $conditionName, $argument) {
+     public function findOne(string $table, string $conditionValue, string $conditionName, string $argument):PDOStatement {
         $query = "SELECT $argument FROM $table WHERE $conditionName = ?";
         $prepare = Connector::prepare($query, array($conditionValue));
         return $prepare;
@@ -162,7 +130,7 @@ class MDA {
     /** Récupérer les comparaisons récentes
      * @return Array Les comparaisons récentes
      */
-    static public function findRecentComparison() {
+     public function findRecentComparison() {
         //$count = self::countLine('COMPARED', 'idCOMPARED')->fetch()['count'];
         //$count -= 2;
         $query2 = "SELECT * from COMPARED order by idCOMPARED desc limit 0, 3 ;";
@@ -177,7 +145,7 @@ class MDA {
      * 
      * @return type resultat de la requête
      */
-    static public function findAllById($table, $id, $idName) {
+     public function findAllById($table, $id, $idName) {
         $query = "SELECT * FROM $table WHERE $idName = ?";
         $prepare = Connector::prepare($query, array($id));
         return $prepare;
@@ -190,7 +158,7 @@ class MDA {
      * 
      * @return type Résultat de la requête
      */
-    static public function deleteAllById($table, $id, $idName) {
+     public function deleteAllById($table, $id, $idName) {
         $query = "DELETE FROM $table WHERE $idName = ?";
         $prepare = Connector::prepare($query, array($id));
         return $prepare;
@@ -202,7 +170,7 @@ class MDA {
      * @param string $passwd Mot de passe personnel de l'utilisateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function makeConnection($idP) {
+     public function makeConnection($idP) {
         $result = NULL;
         $query = "SELECT idU,idPersoU,passwordU FROM User WHERE idPersoU= ? ;";
         $prepare = Connector::prepare($query, array($idP));
@@ -219,7 +187,7 @@ class MDA {
      * @param int $id Identifiant de l'utilisateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function getTypeUser($id) {
+     public function getTypeUser($id) {
         $query = "select namingUT from User inner join UserType on User.idUT = UserType.idUT where idU = ? ;";
         $exeQuery = Connector::prepare($query, array($id));
         return $exeQuery;
@@ -230,7 +198,7 @@ class MDA {
      * @param string $userType Type de l'utilisateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function getIdByName($userType) {
+     public function getIdByName($userType) {
         $query = "select idUT from UserType where namingUT = ? ;";
         $exeQuery = Connector::prepare($query, array($userType));
         return $exeQuery;
@@ -241,7 +209,7 @@ class MDA {
      * @param int $id Identifiant de l'administrateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function getUserList($id) {
+     public function getUserList($id) {
         $query = "select * from User inner join UserType on User.idUT = UserType.idUT where idU != ? and namingUT='Administrator' ;";
         $exeQuery = Connector::prepare($query, array($id));
         return $exeQuery;
@@ -259,7 +227,7 @@ class MDA {
      * @param int $idUT Identifying the type of user
      * @return PDOStatement Query result
      */
-    static public function updateUser($id, $pseudo, $firstName, $lastName, $password, $email, $picture, $idUT) {
+     public function updateUser($id, $pseudo, $firstName, $lastName, $password, $email, $picture, $idUT) {
         $query = "UPDATE User SET idUT = ? ,pseudoU= ? ,lastNameU= ?, firstNameU= ?, passwordU= ? , emailU= ?, pictureU WHERE idU = ?;";
         $exeQuery = Connector::prepare($query, array($idUT, $pseudo, $lastName, $firstName, $password, $email, $picture, $id));
         return $exeQuery;
@@ -274,7 +242,7 @@ class MDA {
      * @param Date $date Date of message
      * @return PDOStatement Query result
      */
-    static public function updateHelpMessage($id, $name, $email, $subject, $content,$date) {
+     public function updateHelpMessage($id, $name, $email, $subject, $content,$date) {
         $query = "update HelpMessage name= ?, email=?,subject=?,content=?,date=?  where id = ?;";
         $prepare = Connector::prepare($query, array($name, $email, $subject, $content,$date, $id));
         return $prepare;
@@ -287,7 +255,7 @@ class MDA {
      * @param int $idS2 Smartphone 2
      * @return PDOStatement Query result
      */
-    static public function updateCompared($idCompared, $idS1, $idS2) {
+     public function updateCompared($idCompared, $idS1, $idS2) {
         $query = "UPDATE COMPARED SET idS1 = ? , idS2 = ? WHERE idCOMPARED = ?;";
         $exeQuery = Connector::prepare($query, array($idS1, $idS2, $idCompared));
         return $exeQuery;
@@ -302,7 +270,7 @@ class MDA {
      * @return PDOStatement Result query
 
      */
-    static public function updateOS($id, $name, $version, $constructor, $releaseDate) {
+     public function updateOS($id, $name, $version, $constructor, $releaseDate) {
         $query = "UPDATE COMPARED SET idS1 = ? , idS2 = ? WHERE idCOMPARED = ?;";
         $exeQuery = Connector::prepare($query, array($name, $version, $constructor, $releaseDate, $id));
         return $exeQuery;
@@ -315,7 +283,7 @@ class MDA {
      * @param string $content Content suggestion
      * @return PDOStatement Result query
      */
-    static public function updateAvis($idA, $name, $content) {
+     public function updateAvis($idA, $name, $content) {
         $query = "UPDATE Avis SET nameInter = ? , content = ?  WHERE idA = ?;";
         $exeQuery = Connector::prepare($query, array($name, $content, $idA));
         return $exeQuery;
@@ -326,7 +294,7 @@ class MDA {
      * @param string $userType Type de l'utilisateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function getUserType($userType) {
+     public function getUserType($userType) {
         $query = "select namingUT from UserType where namingUT != ?;";
         $exeQuery = Connector::prepare($query, array($userType));
         return $exeQuery;
@@ -337,7 +305,7 @@ class MDA {
      * @param int $idU Identifiant de l'utilisateur
      * @return PDOStatement Résultat de la requête
      */
-    static public function getUserAndUserType($idU) {
+     public function getUserAndUserType($idU) {
         $query = "SELECT * from User inner join UserType on User.idUT = UserType.idUT where idU != ?";
         $exeQuery = Connector::prepare($query, array($idU));
         return $exeQuery;
@@ -353,19 +321,49 @@ class MDA {
      * @param $versionP version
      * @return PDOStatement Query result
      */
-    static public function insertProcessor($idP, $namingP, $construc, $nbOfCoreP, $frequencyP, $archP, $versionP) {
+     public function insertProcessor($idP, $namingP, $construc, $nbOfCoreP, $frequencyP, $archP, $versionP) {
         $query = "insert into Processor (idProc,nameProc,constructorProc,nbCoreProc,archProc,versionProc,frequencyProc) values ('',?,?,?,?,?,?);";
         $prepare = Connector::prepare($query, array($namingP, $construc, $nbOfCoreP, $frequencyP, $archP, $versionP));
         return $prepare;
     }
 
+    /**
+     * Insert a new Score
+     * @param $scoreValue The Score value
+     * @param $creationDateTime Date and Time of  score creation
+     * @param $foreignKey An Array which contains the foreign key  id label  and his value
+     */
+     public function insertScore(float $scoreValue,  String $creationDateTime,  Array $foreignKey):PDOStatement {
+        $table = NULL;
+        switch ($foreignKey[0]){
+            case "idS":
+                $table = "S_SCORE";
+                break;
+            case "idC":
+                $table = "C_SCORE";
+                break;
+            case "idP":
+                $table = "P_SCORE";
+                break;
+            default :
+                throw new Exception("Mauvais paramètre !", "303", NULL);
+                
+        }
+      
+        $query = "insert into $table value ('',?,?,?) ";
+        $a = fopen("azr.txt", "a+");
+        fwrite($a, $query."\n");
+        $prepare = Connector::prepare($query, array($scoreValue, $creationDateTime, $foreignKey[1]));
+        return $prepare;
+
+    }
     /** Insert a new comparison in database
      * 
      * @param int $idS1 first smartphone id
      * @param int $idS2 second smartphone id
      * @return PDOStatement Query result
      */
-    static public function insertCompared($idS1, $idS2) {
+     public function insertCompared($idS1, $idS2) {
         $query = "insert into COMPARED (idCOMPARED,idS1,idS2) values ('',?,?);";
         $prepare = Connector::prepare($query, array($idS1, $idS2));
         return $prepare;
@@ -380,7 +378,7 @@ class MDA {
      * @param Date $date Date of message 
      * @return PDOStatement Query result
      */
-    static public function insertHelpMessage($name, $email, $subject, $content,$date) {
+     public function insertHelpMessage($name, $email, $subject, $content,$date) {
         $query = "insert into HelpMessage (id,name,email,subject,content,date) values ('',?,?,?,?,?);";
         $prepare = Connector::prepare($query, array($name, $email, $subject, $content,$date));
         return $prepare;
@@ -394,7 +392,7 @@ class MDA {
      * @param date $releaseDate release date of OS
      * @return PDOStatement Query result
      */
-    static public function insertOS($name, $version, $constructor, $releaseDate) {
+     public function insertOS($name, $version, $constructor, $releaseDate) {
         $query = "insert into OS (idOS,nameOS,versionOS,constructorOS,releaseDateOS) values ('',?,?,?,?);";
         $prepare = Connector::prepare($query, array($name, $version, $constructor, $releaseDate));
         return $prepare;
@@ -406,7 +404,7 @@ class MDA {
      * @param string $content content
      * @return PDOStatement Query result
      */
-    static public function insertNotice($name, $content) {
+     public function insertNotice($name, $content) {
         $query = "insert into Notice (idA,nameInter,content) values ('',?,?);";
         $prepare = Connector::prepare($query, array($name, $content));
         return $prepare;
@@ -422,7 +420,7 @@ class MDA {
      * @param $userFunction Function
      * @return PDOStatement Query result
      */
-    static public function insertUser($userLogin, $userPassword, $userFirstName, $userLastname, $userEmail, $userPicture, $userFunction) {
+     public function insertUser($userLogin, $userPassword, $userFirstName, $userLastname, $userEmail, $userPicture, $userFunction) {
         $query = "insert into User values ('',?,?,?,?,?,?,?);";
         $prepare = Connector::prepare($query, array($userLogin, $userPassword, $userFirstName, $userLastname, $userEmail, $userPicture, $userFunction));
         return $prepare;

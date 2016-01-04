@@ -8,7 +8,9 @@
  */
 class Autoloader {
     
-    static function register($class){
+    static function register(string $class):int
+    {
         require_once $class;
+        return (0);
     }
 }

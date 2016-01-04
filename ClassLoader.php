@@ -3,10 +3,11 @@
 
 /** ClassLoader Class
  * @author RAFINA DANY <danyrafina@gmail.com>
+ * @deprecated Use Autoloader instead
  * This class enables to load all files
  */
 
-/*Class ClassLoader {
+Class ClassLoader {
 
 	static private $resultFileLoader = 0;
 
@@ -151,4 +152,4 @@
 
 	}
 
-}*/
+}

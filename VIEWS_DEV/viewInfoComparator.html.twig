@@ -1,13 +1,13 @@
 {% extends "viewTemplateDashboard.html.twig" %}
-{%block title %}COMPARED | Infos sur le comparateur{%endblock%}
-{%block other %}
+{% block title %}COMPARED | Infos sur le comparateur{% endblock %}
+{% block other %}
 
     <!-- Right side column. Contains the navbar and content of the page -->
     <aside class="right-side">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-            Informations sur le comparateur
+                Informations sur le comparateur
 
             </h1>
 
@@ -20,25 +20,31 @@
             <div class="row">
                 <div class="col-md-12">
                     <!-- The time line -->
-                    <h4>Nom : {{comparator_name}} </h4>
-                    <h4>Version {{comparator_version}}</h4>
-                    <h4>Slogan : {{comparator_slogan}}</h4>
+                    <h4>Nom : {{ comparator_name }} </h4>
+                    <h4>Version {{ comparator_version }}</h4>
+                    <h4>Slogan : {{ comparator_slogan }}</h4>
                 </div>
                 <div class="col-md-12">
-                 
-                    <h4>Lien vers le comparateur : <a href="{{comparator_link}}">{{comparator_link}}</a></h4>
-                    <h4>Clé : {{comparator_token}} </h4>
-                    <h4>Status : {{comparator_status}}</h4>
-                
-            </div>    
-                    <div class="col-md-12">
-                        {% if comparator_mod == "ATTACHED" %}
-                            <button id="disableComparator" data="disable" type='button' class='btn btn-danger'>Désactiver</button>
-                            {%else %}
-                                <button id="enableComparator" data="enable" type='button' class='btn btn-success'>Activer</button>
-                                {%endif%}
-                    <button type='button' class='btn btn-info' onClick="location.href='Wui.php?run=getModInfoComparator&argument=void'">Modifier les informations</button>
-                    </div>
-                    </section><!-- /.content -->
+
+                    <h4>Lien vers le comparateur : <a href="{{ comparator_link }}">{{ comparator_link }}</a></h4>
+                    <h4>Clé : {{ comparator_token }} </h4>
+                    <h4>Status : {{ comparator_status }}</h4>
+
+                </div>
+                <div class="col-md-12">
+                    {% if comparator_mod == "ATTACHED" %}
+                        <button id="disableComparator" data="disable" type='button' class='btn btn-danger'>Désactiver
+                        </button>
+                    {% else %}
+                        <button id="enableComparator" data="enable" type='button' class='btn btn-success'>Activer
+                        </button>
+                    {% endif %}
+                    <button type='button' class='btn btn-info'
+                            onClick="location.href='Wui.php?run=getModInfoComparator&argument=void'">Modifier les
+                        informations
+                    </button>
+                </div>
+            </div>
+        </section><!-- /.content -->
     </aside><!-- /.right-side -->
-{%endblock%}
+{% endblock %}

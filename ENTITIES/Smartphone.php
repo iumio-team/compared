@@ -325,7 +325,6 @@ class Smartphone implements Omium {
     public function getItem() {
 
         $item = MDA::findAllById('Smartphone', $this->idSm, 'idS')->fetch();
-
         $codeNameSm = $item['codeNameS'];
         $fullNameSm = $item['fullNameS'];
         $constructor = new Constructor($item['constructorS']);

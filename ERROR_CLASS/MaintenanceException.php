@@ -2,7 +2,7 @@
 
 namespace GException;
 use Exception;
-
+error_reporting(0);
 class MaintenanceException extends Exception {
 
     protected $message;

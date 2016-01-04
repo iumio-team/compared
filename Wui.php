@@ -1,68 +1,65 @@
 <?php
 
+error_reporting(E_ALL & ~E_NOTICE);
 /**
  * Welcome on COMPARED WUI ( Web User Interface) FILE 
  * This file is the same as index.php but it's designed for COMPARED WEB APP 
  * This file was created on the 10th of October in 2014
  */
-session_start();
-if (isset($_REQUEST)) {
-    $request = $_REQUEST;
-}
 
-Wui::main($request);
+session_start();
+$wui = new Wui();
+$wui->main($_REQUEST ?? NULL);
+unset($wui);
 
 /** Class Wui
  * @author RAFINA DANY <danyrafina@gmail.com>
  * @since 0.02 PROTOTYPE
- * @version 0.30 BETA
+ * @version 0.60 BETA
  */
-class Wui {
+class Wui
+{
 
-    static private $request = null;
-    static private $run = null;
+    protected $request = null;
 
-    static public function main($request = null) {;
-        
-        if ($request != null) {
-            Wui::$request = $request;
-        }
+    /** The App main
+     * @param null $request
+     * @throws \GException\RuntimeError
+     */
+    public function main($request = null):void
+    {
+        $this->request = ($request != null) ? $request : null;
         require_once 'Starter.php';
-        Starter::switchOnApp();
-        if (Starter::$isReady == 1) {
-            Wui::startApp();
-        }
-       
+        $starter = new Starter();
+        ($starter->isReady == 1) ? $this->startApp() : NULL;
+        unset($starter);
     }
 
-    static public function startApp() {
-        if (isset(Wui::$request['run']) && isset(Wui::$request['argument'])) {
-            Wui::$run = Wui::$request['run'];
-            $arg = Wui::$request['argument'];
-            Pointer::runnable(Wui::$run, array($arg));
-        } else if (isset(Wui::$request['run']) && isset(Wui::$request['id']) && isset(Wui::$request['password'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-        } else if (isset(Wui::$request['run']) && isset(Wui::$request['sm1']) && isset(Wui::$request['sm2'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-        } else if (isset(Wui::$request['run']) && isset(Wui::$request['name']) && isset(Wui::$request['email']) && isset(Wui::$request['subject']) && isset(Wui::$request['content'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-        } else if (isset(Wui::$request['run']) && isset(Wui::$request['pin'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-        } 
-        else if (isset(Wui::$request['run']) && isset(Wui::$request['pin'])&& isset(Wui::$request['mod'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-            
-        } else if (isset(Wui::$request['run']) && isset(Wui::$request['name']) && isset(Wui::$request['version']) && isset(Wui::$request['slogan']) && isset(Wui::$request['link']) && isset(Wui::$request['token'])) {
-            Wui::$run = Wui::$request['run'];
-            Pointer::runnable(Wui::$run, Wui::$request);
-        } else {
-            Pointer::runnable('getHomePage',NULL);
-        }
+    /** To start app
+     * @throws \GException\RuntimeError
+     */
+    public function startApp():void
+    {
+        isset($this->request['run']) ? $this->checker() : new GException\RuntimeError("Runnable doesn't exist!");
     }
 
+    /** Check arguments
+     * @throws \GException\RuntimeError
+     */
+    private function checker():void
+    {
+        if (isset($this->request['argument']))
+            Pointer::runnable($this->request['run'], array($this->request['argument']));
+        else if ((isset($this->request['id']) && isset($this->request['password'])) ||
+            (isset($this->request['sm1']) && isset($this->request['sm2'])) ||
+            (isset($this->request['name']) && isset($this->request['email']) && isset($this->request['subject']) && isset($this->request['content'])) ||
+            (isset($this->request['pin'])) ||
+            (isset($this->request['pin']) && isset($this->request['mod'])) ||
+            (isset($this->request['name']) && isset($this->request['version']) && isset($this->request['slogan']) && isset($this->request['link']) && isset($this->request['token'])) ||
+            (isset($this->request['score']) && isset($this->request['sm'])))
+            Pointer::runnable($this->request['run'], array($this->request));
+        else
+            throw new GException\RuntimeError("Cette page n'existe pas");
+    }
 }
+session_abort();

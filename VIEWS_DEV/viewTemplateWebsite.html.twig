@@ -1,884 +1,927 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<html class="no-js" lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>{%block title %}COMPARED | Le comparateur de smartphone français {%endblock%}</title>
-        <meta name="description" content="Un comparateur de smarphone français novateur " />
-        <meta name="keywords" content="compared, comparateur de smartphone, moteur de comparaison , smartphone , mobile , téléphonie , téléphone , android , iOS , Windows , comparateur" />
-        <meta name="author" content="RAFINA DANY" />
-        <!-- Bootstrap -->
-        <script src="PUBLIC/js_dev/modernizr.custom.js"></script>
-        <link href="PUBLIC/css_dev/bootstrap.min.css" rel="stylesheet">
-        <link href="PUBLIC/css_dev/jquery.fancybox.css" rel="stylesheet">
-        <link href="PUBLIC/css_dev/flickity.css" rel="stylesheet" >
-        <link href="PUBLIC/css_dev/animate.css" rel="stylesheet">
-        <link href="PUBLIC/css_dev/font-awesome.min.css" rel="stylesheet">
-        <link href='PUBLIC/css_dev/font_g.css' rel='stylesheet' type='text/css'>
-        <link href="PUBLIC/css_dev/styles.css" rel="stylesheet">
-        <link href="PUBLIC/css_dev/queries.css" rel="stylesheet">
-        <link rel="stylesheet" href="PUBLIC/css/circle.css">
-        <link href="PUBLIC/css/silder_nav.css" rel="stylesheet">
-        <meta property="og:title" content=""/>
-        <meta property="og:image" content=""/>
-        <meta property="og:url" content=""/>
-        <meta property="og:site_name" content=""/>
-        <meta property="og:description" content=""/>
-        <meta name="twitter:title" content="" />
-        <meta name="twitter:image" content="" />
-        <meta name="twitter:url" content="" />
-        <meta name="twitter:card" content="" />
-        <script type="text/javascript" src="PUBLIC/JS/jquery.js"></script>
-        <script type="text/javascript" src="PUBLIC/JS/startCompared.js"></script>
-        <script type="text/javascript" src="PUBLIC/JS/ListeEtoile.js"></script>
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
-        <!--[if lt IE 7]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <!-- open/close -->
-        <header>
-           
-            {%block sectionHero %} <section class="hero"> {%endblock%}
-                <div class="texture-overlay "></div>
-                <!-- <video autoplay="autoplay" loop="loop" autobuffer="autobuffer" muted="muted">
-            <source src="PUBLIC/VIDEO/video_hero.mp4" type="video/mp4" />
-            <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf">
-                <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
-                <param name="allowFullScreen" value="true" />
-                <param name="wmode" value="transparent" />
-                <param name="flashVars" value="config={'playlist':['http%3A%2F%2Fsandbox.thewikies.com%2Fvfe-generator%2Fimages%2Fbig-buck-bunny_poster.jpg',{'url':'http%3A%2F%2Fclips.vorwaerts-gmbh.de%2Fbig_buck_bunny.mp4','autoPlay':false}]}" />
-            </object>
-</video>-->
-                <div class="container">
-                    <div class="row nav-wrapper">
-                        <div class="col-md-6 col-sm-6 col-xs-6 text-left">
-                            <a href="Wui.php?run=getHomePage&argument=void"><img class="img-logo" src="PUBLIC/IMAGE/logoCompared4.png" alt="COMPARED Logo"></a>
-                        </div>
-                        <div class="col-md-6 col-sm-6 col-xs-6 text-right navicon">
-                            <p>MENU</p><a id="trigger-overlay" class="nav_slide_button nav-toggle" href="#"><span></span></a>
-                        </div>
-                    </div>
-                    {% block silder %}
-                        <div class="row hero-content ">
-                            <div class="csslider1 autoplay col-md-12 css_silder_mod" >
-                             <input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
-                                    <input name="cs_anchor1" id="cs_pause1" type="radio" class="cs_anchor">
-                                    
-                                    <div class="cs_description text-center center-block ">
-                                        <label class="num0">
-                                            <span class="cs_title"><span class="cs_wrapper">Bienvenue sur COMPARED
-                                                    <br>Commencez à comparer maintenant <i class="fa fa-hand-o-down"></i>
-                                                </span></span>
-                                            <br><span class="cs_descr onHover" onClick="location.href='Wui.php?run=prepareComparison&argument=void'"><span class="cs_wrapper">Comparer !<i class="fa fa-hand-o-left"></i></span></span>
-                                        </label>
-                                        <label class="num1">
-                                            <span class="cs_title"><span class="cs_wrapper">Dernier smartphone ajouté</span></span>
-                                            <br><span class="cs_descr onHover" onClick="location.href='Wui.php?run=getSpec&argument={{lastSm.getIdSm}}'"><span class="cs_wrapper"> {{lastSm.getConstructorSm.getName}} {{lastSm.getFullNameSm}}</span></span>
-                                        </label>
-                                        <label class="num2">
-                                            <span class="cs_title"><span class="cs_wrapper">COMPARED 0.50</span></span>
-                                            <br><span class="cs_descr"><span class="cs_wrapper">Faisant parti du projet Octimum</span></span>
-                                        </label>
-                                        
-                                    </div>
-    
-                                    <div class="cs_arrowprev">
-                                        <label class="num0" for="cs_slide1_0"></label>
-                                        <label class="num1" for="cs_slide1_1"></label>
-                                        <label class="num2" for="cs_slide1_2"></label>
-                                       
-                                    </div>
-                                    <div class="cs_arrownext">
-                                        <label class="num0" for="cs_slide1_0"></label>
-                                        <label class="num1" for="cs_slide1_1"></label>
-                                        <label class="num2" for="cs_slide1_2"></label>
-                                       
-                                    </div>
-    
-                                    <ul>
-                                        <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-                                            <img src="PUBLIC/IMAGE/logoCompared4.png" style="width: 50%;">
-                                        </div>
-                                        <li class="num0 img">
-                                            <img src="PUBLIC/IMAGE/logoCompared4.png" alt="Buns" title="Buns">
-                                        </li>
-                                        <li class="num1 img">
-                                            <img src="PUBLIC/IMAGE/smartphones/{{lastSm.getPictureSm}}.jpg" alt="phSm" title="Smartphpone ">
-                                        </li>
-                                        <li class="num2 img">
-                                            <img src="PUBLIC/IMAGE/logoCompared4.png" alt="Lemon pie" title="Lemon pie">
-                                        </li>
-                                       
-    
-                                    </ul>
-                                </div>
-
-                            <!--<div class="col-md-4 " style="margin-top:80px">
-                                <ul class="list-group list_nav text-center">
-
-                                    <li class="list-group-item"><i class="fa fa-star"></i> Smartphones les mieux notés</li>
-                                    <li class="list-group-item"><i class="fa fa-book"></i> Tutoriels</li>
-                                    <li class="list-group-item"><i class="fa fa-folder"></i>  Dossiers</li>
-                                    <li class="list-group-item"><i class="fa fa-mobile-phone"></i><i class="fa fa-mobile-phone"></i> Comparaisons récentes</li>
-
-                                </ul>
-                            </div>-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<html class="no-js" lang="fr" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}COMPARED | Le comparateur de smartphone français {% endblock %}</title>
+    <meta name="description" content="Un comparateur de smarphone français novateur "/>
+    <meta name="keywords"
+          content="compared, comparateur de smartphone, moteur de comparaison , smartphone , mobile , téléphonie , téléphone , android , iOS , Windows , comparateur"/>
+    <meta name="author" content="RAFINA DANY"/>
+    <!-- Bootstrap -->
+    <script src="PUBLIC/js_dev/modernizr.custom.js"></script>
+    <script src="PUBLIC/JS/modernizr.custom.25376.js"></script>
+    <link href="PUBLIC/css_dev/bootstrap.min.css" rel="stylesheet">
+    <link href="PUBLIC/css_dev/jquery.fancybox.css" rel="stylesheet">
+    <link href="PUBLIC/css_dev/flickity.css" rel="stylesheet">
+    <link href="PUBLIC/css_dev/animate.css" rel="stylesheet">
+    <link href="PUBLIC/css_dev/font-awesome.min.css" rel="stylesheet">
+    <link href='PUBLIC/css_dev/font_g.css' rel='stylesheet' type='text/css'>
+    <link href="PUBLIC/css_dev/styles.css" rel="stylesheet">
+    <link href="PUBLIC/css_dev/queries.css" rel="stylesheet">
+    <link rel="stylesheet" href="PUBLIC/css/circle.css">
+    <link rel="stylesheet" href="PUBLIC/CSS/style_phone.css">
+    <link rel="stylesheet" href="PUBLIC/CSS/style_dev.css">
+    <link href="PUBLIC/CSS/simple-sidebar.css" rel="stylesheet">
 
 
+    <!--<link rel="stylesheet" type="text/css" href="PUBLIC/CSS/normalize_2.css" />
+    <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="PUBLIC/CSS/component.css" />
+    <script src="PUBLIC/JS/modernizr.custom.25376.js"></script>-->
+
+    <meta property="og:title" content=""/>
+    <meta property="og:image" content=""/>
+    <meta property="og:url" content=""/>
+    <meta property="og:site_name" content=""/>
+    <meta property="og:description" content=""/>
+    <meta name="twitter:title" content=""/>
+    <meta name="twitter:image" content=""/>
+    <meta name="twitter:url" content=""/>
+    <meta name="twitter:card" content=""/>
+    <script type="text/javascript" src="PUBLIC/JS/jquery.js"></script>
+    <script type="text/javascript" src="PUBLIC/JS/startCompared.js"></script>
+    <script type="text/javascript" src="PUBLIC/JS/ListeEtoile.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!--<div id="perspective" class="perspective effect-rotateleft">
+    <div class="container remove_pad">
+        <div class="wrapper"><!-- wrapper needed for scroll -->
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- open/close -->
+<!--<header>-->
+<div>
+    <style>
+        .related-posts .largeRelated {
+            float: left;
+            width: 60%;
+            height: 600px
+        }
+
+        .related-posts .largeRelated > div {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            //border: 2px solid #fff
+        }
+
+        .related-posts .largeRelated div h2 {
+            text-align: center;
+            padding: 20px 40px;
+            font-size: 32px;
+            line-height: normal;
+            position: absolute;
+            font-family: 'Roboto Slab', serif;
+            font-weight: 600;
+            bottom: 0;
+            color: #fff
+        }
+
+        .related-posts .smallRelated ,  .related-posts .smallRelated_mod {
+            float: left;
+            width: 40%;
+            height: 300px
+        }
+
+        .related-posts .smallRelated_best > div {
+            height: 100%!important;
+        }
+
+        .related-posts .smallRelated > div, .related-posts .smallRelated_mod > div {
+            height: 50%;
+            width: 50%;
+            float: left;
+            background-size: cover;
+        //border: 2px solid #fff
+        }
+
+        .related-posts .largeRelated div a, .related-posts .smallRelated div a , .related-posts .smallRelated_mod div a {
+            background-color: rgba(34, 34, 34, .5);
+            height: 100%;
+            position: relative;
+            display: block;
+        }
+
+        .related-posts .largeRelated div a:hover, .related-posts .smallRelated div a:hover, .related-posts .smallRelated_mod div a:hover {
+            background-color: rgba(39, 150, 178, .9)
+        }
+
+        .related-posts .smallRelated div h3, .related-posts .smallRelated_mod div h3 {
+            padding: 10px 10px;
+            line-height: normal;
+            position: absolute;
+            bottom: 0;
+            color: #fff;
+            font-weight: 700;
+            font-family: 'Roboto Slab', serif;
+            font-size: 14px
+        }
+
+        .single .related-posts .post-title a {
+            font-size: 14px;
+            font-weight: 400
+        }
+
+        .single .related-posts .post-title {
+            margin-bottom: 0px
+        }
+
+        @media only screen and (max-width: 767px) {
+            .related-posts .largeRelated, .related-posts .smallRelated, .related-posts .smallRelated_mod {
+                float: none;
+                width: 100%
+            }
+
+            .related-posts .largeRelated div h2 {
+                font-size: 22px
+            }
 
 
-                            <!--<div class="col-md-4  col-sm-4 text-center bgBlackMediumOpacity">
-                                <h1 class="animated fadeInDown" style="padding-bottom: 0px;margin: 90px 0 0px 0;font-family: Lucida Handwriting;">COMPARED </h1>
-                                <h2 class="animated fadeInDownBig">Commencez à comparer maintenant <i class="fa fa-hand-o-down"></i></h2>
-                                <a href="Wui.php?run=prepareComparison&argument=void" class="btn btn-success btn-lg animated fadeInUp">Comparer !<i class="fa fa-hand-o-left"></i></a> 
-                            </div>-->
+        }
 
-                            <!--<div class="col-md-12 col-sm-12">
-                                <div class="csslider1 autoplay">
-                                    <input name="cs_anchor1" id="cs_slide1_0" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_slide1_1" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_slide1_2" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_slide1_3" type="radio" class="cs_anchor slide">
-                                    <input name="cs_anchor1" id="cs_play1" type="radio" class="cs_anchor" checked="">
-                                    <input name="cs_anchor1" id="cs_pause1" type="radio" class="cs_anchor">
-                                    <ul>
-                                        <div style="width: 100%; visibility: hidden; font-size: 0px; line-height: 0;">
-                                            <img src="PUBLIC/IMAGE/landscape.jpg" style="width: 100%;">
-                                        </div>
-                                        <li class="num0 img">
-                                            <img src="PUBLIC/IMAGE/landscape.jpg" alt="Buns" title="Buns">
-                                        </li>
-                                        <li class="num1 img">
-                                            <img src="PUBLIC/IMAGE/landscape1.jpg" alt="Croissant" title="Croissant">
-                                        </li>
-                                        <li class="num2 img">
-                                            <img src="PUBLIC/IMAGE/landscape.jpg" alt="Lemon pie" title="Lemon pie">
-                                        </li>
-                                        <li class="num3 img">
-                                            <img src="http://91.68.209.12/bmi/cssslider.com/sliders/demo-2/data1/images/teaandcake.jpg" alt="Breakfast" title="Breakfast">
-                                        </li>
-    
-                                    </ul>
-                                    <div class="cs_description">
-                                        <label class="num0">
-                                            <span class="cs_title"><span class="cs_wrapper">Buns</span></span>
-                                            <br><span class="cs_descr"><span class="cs_wrapper">Curd buns</span></span>
-                                        </label>
-                                        <label class="num1">
-                                            <span class="cs_title"><span class="cs_wrapper">Croissant</span></span>
-                                            <br><span class="cs_descr"><span class="cs_wrapper">Chocolate croissant</span></span>
-                                        </label>
-                                        <label class="num2">
-                                            <span class="cs_title"><span class="cs_wrapper">Lemon pie</span></span>
-                                            <br><span class="cs_descr"><span class="cs_wrapper">Two pieces of lemon pie</span></span>
-                                        </label>
-                                        <label class="num3">
-                                            <span class="cs_title"><span class="cs_wrapper">Breakfast</span></span>
-                                            <br><span class="cs_descr"><span class="cs_wrapper">Chocolate croissant</span></span>
-                                        </label>
-                                    </div>
-    
-                                    <div class="cs_arrowprev">
-                                        <label class="num0" for="cs_slide1_0"></label>
-                                        <label class="num1" for="cs_slide1_1"></label>
-                                        <label class="num2" for="cs_slide1_2"></label>
-                                        <label class="num3" for="cs_slide1_3"></label>
-                                    </div>
-                                    <div class="cs_arrownext">
-                                        <label class="num0" for="cs_slide1_0"></label>
-                                        <label class="num1" for="cs_slide1_1"></label>
-                                        <label class="num2" for="cs_slide1_2"></label>
-                                        <label class="num3" for="cs_slide1_3"></label>
-                                    </div>
-    
-                                    <div class="cs_bullets">
-                                        <label class="num0" for="cs_slide1_0">
-                                            <span class="cs_point"></span>
-                                            <span class="cs_thumb"><img src="http://91.68.209.8/bmi/cssslider.com/sliders/demo-2/data1/tooltips/buns.jpg" alt="Buns" title="Buns"></span>
-                                        </label>
-                                        <label class="num1" for="cs_slide1_1">
-                                            <span class="cs_point"></span>
-                                            <span class="cs_thumb"><img src="http://91.68.209.9/bmi/cssslider.com/sliders/demo-2/data1/tooltips/croissant.jpg" alt="Croissant" title="Croissant"></span>
-                                        </label>
-                                        <label class="num2" for="cs_slide1_2">
-                                            <span class="cs_point"></span>
-                                            <span class="cs_thumb"><img src="http://91.68.209.11/bmi/cssslider.com/sliders/demo-2/data1/tooltips/lemonpie.jpg" alt="Lemon pie" title="Lemon pie"></span>
-                                        </label>
-                                        <label class="num3" for="cs_slide1_3">
-                                            <span class="cs_point"></span>
-                                            <span class="cs_thumb"><img src="http://91.68.209.11/bmi/cssslider.com/sliders/demo-2/data1/tooltips/teaandcake.jpg" alt="Breakfast" title="Breakfast"></span>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>-->
+        @media only screen and (min-width: 720px) and (max-width: 943px) {
+            .related-posts .largeRelated, .related-posts .smallRelated .related-posts .smallRelated_mod{
+                float: none;
+                width: 100%
+            }
 
-                        </div>
-                    {%endblock%}
-                </div>
-            </section>
-        </header>
-        {% block content %}
-            <section class="video" id="about">
-                <div class="container">
+        }
 
-                    <div class="row  ">
-                        <div class="col-md-6 project animated fadeInUp">
-                            <h3 style="display: inline" id="counter">0</h3> <i class="fa fa-check-circle resize-fa"></i>
-                            <h4>Comparaisons effectuées </h4>
-                            <p>Vous êtes nombreux à faire des comparaisons </p>
-                        </div>
-                        <div class="col-md-6 project animated fadeInUp">
-                            <h3 style="display: inline" id="counter1">0</h3> <i class="fa fa-check-circle resize-fa"></i>
-                            <h4>Smartphones enregistrés</h4>
-                            <p> Ce nombre ne cesse d'augmenter. Nous espérons atteindre les 500 smartphones </p>
-                        </div>
+    </style>
+
+    {% block sectionHero %}
+    <section class="hero" style="padding-top: 51px;padding-bottom: 0;">
+        <nav class="navbar navbar-default nav-justified navbar-fixed-top" style="border-radius:0;margin: 0">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="navbar-brand">
+
+                        <a href="Wui.php?run=getHomePage&argument=void">
+                            <img id="logo-compa" class="front face img-logo" src="PUBLIC/IMAGE/logoCompared4.png" alt="COMPARED Logo">
+                        </a>
 
                     </div>
-                </div>
-                <!--<div class="container">
-                    
-                        <div class="row">
-                                <div class="col-md-12 text-center">
-                                        <h1><a href="http://www.youtube.com/embed/9No-FiEInLA?autoplay=1&wmode=opaque&fs=1" class="youtube-media"><i class="fa fa-play-circle-o"></i> Watch the Video</a></h1>
-                                </div>
-                        </div>
-                </div>-->
-            </section>
-            <section class="features-intro">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-4 nopadding ">
-                            <div class="features-bg no-background ">
-                                <div class="texture-overlay texture-overlay-md"></div>
-                                <div class="features-img wp1">
+                    <ul class="nav navbar-nav pull-right nav-md">
+                        <li>
+                            <a class="cd-nav-trigger"  style="width: 150px;" href="#menu-toggle" id="menu">
+<span></span>
+<em class="em_menu">MENU</em></a>
 
-
-                                    <h2 class=" text-animated-text">Votre dernière comparaison  <i class="fa fa-user"></i></h2>
-                                    <h3 id="comparedUser" style="padding: 0px 20px 0px 20px;"></h3>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-8 col-xs-12 nopadding container">
-
-                            <div class="features-slider  features-slider-md white_color" style="padding: 0% 30px 10% 30px;">
-
-
-                                <!-- Indicators -->
-                                <!-- <ol class="carousel-indicators carousel-modified"> 
-                                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                     <li data-target="#myCarousel" data-slide-to="1" ></li>
-                                     <li data-target="#myCarousel" data-slide-to="2"></li>
-                                 </ol>
-                                <!-- Wrapper for slides -->
-                                <!--<div class="carousel-inner " role="listbox">
-
-                                {% set count = 0 %}
-                                {% for oneC in recentC %}
-                                    {% if count == 0 %}
-                                        {% set count = count + 1 %}
-                                        <div class="row news  changer center-block item  active compare_item " >
-
-                                    {%else %}
-                                        {% set count = count + 1 %}
-                                        <div class="row news changer center-block item  compare_item ">     
-                                    {%endif%}  
-
-                                    <div class="col-md-5 col-xs-5 text-center to-comparator  " style=""  >
-                                        <h2 class="silder-text">{{ oneC['sm1']['fullName']}}</h2>
-
-
-                                        <img class="img-responsive picsGall img-resize-2  center-block img-smartphone" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm1']['picture']}}.jpg"/>
-
-                                    </div>
-
-                                    <h1 class="col-md-2 col-xs-2 text-vs text-center"><i class="fa fa-hand-o-left"></i> vs <i class="fa fa-hand-o-right"></i></h1>
-                                    <div class="col-md-5 col-xs-5 text-center to-comparator " style=""  >
-                                        <h2 class="silder-text">{{ oneC['sm2']['fullName']}}</h2>
-
-
-                                        <img class="img-responsive picsGall  img-resize-2 center-block img-smartphone" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm2']['picture'] }}.jpg"/>
-
-                                    </div>
-
-                                    <span id="span_show_compare" class="span_bg_blue span_font" style="padding:15% 0;">
-
-                                        <i class="fa fa-hand-o-right"></i>
-                                        <a href="Wui.php?run=compared&sm1={{oneC['sm1']['id']}}&sm2={{oneC['sm2']['id']}}">Effectuer cette comparaison</a>
-                                        <i class="fa fa-hand-o-left"></i>   
-                                        <br>
-                                        <a class="close_list" href="#"><i class="fa fa-close"></i> Fermer</a>
-                                    </span>
-
-                                </div>
-
-                                {%endfor%}
-
-
-                            </div>-->
-                                <div class="col-md-12 text-center lucidaFont " style="padding-top: 20px;padding-bottom: 20px;">
-                                    <h1 class="padding-text"> <i class="fa fa-group"></i> Vos comparaisons récentes</h1>
-                                    <p class="font-resize ">Découvrez les 3 dernières comparaisons du site  <i class="fa fa-smile"></i></p>
-                                </div>
-                                <ul class="text-center  padding-li list-modified" >
-
-                                    {% set count = 0 %}
-                                    {% set number = 1 %}
-                                    {% for oneC in recentC %}
-
-                                        <li onClick="location.href = 'Wui.php?run=compared&sm1={{oneC['sm1']['id']}}&sm2={{oneC['sm2']['id']}}'" > <h2 class="silder-text display_inline">{{number}}. {{ oneC['sm1']['fullName']}}</h2>
-                                            {% set number = number + 1 %}
-                                          
-
-
-                                                   <!-- <img class="img-responsive picsGall img-resize-2  center-block img-smartphone" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm1']['picture']}}.jpg"/>-->
-
-
-
-                                            <h1 class="display_inline"><i class="fa fa-hand-o-left"></i> vs <i class="fa fa-hand-o-right"></i></h1>
-
-                                            <h2 class="silder-text display_inline">{{ oneC['sm2']['fullName']}}</h2>
-
-
-                                                    <!--<img class="img-responsive picsGall  img-resize-2 center-block img-smartphone" src="PUBLIC/IMAGE/smartphones/{{ oneC['sm2']['picture'] }}.jpg"/>
-
-                                                </div>-->
-
-                                            <!--<span id="span_show_compare" class="span_bg_blue span_font" style="padding:15% 0;">
-
-                                                <i class="fa fa-hand-o-right"></i>
-                                                <a href="Wui.php?run=compared&sm1={{oneC['sm1']['id']}}&sm2={{oneC['sm2']['id']}}">Effectuer cette comparaison</a>
-                                                <i class="fa fa-hand-o-left"></i>   
-                                                <br>
-                                                <a class="close_list" href="#"><i class="fa fa-close"></i> Fermer</a>
-                                            </span>
-
-                                        </div>-->
-
-                                        {%endfor%}
-                                </ul>
-
-
-                            </div>
-
-
-
-                        </div>
+                        </li>
+                    </ul>
                     </div>
 
 
                 </div>
 
+        </nav>
+        <div class="sidebar_compared" id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand white-sep">
+                    <a href="#" class="text-center">
+                        <span class="border-white">Menu</span>
+                        <span class="border-white-nbg">Actualités</span>
+                    </a>
+                </li>
+                <li class="date">
+                    <p class="new_p">{{ day }}</p>
+                   <p class="new_p md_p">{{ date_t }}</p>
+                </li>
+                <li >
+                    <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-home fa-2x"></i> <span class="new_font">Faire une comparaison</span></a>
+                </li>
+                <li>
+                    <a  class="is_menu" href="#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span class="new_font">Constructeurs</span></a>
+                </li>
+                <li>
+                    <a  class="is_menu" href="#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
+                </li>
+                <li>
+                    <a  class="is_menu" href="#articles"><i class="fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
+                </li>
+                <li>
+                    <a  class="is_menu" class="callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span class="new_font">Contact</span></a>
+                </li>
+            </ul>
+        </div>
 
-            </section>
-            <section class="features-list" id="features" style="padding-top:20px;">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center lucidaFont " style="padding-top:20px;padding-bottom: 20px;">
-                            <h1 class="padding-text"> <i class="fa fa-space-shuttle"></i> Best smartphones</h1>
-                            <p class="font-resize ">Découvrez les 3 smartphones les mieux notés sur le site <i class="fa fa-smile-o"></i></p>
-                        </div>
-
-                        <div class="col-md-12">
-
-                            <div class="col-md-4 feature-2 wp2 delay-05s">
-                                <div class="feature-icon feature-icon-modified">
-                                    <img class="img-responsive center-block " src="PUBLIC/IMAGE/smartphones/sonyxperiaz3.jpg"/>
-                                </div>
-                                <div class="feature-content backgroud_rgba_silver text-center">
-                                    <h1>Sony</h1>
-                                    <h3>Xperia Z3</h3>
-                                    <a href="#" class="read-more-btn">Fiche technique <i class="fa fa-chevron-circle-right"></i></a>
-                                    <a href="#" class="read-more-btn">Comparer le !<i class="fa fa-chevron-circle-right"></i></a>
-                                    <h2 >Note : 4.5</h2>
-                                </div>
-                            </div>
-                            <div class="col-md-4 feature-2 wp2 delay-05s">
-                                <div class="feature-icon feature-icon-modified">
-                                    <img class="img-responsive center-block " src="PUBLIC/IMAGE/smartphones/sonyxperiaz3.jpg"/>
-                                </div>
-                                <div class="feature-content backgroud_rgba_silver text-center">
-                                    <h1>Sony</h1>
-                                    <h3>Xperia Z3</h3>
-                                    <a href="#" class="read-more-btn">Fiche technique <i class="fa fa-chevron-circle-right"></i></a>
-                                    <a href="#" class="read-more-btn">Comparer le !<i class="fa fa-chevron-circle-right"></i></a>
-                                    <h2 >Note : 4.5</h2>
-                                </div>
-                            </div>
-                            <div class="col-md-4 feature-2 wp2 delay-05s">
-                                <div class="feature-icon feature-icon-modified">
-                                    <img class="img-responsive center-block " src="PUBLIC/IMAGE/smartphones/sonyxperiaz3.jpg"/>
-                                </div>
-                                <div class="feature-content backgroud_rgba_silver text-center">
-                                    <h1>Sony</h1>
-                                    <h3>Xperia Z3</h3>
-                                    <a href="#" class="read-more-btn">Fiche technique <i class="fa fa-chevron-circle-right"></i></a>
-                                    <a href="#" class="read-more-btn">Comparer le !<i class="fa fa-chevron-circle-right"></i></a>
-                                    <h2 >Note : 4.5</h2>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section id="articles" class="showcase" >
-                <div class="showcase-wrap" style="padding:30px 0 ;" >
-                    <div class="texture-overlay"></div>
-                    <div class="container">
-                        <div class="row news">
-                            <div class="col-md-12 text-center lucidaFont ">
-                                <h1 class="padding-text"> <i class="fa fa-space-shuttle"></i> Découvrez notre blog</h1>
-                                <p class="font-resize ">Articles , Dossiers , Tutoriels , chez COMPARED , vous &ecirc;tes informés constament <i class="fa fa-smile-o"></i></p>
-                            </div>
-                            <hr class="hr">
-                            <div class="col-md-4  text-center blog grid">
-                                <div class="center-block text-center" style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);"><div ><i class="fa fa-calendar"></i> 8/09/2014</div><div  style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div></div>
-
-                                <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
-
-                                <div class="center-block text-center" style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du créateur d'Octimum</div>
-                                <span id="span_show" class="span_bg_blue span_font ">
-                                    <i class="fa fa-book"></i>
-                                    <a href="#">Lire d'avantage ...</a>
-                                </span>
-                            </div>
-
-                            <div class="col-md-4  text-center blog grid">
-                                <div class="center-block text-center" style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);"><div ><i class="fa fa-calendar"></i> 8/09/2014</div><div  style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div></div>
-
-                                <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
-
-                                <div class="center-block text-center" style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du créateur d'Octimum</div>
-                                <span id="span_show" class="span_bg_blue span_font ">
-                                    <i class="fa fa-book"></i>
-                                    <a href="#">Lire d'avantage ...</a>
-                                </span>
-                            </div>
-
-                            <div class="col-md-4  text-center blog grid">
-                                <div class="center-block text-center" style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);"><div ><i class="fa fa-calendar"></i> 8/09/2014</div><div  style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div></div>
-
-                                <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
-
-                                <div class="center-block text-center" style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du créateur d'Octimum</div>
-                                <span id="span_show" class="span_bg_blue span_font ">
-                                    <i class="fa fa-book"></i>
-                                    <a href="#">Lire d'avantage ...</a>
-                                </span>
-                            </div>
-
-                        </div>
-                        <hr class="hr">
-                        <div class="col-md-12 text-center lucidaFont ">
-                            <h1 class="padding-text link_animate_pulse">  <a class="" href="#"> Voir l'ensemble des articles <i class="fa fa-hand-o-left"></i> </a> </h1>
-                        </div>
-                    </div>   
-
-                </div>
-
-            </section>
-
-            <section class="screenshots" id="manufacturer">
-                <div class="container-fluid">
-                    <div class="row">
-
-                        <div class="col-md-12 text-center lucidaFont ">
-                            <h1 class="padding-text"> <i class="fa fa-space-shuttle"></i> Vous cherchez une marque particulière ?</h1>
-                            <p class="font-resize ">Voici les différentes marques de smartphones qui sont dans notre comparateur  <i class="fa fa-search"></i></p>
-                        </div>
-                        <hr class="hr">
-                        <ul class="grid">
-                            <li>
-                                <figure class="text-center">
-                                    <img src="PUBLIC/IMAGE/constructor/htc.png" alt="HTC">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="PUBLIC/img_dev/large/01.jpg" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>HTC</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img class="small-constructor-samsung" src="PUBLIC/IMAGE/constructor/samsung.png" alt="Samsung">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="Wui.php?run=phoneList&argument=Samsung" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Samsung</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img class="small-constructor" src="PUBLIC/IMAGE/constructor/sony.png" alt="Sony">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="Wui.php?run=phoneList&argument=sony" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>SONY</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img  class="small-constructor" src="PUBLIC/IMAGE/constructor/meizu.png" alt="Meizu">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="Wui.php?run=phoneList&argument=meizu" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Meizu</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="row padding-element">
-                        <ul class="grid">
-                            <li>
-                                <figure class="text-center">
-                                    <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/apple.png" alt="Screenshot 01">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="Wui.php?run=phoneList&argument=apple" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Apple</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img class="small-constructor" src="PUBLIC/IMAGE/constructor/microsoft.png" alt="Screenshot 01">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="PUBLIC/img_dev/large/06.jpg" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Microsoft</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/xiaomi.png" alt="Screenshot 01">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="PUBLIC/img_dev/large/07.jpg" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Xiaomi</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                            <li>
-                                <figure class="text-center">
-                                    <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/motorola.png" alt="Screenshot 01">
-                                    <figcaption>
-                                        <div class="caption-content">
-                                            <a href="PUBLIC/img_dev/large/08.jpg" class="single_image">
-                                                <i class="fa fa-search"></i><br>
-                                                <p>Motorola</p>
-                                            </a>
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        {%endblock%}
-        {% block contact %}
-            <section class="showcase" id="contact">
-                <h2 class='text-center contact paddingContact'><p>Une question ? Un problème ?  <i class="fa fa-warning"></i><p>
-                    <p class="font-resize"> Remplisez les champs ci-dessous et nous vous recontactons dans les brefs délais <i class="fa fa-clock-o"></i> </p>
-                </h2>
-                <hr class="hr">
-                <div class="showcase-wrap container animated fadeInDown" style='padding: 20px 0 0px 0;min-height: 310px'>
-                    <div class="row-widget">
-                        <div class="col-md-3 col-xs-12 cont" >
-                            <ul class="list-group">
-                                <li class="list-group-item text-center">Informations</li>
-                                <li class="list-group-item padd responsive-text"><a href="#"><i class="fa fa-envelope"></i>contact.octimum.com</a></li>
-
-                                <li class="list-group-item padd "><a href="https://www.facebook.com/comparedsm?ref=hl"><i class="fa fa-facebook-square"></i>Facebook</li></a>
-
-                                <li class="list-group-item padd"><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g"><i class="fa fa-google-plus-square"></i>Google Plus</li></a>
-                            </ul>
-                        </div>
-
-                        <div class="col-md-9 col-xs-12 forma">
-                            <form id="form_help" class="form-group-lg form-modified" method="POST" action="Wui.php">
-                                <input type="text" class="col-md-6 col-xs-12 name form-control" name='name' placeholder='Nom *' required="required" />
-                                <input type="email" class="col-md-6 col-xs-12 email form-control" name='email' placeholder='Email *' required="required" />
-                                <input type="text" class="col-md-12 col-xs-12 subject form-control" name='subject' placeholder='Objet du message *' required="required" />
-                                <textarea type="text" class="col-md-12 col-xs-12 content form-control" name='content' placeholder='Message *' required="required" ></textarea>
-                                <div class="cBtn col-xs-12 text-center">
-                                    <button type="submit" class="btn btn-success send">Envoyer</button>
-                                    <button type="reset" class="btn btn-danger clear">Remise à zéro </button>
-                                </div>
-                            </form>
-                            <span class="animated fadeInDownBig response" id="good"></span>
-                        </div>
-
-                    </div>
-
-            </section>
-        {%endblock%}
-        {%block follow %}
-            <section class="screenshots" id="follow">
-
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-12 text-center lucidaFont ">
-                            <h1 class="padding-text"> <i class="fa fa-space-shuttle"></i> Suivez-nous</h1>
-                            <p class="font-resize">Et oui , nous sommes sur les réseaux sociaux . Alors venez-nous soutenir :-)</p>
-                        </div>
-                        <hr class="hr">
-                        <div class=" col-md-12  " style="padding-bottom: 45px;">
-                            <ul class="list-unstyled list-group text-center screenshots-new" >
-                                <li class=" col-md-6 list-group-item social-network-item"><i class="fa fa-facebook-square"></i>  <a href="https://www.facebook.com/comparedsm?ref=hl">Facebook</a></li>
-
-
-                                <li class="col-md-6 list-group-item social-network-item"><i class="fa fa-google-plus-square"></i><a href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g">Google+</a></li>
-
-
-                            </ul>
-                        </div>
-
-                    </div>
-                </div>
-
-            </section>
-        {%endblock%}
-        <footer class="blackColor">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-5">
-                        <div class="footer-logo">
-                            <img  class="img-logo" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="COMPARED LOGO" onClick="location.href='Wui.php?run=getHomePage&argument=void'">
-                            <span class="copyright">© COMPARED 2015 </span>
-                        </div>
-
-                    </div>
-                    <div class="col-md-7">
-                        <ul class="footer-nav">
-                            {% block menuB %}
-                                <li class="active"><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
-                                <li><a href="#manufacturer">Les constructeurs</a></li>
-                                <li><a href="#articles">Articles</a></li>
-                                <li ><a href="#contact">Contact</a></li>
-                                <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
-                                {%endblock%}
-                        </ul>
-                    </div>
+        {% endblock %}
+        <ul class="related-posts group" style="margin: 0">
+            <div class="largeRelated">
+                <div style="background-image:url(PUBLIC/IMAGE/landscape2.jpg)">
+                    <a href="http://www.webdesignermag.co.uk/site-of-the-week-kikk/"><h2>COMPARED <span class="font-resize"><em><< un nouveau comparateur de smartphone français. >></em></span></h2></a>
                 </div>
             </div>
-        </footer>
-        <div class="overlay overlay-boxify" style="z-index: 3">
-            <nav>
-                {%block menu %}
-                    <ul>
-                        <li ><a href="Wui.php?run=prepareComparison&argument=void"><div class="divFaCompare"><i class="fa fa-mobile-phone faCompare" style="padding-left: 0px;"></i><i class="fa fa-mobile-phone faCompare"></i></div><span>Faire une comparaison</span></a></li>
-                    <ul>
-                        <li><a href="#manufacturer"><i class="fa fa-mobile"></i>Les constructeurs</a></li>
-                        <li><a href="#articles"><i class="fa fa-newspaper-o"></i>Articles</a></li>
-                    </ul>
-                    <ul>
-                        <li><a href="#contact"><i class="fa fa-wrench"></i>Contact</a></li>
+            <div class="smallRelated">
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/09/xJamesDeeley.png.pagespeed.ic.4g7xeLzhaZ.webp)">
+                    <a href="http://www.webdesignermag.co.uk/james-deeley-context-is-king/"><h3>JAMES DEELEY: Context is
+                            King</h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/01/xScreen-shot-2015-01-12-at-14.36.571.png.pagespeed.ic.e5IsyuWVn6.png)">
+                    <a href="http://www.webdesignermag.co.uk/5-html5-template-providers-that-ever-designer-needs-to-know/">
+                        <h3>5 HTML5 template providers that ever designer needs to know</h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/02/xScreen-shot-2015-02-16-at-09.31.25.png.pagespeed.ic.qhz30B6ftr.png)">
+                    <a href="http://www.webdesignermag.co.uk/site-of-the-week-fieldwork/"><h3>Site of the week:
+                            Fieldwork</h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/04/xRayKing.png.pagespeed.ic.0-G0eZuTgi.webp)">
+                    <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Designing a new domain</h3></a>
+                </div>
+            </div>
+            <div class="smallRelated_mod ">
+                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ lastSm.getPictureSm }}.jpg)"
+                     alt="phSm" title="Smartphpone ">
+                    <a href="Wui.php?run=getSpec&argument={{ lastSm.getIdSm }}">
+                        <h3>{{ lastSm.getConstructorSm.getName }} {{ lastSm.getFullNameSm }}
+                        </h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/01/xScreen-shot-2015-01-12-at-14.36.571.png.pagespeed.ic.e5IsyuWVn6.png)">
+                    <a href="http://www.webdesignermag.co.uk/5-html5-template-providers-that-ever-designer-needs-to-know/">
+                        <h3>5 HTML5 template providers that ever designer needs to know</h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/02/xScreen-shot-2015-02-16-at-09.31.25.png.pagespeed.ic.qhz30B6ftr.png)">
+                    <a href="http://www.webdesignermag.co.uk/site-of-the-week-fieldwork/"><h3>Site of the week:
+                            Fieldwork</h3></a></div>
+                <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/04/xRayKing.png.pagespeed.ic.0-G0eZuTgi.webp)">
+                    <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Designing a new domain</h3></a>
+                </div>
+            </div>
 
-                    </ul>
-                {%endblock%}
-                <div class="footer-nav font-resize white_font">&copy; 2015 COMPARED Website  </div>
-            </nav>
+
+
+        </ul>
+
+
+                    {% block menu %}
+                    {% endblock %}
+
+            {% block silder %}
+        {% endblock %}
+    </section>
+</header>
+{% block content %}
+    <section class="video" id="about" style="border-top: 1px black solid">
+        <div class="container">
+
+            <div class="row  ">
+                <div class="col-md-6 project animated fadeInUp">
+                    <h3 style="display: inline" id="counter">0</h3> <i class="fa fa-check-circle resize-fa"></i>
+                    <h4>Comparaisons effectuées </h4>
+                    <p>Vous êtes nombreux à faire des comparaisons </p>
+                </div>
+                <div class="col-md-6 project animated fadeInUp">
+                    <h3 style="display: inline" id="counter1">0</h3> <i class="fa fa-check-circle resize-fa"></i>
+                    <h4>Smartphones enregistrés</h4>
+                    <p> Ce nombre ne cesse d'augmenter. Nous espérons atteindre les 500 smartphones </p>
+                </div>
+
+            </div>
         </div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="PUBLIC/js_dev/min/toucheffects-min.js"></script>
-        <script src="PUBLIC/JS/jquery-ui-1.9.2.custom.js"></script>
-        <script src="PUBLIC/js_dev/flickity.pkgd.min.js"></script>
-        <script src="PUBLIC/js_dev/jquery.fancybox.pack.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="PUBLIC/js_dev/retina.js"></script>
-        <script src="PUBLIC/js_dev/waypoints.min.js"></script>
-        <script src="PUBLIC/js_dev/bootstrap.min.js"></script>
-        <script src="PUBLIC/js_dev/min/scripts-min.js"></script>
-        <script src="PUBLIC/JS/myscript.js"></script>
+        <div class="container">
+                <div class="row">
+                        <div class="col-md-12 text-center">
+                                <h1><a href="http://www.youtube.com/embed/9No-FiEInLA?autoplay=1&wmode=opaque&fs=1" class="youtube-media"><i class="fa fa-play-circle-o"></i> Présentation de COMPARED/SENGINE</a></h1>
+                        </div>
+                </div>
+        </div>
+    </section>
+    <section class="features-intro">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center col-xs-12 nopadding container">
+                    <h1 class="padding-text"> <i class="fa fa-mobile-phone"></i>  <i class="fa fa-mobile-phone"></i> Les comparaisons récentes</h1>
+                    <p class="font-resize ">Découvrez les 3 dernières comparaisons effectuées. <i class="fa fa-smile"></i></p>
+                </div>
+                <ul class="text-center  padding-li list-modified" >
+                    <ul class="cd-gallery">
+                        {% set count = 0 %}
+                        {% set number = 1 %}
+                        {% for oneC in recentC %}
 
-        <script>
-                                            $(document).ready(function () {
+                            <li class="cd-item col-md-4 col-sm-12 col-md-4-mod" style="height: 310px;">
+                                <a href="Wui.php?run=compared&sm1={{ oneC['sm1']['id'] }}&sm2={{ oneC['sm2']['id'] }}">
+                                    <h2> Comparaison {{ number }}</h2>
+                                    <p></p>
+                                    {% set number = number + 1 %}
+                                    <h3 class="">{{ oneC['sm1']['fullName'] }}</h3>
+                                    <h1 class="display_inline"><i class="fa fa-hand-o-up"></i> vs <i
+                                                class="fa fa-hand-o-down"></i></h1>
 
-                                                $("div.blog").mouseover(function (e) {
-                                                    e.preventDefault()
-                                                    $(this).find("#span_show").css("opacity", "0.8");
-                                                })
-                                                $("div.blog").mouseout(function (e) {
-                                                    e.preventDefault()
-                                                    $(this).find("#span_show").css("opacity", "0");
-                                                })
+                                    <h3>{{ oneC['sm2']['fullName'] }}</h3>
+                                            <span id="span_show_compare" class="span_bg_blue span_font"
+                                                  style="padding:15% 0;">
+                                                <a href="Wui.php?run=compared&sm1={{ oneC['sm1']['id'] }}&sm2={{ oneC['sm2']['id'] }}">Effectuer
+                                                    cette comparaison</a>
+                                            </span>
+                                </a>
+                            </li>
 
-                                                $("div.compare_item").mouseenter(function (e) {
-                                                    e.preventDefault()
-                                                    $(this).find("#span_show_compare").css("opacity", "1");
-                                                })
-                                                $(".close_list").click(function (e) {
-                                                    e.preventDefault()
-                                                    $(this).parent().css("opacity", "0");
-                                                })
-                                                $(".bhide").click(function () {
-                                                    $(".hideObj").slideDown();
-                                                    $(this).hide(); //.attr()
-                                                    return false;
-                                                });
-                                                $(".bhide2").click(function () {
-                                                    $(".container.hideObj2").slideDown();
-                                                    $(this).hide(); // .attr()
-                                                    return false;
-                                                });
 
-                                                $('.heart').mouseover(function () {
-                                                    $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
-                                                }).mouseout(function () {
-                                                    $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
-                                                });
+                        {% endfor %}
+                    </ul>
 
-                                                function sdf_FTS(_number, _decimal, _separator)
-                                                {
-                                                    var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
-                                                    var separator = (typeof (_separator) != 'undefined') ? _separator : '';
-                                                    var r = parseFloat(_number)
-                                                    var exp10 = Math.pow(10, decimal);
-                                                    r = Math.round(r * exp10) / exp10;
-                                                    rr = Number(r).toFixed(decimal).toString().split('.');
-                                                    b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
-                                                    r = (rr[1] ? b + '.' + rr[1] : b);
+                </div>
 
-                                                    return r;
-                                                }
 
-                                                setTimeout(function () {
-                                                    $('#counter').text('0');
-                                                    $('#counter1').text('0');
-                                                    $('#counter2').text('0');
-                                                    setInterval(function () {
+            </div>
+        </div>
 
-                                                        var curval = parseInt($('#counter').text());
-                                                        var curval1 = parseInt($('#counter1').text().replace(' ', ''));
-                                                        var curval2 = parseInt($('#counter2').text());
-                                                        $('#counter1').text({{nbS}});
-                                                        $('#counter').text({{nbC}});
-                                                        /*if(curval=<{{nbS}}){
-                                                         $('#counter').text(curval);
-                                                         }
-                                                         if(curval1 < {{nbC}}){
-                                                         $('#counter1').text(sdf_FTS((curval1));
-                                                         }
-                                                         if(curval2<=245){
-                                                         $('#counter2').text(curval2+1);
-                                                         }*/
-                                                    }, 2);
 
-                                                }, 500);
-                                            });
-        </script>
-        <script type="text/javascript">
-            $(document).ready(function () {
+    </section>
+    <section class="features-list" id="bestSm" style="padding-top:20px;">
+            <div class="row">
 
-                var $menu = $("#menuF");
+                <div class="col-md-12 text-center lucidaFont " style="padding-top:20px;padding-bottom: 20px;">
+                    <h1 class="padding-text"><i class="fa fa-space-shuttle"></i> Best smartphone</h1>
+                    <p class="font-resize ">Découvrez le smartphone le mieux noté sur le site <i
+                                class="fa fa-smile-o"></i></p>
+                </div>
 
-                $(window).scroll(function () {
-                    if ($(this).scrollTop() > 100 && $menu.hasClass("default")) {
-                        $menu.fadeOut('fast', function () {
-                            $(this).removeClass("default")
-                                    .addClass("fixed transbg")
-                                    .fadeIn('fast');
-                        });
-                    } else if ($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
-                        $menu.fadeOut('fast', function () {
-                            $(this).removeClass("fixed transbg")
-                                    .addClass("default")
-                                    .fadeIn('fast');
-                        });
-                    }
+
+                <div class="col-md-12 feature-2 wp2 delay-05s">
+
+
+                        <ul class="related-posts group center-block" style="margin-bottom: 0px">
+
+                            <div class="smallRelated_mod smallRelated_best"  style="margin: 0;width: 100%;height: 300px;">
+
+
+                                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">
+                                    <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Le meilleur smartphone du moment</h3></a>
+                                </div>
+
+                            <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">
+                                <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/">
+                                    <h3>{{ (best['sm']).getConstructorSm.getName }} {{ best['sm'].getFullNameSm }}</h3></a>
+                            </div>
+
+
+    </div>
+
+
+                        </ul>
+                    <div class="feature-content backgroud_rgba_silver text-center col-md-12 col-sm-12 col-lg-12" style="width: 100%">
+                        <h1>{{ (best['sm']).getConstructorSm.getName }} {{ best['sm'].getFullNameSm }}</h1>
+                        <br>
+                        <a href="Wui.php?run=getSpec&argument={{ best['sm'].getIdSm }}" class="read-more-btn">Fiche
+                            technique <i class="fa fa-chevron-circle-right"></i></a>
+                        <a href="#" class="read-more-btn">Comparer le !<i class="fa fa-chevron-circle-right"></i></a>
+                        <h2>Note : {{ best['score'] | round(1, 'floor') }}/5</h2>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section id="articles" class="showcase">
+        <div class="showcase-wrap" style="padding:30px 0 ;">
+            <div class="texture-overlay"></div>
+            <div class="container">
+                <div class="row news">
+                    <div class="col-md-12 text-center lucidaFont ">
+                        <h1 class="padding-text"><i class="fa fa-space-shuttle"></i> Découvrez notre blog</h1>
+                        <p class="font-resize ">Articles , Dossiers , Tutoriels , chez COMPARED , vous &ecirc;tes
+                            informés constament <i class="fa fa-smile-o"></i></p>
+                    </div>
+                    <hr class="hr">
+                    <!--<div class="col-md-4  text-center blog grid">
+                        <div class="center-block text-center"
+                             style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);">
+                            <div><i class="fa fa-calendar"></i> 8/09/2014</div>
+                            <div style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div>
+                        </div>
+
+                        <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
+
+                        <div class="center-block text-center"
+                             style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du
+                            créateur d'Octimum
+                        </div>
+                                <span id="span_show" class="span_bg_blue span_font ">
+                                    <i class="fa fa-book"></i>
+                                    <a href="#">Lire d'avantage ...</a>
+                                </span>
+                    </div>
+
+                    <div class="col-md-4  text-center blog grid">
+                        <div class="center-block text-center"
+                             style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);">
+                            <div><i class="fa fa-calendar"></i> 8/09/2014</div>
+                            <div style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div>
+                        </div>
+
+                        <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
+
+                        <div class="center-block text-center"
+                             style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du
+                            créateur d'Octimum
+                        </div>
+                                <span id="span_show" class="span_bg_blue span_font ">
+                                    <i class="fa fa-book"></i>
+                                    <a href="#">Lire d'avantage ...</a>
+                                </span>
+                    </div>
+
+                    <div class="col-md-4  text-center blog grid">
+                        <div class="center-block text-center"
+                             style="position: relative;top:20px;background-color: rgba(255,255,255,0.5);">
+                            <div><i class="fa fa-calendar"></i> 8/09/2014</div>
+                            <div style="margin-right: 2px;"><i class="fa fa-comment">0 </i></div>
+                        </div>
+
+                        <img class="img-responsive picsGall " src="PUBLIC/IMAGE/picNews/news1.jpg"/>
+
+                        <div class="center-block text-center"
+                             style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);">Une idée du
+                            créateur d'Octimum
+                        </div>
+                                <span id="span_show" class="span_bg_blue span_font ">
+                                    <i class="fa fa-book"></i>
+                                    <a href="#">Lire d'avantage ...</a>
+                                </span>
+                    </div>-->
+                    <div class="col-md-12 feature-2 wp2 delay-05s">
+
+
+                        <ul class="related-posts group center-block" style="margin-bottom: 0px">
+
+                            <div class="smallRelated_mod smallRelated_best"  style="margin: 0;width: 100%;height: 300px;">
+
+
+                                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">
+                                    <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Le meilleur smartphone</h3></a>
+                                </div>
+
+                                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">
+                                    <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/">
+                                        <h3>{{ (best['sm']).getConstructorSm.getName }} {{ best['sm'].getFullNameSm }}</h3></a>
+                                </div>
+
+
+
+
+                            </div>
+
+
+                        </ul>
+
+                </div>
+                <hr class="hr">
+                <div class="col-md-12 text-center lucidaFont ">
+                    <h1 class="padding-text link_animate_pulse"><a class="" href="#"> Voir l'ensemble des articles <i
+                                    class="fa fa-hand-o-left"></i> </a></h1>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="screenshots" id="manufacturer">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col-md-12 text-center lucidaFont ">
+                    <h1 class="padding-text"><i class="fa fa-space-shuttle"></i> Vous cherchez une marque particulière ?
+                    </h1>
+                    <p class="font-resize ">Voici les différentes marques de smartphones qui sont dans notre comparateur
+                        <i class="fa fa-search"></i></p>
+                </div>
+                <hr class="hr">
+                <ul class="grid">
+                    <li>
+                        <figure class="text-center">
+                            <img src="PUBLIC/IMAGE/constructor/htc.png" alt="HTC">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="PUBLIC/img_dev/large/01.jpg" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>HTC</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="small-constructor-samsung" src="PUBLIC/IMAGE/constructor/samsung.png"
+                                 alt="Samsung">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="Wui.php?run=phoneList&argument=Samsung" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Samsung</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="small-constructor" src="PUBLIC/IMAGE/constructor/sony.png" alt="Sony">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="Wui.php?run=phoneList&argument=sony" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>SONY</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="small-constructor" src="PUBLIC/IMAGE/constructor/meizu.png" alt="Meizu">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="Wui.php?run=phoneList&argument=meizu" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Meizu</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+            <div class="row padding-element">
+                <ul class="grid">
+                    <li>
+                        <figure class="text-center">
+                            <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/apple.png" alt="Screenshot 01">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="Wui.php?run=phoneList&argument=apple" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Apple</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="small-constructor" src="PUBLIC/IMAGE/constructor/microsoft.png"
+                                 alt="Screenshot 01">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="PUBLIC/img_dev/large/06.jpg" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Microsoft</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/xiaomi.png" alt="Screenshot 01">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="PUBLIC/img_dev/large/07.jpg" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Xiaomi</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="text-center">
+                            <img class="resize-big-logo" src="PUBLIC/IMAGE/constructor/motorola.png"
+                                 alt="Screenshot 01">
+                            <figcaption>
+                                <div class="caption-content">
+                                    <a href="PUBLIC/img_dev/large/08.jpg" class="single_image">
+                                        <i class="fa fa-search"></i><br>
+                                        <p>Motorola</p>
+                                    </a>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block contact %}
+
+
+    <!-- modal contact form -->
+    <div id="contact" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header blackColor">
+                    <h4 class="modal-title white_font">
+                        <i class="fa fa-warning"></i> Remplisez les champs ci-dessous et nous vous recontactons dans les brefs délais.
+                    </h4>
+                </div>
+                <form id="form_help" class="form-group-lg form-modified btn-md" method="POST" action="Wui.php">
+                    <div class="modal-body" id="myModalBody">
+
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" placeholder="Entrez votre nom" class="form-control" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailid">Email</label>
+                            <input type="text" id="emailid" placeholder="Email"  class="form-control" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Objet du message</label>
+                            <input type="text" id="subject" placeholder="Objet du message" class="form-control" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="4" placeholder="Message" class="form-control" required="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer mfmd">
+                        <button type="submit" class="btn btn-success">Envoyer</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                        <button type="reset" class="btn btn-danger">Reset </button>
+                                            </div>
+                                            </form>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+<div id="contactSuccess" data-backdrop="static" data-keyboard="false" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header blackColor">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title white_font">
+                    Status de votre message
+                </h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                <span class="animated fadeInDownBig response" id="good" style="color:black!important;"></span>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" onClick="location.reload()">Fermer</button>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
+{% block follow %}
+{% endblock %}
+<!--<footer class="blackColor">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5">
+                <div class="footer-logo">
+                    <img class="img-logo" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="COMPARED LOGO"
+                         onClick="location.href = 'Wui.php?run=getHomePage&argument=void'">
+                    <span class="copyright">© COMPARED {{ "now"|date('Y') }} </span>
+                    <div class="text-center padding-each" style="width: 100%;">
+                        <a class="fa-fb" href="https://www.facebook.com/comparedsm "><i
+                                    class="fa fa-facebook-square fa-2x"></i> Facebook</a>
+
+                        <a class="fa-goo" href=""> <i class="fa fa-google-plus-square fa-2x"></i> Google+</a>
+
+                        <a href="" class="fa-tw"><i class="fa fa-twitter-square fa-2x "></i> Twitter</a>
+                    </div>
+                </div>
+
+            </div>
+            <!--<div class="col-md-7">
+                <ul class="footer-nav">
+                    {% block menuB %}
+                        <li class="active"><a href="Wui.php?run=prepareComparison&argument=void">Faire une
+                                comparaison</a></li>
+                        <li><a href="#manufacturer">Les constructeurs</a></li>
+                        <li><a href="#articles">Articles</a></li>
+                        <li><a id="contact">Contact</a></li>
+                        <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>-->
+            <section id="footer" style="border-left: 0">
+                <div class="wrap about">
+                    <img class="logo center-block" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="Logo" height="60">
+                    <p>COMPARED, The french smartphone comparator!</p>
+                    <ul class="row">
+                        <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                        class="fa-fb fa fa-facebook-square fa-4x"></i></a><br class="frame"><br>Facebook
+                        </li>
+                        <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                        class="fa-tw fa fa-twitter-square fa-4x"></i></a><br class="frame"><br>Twitter
+                        </li>
+                        <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                        class=" fa-goo fa fa-google-plus-square fa-4x"></i></a><br class="frame"><br>Google+
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="wrap follow">
+                    <p>Application propulsé par SENGINE <em> Moteur de comparaison </em>.</p>
+                    <p><a class="onml" href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></p>
+                </div>
+                <small>Copyright 2015 COMPARED, OCTIMUM. All Rights Reserved.</small>
+
+            </section>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="PUBLIC/js_dev/min/toucheffects-min.js"></script>
+<script src="PUBLIC/JS/jquery-ui-1.9.2.custom.js"></script>
+<script src="PUBLIC/js_dev/flickity.pkgd.min.js"></script>
+<script src="PUBLIC/js_dev/jquery.fancybox.pack.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="PUBLIC/js_dev/retina.js"></script>
+<script src="PUBLIC/js_dev/waypoints.min.js"></script>
+<script src="PUBLIC/js_dev/bootstrap.min.js"></script>
+<script src="PUBLIC/js_dev/min/scripts-min.js"></script>
+<script src="PUBLIC/JS/myscript.js"></script>
+<script src="PUBLIC/JS/main_dev.js"></script>
+<!--<script src="PUBLIC/JS/classie.js"></script>
+<script src="PUBLIC/JS/menu.js"></script>-->
+
+
+<script>
+    $(document).ready(function () {
+
+        $("div.blog").mouseover(function (e) {
+            e.preventDefault()
+            $(this).find("#span_show").css("opacity", "0.8");
+        })
+        $("div.blog").mouseout(function (e) {
+            e.preventDefault()
+            $(this).find("#span_show").css("opacity", "0");
+        })
+
+        $("div.compare_item").mouseenter(function (e) {
+            e.preventDefault()
+            $(this).find("#span_show_compare").css("opacity", "1");
+        })
+        $(".close_list").click(function (e) {
+            e.preventDefault()
+            $(this).parent().css("opacity", "0");
+        })
+        $(".bhide").click(function () {
+            $(".hideObj").slideDown();
+            $(this).hide(); //.attr()
+            return false;
+        });
+        $(".bhide2").click(function () {
+            $(".container.hideObj2").slideDown();
+            $(this).hide(); // .attr()
+            return false;
+        });
+
+        $('.heart').mouseover(function () {
+            $(this).find('i').removeClass('fa-heart-o').addClass('fa-heart');
+        }).mouseout(function () {
+            $(this).find('i').removeClass('fa-heart').addClass('fa-heart-o');
+        });
+
+        function sdf_FTS(_number, _decimal, _separator) {
+            var decimal = (typeof (_decimal) != 'undefined') ? _decimal : 2;
+            var separator = (typeof (_separator) != 'undefined') ? _separator : '';
+            var r = parseFloat(_number)
+            var exp10 = Math.pow(10, decimal);
+            r = Math.round(r * exp10) / exp10;
+            rr = Number(r).toFixed(decimal).toString().split('.');
+            b = rr[0].replace(/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1" + separator);
+            r = (rr[1] ? b + '.' + rr[1] : b);
+
+            return r;
+        }
+
+        setTimeout(function () {
+            $('#counter').text('0');
+            $('#counter1').text('0');
+            $('#counter2').text('0');
+            setInterval(function () {
+
+                var curval = parseInt($('#counter').text());
+                var curval1 = parseInt($('#counter1').text().replace(' ', ''));
+                var curval2 = parseInt($('#counter2').text());
+                $('#counter1').text({{ nbS }});
+                $('#counter').text({{ nbC }});
+                /*if(curval=<{{ nbS }}){
+                 $('#counter').text(curval);
+                 }
+                 if(curval1 < {{ nbC }}){
+                 $('#counter1').text(sdf_FTS((curval1));
+                 }
+                 if(curval2<=245){
+                 $('#counter2').text(curval2+1);
+                 }*/
+            }, 2);
+
+        }, 500);
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        var $menu = $("#menuF");
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100 && $menu.hasClass("default")) {
+                $menu.fadeOut('fast', function () {
+                    $(this).removeClass("default")
+                            .addClass("fixed transbg")
+                            .fadeIn('fast');
                 });
-
-
-$('#specSm1').each(function () {
-$(this).bind('click', function (e) {
-
-$('#myModalSm1').modal('show');
-});
-});
-$('#specSm2').each(function () {
-$(this).bind('click', function (e) {
-
-$('#myModalSm2').modal('show');
-});
-}); 
-            });
-            //jQuery
-        </script>
-        <script src="PUBLIC/JS/lc.js"></script>
-        <script>
-            /*menu*/
-            function calculateScroll() {
-                var contentTop = [];
-                var contentBottom = [];
-                var winTop = $(window).scrollTop();
-                var rangeTop = 200;
-                var rangeBottom = 500;
-                $('.navmenu').find('a').each(function () {
-                    contentTop.push($($(this).attr('href')).offset().top);
-                    contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
-                })
-                $.each(contentTop, function (i) {
-                    if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
-                        $('.navmenu li')
-                                .removeClass('active')
-                                .eq(i).addClass('active');
-                    }
-                })
+            } else if ($(this).scrollTop() <= 100 && $menu.hasClass("fixed")) {
+                $menu.fadeOut('fast', function () {
+                    $(this).removeClass("fixed transbg")
+                            .addClass("default")
+                            .fadeIn('fast');
+                });
             }
-            ;
+        });
 
-            $(document).ready(function () {
-                calculateScroll();
-                $(window).scroll(function (event) {
-                    calculateScroll();
-                });
-                $('.navmenu ul li a').click(function () {
-                    $('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 800);
-                    return false;
-                });
+
+        $('#specSm1').each(function () {
+            $(this).bind('click', function (e) {
+
+                $('#myModalSm1').modal('show');
             });
-        </script>	
+        });
+        $('#menu').each(function () {
+            $(this).bind('click', function (e) {
+            if ($(".sidebar_compared").hasClass("isShow"))
+            {
+                $('.sidebar_compared').hide();
+                $(".sidebar_compared").removeClass("isShow")
+            }
+            else {
+                $('.sidebar_compared').show();
+                $(".sidebar_compared").addClass("isShow")
+            }
+            });
+        });
+        $('#specSm2').each(function () {
+            $(this).bind('click', function (e) {
 
-    </body>
+                $('#myModalSm2').modal('show');
+            });
+
+        });
+
+        $('a.callContact').each(function () {
+            $(this).bind('click', function (e) {
+                $('#contact').modal('show');
+            });
+        });
+    });
+    //jQuery
+</script>
+<script src="PUBLIC/JS/lc.js"></script>
+<script>
+    /*menu*/
+    function calculateScroll() {
+        var contentTop = [];
+        var contentBottom = [];
+        var winTop = $(window).scrollTop();
+        var rangeTop = 200;
+        var rangeBottom = 500;
+        $('.navmenu').find('a').each(function () {
+            contentTop.push($($(this).attr('href')).offset().top);
+            contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
+        })
+        $.each(contentTop, function (i) {
+            if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
+                $('.navmenu li')
+                        .removeClass('active')
+                        .eq(i).addClass('active');
+            }
+        })
+    }
+    ;
+
+    $(document).ready(function () {
+        calculateScroll();
+        $(window).scroll(function (event) {
+            calculateScroll();
+        });
+        $('.navmenu ul li a').click(function () {
+            $('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 800);
+            return false;
+        });
+
+
+    });
+</script>
+</body>
 </html>

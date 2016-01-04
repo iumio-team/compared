@@ -83,11 +83,11 @@ width: 640px;
     
     @font-face {
 	font-family: "speedcontrols";
-	src: url("http://cssslider.com/sliders/demo-2/engine1/speedcontrols.eot?cssslidertheme=speed");
-	src: url("http://cssslider.com/sliders/demo-2/engine1/speedcontrols.eot#iefix?cssslidertheme=speed") format("embedded-opentype"),
-			url("http://cssslider.com/sliders/demo-2/engine1/speedcontrols.woff?cssslidertheme=speed") format("woff"),
-			url("http://cssslider.com/sliders/demo-2/engine1/speedcontrols.ttf?cssslidertheme=speed") format("truetype"),
-			url("http://cssslider.com/sliders/demo-2/engine1/speedcontrols.svg#speed?cssslidertheme=speed") format("svg");
+	src: url("../FONT/speedcontrols.eot?cssslidertheme=speed");
+	src: url("../FONT/speedcontrols.eot#iefix?cssslidertheme=speed") format("embedded-opentype"),
+			url("../FONT/speedcontrols.woff?cssslidertheme=speed") format("woff"),
+			url("../FONT/speedcontrols.ttf?cssslidertheme=speed") format("truetype"),
+			url("../FONT/speedcontrols.svg#speed?cssslidertheme=speed") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
