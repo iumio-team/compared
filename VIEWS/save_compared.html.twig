@@ -1,0 +1,1936 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | La comparaison {%endblock%}
+{%block sectionHero %}
+<section class="hero hero-height " xmlns="http://www.w3.org/1999/html"> {%endblock%}
+    {%block menu %}
+    {%endblock%}
+    {% block header %}
+    <div class="row">
+    <ul class="related-posts group col-md-6 no-padding" style="margin: 0;">
+        <div class="largeRelated h_comparison w_100 sm1 n_lgr" >
+            <div class="pic1 img_c" style="background: url('PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg')">
+                <a href="#" class="bgOp">
+                        <h2 class="textName1" style="bottom: 197px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                         <span class="border_numbers"> {{count1}}</span> points pour le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}
+                        </h2>
+
+                </a>
+            </div>
+        </div>
+    </ul>
+    <ul class="related-posts group col-md-6 no-padding" style="margin: 0;">
+        <div class="largeRelated h_comparison  sm2 w_100 n_lgr" >
+            <div class="pic2 img_c" style="background: url('PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg')">
+                <a href="#" class="bgOp">
+                    <h2 class="textName2" style="bottom: 197px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                         <span class="border_numbers"> {{count2}}</span> points pour le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}
+
+                    </h2>
+
+
+                </a>
+            </div>
+        </div>
+    </ul>
+        </div>
+          <ul class="related-posts group" style="margin: 0;">
+        <div class="smallRelated smallRelated_long" style="width: 100%;height: 80px">
+        <div class="text-center item_carac animated fadeInUp" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg');width: 50%!important;">
+            <a href="#">
+                <div class="carac" onClick="javascript:window.open('Wui.php?run=getSpec&argument={{sm1.idSm}}')">
+                  <i class="fa fa-search fa-2x"></i> Caractéristiques du  {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}
+                </div>
+            </a>
+        </div>
+           <div class="text-center item_carac animated fadeInUp" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg');width:50%!important">
+            <a href="#">
+                <div class="carac" onClick="javascript:window.open('Wui.php?run=getSpec&argument={{sm2.idSm}}')">
+                  <i class="fa fa-search fa-2x"></i> Caractéristiques du  {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}
+                </div>
+            </a>
+        </div>
+            </div>
+            </ul>
+
+          <ul class="related-posts group" style="margin: 0;">
+        <div class="smallRelated smallRelated_long animated fadeInUp" style="width: 100%;height: 80px!important;">
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/water.jpg')">
+            <a href="#">
+                <div class="carac">
+                    <i class="fa fa-envelope fa-2x"></i>  Envoyer cette comparaison par e-mail
+                </div>
+            </a>
+        </div>
+            <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/water.jpg')">
+                <a href="#">
+                    <div class="carac">
+                   <i class="fa fa-save fa-2x"></i>  Enregistrer cette comparaison en PDF
+                    </div>
+                </a>
+            </div>
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/water.jpg')">
+            <a href="#">
+                <div class="carac">
+               <i class="fa fa-spinner fa-2x"></i> Voir le détail de la comparaison
+               </div>
+            </a>
+        </div>
+
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/water.jpg')">
+            <a href="#">
+                <div class="carac">
+               <i class="fa fa-check-circle fa-2x"></i>  Conclusion de cette comparaison
+                    </div>
+            </a>
+        </div>
+
+    </div>
+
+</ul>
+
+{% endblock %}
+    {% block silder %}
+       <!-- <div class="row hero-content padding-text">
+            <div class="col-md-5  col-sm-5 text-center ">
+                <h2 class="blackColor">{{phoneList[0]['constructorS']|upper}}</h2>
+                <h2 class="animated fadeInUp" style="font-size:30px; ">Comparaison terminée </h2>
+                <img src="PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg" class="border_numbers img-responsive scrollpoint sp-effect5 center-block width_12 display_inline " alt=""/>
+                <img src="PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg" class="border_numbers img-responsive scrollpoint sp-effect5 center-block width_12 display_inline" alt=""/>
+            </div>
+            <div class="col-md-7  col-sm-7 text-center font-resize padding-top-desc bgBlackMediumOpacity">
+
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 class="animated fadeInUp" style="font-size:25px;"> <span class="border_numbers"> {{count1}}</span> points pour le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}</h2>
+
+                </div>
+
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 class="animated fadeInUp" style="font-size:25px;"><span class="border_numbers"> {{count2}}</span> points pour le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2>
+                </div>
+
+
+
+
+            </div>
+            <div class=" animated fadeInUp  col-md-6 col-sm-6 text-center bgBlackMediumOpacity margin-top-text">
+                <a  href="javascript:window.open('Wui.php?run=getSpec&argument={{sm1.idSm}}')"><h2 id="sm1" > <i class="fa fa-search"></i> Caractéristiques du  {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}</h2></a>
+            </div>
+            <div class="animated fadeInUp  col-md-6 col-sm-6 text-center bgBlackMediumOpacity margin-top-text ">
+                <a  href="javascript:window.open('Wui.php?run=getSpec&argument={{sm2.idSm}}')"><h2 id="sm2" > <i class="fa fa-search"></i> Caractéristiques du  {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2></a>
+            </div>-->
+
+
+
+        {%endblock%}
+
+        {% block content %}
+            {%if winner != 'EQUIVALENT' %}
+                <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Taille et poids</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+                    {%if dimens['width'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['width']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if dimens['width']['pointFor'] == 'LEFT'%} data-title="Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['width']['sentence']}}" {% endif %}>
+                      {%if dimens['width']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                     <div class="inner-h">
+                     <i class="fa fa-arrow-up fa-3x block"></i><i class="fa fa-arrow-down fa-3x "></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Longueur : {{ dimens['width']['sm1']}} mm</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['width']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if dimens['width']['pointFor'] == 'RIGHT'%} data-title="Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['width']['sentence']}}" {% endif %}>
+                          {%if dimens['width']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                     <div class="inner-h">
+                     <i class="fa fa-arrow-up fa-3x block"></i><i class="fa fa-arrow-down fa-3x "></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Longueur : {{ dimens['width']['sm2']}} mm</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                    {%if dimens['height'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['height']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if dimens['height']['pointFor'] == 'LEFT'%} data-title="Est plus grand de {{dimens['height']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['height']['sentence']}}" {% endif %}>
+                      {%if dimens['height']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                    <div class="inner-w">
+                     <i class="fa fa-arrow-left fa-3x"></i><i class="fa fa-arrow-right fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Largeur : {{ dimens['height']['sm1']}} mm</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['height']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if dimens['height']['pointFor'] == 'RIGHT'%} data-title="Est plus large de {{dimens['height']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['height']['sentence']}}" {% endif %}>
+                          {%if dimens['height']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                       <div class="inner-w">
+                     <i class="fa fa-arrow-left fa-3x"></i><i class="fa fa-arrow-right fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Largeur : {{ dimens['height']['sm2']}} mm</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+                   {%if dimens['thickness'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['thickness']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if dimens['thickness']['pointFor'] == 'LEFT'%} data-title="Est moins épais de  {{dimens['thickness']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['thickness']['sentence']}}" {% endif %}>
+                      {%if dimens['thickness']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                     <div class="inner-h">
+                     <i class="fa fa-arrow-down fa-3x block"></i><i class="fa fa-arrow-up fa-3x "></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Epaisseur : {{ dimens['thickness']['sm1']}} mm</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['thickness']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if dimens['thickness']['pointFor'] == 'RIGHT'%} data-title="Est moins épais de {{dimens['thickness']['difference']|round(1, 'floor')}} mm"
+                          data-content="{{ dimens['thickness']['sentence']}}" {% endif %}>
+                          {%if dimens['thickness']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                     <div class="inner-h">
+                     <i class="fa fa-arrow-down fa-3x block"></i><i class="fa fa-arrow-up fa-3x "></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Epaisseur : {{ dimens['thickness']['sm2']}} mm</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                  {%if dimens['weight'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['weight']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if dimens['weight']['pointFor'] == 'LEFT'%} data-title="Est moins lourd de  {{dimens['weight']['difference']|round(1, 'floor')}} g"
+                          data-content="{{ dimens['weight']['sentence']}}" {% endif %}>
+                      {%if dimens['weight']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                     <div class="inner-we">
+                     <i class="fa fa-balance-scale fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Poids : {{ dimens['weight']['sm1']}} g</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['weight']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if dimens['weight']['pointFor'] == 'RIGHT'%} data-title="Est moins lourd de {{dimens['weight']['difference']|round(1, 'floor')}} g"
+                          data-content="{{ dimens['weight']['sentence']}}" {% endif %}>
+                          {%if dimens['weight']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                     <div class="inner-we">
+                     <i class="fa fa-balance-scale fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Poids : {{ dimens['weight']['sm2']}} g</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+                  <div class="row padding_top_carac">
+                  <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Autonomie</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+                    {%if battery != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if battery['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if battery['battery1']['pointFor'] == 'LEFT'%} data-title=">Possède {{battery['difference']}} mAh en plus"
+                          data-content="{{ battery['sentence']}}" {% endif %}>
+                      {%if battery['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                     <div class="inner-we">
+                     <i class="fa fa-battery-full fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Capacité : {{ battery['battery1'] }} mAh</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if battery['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if battery['pointFor'] == 'RIGHT'%} data-title="Possède {{battery['difference']}} mAh en plus"
+                          data-content="{{ battery['sentence']}}" {% endif %}>
+                          {%if battery['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                     <div class="inner-we">
+                     <i class="fa fa-battery-full fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em"> Capacité : {{ battery['battery2'] }} mAh</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+
+                  <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Processeur</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if processor['version'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['version']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if processor['version']['pointFor'] == 'LEFT'%} data-title="Dispose d'une version plus récente"
+                          data-content="{{ processor['version']['sentence'] }}" {% endif %}>
+                      {%if processor['version']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-code-fork fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ processor['version']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['version']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if processor['version']['pointFor'] == 'RIGHT'%} data-title="Dispose d'une version plus récente"
+                          data-content="{{ processor['version']['sentence'] }}" {% endif %}>
+                          {%if processor['version']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-code-fork fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ processor['version']['sm2']}} </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                    {%if processor['frequency'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['frequency']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if processor['frequency']['pointFor'] == 'LEFT'%} data-title="Possède {{ processor['frequency']['difference']}} Ghz de plus"
+                          data-content="{{ processor['frequency']['sentence'] }}" {% endif %}>
+                      {%if processor['frequency']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-fighter-jet fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Vitesse d'horloge : {{ processor['frequency']['sm1']}} GHz</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['frequency']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if processor['frequency']['pointFor'] == 'RIGHT'%} data-title="Possède {{ processor['frequency']['difference']}} Ghz de plus"
+                          data-content="{{ processor['frequency']['sentence'] }}" {% endif %}>
+                          {%if processor['frequency']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-fighter-jet fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Vitesse d'horloge : {{ processor['frequency']['sm2']}} GHz</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+                   {%if processor['nbCore'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['nbCore']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                     {%if processor['nbCore']['pointFor'] == 'LEFT' %} data-title="Possède {{ processor['nbCore']['difference']}} coeur(s) de plus"
+                     data-content="{{ processor['nbCore']['sentence'] }}" {% endif %}>
+                      {%if processor['nbCore']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-heart fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Nombre de coeur :  {{ processor['nbCore']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['nbCore']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if processor['nbCore']['pointFor'] == 'RIGHT'%} data-title="Possède {{ processor['nbCore']['difference']}} coeur(s) de plus"
+                          data-content="{{ processor['nbCore']['sentence'] }}" {% endif %}>
+                          {%if processor['nbCore']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-heart fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Nombre de coeur :  {{ processor['nbCore']['sm2']}}</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                             {%if processor['arch'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['arch']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                     {%if processor['arch']['pointFor'] == 'LEFT' %} data-title="Possède une architecture supérieure"
+                     data-content="{{ processor['arch']['sentence'] }}" {% endif %}>
+                      {%if processor['arch']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-building fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Architecture :  {{ processor['arch']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['arch']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if processor['arch']['pointFor'] == 'RIGHT'%} data-title="Possède une architecture supérieure"
+                          data-content="{{ processor['arch']['sentence'] }}" {% endif %}>
+                          {%if processor['arch']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-building fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Architecture :  {{ processor['arch']['sm2']}}</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+                  <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">&Eacute;cran</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if screen['size'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['size']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if screen['size']['pointFor'] == 'LEFT'%} data-title="Possède {{ screen['size']['difference']}} pouces de plus"
+                          data-content="{{ screen['size']['sentence'] }}" {% endif %}>
+                      {%if screen['size']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-desktop fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Taille : {{ screen['size']['sm1']}} pouces</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['size']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if screen['size']['pointFor'] == 'RIGHT'%} data-title="Possède {{ screen['size']['difference']}} pouces de plus"
+                          data-content="{{ screen['size']['sentence'] }}" {% endif %}>
+                          {%if screen['size']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-desktop fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Taille : {{ screen['size']['sm2'] }} pouces </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                    {%if screen['definition'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['definition']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if screen['definition']['pointFor'] == 'LEFT'%} data-title="Dispose de la {{ screen['definition']['difference']}}"
+                          data-content="{{ screen['definition']['sentence'] }}" {% endif %}>
+                      {%if screen['definition']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-magic fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Définition : {{ screen['definition']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['definition']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if screen['definition']['pointFor'] == 'RIGHT'%} data-title="Dispose de la {{ screen['definition']['difference'] }}"
+                          data-content="{{ screen['definition']['sentence'] }}" {% endif %}>
+                          {%if screen['definition']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-magic fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Définition : {{ screen['definition']['sm2']}}</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+                 {%if screen['density'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['density']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if screen['density']['pointFor'] == 'LEFT'%} data-title="Possède {{ screen['density']['difference']}} pixels par pouce en plus"
+                          data-content="{{ screen['density']['sentence'] }}" {% endif %}>
+                      {%if screen['density']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Densité : {{ screen['density']['sm1']}} ppp</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['density']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if screen['density']['pointFor'] == 'RIGHT'%} data-title="Possède {{ screen['density']['difference']}} pixels par pouce en plus"
+                          data-content="{{ screen['density']['sentence'] }}" {% endif %}>
+                          {%if screen['density']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-plus fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Densité : {{ screen['density']['sm2']}} ppp</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+
+                    <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Processeur graphique (GPU)</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if gpu['GPUVersion'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} data-title="Dispose d'une version plus récente"
+                          data-content="{{ gpu['version']['sentence'] }}" {% endif %}>
+                      {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-code-fork fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ gpu['GPUVersion']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} data-title="Dispose d'une version plus récente"
+                          data-content="{{ gpu['GPUVersion']['sentence'] }}" {% endif %}>
+                          {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-code-fork fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ gpu['GPUVersion']['sm2']}} </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                    {%if gpu['GPUFrequency'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} data-title="Possède {{ gpu['GPUFrequency']['difference']}} Mhz de plus"
+                          data-content="{{ gpu['GPUFrequency']['sentence'] }}" {% endif %}>
+                      {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-fighter-jet fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Fréquence : {{ gpu['GPUFrequency']['sm1']}} MHz</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} data-title="Possède {{ gpu['GPUFrequency']['difference']}} Mhz de plus"
+                          data-content="{{ gpu['GPUFrequency']['sentence'] }}" {% endif %}>
+                          {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-fighter-jet fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Fréquence : {{ gpu['GPUFrequency']['sm2']}} MHz</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+                   {%if gpu['GPUFlops'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUFlops']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                     {%if gpu['GPUFlops']['pointFor'] == 'LEFT' %} data-title="Possède {{ gpu['GPUFlops']['difference']}} GFlops en plus"
+                     data-content="{{ gpu['GPUFlops']['sentence'] }}" {% endif %}>
+                      {%if gpu['GPUFlops']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-laptop fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Opération à virgule flottante :  {{ gpu['GPUFlops']['sm1']}} GFlops</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} data-title=" Possède {{ gpu['GPUFlops']['difference']}} GFlops en plus"
+                          data-content="{{ gpu['GPUFlops']['sentence'] }}" {% endif %}>
+                          {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-laptop fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Opération à virgule flottante :  {{ gpu['GPUFlops']['sm2']}} GFlops</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                             {%if gpu['GPUPrint'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUPrint']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                     {%if gpu['GPUPrint']['pointFor'] == 'LEFT' %} data-title="Est plus petit de {{ gpu['GPUPrint']['difference']}} nanomètres"
+                     data-content="{{ gpu['GPUPrint']['sentence'] }}" {% endif %}>
+                      {%if gpu['GPUPrint']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-print fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Taille de la gravure :  {{ gpu['GPUPrint']['sm1']}} nm</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} data-title="Est plus petit de {{ gpu['GPUPrint']['difference']}} nanomètres"
+                          data-content="{{ gpu['GPUPrint']['sentence'] }}" {% endif %}>
+                          {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-print fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Taille de la gravure :  {{ gpu['GPUPrint']['sm2']}} nm</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+                             {%if gpu['GPUDirectx'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUDirectx']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                     {%if gpu['GPUDirectx']['pointFor'] == 'LEFT' %} data-title="Dispose de la version supérieure"
+                     data-content="{{ gpu['GPUDirectx']['sentence'] }}" {% endif %}>
+                      {%if gpu['GPUDirectx']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-gamepad fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Version de DirectX :  {{ gpu['GPUDirectx']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} data-title="Dispose de la version supérieure"
+                          data-content="{{ gpu['GPUDirectx']['sentence'] }}" {% endif %}>
+                          {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-gamepad fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Version de DirectX :  {{ gpu['GPUDirectx']['sm2']}}</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+                     <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Système d'exploitation (SE/OS)</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if os != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if os['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if os['pointFor'] == 'LEFT'%} data-title="Dispose d'une version supérieure"
+                          data-content="{{ os['sentence'] }}" {% endif %}>
+                      {%if os['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     {% if 'ANDROID' in os['os1'] %}
+                     <i class="fa fa-android fa-3x"></i>
+                      {% elseif 'IOS' in os['os1'] %}
+                     <i class="fa fa-apple fa-3x"></i>
+                      {% elseif 'WINDOWS' in os['os1'] %}
+                     <i class="fa fa-windows fa-3x"></i>
+                      {% elseif 'FIREFOX' in os['os1'] %}
+                     <i class="fa fa-firefox fa-3x"></i>
+                     {% endif %}
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ os['os1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if os['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if os['pointFor'] == 'RIGHT'%} data-title="Dispose d'une version plus récente"
+                          data-content="{{ os['sentence'] }}" {% endif %}>
+                          {%if os['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     {% if 'ANDROID' in os['os1'] %}
+                     <i class="fa fa-android fa-3x"></i>
+                      {% elseif 'IOS' in os['os1'] %}
+                     <i class="fa fa-apple fa-3x"></i>
+                      {% elseif 'WINDOWS' in os['os1'] %}
+                     <i class="fa fa-windows fa-3x"></i>
+                      {% elseif 'FIREFOX' in os['os1'] %}
+                     <i class="fa fa-firefox fa-3x"></i>
+                     {% endif %}
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ os['os2']}} </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                     <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Réseaux mobiles</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if network != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if network['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if network['pointFor'] == 'LEFT'%} data-title="Possède la {{network['difference']}}"
+                          data-content="{{ network['sentence'] }}" {% endif %}>
+                      {%if network['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-net">
+                     <i class="fa fa-wifi fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ network['network1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if network['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if network['pointFor'] == 'RIGHT'%} data-title="Possède la {{network['difference']}}"
+                          data-content="{{ network['sentence'] }}" {% endif %}>
+                          {%if network['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-net">
+             <i class="fa fa-wifi fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{{ network['network2']}} </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+
+                     <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Mémoires</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if ram != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if ram['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if ram['pointFor'] == 'LEFT'%} data-title="Possède {{ ram['difference']}} gigaoctect(s) de ram en plus"
+                          data-content="{{ ram['sentence'] }}" {% endif %}>
+                      {%if ram['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-calculator fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Mémoire vive (RAM) : {{ ram['ram1']}} Go</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if ram['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if ram['pointFor'] == 'RIGHT'%} data-title="Possède {{ ram['difference']}} gigaoctect(s) de ram en plus"
+                          data-content="{{ ram['sentence'] }}" {% endif %}>
+                          {%if ram['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-calculator fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Mémoire vive (RAM) : {{ ram['ram2']}} Go </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                    {%if storage['internal'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if storage['internal']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if storage['internal']['pointFor'] == 'LEFT'%} data-title="Possède {{ storage['internal']['difference']}} gigaoctect(s) en plus"
+                          data-content="{{ storage['internal']['sentence'] }}" {% endif %}>
+                      {%if storage['internal']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-info fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Mémoire de stokage interne : {{ storage['internal']['sm1']}} Go</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if storage['internal']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if storage['internal']['pointFor'] == 'RIGHT'%} data-title="Possède {{ storage['internal']['difference']}} gigaoctect(s) en plus"
+                          data-content="{{ storage['internal']['sentence'] }}" {% endif %}>
+                          {%if storage['internal']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-info fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Mémoire de stokage inerne : {{ storage['internal']['sm2']}} Go</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+                   {%if storage['external'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if storage['external']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if storage['external']['pointFor'] == 'LEFT'%} data-title="Possède {{ storage['external']['difference']}} gigaoctect(s) en plus"
+                          data-content="{{ storage['external']['sentence'] }}" {% endif %}>
+                      {%if storage['external']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-info fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em"> {% if storage['external']['sm1'] != 'NULL' %}Mémoire extensible jusqu'à : {{ storage['external']['sm1']}} Go {% else %} Ne dispose pas de slot microSD {% endif %}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if storage['external']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if storage['external']['pointFor'] == 'RIGHT'%} data-title="Possède {{ storage['external']['difference']}} gigaoctect(s) en plus"
+                          data-content="{{ storage['external']['sentence'] }}" {% endif %}>
+                          {%if storage['external']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-info fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">{% if storage['external']['sm2'] != 'NULL' %}Mémoire extensible jusqu'à : {{ storage['external']['sm2']}} Go {% else %} Ne dispose pas de slot microSD {% endif %}</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+
+
+                         <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Capteurs photos</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                      {%if photo['photoFront'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if photo['photoFront']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if photo['photoFront']['pointFor'] == 'LEFT'%} data-title="Possède {{ photo['photoFront']['difference']}} mégapixels de plus "
+                          data-content="{{ photo['photoFront']['sentence'] }}" {% endif %}>
+                      {%if photo['photoFront']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-picture-o fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Capteur frontal : {{ photo['photoFront']['sm1']}} Mpx</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if photo['photoFront']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if photo['photoFront']['pointFor'] == 'RIGHT'%} data-title="Possède {{ photo['photoFront']['difference']}} mégapixels de plus"
+                          data-content="{{ photo['photoFront']['sentence'] }}" {% endif %}>
+                          {%if photo['photoFront']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-picture-o fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Capteur frontal : {{ photo['photoFront']['sm2']}} Mpx </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+    {%if photo['photoBack'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if photo['photoBack']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if photo['photoBack']['pointFor'] == 'LEFT'%} data-title="Possède {{ photo['photoBack']['difference']}} mégapixels de plus "
+                          data-content="{{ photo['photoBack']['sentence'] }}" {% endif %}>
+                      {%if photo['photoBack']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-picture-o fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Capteur arrière : {{ photo['photoBack']['sm1']}} Mpx</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if photo['photoBack']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if photo['photoBack']['pointFor'] == 'RIGHT'%} data-title="Possède {{ photo['photoBack']['difference']}} mégapixels de plus"
+                          data-content="{{ photo['photoBack']['sentence'] }}" {% endif %}>
+                          {%if photo['photoBack']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-picture-o fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Capteur arrière : {{ photo['photoBack']['sm2']}} Mpx </span>
+                    </div>
+                </div>
+                 {%endif%}
+
+                                    <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                    <div class="col-md-12 hr1 text-center">
+                        <span class="luckiest f3em">Capteurs vidéos</span>
+                        </div>
+                        <hr class="dotted w_100">
+                    </div>
+
+                     {%if video['videoFront'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if video['videoFront']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if video['videoFront']['pointFor'] == 'LEFT'%} data-title="Capable de filmer en {{ video['videoFront']['difference']}}"
+                          data-content="{{ video['videoFront']['sentence'] }}" {% endif %}>
+                      {%if video['videoFront']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-video-camera fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Caméra avant : {{ video['videoFront']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if video['videoFront']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if video['videoFront']['pointFor'] == 'RIGHT'%} data-title="Capable de filmer en {{ video['videoFront']['difference']}}"
+                          data-content="{{ video['videoFront']['sentence'] }}" {% endif %}>
+                          {%if video['videoFront']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-video-camera fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Caméra avant : {{ video['videoFront']['sm2']}}</span>
+                    </div>
+                </div>
+                 {% endif %}
+
+                         {%if video['videoBack'] != NULL %}
+                    <div class="row text-center padd_row">
+                    <div class="col-md-6 col-lg-6 col-sm-6  {%if video['videoBack']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                     {%if video['videoBack']['pointFor'] == 'LEFT'%} data-title="Capable de filmer en {{ video['videoBack']['difference']}}"
+                          data-content="{{ video['videoBack']['sentence'] }}" {% endif %}>
+                      {%if video['videoBack']['pointFor'] == 'LEFT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate ">
+                       <div class="inner-we">
+                     <i class="fa fa-video-camera fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Caméra arrière : {{ video['videoBack']['sm1']}}</span>
+                    </div>
+                          <div class="col-md-6 col-lg-6 col-sm-6 {%if video['videoBack']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                          {%if video['videoBack']['pointFor'] == 'RIGHT'%} data-title="Capable de filmer en {{ video['videoBack']['difference']}}"
+                          data-content="{{ video['videoBack']['sentence'] }}" {% endif %}>
+                          {%if video['videoBack']['pointFor'] == 'RIGHT'%} <span class="text-vs hover-vs">Pourquoi ? (Cliquez ici)</span> {% endif %}
+                    <div class="icon_n rotate">
+                      <div class="inner-we">
+                     <i class="fa fa-video-camera fa-3x"></i>
+                    </div>
+                    </div>
+                        <span class="luckiest f2em">Caméra arrière : {{ video['videoBack']['sm2']}}</span>
+                    </div>
+                </div>
+                 {%endif%}
+
+
+
+
+<br><br><br>
+            <div style="position: relative;" id="tblc" >
+
+                <div class="container" >
+
+                    <div class="row ">
+
+                        <div class="col-md-12 text-center">
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom" >
+                                <tr>
+                                    <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Taille et poids</span> <div class="pull-right"><span class="icon-minus forSizeWeight"></span></div></th>
+                                </tr>
+                                <tr id="size_weight" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+
+                                            {%if dimens['width'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                      Longueur
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ dimens['width']['sm1']}} mm
+                                                    </td>
+                                                    <td  class="col-md-7" >
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+
+                                                            {%if dimens['width']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <h3 class="weight_700 display_inline ">Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm</h3>
+                                                            <div>{{ dimens['width']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+
+                                                            {%if dimens['width']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{dimens['width']['sm2']}} mm
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if dimens['height'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Largeur 
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ dimens['height']['sm1']}} mm
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if dimens['height']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">Est plus large de {{dimens['weight']['difference']|round(1, 'floor')}} mm </h3>
+                                                            <div>{{ dimens['height']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if dimens['height']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+
+
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{dimens['height']['sm2']}} mm
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if dimens['thickness'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        &Eacute;paisseur
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ dimens['thickness']['sm1']}} mm
+                                                    </td>
+                                                    <td class="col-md-7">
+
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if dimens['thickness']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">Est moins &eacute;pais de {{dimens['thickness']['difference']|round(1, 'floor')}} mm </h3>
+                                                            <div>{{ dimens['thickness']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if dimens['thickness']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{dimens['thickness']['sm2']}} mm
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if dimens['height'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Poids 
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ dimens['weight']['sm1']}} g
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+
+                                                            {%if dimens['weight']['pointFor'] == 'LEFT' %}
+                                                                <span class="fa fa-arrow-left fa-2x paddinger"></span>
+                                                            {%endif%}
+
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <h3 class="weight_700 display_inline" >Est moins lourds de {{dimens['weight']['difference']|round(1, 'floor')}} gramme(s) </h3>
+                                                            <div>{{ dimens['weight']['sentence']}}</div>
+
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+
+                                                            {%if dimens['weight']['pointFor'] == 'RIGHT' %}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{dimens['weight']['sm2']}} g
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom" >
+                                <tr>
+                                    <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Autonomie</span>
+                                </tr>
+                                <tr id="battery" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if battery != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Capacité 
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ battery['battery1']}} mAh
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if battery['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline" >Possède {{battery['difference']}} mAh en plus</h3>
+                                                            <div>{{ battery['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if battery['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ battery['battery2']}} mAh
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom" >
+                                <tr>
+                                    <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Processeur </span></th>
+                                </tr>
+                                <tr id="processor" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+
+                                            {%if processor['version'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Version
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ processor['version']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['version']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline" >Possède la version supérieure</h3>
+                                                            <div>{{ processor['version']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['version']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{processor['version']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if processor['frequency'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Fréquence
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ processor['frequency']['sm1']}} Ghz
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['frequency']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+
+                                                            <h3 class="weight_700 display_inline" >Possède {{ processor['frequency']['difference']}} Ghz de plus</h3>
+                                                            <div>{{ processor['frequency']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['frequency']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{processor['frequency']['sm2']}} Ghz
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if processor['nbCore'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Coeurs
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ processor['nbCore']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['nbCore']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger "></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline" >{{processor['nbCore']['difference']}} coeur(s) en plus</h3>
+                                                            <div>{{ processor['nbCore']['sentence']}}</div>
+                                                            <div class="col-md-1 padding-top-5 animated tada" >
+                                                                {%if processor['nbCore']['pointFor'] == 'RIGHT'%}
+                                                                    <span class="fa fa-arrow-right fa-2x  paddinger "></span>
+                                                                {%endif%}
+                                                            </div>
+                                                            </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{processor['nbCore']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if processor['arch'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Architecture
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ processor['arch']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['arch']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">Possède une architecture supérieure</h3>
+                                                            <div>{{ processor['arch']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if processor['arch']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{processor['arch']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr>
+                                    <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">&Eacute;cran </span></th>
+                                </tr>
+                                <tr id="screen" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if screen['size'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Taille
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ screen['size']['sm1']}} "
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if screen['size']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">Possède {{ screen['size']['difference']}} pouces de plus</h3>
+                                                            <div>{{ screen['size']['sentence']}}</div>
+                                                            <div class="col-md-1 padding-top-5 animated tada" >
+                                                                {%if screen['size']['pointFor'] == 'RIGHT'%}
+                                                                    <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                                {%endif%}
+                                                            </div>
+                                                            </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{screen['size']['sm2']}} "
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if screen['definition'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Défintion 
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ screen['definition']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if screen['definition']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">  Dispose de la <span class="text_name" style="color:red">{{ screen['definition']['difference']}}</span></h3>
+                                                            <div>{{ screen['definition']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if screen['definition']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{screen['definition']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if screen['density'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Densité
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ screen['density']['sm1']}} ppp
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if screen['density']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class="col-md-10">
+                                                            <h3 class="weight_700 display_inline">Possède {{ screen['density']['difference']}} pixels par pouce en plus </h3>
+                                                            <div>{{ screen['density']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if screen['density']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{screen['density']['sm2']}} ppp
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Carte graphique</span></th></tr>
+                                <tr id="gpu" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if gpu['GPUVersion'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style ">
+                                                        Version
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ gpu['GPUVersion']['sm1']}}
+                                                    </td>
+                                                    <td class='col-md-7'>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède la version supérieure</h3>
+                                                            <div>{{ gpu['GPUVersion']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{gpu['GPUVersion']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if gpu['GPUFrequency'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Fréquence GPU
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ gpu['GPUFrequency']['sm1']}} Mhz
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède {{ gpu['GPUFrequency']['difference']}} Mhz en plus </h3>
+                                                            <div>{{ gpu['GPUFrequency']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{gpu['GPUFrequency']['sm2']}} Mhz
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if gpu['GPUFlops'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Opération à virgule flottante
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ gpu['GPUFlops']['sm1']}} GFlops
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUFlops']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'> Possède {{ gpu['GPUFlops']['difference']}} GFlops en plus </h3>
+                                                            <div>{{ gpu['GPUFlops']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{gpu['GPUFlops']['sm2']}} GFlops
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if gpu['GPUPrint'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Taille de la gravure
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ gpu['GPUPrint']['sm1']}} nm
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUPrint']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'> Est plus petit de {{ gpu['GPUPrint']['difference']}} nanomètres </h3>
+                                                            <div>{{ gpu['GPUPrint']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{gpu['GPUPrint']['sm2']}} nm
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+
+                                            {%if gpu['GPUDirectx'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Version de DirectX
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ gpu['GPUDirectx']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUDirectx']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'> Dispose de la version supérieure</h3>
+                                                            <div>{{ gpu['GPUDirectx']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{gpu['GPUDirectx']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Système d'exploitation</span></th></tr>
+                                <tr id="os" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if os != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Version
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ os['os1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if os['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède la version supérieure</h3>
+                                                            <div>{{ os['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if os['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ os['os2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Réseaux</span></th></tr>
+                                <tr id="network" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if network != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Type de réseau mobile
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        <p>{{ network['network1']}}</p>
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if network['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède la <span class="text_name" style="color:blue"> {{network['difference']}}</span> </h3>
+                                                            <div>{{ network['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if network['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ network['network2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Mémoires</span></th></tr>
+                                <tr id="memory" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if ram != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Mémoire vive ( RAM )
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ ram['ram1']}} Go
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if ram['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'> Possède {{ ram['difference']}} gigaoctect(s) de ram en plus </h3>
+                                                            <div>{{ ram['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if ram['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ ram['ram2']}} Go
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if storage['internal'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Mémoire externe
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ storage['internal']['sm1']}} Go
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if storage['internal']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède {{ storage['internal']['difference']}} gigaoctect(s) en plus </h3>
+                                                            <div>{{ storage['internal']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if storage['internal']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ storage['internal']['sm2']}} Go
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if storage['external'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Mémoire interne
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ storage['external']['sm1']}} Go
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if storage['external']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède {{ storage['external']['difference']}} gigaoctect(s) en plus </h3>
+                                                            <div>{{ storage['external']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if storage['external']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ storage['external']['sm2']}} Go
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                </tr>
+                            </table>
+
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Capteur photo</span></th></tr>
+                                <tr id="photo" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if photo['photoFront'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Capteur facial
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ photo['photoFront']['sm1']}} Mpx
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if photo['photoFront']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède {{ photo['photoFront']['difference']}} mégapixels de plus </h3>
+                                                            <div>{{ photo['photoFront']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if photo['photoFront']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ photo['photoFront']['sm2']}} Mpx
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if photo['photoBack'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Capteur arrière
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ photo['photoBack']['sm1']}} Mpx
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if photo['photoBack']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Possède {{ photo['photoBack']['difference']}} mégapixels de plus </h3>
+                                                            <div>{{ photo['photoBack']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if photo['photoBack']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ photo['photoBack']['sm2']}} Mpx
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                </tr>
+                            </table>
+
+                            <table class="table-responsive table-striped table-bordered table-condensed col-md-12 margin-bottom">
+                                <tr> <th colspan="4" class="text-left fa-2x "><span class="text_pr text_pr_mod">Capteur vid&eacute;o</span></th></tr>
+                                <tr id="video" >
+                                    <td colspan="4" >
+                                        <table class='table-responsive table-striped table-bordered table-condensed table-hover' style="width:100%">
+                                            {%if video['videoFront'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Caméra avant
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ video['videoFront']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if video['videoFront']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Capable de filmer en <span class="text_name" style="color:red">{{ video['videoFront']['difference']}}</span></h3>
+                                                            <div>{{ video['videoFront']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if video['videoFront']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ video['videoFront']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                            {%if video['videoBack'] != NULL %}
+                                                <tr>
+                                                    <td class="col-md-1 bold_style">
+                                                        Caméra arrière
+                                                    </td>
+                                                    <td class="col-md-2 bg_1 weight_700">
+                                                        {{ video['videoBack']['sm1']}}
+                                                    </td>
+                                                    <td class="col-md-7">
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if video['videoBack']['pointFor'] == 'LEFT'%}
+                                                                <span class="fa fa-arrow-left fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                        <div class='col-md-10'>
+                                                            <h3 class='weight_700 display_inline'>Capable de filmer en <span class="text_name" style="color:red">{{ video['videoBack']['difference']}}</span></h3>
+                                                            <div>{{ video['videoBack']['sentence']}}</div>
+                                                        </div>
+                                                        <div class="col-md-1 padding-top-5 animated tada" >
+                                                            {%if video['videoBack']['pointFor'] == 'RIGHT'%}
+                                                                <span class="fa fa-arrow-right fa-2x  paddinger"></span>
+                                                            {%endif%}
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-2 bg_2 weight_700">
+                                                        {{ video['videoBack']['sm2']}}
+                                                    </td>
+                                                </tr>
+                                            {%endif%}
+                                        </table>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <hr class="hr"/>
+                <div id="result">
+                    <div class="line2">
+                        <div class="container">
+                            <div class="row Fresh">
+                                <div class="col-md-12 Fully">
+
+                                    <h1 class="col-md-5 col-sm-5 text-center"><span class="text_pr text_pr_mod" style="font-size:23px!important" >Conclusion de la comparaison</span></h1>
+                                    <h2  class="col-md-7 text-center vs"> {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }} <p>contre </p>{{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }} </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div id="result" style="position: relative;">
+
+                    <div class="container">
+                        <div class="row about">
+                            <div class="col-md-12 text-center">
+                                <h3 class="weight_700">Selon la comparaison effectuée, il serait préférable de choisir le
+                                    {%if winner =='LEFT' %}
+                                        {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }} plûtot que le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}
+                                    {%elseif winner =='RIGHT' %}
+                                        {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }} plûtot que le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}
+                                    {%endif %}
+                                </h3>
+
+                                <h2 class="weight_700 style_result" style="line-height:35px;">  <span class="border_numbers">{{count1}}</span>  point(s) en faveur du {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }} contre <span class="border_numbers">{{count2}}</span> point(s) en faveur du {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2>
+
+                            </div>
+
+                        </div>
+                    </div></div>
+
+                    <div class="modal fade" id="modal_out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="height: 225px!important">
+      <div class="modal-header">
+        <div class="modal-title text-center">
+         <div class="font_logout"></div>
+      </div>
+      <div class="modal-body text-center">
+      <span class="text_logout">
+      </span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary center-block" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+                {%else%}
+         <script>
+         $(document).ready(function()
+         {
+            $('#modal_login').modal('show');
+         });
+         </script>
+      <div class="modal fade" id="modal_login" data-backdrop="static"  data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal_login">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center animated pulse">
+                    <div class="font_logout ">
+                    {% if sm1.idSm != sm2.idSm %}
+                        Votre comparaison a aboutie à une équivalence des deux smartphones
+                    {% else %}
+                        N'essayer pas de faire l'escro !
+                     {% endif %}
+                    </div>
+                    <hr>
+                    <span id="content_login">
+                        <span class="text_logout">
+                         {% if sm1.idSm != sm2.idSm %}
+                         Mais n'abandonnez pas ! Refaite une comparaison </span>
+                        <button type="button" class="btn btn-success" onclick="location.href='Wui.php?run=prepareComparison&argument=void'">Je refais une comparaison </button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='Wui.php?run=prepareHomePage&argument=void'">J'abandonne</button>
+                    {% else %}
+                         On a bien vu, les deux smartphones sont les mêmes !  Deux possibilité s'offrent à vous : </span>
+                        <button type="button" class="btn btn-success" onclick="location.href='Wui.php?run=prepareComparison&argument=void'">Je refais une comparaison correct </button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='Wui.php?run=prepareHomePage&argument=void'">J'abandonne car vous m'avez démasqué </button>
+                     {% endif %}
+
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+            {%endif%}
+
+
+        {%endblock%}
+
+        {% block menuB %}
+            <li class="active" ><a href="getHomePage">Accueil</a></li>
+            <li ><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+            <li><a href="#manufacturer">Les constructeurs</a></li>
+            <li><a href="#articles">Articles</a></li>
+            <li ><a class="callContact">Contact</a></li>
+            <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+            {%endblock%}
