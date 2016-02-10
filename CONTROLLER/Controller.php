@@ -173,7 +173,7 @@ class Controller extends AbstractController
                 if ($S1 != $S2)
                     $model->insertCompared($S1, $S2);
                 unset($model);
-                new Pointer('show', array('viewCompared', $sm1, $sm2, $countPSM1, $countPSM2, $winner, $processor, $screen, $gpu, $os, $dimens, $network, $ram, $storage, $photo, $video, $battery));
+                new Pointer('show', array('viewCompared', $sm1, $sm2, $countPSM1, $countPSM2, $winner, $processor, $screen, $gpu, $os, $dimens, $network, $ram, $storage, $photo, $video, $battery, "date"=>UtilityFunction::getToday()));
             }
             else
                 throw new RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
@@ -226,7 +226,7 @@ class Controller extends AbstractController
         $countSm = $model->countLine('Smartphone', 'idS', array("attr" => "constructorS", 'exp' => $constructor))->fetch();
         $array = $model->findOne('Smartphone', $constructor, 'constructorS', 'idS,pictureS,fullNameS,constructorS')->fetchAll();
         unset($model);
-        new Pointer('show', array('viewPhoneList', $array, $objectConstrucor, $countSm['count']));
+        new Pointer('show', array('viewPhoneList', $array, $objectConstrucor, $countSm['count'], "date"=>UtilityFunction::getToday()));
     }
 
     public function getSpec($idS)
@@ -243,7 +243,7 @@ class Controller extends AbstractController
         }
         $moy = ($icr > 0)? UtilityFunction::calculateAverage($sum, $icr) : "/";
         unset($model);
-        new Pointer('show', array('viewSmSpec', $sm, $moy));
+        new Pointer('show', array('viewSmSpec', $sm, $moy, "date"=>UtilityFunction::getToday()));
     }
 
     /** Get 3 recent comparison

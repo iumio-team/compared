@@ -32,13 +32,13 @@ class Pointer {
                 }
                 break;
             case 'viewStartCompared':
-                return $_SESSION['twig']->render('viewStartCompared.html.twig');
+                return $_SESSION['twig']->render('viewStartCompared.html.twig',array('phoneList' => $argArray[1], "date"=>$argArray[2]));
                 break;
             case 'viewArticles':
                 return $_SESSION['twig']->render('viewArticles.html.twig', array('phoneList' => $argArray[1]));
                 break;
             case 'viewPhoneList':
-                return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1], 'constructor' => $argArray[2], 'countSm' => $argArray[3]));
+                return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1], 'constructor' => $argArray[2], 'countSm' => $argArray[3], "date"=>$argArray[4]));
                 break;
             case 'viewSmSpec':
                 return $_SESSION['twig']->render('viewSmSpec.html.twig', array('sm' => $argArray[1], 'moy' => $argArray[2]));
@@ -67,7 +67,7 @@ class Pointer {
                 return $_SESSION['twig']->render('viewInfoApp.html.twig', array('userLastName' => $_SESSION['lastName'], 'userFirstName' => $_SESSION['firstName'], 'userType' => $_SESSION['userType'], 'id' => $_SESSION['idU']));
                 break;
             case 'viewCompared':
-                return $_SESSION['twig']->render('viewCompared.html.twig', array('sm1' => $argArray[1], 'sm2' => $argArray[2], 'count1' => $argArray[3], 'count2' => $argArray[4], 'winner' => $argArray[5], 'processor' => $argArray[6], 'screen' => $argArray[7], 'gpu' => $argArray[8], 'os' => $argArray[9], 'dimens' => $argArray[10], 'network' => $argArray[11], 'ram' => $argArray[12], 'storage' => $argArray[13], 'photo' => $argArray[14], 'video' => $argArray[15], 'battery' => $argArray[16]));
+                return $_SESSION['twig']->render('viewCompared.html.twig', array('sm1' => $argArray[1], 'sm2' => $argArray[2], 'count1' => $argArray[3], 'count2' => $argArray[4], 'winner' => $argArray[5], 'processor' => $argArray[6], 'screen' => $argArray[7], 'gpu' => $argArray[8], 'os' => $argArray[9], 'dimens' => $argArray[10], 'network' => $argArray[11], 'ram' => $argArray[12], 'storage' => $argArray[13], 'photo' => $argArray[14], 'video' => $argArray[15], 'battery' => $argArray[16], "date"=>$argArray[17]));
                 break;
             case 'viewInfoComparator':
                 return $_SESSION['twig']->render('viewInfoComparator.html.twig', array('comparator_name' => $argArray[1], 'comparator_version' => $argArray[2], 'comparator_slogan' => $argArray[3], 'comparator_link' => $argArray[4], 'comparator_token' => $argArray[5], 'comparator_status' => $argArray[6], 'userLastName' => $_SESSION['lastName'], 'userFirstName' => $_SESSION['firstName'], 'userType' => $_SESSION['userType'], 'id' => $_SESSION['idU'], 'comparator_mod' => $argArray[7]));
