@@ -5,7 +5,7 @@
  */
 
 /**
- *  Class Core 
+ *  Class Core for CQL (COMPARE QUERY LANGUAGE)
  * @author RAFINA DANY
  * @since 0.1
  * @access PRIVATE

@@ -1,265 +1,392 @@
 {% extends "viewTemplateWebsite.html.twig" %}
-{%block title %}COMPARED | Fiche Technique{%endblock%}
-{%block menu %}
-    <ul id="menu">
-        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
-        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
-        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
-        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
-        <li class="last"><a class="callContact">Contact</a></li>
-    </ul>
-{%endblock%}
+{% block title %}COMPARED | Fiche Technique{% endblock %}
+{% block sidebar_menu %}
+    <div class="sidebar_compared" id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <li class="sidebar-brand white-sep">
+                <a href="#" class="text-center">
+                    <span class="border-white">Menu</span>
+                    <span class="border-white-nbg">Actualités</span>
+                </a>
+            </li>
+            <li class="date">
+                <p class="new_p">{{ day }}</p>
+                <p class="new_p md_p">{{ date_t }}</p>
+            </li>
+            <li>
+                <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-home fa-2x"></i> <span
+                            class="new_font">Accueil</span></a>
+            </li>
+            <li>
+                <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-mobile fa-2x"></i> <span
+                            class="new_font">Faire une comparaison</span></a>
+            </li>
+            <li>
+                <a href="Wui.php?run=getHomePage&argument=void#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span
+                            class="new_font">Constructeurs</span></a>
+            </li>
+            <li>
+                <a href="Wui.php?run=getHomePage&argument=void#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
+            </li>
+            <li>
+                <a  href="Wui.php?run=getHomePage&argument=void#articles"><i class="fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
+            </li>
+            <li>
+                <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
+                            class="new_font">Contact</span></a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+{% block style %}
+    <style>
 
-{%block silder %}
-    <div class="col-md-12 gallery" style="height: 300px!important"> 
 
-        <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
-            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
-                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
-                    <h2 style="font-size:40px; ">Fiche Technique</h2>
-                </div>
-            </div>
-            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
-                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
-                    <h2 style="font-size:40px;"> {{ sm.getConstructorSm}} {{ sm.getFullNameSm }}</h2>
-                </div>
-            </div>
-            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
-                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
-                    <h2 style="font-size:30px;">&copy 2015 COMPARED Website / Version 0.10 Public Preview / Octimum project</h2>
-                </div>
-            </div>
+        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+           follow these rules. Every browser that supports :checked also supports :not(), so
+           it doesn’t make the test unnecessarily selective */
+        .rating:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+            clip: rect(0, 0, 0, 0);
+        }
 
+        .rating:not(:checked) > label {
+            float: right;
+            width: 1em;
+            padding: 0 .1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 200%;
+            line-height: 1.2;
+            color: #ddd;
+            text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rating > input:checked ~ label {
+            color: #f70;
+            text-shadow: 1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > input:checked + label:hover,
+        .rating > input:checked + label:hover ~ label,
+        .rating > input:checked ~ label:hover,
+        .rating > input:checked ~ label:hover ~ label,
+        .rating > label:hover ~ input:checked ~ label {
+            color: #ea0;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > label:active {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+    </style>
+{% endblock %}
+{% block header %}
+<ul class="related-posts group" style="margin: 0;">
+    <div class="largeRelated">
+        <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}.jpg)">
+            <a href="http://www.webdesignermag.co.uk/site-of-the-week-kikk/" class="bgOp">
+                <h2 style="bottom: 170px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                    {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}<br>
+                    Référence : {{ sm.codeNameSm }}<br>
+                    Date de sortie : {{ sm.releaseDateSm | date('d-m-Y') }}
+                     {% if  sm.prixSm != NULL %}
+                        <br> Prix : {{ sm.prixSm }}
+                        {% endif %}
+                    <div class="mark center-block" style="border-radius:50px;width: 50px;height: 50px;padding: 5px">{% if moy != "/" %} {{moy}} {% else %} {{moy}} {%endif%}</div>
+                </h2>
+
+
+            </a>
         </div>
     </div>
+    <div class="smallRelated smallRelatedMod">
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/proc.jpg')">
+            <a href="#">
+                 <div class="carac">
+                Processeur
+                <p>----</p>
+                {{ sm.processor.constructorP }} {{ sm.processor.nameP }} {{ sm.processor.versionP }}
+                <div >Fréquence : {{ sm.processor.frequencyP }} Ghz</div>
+                <div >Nombre de coeurs : {{ sm.processor.nbOfCoreP }}</div>
+                <div >Architecture
+                    :{% if sm.processor.archP != 0 %} {{ sm.processor.archP }} bits{% else %} ARM {% endif %}</div>
+                     </div>
+            </a>
+        </div>
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/sm.jpg')">
+            <a href="#">
+                 <div  class="carac">
+                    &Eacute;cran
+                    <p>----</p>
+                   {{ sm.screen.typeS }}
+                            <div >Taille : {{ sm.screen.sizeS }} pouces</div>
+                            <div > Densité : {{ sm.screen.sizeS }} </div>
+                            <div > Définition : {{ sm.screen.capacityS }}</div>
+                            <div > Résolution : {{ sm.screen.resolutionS }} pixels</div>
+                     </div>
+            </a>
+        </div>
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/memory.jpg')">
+            <a href="#">
+ <div  class="carac">
+                    Mémoires
+                    <p>----</p>
+     <div > Mémoire vive : {{ sm.ramSm }} Go</div>
+     <div > Mémoire interne : {{ sm.internalStSm }} Go</div>
+     <div > Mémoire externe :
+         {% if sm.ExternalStSm != "NULL" %}
+             Oui ({{ sm.ExternalStSm }} Go MAX)
+         {% else %}
+             Non
+         {% endif %}
+     </div>
+     </div>
+            </a>
+        </div>
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/batt.jpg')">
+            <a href="#">
+                <div  class="carac">
+                    Dimensions et Autonomie
+                    <p>----</p>
+                    <div>  Poids {{ sm.weightSm }} g </div>
+                    <div class="col-md-12 col-sm-4 "> Largeur : {{ sm.heightSm }} mm</div>
+                    <div class="col-md-12 col-sm-4">Longueur : {{ sm.widthSm }} mm</div>
+                    <div class="col-md-12 col-sm-4">&Eacute;ppaisseur : {{ sm.thinknessSm }} mm</div>
+                    <div> Capacité batterie : {{ sm.batteryCSm }} mAh</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    </ul>
+    <ul class="related-posts group" style="margin: 0;">
+        <div class="smallRelated smallRelated_long" style="width: 100%">
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/gpu.jpg')">
+            <a href="#">
+                <div class="carac">
+                    Puce graphique
+                    <p>---</p>
+                    <div > {{ sm.gpu.constructor }} {{ sm.gpu.name }} {{ sm.gpu.version }}</div>
+                    <div> Fréquence : {{ sm.gpu.frequency }} Mhz</div>
+                    <div>{% if sm.gpu.gflops != '' %}
+                            Flops :  {{ sm.gpu.gflops }} GFlops
+                        {% else %}
+                            Flops : Non renseigné
+                        {% endif %}
+                    </div>
+                    <div> {% if sm.gpu.print != '' %}
+                            Gravure :  {{ sm.gpu.print }} nanomètre
+                        {% else %}
+                            Gravure : Non renseigné
+                        {% endif %}</div>
+                    <div > {% if sm.gpu.directXV != '' %} Version DirectX :  {{ sm.gpu.directXV }} {% else %} Version DirectX : Non renseigné {% endif %}</div>
+                </div>
+            </a>
+        </div>
+            <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/picture.jpg')">
+                <a href="#">
+                    <div  class="carac">
+                        Appareil photo
+                        <p>---</p>
+                        <div>Avant : {{ sm.photoFrontSm }} Mpx </div>
+                        <div>Arrière : {{ sm.photoBackSm }} Mpx </div>
+                    </div>
+                </a>
+            </div>
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/camera.jpg')">
+            <a href="#">
+                <div  class="carac">
+                            Caméra
+                    <p>---</p>
+                        <div>Avant : {{ sm.videoFrontSm }} ({{ sm.resolutionVideoFrontSm }} pixels) </div>
+                        <div>Arrière : {{ sm.videoBackSm }} ({{ sm.resolutionVideoBackSm }} pixels) </div>
+                    </div>
+            </a>
+        </div>
+
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg')">
+            <a href="#">
+                <div  class="carac">
+                    <div>
+                        {% set icon = "" %}
+                        {% if  "Android" in sm.os.name %}
+                            {% set icon = "android" %}
+                        {% elseif  "Windows" in sm.os.name %}
+                            {% set icon = "windows" %}
+                        {% elseif  "iOS" in sm.os.name %}
+                            {% set icon = "apple" %}
+                        {% elseif  "Ubuntu" in sm.os.name %}
+                            {% set icon = "ubuntu" %}
+                        {% endif %}
+                        <img src="PUBLIC/IMAGE/os_logo/{{ icon }}.png" class="icon-proc " alt=""/>
+                    </div>
+                    Système d'exploitation
+                    <p>---</p>
+                        <div>{{ sm.os.constructor }} {{ sm.os.name }} {{ sm.os.version }}</div>
+                        <div class="col-md-12 col-sm-12 text-center full_wd">Date de sortie
+                            : {{ sm.os.releaseDate  | date('d-m-Y') }}</div>
+                    </div>
+            </a>
+        </div>
+
+    </div>
+
+</ul>
+{% endblock %}
+    {% block silder %}
+
+        <div class="row ">
+
+
+        </div>
+
 {%endblock%}
-{%block content %}
-    <div class="container">
-        <div class="row">
+{% block content %}
+    <div class="row animated fadeInDown">
+            <div class="cd-folding-panel">
 
-            <h2 class='text-center  '>Caractéristiques  {{ sm.getConstructorSm}} {{ sm.getFullNameSm }}</h2>
-            <img class="center-block " src="PUBLIC/IMAGE/constructor/{{sm.getConstructorSm|lower}}.png" style="width:20%;" />
-            <div class="col-md-12 cBusiness">
+                <div class="fold-left"></div> <!-- this is the left fold -->
 
-                <h4 > Référence : {{ sm.codeNameSm }} </h4>
+                <div class="fold-right"></div> <!-- this is the right fold -->
 
-                <h4 >  Date de sortie : {{ sm.releaseDateSm|date("d-m-Y")  }} </h4>
+                <div class="cd-fold-content">
+                    <!-- content will be loaded using javascript -->
+                </div>
 
-                {% if  sm.prixSm != NULL %}
-                    <h4> Prix : {{ sm.prixSm }} </h4>
+                <a class="cd-close" href="#0"></a>
+            </div>
+        </div>
+    </div>
+    <!-- end test -->
 
-                {% endif %}
-                <br>
-                <div class="row">
-                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect1">
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-mobile-phone fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">&Eacute;cran</h3>
-                                <ul>
-                                    <li> Type : {{ sm.screen.typeS  }}</li>
-                                    <li>Taille : {{ sm.screen.sizeS  }} pouces</li>
-                                    <li> Densité : {{ sm.screen.densityS  }} pp </li>
-                                    <li> Définition : {{ sm.screen.capacityS }} </li>
-                                    <li> Résolution : {{ sm.screen.resolutionS }} pixels</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-cogs fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Processeur</h3>
-                                <ul>
-                                    <li> Constructeur : {{ sm.processor.constructorP  }} </li>
-                                    <li> Nom : {{ sm.processor.nameP  }} </li>
-                                    <li> Version : {{ sm.processor.versionP  }} </li>
-                                    <li>Fréquence : {{ sm.processor.frequencyP  }} Ghz</li>
-                                    <li> Nombre de coeurs : {{ sm.processor.nbOfCoreP  }} </li>
-                                    <li> Architecture :{% if sm.processor.archP != 0 %}} {{ sm.processor.archP  }} bits{% else %} ARM {% endif %}</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                {% set fa = "" %}
-                                {%if  "Android" in sm.os.name %}
-                                    {% set fa = "fa-android" %}
-                                {%elseif  "Windows" in sm.os.name %}
-                                    {% set fa = "fa-windows" %}
-                                {%elseif  "iOS" in sm.os.name %}
-                                    {% set fa = "fa-apple" %}
-                                {%elseif  "Ubuntu" in sm.os.name %}
-                                    {% set fa = "fa-ubuntu" %}
-                                {%endif%}
-                                <i class="fa  {{fa}} fa-3x "></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Système d'exploitation</h3>
-                                <ul >
-                                    <li> Nom : {{ sm.os.constructor  }} {{ sm.os.name  }} </li>
-                                    <li> Version : {{ sm.os.version  }} </li>
-                                    <li> Date de création : {{ sm.os.releaseDate|date("d-m-Y")  }} </li>
-                                </ul>
-                            </div>
-                        </div>
+    <section class="showcase borderSection">
+        <div class="showcase-wrap" style="padding:30px 0 ;min-height: 350px!important">
+            <div class="texture-overlay"></div>
+            <div class="container">
+                <div class="row news">
+                    <div class="col-md-6">
+                        <input class="inputIdSm" type="hidden" value="{{ sm.idSm }}"/>
+                        <h2 class="white_font ">Notez le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
+                                    class="fa fa-mobile"></i></h2>
+                        <p style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Ce smarphone vous plaît ? Ou
+                            alors il est horrible ? Exprimez-vous alors avec cette note !</p>
 
-                        <div class="media media-left feature">
-                            <a class="pull-right" href="#">
-                                <i class="fa fa-spinner fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Carte graphique</h3>
-                                <ul >
-                                    <li> Nom : {{ sm.gpu.name  }} </li>
-                                    <li> Version :  {{ sm.gpu.version  }}</li>
-                                    <li> Constructeur :   {{ sm.gpu.constructor  }}</li>
-                                    <li> Fréquence : {{ sm.gpu.frequency  }} Mhz </li>
-                                        {%if sm.gpu.gflops != '' %}
-                                        <li> Flops :  {{ sm.gpu.gflops  }} GFlops</li>
-                                        {%endif%}
-                                        {%if sm.gpu.print != '' %}
-                                        <li> Gravure :  {{ sm.gpu.print  }} nanomètre </li>
-                                        {%endif%}
-                                        {%if sm.gpu.directXV != '' %}<li> Version Direct X :  {{ sm.gpu.directXV  }} </li> {%endif%}
-                                </ul>
-                            </div>
-                        </div>
-
-
-
-
+                        <fieldset class="rating">
+                            <legend> De 1 à 5:</legend>
+                            <input type="radio" class="starC" id="star5" name="rating" value="5"/><label for="star5"
+                                                                                                         title="Rocks!">5
+                                stars</label>
+                            <input type="radio" class="starC" id="star4" name="rating" value="4"/><label for="star4"
+                                                                                                         title="Pretty good">4
+                                stars</label>
+                            <input type="radio" class="starC" id="star3" name="rating" value="3"/><label for="star3"
+                                                                                                         title="Meh">3
+                                stars</label>
+                            <input type="radio" class="starC" id="star2" name="rating" value="2"/><label for="star2"
+                                                                                                         title="Kinda bad">2
+                                stars</label>
+                            <input type="radio" class="starC" id="star1" name="rating" value="1"/><label for="star1"
+                                                                                                         title="Sucks big time">1
+                                star</label>
+                        </fieldset>
                     </div>
+                    <div class="col-md-6">
+                        <h2 class="white_font">Partager cette page sur les réseaux sociaux <i
+                                    class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></h2>
+                        <p style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Donnez la possibilité à
+                            d'autres personnes de connaître ce smartphone en le partageant !</p>
 
-                    <div class="col-md-4 col-sm-4">
-                        <img src="PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}.jpg" class="img-responsive scrollpoint sp-effect5" alt=""/>
-                    </div>
+                        <div class=" col-md-12  " style="padding-bottom: 45px;">
+                            <ul class="list-unstyled list-group text-center screenshots-new">
+                                <li class=" col-md-6 list-group-item social-network-item"><i
+                                            class="fa fa-facebook-square"></i> <a
+                                            href="https://www.facebook.com/comparedsm?ref=hl">Facebook</a></li>
 
-                    <div class="col-md-4 col-sm-4 scrollpoint sp-effect2">
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-exclamation-triangle fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Taille et Poids</h3>
-                                <ul>
-                                    <li> Largeur : {{ sm.heightSm }} mm</li>
-                                    <li>Longueur : {{ sm.widthSm }} mm</li>
-                                    <li> &Eacute;ppaisseur :  {{ sm.thinknessSm }}mm</li>
-                                    <li> Poids :  {{ sm.weightSm }} g </li>
 
-                                </ul>
-                            </div>
+                                <li class="col-md-6 list-group-item social-network-item"><i
+                                            class="fa fa-google-plus-square"></i><a
+                                            href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g">Google+</a>
+                                </li>
+
+
+                            </ul>
                         </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-hdd-o fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Mémoire vive </h3>
-                                <ul>
-                                    <li> RAM : {{ sm.ramSm }} Go </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-rouble fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Autonomie</h3>
-                                <ul> 
-                                    <li> Capacité de la batterie : {{ sm.batteryCSm }} mAh </li>
-
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-picture-o fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Photo</h3>
-                                <ul>
-                                    <li> Appareil photo avant
-                                        <ul>
-                                            <li> Résolution : {{ sm.photoFrontSm }} Mpx </li>
-
-                                        </ul>
-                                    </li>
-
-                                    <li>
-
-                                        Appareil photo arrière
-                                        <ul>
-                                            <li> Résolution : {{ sm.photoBackSm }} Mpx </li>
-                                        </ul>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-video-camera fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Vidéo</h3>
-                                <ul>
-
-                                    <li> Video avant 
-                                        <ul>
-                                            <li> Résolution : {{ sm.resolutionVideoBackSm }} pixels </li>
-                                            <li> Définition: {{ sm.videoFrontSm }} </li>
-
-                                        </ul>
-                                    </li>
-
-                                    <li> Video arrière
-                                        <ul>
-                                            <li> Résolution : {{ sm.resolutionVideoFrontSm }} pixels </li>
-                                            <li> Définition : {{ sm.videoBackSm }} </li>
-
-                                        </ul>
-                                    </li>
-                                </ul>
-
-                            </div>
-                        </div>
-                        <div class="media feature">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-hdd-o fa-3x"></i>
-                            </a>
-                            <div class="media-body">
-                                <h3 class="media-heading">Stokage</h3>
-                                <ul> 
-                                    <li> Capacité interne : {{ sm.internalStSm }} Go </li>
-                                        {%if sm.ExternalStSm != "NULL" %}
-                                        <li> Capacité externe maximale : {{ sm.ExternalStSm }} Go</li>
-                                        {%endif%}
-                                </ul>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
         </div>
+    </section>
+    <div data-backdrop='static' data-keyboard='false' class='modal  fade ' id='modal_mark_smSpec' tabindex='-1'
+         role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <div class=" row">
+                        <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-star"></i>&nbsp;Notation
+                        </h4></div>
+                </div>
+                <div class='modal-body text-center '>
+                    Merci d'avoir noté le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
+                            class="fa fa-hand-o-left"></i> <br>
+                    Retournez sur la page d'accueil pour découvrir de nouveau smartphone
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-success'
+                            onClick="location.href = 'Wui.php?run=getHomePage&agrgument=void'">Retour à l'accueil
+                    </button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal' onClick='location.reload()'>
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
     </div>
-{%endblock%}
-{%block contact %}{%endblock%}
-{%block follow %} {%endblock%}
-{%block menuB %}
-    <ul id="downMenu">
-        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
-        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
-        <li><a href="Wui.php?run=getHomePage&argument=void#smartphones">Smartphones</a></li>
-        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
-        <li ><a class="callContact">Contact</a></li>
-        <li class="last"><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
-    </ul>
-{%endblock%}
+    <script>
+        $(document).ready(function () {
+            $(".starC").each(function () {
+                $(this).bind('click', function () {
+                    var score = $(this).val();
+                    var sm = $(".inputIdSm").val();
+                    console.log("aze");
+                    $.ajax({
+                        url: "Wui.php?run=newSmScore",
+                        type: "POST",
+                        data: {"sm": sm, "score": score},
+                        success: function (_data) {
+                            console.log(_data);
+                            $("#modal_mark_smSpec").modal('show');
+                        },
+                        error: function (request, status, error) {
+                            alert(error)
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+{% endblock %}
+                                {% block follow %} {% endblock %}
+                                {% block menuB %}
+                                    <li class="active"><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+                                    <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a>
+                                    </li>
+                                    <li><a href="#manufacturer">Les constructeurs</a></li>
+                                    <li><a href="#articles">Articles</a></li>
+                                    <li><a class="callContact">Contact</a></li>
+                                    <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+                                {% endblock %}

@@ -10,25 +10,25 @@ REGISTER_AUTOLOADER :
     ENGINE_TEMPLATES/Twig/lib/Twig/Autoloader.php
     DATABASE_CORE/Connector.php
     CONTROLLER/Controller.php
-    ENTITIES/Omium/Omium.php
-    ENTITIES/SimpleUser.php
-    ENTITIES/Constructor.php
-    ENTITIES/Smartphone.php
-    ENTITIES/Developer.php
-    ENTITIES/Screen.php
-    ENTITIES/Processor.php
-    ENTITIES/GPU.php
-    ENTITIES/Compared.php
-    ENTITIES/Notice.php
-    ENTITIES/Os.php
-    ENTITIES/Usertype.php
-    ENTITIES/User.php
-    ENTITIES/HelpMessage.php
-    ENTITIES/Score.php
-    ENTITIES/SScore.php
-    CONTROLLER/INCLUDES/UtilityFunctions.php
+    ORM/Omium/Omium.php
+    ORM/SimpleUser.php
+    ORM/Constructor.php
+    ORM/Smartphone.php
+    ORM/Developer.php
+    ORM/Screen.php
+    ORM/Processor.php
+    ORM/GPU.php
+    ORM/Compared.php
+    ORM/Notice.php
+    ORM/Os.php
+    ORM/Usertype.php
+    ORM/User.php
+    ORM/HelpMessage.php
+    ORM/Score.php
+    ORM/SScore.php
+    CONTROLLER/Utility/UtilityFunction.php
     MAINTENANCE/Router.php
-    MAINTENANCE/M_CONTROLLER/INCLUDES/M_UtilityFunctions.php
+    MAINTENANCE/M_CONTROLLER/Utility/M_UtilityFunctions.php
     MAINTENANCE/M_Starter.php
     MAINTENANCE/M_CONTROLLER/Supervisor.php
     

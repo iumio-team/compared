@@ -10,7 +10,7 @@
 $(document).ready(function () {
 
 
-    $("#starter").each(function () {
+    $("#toStart, #float_menu").each(function () {
         $(this).bind('click', function (e) {
             e.preventDefault();
             var d = new Date();
@@ -33,7 +33,7 @@ $(document).ready(function () {
                 localStorage.setItem("lastCompared", $("#form_compared").find(".ftsm").val() + "|" + $("#form_compared").find(".sdsm").val() + "|" + output + "|" + hours + "|" + name1 + "|" + name2);
             }
             $('#form_compared').submit();
-            return;
+
         });
     });
 });

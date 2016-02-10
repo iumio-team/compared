@@ -203,7 +203,7 @@
 		}
 		btn.addClass(prefix+'_animating');
 		$this._visibilityToggle(mobileNav, true, btn);
-	}
+	};
 	
 	// toggle clicked items
 	Plugin.prototype._itemClick = function(el) {
@@ -230,7 +230,7 @@
 			data.parent.addClass(prefix+'_animating');
 			$this._visibilityToggle(data.ul, true, el);
 		}
-	}
+	};
 
 	// toggle actual visibility and accessibility tags
 	Plugin.prototype._visibilityToggle = function(el, animate, trigger, init) {
@@ -274,7 +274,7 @@
 					settings.init();
 			});
 		}
-	}
+	};
 
 	// set attributes of element and children based on visibility
 	Plugin.prototype._setVisAttr = function(el, hidden) {
@@ -301,7 +301,7 @@
 				$this._setVisAttr(ul, hidden);
 			});
 		}
-	}
+	};
 
 	// get all 1st level items that are clickable
 	Plugin.prototype._getActionItems = function(el) {
@@ -314,7 +314,7 @@
 			el.data("menu", data);
 		}
 		return data.links;
-	}
+	};
 
 	Plugin.prototype._outlines = function(state) {
 		if (!state) {
@@ -322,25 +322,25 @@
 		} else {
 			$('.'+prefix+'_item, .'+prefix+'_btn').css('outline','');
 		}
-	}
+	};
 	
 	Plugin.prototype.toggle = function(){
 		$this._menuToggle();
-	}
+	};
 	
 	Plugin.prototype.open = function(){
 		$this = this;
 		if ($this.btn.hasClass(prefix+'_collapsed')) {
 			$this._menuToggle();
 		}
-	}
+	};
 	
 	Plugin.prototype.close = function(){
 		$this = this;
 		if ($this.btn.hasClass(prefix+'_open')) {
 			$this._menuToggle();
 		}
-	}
+	};
 	
 	$.fn[mobileMenu] = function ( options ) {
 		var args = arguments;

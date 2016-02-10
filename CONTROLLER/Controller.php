@@ -7,28 +7,26 @@
  * @version 0.60
  *
  */
-use LayerConnector\MDA;
 
-class Controller
+namespace Compared\Supervisor;
+
+use Compared\Tools\UtilityFunction;
+use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Score,Constructor};
+use Compared\Router\Pointer;
+use Compared\Abs\Supervisor\AbstractController;
+use Spyc;
+
+
+class Controller extends AbstractController
 {
-    private $model_instance = NULL;
-
-    /** This is a Singleton
-     * Get an instance of model
-     * @return Model Instance of Model Class
-     */
-    private function getModel()
-    {
-        return ($this->modal_instance == NULL)? $this->model_instance = new MDA(): $this->model_instance;
-    }
 
     /**
      * Method enables to login
      * @param string login Login User
      * @param string passwd Password User
-     * @return void
+     * @return
      */
-    public function login(String $pseudo, String $passwd):void
+    public function login(String $pseudo, String $passwd)
     {
         $model = $this->getModel();
         $result = $model->getOneUser($pseudo, $passwd)->fetchAll();
@@ -55,7 +53,7 @@ class Controller
         unset($model);
     }
 
-    public function destroySessions():void
+    public function destroySessions()
     {
         unset($_SESSION['firstName']);
         unset($_SESSION['lastName']);
@@ -63,6 +61,11 @@ class Controller
         unset($_SESSION['idU']);
         unset($_SESSION['pseudoU']);
         session_destroy();
+    }
+
+    public function getArticles()
+    {
+        new Pointer("show", array("viewArticles", array("date"=>UtilityFunction::getToday())));
     }
 
     public function getMasterFile():array
@@ -74,7 +77,7 @@ class Controller
         }
     }
 
-    public function logout():void
+    public function logout()
     {
         $this->destroySessions();
         $logoutMessage = 'Vous êtes dorénavant déconnecté';
@@ -92,7 +95,7 @@ class Controller
             return false;
     }
 
-    public function getDashboardInfo():void
+    public function getDashboardInfo()
     {
         $model = $this->getModel();
         if ( $this->isConnected()) {
@@ -109,37 +112,32 @@ class Controller
     }
 
     /** This function prepare all items on homepage such as smartphone counter
-     * @return void
+     * @return
      *
      */
-    public function prepareHomepageItem():void
+    public function prepareHomepageItem()
     {
         $model = $this->getModel();
         $nbS = $model->countLine('Smartphone', 'idS')->fetch()['count'];
         $nbC = $model->countLine('COMPARED', 'idCOMPARED')->fetch()['count'];
         $listAv = $model->findAll('Notice')->fetchAll();
         $recentComparison = $this->getRecentComparison();
-        $nj = array ("Sunday"=>"Dimanche","Monday"=>"Lundi",
-            "Tuesday"=>"Mardi","Wednesday"=>"Mercredi",
-            "Thursday"=>"Jeudi", "Friday"=>"Vendredi",
-            "Saturday"=>"Samedi");
-        $nm = array ("janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre");
+
         $finalAddedSm = $model->customQuery("SELECT idS FROM Smartphone ORDER BY idS DESC LIMIT 1;")->fetch();
         $sm = new Smartphone($finalAddedSm['idS']);
         $sm->getItem();
         $best = $this->getBestSm();
         new Pointer("show", array("viewHomePage", array('nbS' => $nbS, 'nbC' => $nbC, 'noticeList' => $listAv,
-            'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best,
-            "day"=>$nj[date("l")], "date_t"=>date("d")." ".$nm[date("m") - 1])));
+            'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best, "date"=>UtilityFunction::getToday())));
     }
 
     /** This is the essential function of Application which compare all smartphone caracteristics
      * @param int s1 Smartphone name 1
      * @param int s2 Smartphone name 2
-     * @return void
-     * @throws \GException\RuntimeError
+     * @return
+     * @throws RuntimeError
      */
-    public function compare(int $S1, int $S2):void
+    public function compare(int $S1, int $S2)
     {
         if ($S1 !== NULL || $S2 !== NULL) {
             if ($this->isComparatorLink()) {
@@ -148,7 +146,7 @@ class Controller
                 $sm1->getItem();
                 $sm2 = new Smartphone($S2);
                 $sm2->getItem();
-                $yamlFile =    $this->getMasterFile();
+                $yamlFile = $this->getMasterFile();
                 $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
                 $data = array('Action' => 'MC', 'sm1' => serialize($sm1), 'sm2' => serialize($sm2), 'appname' => $yamlFile["APP_NAME"], 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'resultType' => 'ARRAY');
                 $ch = curl_init($url);
@@ -172,15 +170,16 @@ class Controller
                 $ram = $response['RAM'];
                 $storage = $response['STORAGE'];
                 $battery = $response['BATTERY'];
-                $model->insertCompared($S1, $S2);
+                if ($S1 != $S2)
+                    $model->insertCompared($S1, $S2);
                 unset($model);
                 new Pointer('show', array('viewCompared', $sm1, $sm2, $countPSM1, $countPSM2, $winner, $processor, $screen, $gpu, $os, $dimens, $network, $ram, $storage, $photo, $video, $battery));
             }
             else
-                throw new \GException\RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
+                throw new RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
         }
         else
-            throw new \GException\RuntimeError("Votre comparaison comporte une anomalie . \n Veuillez réessayer ", NULL, NULL);
+            throw new RuntimeError("Votre comparaison comporte une anomalie . \n Veuillez réessayer ", NULL, NULL);
     }
 
     /** Search a smartphone
@@ -205,7 +204,7 @@ class Controller
      * @param int $idSm Smarphone id
      * @param float $scoreValue Score value
      */
-    public function newSmScore(int $idSm, float $scoreValue):void
+    public function newSmScore(int $idSm, float $scoreValue)
     {
         $smartphone = new Smartphone($idSm);
         $smartphone->getItem();
@@ -219,7 +218,7 @@ class Controller
     /** Get smartphone list of manufacturer
      * @param $constructor Manufacturer
      */
-    public function phoneList(String $constructor):void
+    public function phoneList(String $constructor)
     {
         $model = $this->getModel();
         $objectConstrucor = new Constructor($constructor);
@@ -230,7 +229,7 @@ class Controller
         new Pointer('show', array('viewPhoneList', $array, $objectConstrucor, $countSm['count']));
     }
 
-    public function getSpec($idS):void
+    public function getSpec($idS)
     {
         $icr = 0;
         $sum = 0;
@@ -266,7 +265,7 @@ class Controller
         return $arrayRC;
     }
 
-    public function isMaintenance():void
+    public function isMaintenance()
     {
         if ($this->isConnected()) {
             $yamlFile = $this->getMasterFile();
@@ -280,7 +279,7 @@ class Controller
     /**
      * @param int $pass
      */
-    public function authForMaintenance(int $pass):void
+    public function authForMaintenance(int $pass)
     {
         if ($this->isConnected()) {
             $result = $this->PIN($pass);
@@ -319,7 +318,7 @@ class Controller
      *
      * @return array best smartphone
      */
-    public function getBestSm() : array
+    public function getBestSm():array
     {
         $idS = NULL;
         $scoreV = 0;
@@ -337,7 +336,7 @@ class Controller
         return (array("sm" => $s, "score" => $scoreV));
     }
 
-    public function switchMaintenance(String $mode,String $sentence):void
+    public function switchMaintenance(String $mode,String $sentence)
     {
         if ( $this->isConnected()) {
             $yamlFile = $this->getMasterFile();
@@ -366,7 +365,7 @@ class Controller
                     }
                     break;
                 default:
-                    throw new \GException\RuntimeError("Imposible de mettre COMPARED en maintenance", NULL, NULL);
+                    throw new RuntimeError("Imposible de mettre COMPARED en maintenance", NULL, NULL);
                     break;
             }
         }
@@ -374,31 +373,33 @@ class Controller
             $this->failLogin('all');
     }
 
-    public function prepareComparison():void
+    public function prepareComparison()
     {
-        if ( $this->isComparatorLink()) {
-            $icr = 0;
-            $array =    $this->getAllSmartphone();
+        if ($this->isComparatorLink()) {
+            $array = $this->getAllSmartphone();
             $model = $this->getModel();
             $scoreP = $a = $model->customQuery("select avg(scoreValue) as mark, idS from S_SCORE group by idS;");
-            while ($line = $scoreP->fetch()) {
-                if ($array[$icr]['idS'] == $line['idS'])
-                    array_push($array[$icr], $line['mark']);
-                $icr++;
-            }
+            $scores = $scoreP->fetchAll();
+            for ($i = 0; $i < count($array); $i++)
+                {
+                    foreach ($scores as $oneScore) {
+                        if ($array[$i]['idS'] == $oneScore['idS'])
+                            $array[$i]['mark'] = $oneScore['mark'];
+                    }
+                }
             unset($model);
             new Pointer('show', array('viewStartCompared', $array));
         }
         else
-            throw new \GException\RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
+            throw new RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
     }
 
-    public function getLegalNotice():void
+    public function getLegalNotice()
     {
         new Pointer('show', array('viewLegalNotice'));
     }
 
-    public function getLoginView():void
+    public function getLoginView()
     {
         new Pointer('show', array('viewLogin', NULL));
     }
@@ -411,7 +412,7 @@ class Controller
         return $array;
     }
 
-    public function failLogin(String $arg):void
+    public function failLogin(String $arg)
     {
         $this->destroySessions();
         switch ($arg) {
@@ -428,17 +429,17 @@ class Controller
         }
     }
 
-    public function getMessages():void
+    public function getMessages()
     {
         ($this->isConnected())? new Pointer('show', array('viewMessage',    $this->getAllMessages())) : $this->failLogin('all');
     }
 
-    public function getInfoApp():void
+    public function getInfoApp()
     {
         ($this->isConnected())? new Pointer('show', array('viewInfoApp')) : $this->failLogin('all');
     }
 
-    public function getNotices():void
+    public function getNotices()
     {
         ($this->isConnected())? new Pointer('show', array('viewNotice', $this->getAllNotice())) : $this->failLogin('all');
     }
@@ -459,7 +460,7 @@ class Controller
         return $array;
     }
 
-    public function sendMessage(String $name, String $email, String $subject, String $content):void
+    public function sendMessage(String $name, String $email, String $subject, String $content)
     {
         $object = new HelpMessage(array('name' => $name, 'email' => $email, 'subject' => $subject, 'content' => $content, 'date' => date('d/m/Y')));
         $result = $object->create();
@@ -473,7 +474,7 @@ class Controller
         return ($info === "NOTATTACHED")? false : true ;
     }
 
-    public function deleteMessage(int $id):void
+    public function deleteMessage(int $id)
     {
         $object = new HelpMessage($id);
         $object->getItem();
@@ -489,7 +490,7 @@ class Controller
             echo 0;
     }
 
-    public function getInfoComparator():void
+    public function getInfoComparator()
     {
         if ($this->isConnected()) {
             $yamlFile =    $this->getMasterFile();
@@ -500,7 +501,7 @@ class Controller
             $this->failLogin('all');
     }
 
-    public function getInfoComparatorToModify(String $optionalMessage = NULL):void
+    public function getInfoComparatorToModify(String $optionalMessage = NULL)
     {
         if ( $this->isConnected()) {
             $yamlFile = $this->getMasterFile();
@@ -511,7 +512,7 @@ class Controller
             $this->failLogin('all');
     }
 
-    public function switchStatusComparator(int $pass, String $mod):void
+    public function switchStatusComparator(int $pass, String $mod)
     {
         if ($this->PIN($pass) == 1) {
             $yamlFile = $this->getMasterFile();
@@ -553,7 +554,7 @@ class Controller
             echo '0';
     }
 
-    public function modifyInfoComparator(String $name, String $version, String $slogan, String $href, String $token, String $status):void
+    public function modifyInfoComparator(String $name, String $version, String $slogan, String $href, String $token, String $status)
     {
         if ($this->isConnected()) {
             if ($name == '' || $token == '' || $href == '')

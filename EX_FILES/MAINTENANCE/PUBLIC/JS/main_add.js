@@ -412,7 +412,7 @@ $(document).ready(function(){
     
     $("#enable").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').modal('show');
         })
@@ -420,7 +420,7 @@ $(document).ready(function(){
     
     $("#disable").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').modal('show');
         })
@@ -428,10 +428,10 @@ $(document).ready(function(){
     
     $(".PIN").find("img.btn").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             if($(this).attr("data-content") != "NULL" && $(this).attr("data-content") != "RM" && $(this).attr("data-content") != "VAL"){
                  $('#modalConnection').find("h3.error").text("");
-                var value = $("#password").val()
+                var value = $("#password").val();
                 $("#password").val(value+""+$(this).attr("data-content"))
             }
            else if($(this).attr("data-content") == "RM"){
@@ -446,7 +446,7 @@ $(document).ready(function(){
               data :{ pin: code },
               dataType: "html",
               success : function(_data){
-                  console.log(_data)
+                  console.log(_data);
                  if(_data === "1"){
                     $('#modalConnection').modal("hide");
                     $('#modalMaintenance').modal("hide");
@@ -489,14 +489,14 @@ $(document).ready(function(){
                  if(json.date){
                 
                     
-                     $('#modalMaintenance').find(".statuts").text("Activé")
+                     $('#modalMaintenance').find(".statuts").text("Activé");
                      $('#modalMaintenance').find(".bt").text("Désactiver la maintenance");
                      $('#modalMaintenance').find(".date").css("display","block");
                      $('#modalMaintenance').find(".date1").text("Le "+json.date);
                        $('#modalMaintenance').find(".time-elapsed").css("display","block");
                        $('#modalMaintenance').find(".elapsed1").text(json.timeelapsed);
                      $('#modalMaintenance').find(".bt").attr("id","disable");
-                                                   console.log(json.date)
+                                                   console.log(json.date);
                   $('#modalMaintenance').modal('show');
                   
                     
@@ -504,8 +504,8 @@ $(document).ready(function(){
                 }
                 
                   if(_data === "0"){
-                     $('#modalMaintenance').find(".statuts").text("Désactivé")
-                     $('#modalMaintenance').find(".bt").text("Activer la maintenance")
+                     $('#modalMaintenance').find(".statuts").text("Désactivé");
+                     $('#modalMaintenance').find(".bt").text("Activer la maintenance");
                      $('#modalMaintenance').find(".bt").attr("id","enable");
                      $('#modalMaintenance').modal('show');
                    
@@ -531,7 +531,7 @@ $(document).ready(function(){
                  if(_data === '1'){
                       $('#myModal').find('.modal-footer').hide();
                        $('#myModal').attr("data-keyboard","false");
-                     $('.modal-body').html("<span>Suppresion effectuée </span>")
+                     $('.modal-body').html("<span>Suppresion effectuée </span>");
                      $('#myModal').modal('show');
                    
                      
@@ -544,7 +544,7 @@ $(document).ready(function(){
                 }
                 
                   if(_data === '0'){
-                     $('.modal-body').html("<span >Une erreur a été rencontré lors de la suppression du message </span>")
+                     $('.modal-body').html("<span >Une erreur a été rencontré lors de la suppression du message </span>");
                      $('#myModal').find('.modal-footer').hide();
                       $('#myModal').modal('show');
                    

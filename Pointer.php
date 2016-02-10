@@ -4,7 +4,10 @@
  * @author  RAFINA DANY <danyrafina@gmail.com>
  * 
  */
+
+namespace Compared\Router;
 use GException\{RuntimeError, LoadingError};
+use Compared\Supervisor\Controller;
 
 class Pointer {
 
@@ -29,7 +32,10 @@ class Pointer {
                 }
                 break;
             case 'viewStartCompared':
-                return $_SESSION['twig']->render('viewStartCompared.html.twig', array('phoneList' => $argArray[1]));
+                return $_SESSION['twig']->render('viewStartCompared.html.twig');
+                break;
+            case 'viewArticles':
+                return $_SESSION['twig']->render('viewArticles.html.twig', array('phoneList' => $argArray[1]));
                 break;
             case 'viewPhoneList':
                 return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1], 'constructor' => $argArray[2], 'countSm' => $argArray[3]));
@@ -75,7 +81,7 @@ class Pointer {
         }
     }
 
-    static public function __callController(String $run, array $arg = null):void
+    static public function __callController(String $run, array $arg = null)
     {
         $controller = new Controller();
         switch ($run) {
@@ -143,6 +149,9 @@ class Pointer {
                 break;
             case 'getModInfoComparator':
                 $controller->getInfoComparatorToModify();
+                break;
+            case 'getArticles':
+                $controller->getArticles();
                 break;
             case 'submitFormComparator':
                 $controller->modifyInfoComparator($arg['name'], $arg['version'], $arg['slogan'], $arg['link'], $arg['token']);

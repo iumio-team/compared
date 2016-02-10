@@ -1,11 +1,6 @@
-DirectoryIndex Wui.php
-Options +FollowSymLinks
+# On suit les liens symboliques 
+Options +FollowSymlinks 
+# Activation du mod rewrite d'Apache 
 RewriteEngine On
- 
-RewriteCond %{SCRIPT_FILENAME} !-d
-RewriteCond %{SCRIPT_FILENAME} !-f
- 
-RewriteRule ^users/(\d+)*$ ./Wui.php?run=$1&argument=void
-RewriteRule ^threads/(\d+)*$ ./Wui.php?run=$1&argument=void
- 
-RewriteRule ^search/(.*)$ ./Wui.php?run=$1&argument=void
+# Réécriture de index.html vers index.php
+RewriteRule ^(([a-z]||[A-Z])+)$ Wui.php?run=$1&argument=void [L]

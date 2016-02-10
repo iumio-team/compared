@@ -7,7 +7,8 @@ window.jQuery = window.$ = jQuery;
 /*	CHART
 /*-----------------------------------------------------------------------------------*/
 jQuery(document).ready(function(){
-    
+
+    $('[data-toggle="tooltip"]').tooltip();
     var globalColor = '#000DFF';
 
     var chart = $('.chart'),
@@ -21,7 +22,16 @@ jQuery(document).ready(function(){
     }
     
     animatePie();
-    
+
+
+    $(".iswinner").click(function(e)
+    {
+        e.preventDefault();
+        $("#modal_out").modal("show");
+        $("#modal_out").find(".font_logout").text($(this).attr("data-title"));
+        $("#modal_out").find(".text_logout").text($(this).attr("data-content"));
+
+    })
     function resetPie(_percent, _color){
        
         if (chart.length) {
@@ -229,7 +239,7 @@ jQuery(document).ready(function(){
                 $(this).attr('data-percent','-'+reqSrc);
 
                 $('.icon-arrow-right').attr('class','icon-arrow-left');
-                globalColor = '#ff0000'
+                globalColor = '#ff0000';
                 $(this).addClass('redColor');
 
                 $(this).find('.percent').html(reqSrc);
@@ -238,7 +248,7 @@ jQuery(document).ready(function(){
 
             }
             else {
-                console.log('Inférieur '+reqSrc) 
+                console.log('Inférieur '+reqSrc);
                 reqSrc = parseInt(reqSrc);
                 reqSrc = -(reqSrc);                   
                 console.log('Inférieur '+reqSrc);
@@ -253,6 +263,13 @@ jQuery(document).ready(function(){
                   
             }
         })
+    });
+
+    $('a.callContact').each(function () {
+        $(this).bind('click', function (e) {
+            console.log("aeaz");
+            $('#contact').modal('show');
+        });
     });
     
      $("#form_help").each(function () {
@@ -277,7 +294,7 @@ jQuery(document).ready(function(){
                 }
 
             }); // Ajax Call
-            return;
+
         });
     });
 

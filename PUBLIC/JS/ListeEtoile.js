@@ -1,6 +1,6 @@
 
 // Tableau de memorisation des notes pour chaque liste
-var ArrListeEtoile = new Object();
+var ArrListeEtoile = {};
 
 //-------------------------------------------------------
 // Gestion de la visibilite des etoiles au survol

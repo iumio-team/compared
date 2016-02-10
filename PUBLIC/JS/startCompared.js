@@ -12,20 +12,16 @@ $(document).ready(function () {
                 var name = $(this).find('input.inputName').val();
                 if ($('input#ftsm').val() !== smC && ($('input#ftsm').val() !== "NULL")) {
                     $('input#sdsm').val(smC);
-                    $('.sm2_alpha').css("display", "none");
-                    $('.sm2').css("display", "inline_block");
-                    $('.sm2').find("img.pic2").attr("src", "PUBLIC/IMAGE/smartphones/" + picture + ".jpg");
-                    $('.sm2').find("div.textName2").text(name);
-                    $('.sm2').find("a.ft2").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + $('span#data-comparator').attr("data-comparator_sd") + "')");
+                    $('.sm2').find(".pic2").css("background", "url('PUBLIC/IMAGE/smartphones/" + picture + ".jpg')");
+                    $('.sm2').find("h2.textName2").text(name);
+                   // $('.sm2').find("a.ft2").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + $('span#data-comparator').attr("data-comparator_sd") + "')");
                 }
                 else if ($('input#sdsm').val() !== "NULL" && $('input#ftsm').val() === "NULL") {
-                    console.log("azety")
+                    console.log("azety");
                     $('input#ftsm').val(smC);
-                    $('.sm1_alpha').css("display", "none");
-                    $('.sm1').css("display", "inline_block");
-                    $('.sm1').find("img.pic2").attr("src", "PUBLIC/IMAGE/smartphones/" + picture + ".jpg");
-                    $('.sm1').find("div.textName1").text(name);
-                    $('.sm1').find("a.ft2").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + smC + "')");
+                    $('.sm1').find("pic1").attr("src", "PUBLIC/IMAGE/smartphones/" + picture + ".jpg");
+                    $('.sm1').find("h2.textName1").text(name);
+                   // $('.sm1').find("a.ft2").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + smC + "')");
                 }
                 else if ($('input#sdsm').val() !== smC && ($('input#sdsm').val() !== "NULL")) {
                     $('input#sdsm').val(smC);
@@ -38,11 +34,9 @@ $(document).ready(function () {
                 else {
 
                     $('input#ftsm').val(smC);
-                    $('.sm1_alpha').css("display", "none");
-                    $('.sm1').css("display", "inline_block");
-                    $('.sm1').find("img.pic1").attr("src", "PUBLIC/IMAGE/smartphones/" + picture + ".jpg");
-                    $('.sm1').find("div.textName1").text(name);
-                    $('.sm1').find("a.ft1").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + smC + "')");
+                    $('.sm1').find(".pic1").css("background", "url('PUBLIC/IMAGE/smartphones/" + picture + ".jpg')");
+                    $('.sm1').find("h2.textName1").text(name);
+                    //$('.sm1').find("a.ft1").attr("href", "javascript:window.open('Wui.php?run=getSpec&argument=" + smC + "')");
                 }
 
                 if (counter === "0") {
@@ -54,7 +48,8 @@ $(document).ready(function () {
                     $(".progress_bar_mod").text(" ");
                     $(".progress_bar_mod").css("width", "100%");
                     $(".progress_bar_mod").text("2");
-                    $("#nav_start").css("display", "inline-block");
+                    $("#float_menu").show();
+                    $("#modal_login").modal("show");
                 }
 
 
@@ -123,11 +118,23 @@ $(document).ready(function () {
                 $('.sm1').find("div.textName2").text("");
                 $('.sm1').find("a.ft2").attr("href", "");
                 $('.sm1_alpha').css("display", "inline-block");**/
+
                 $("#modal_start_comp").modal("show");
             }
 
         }
         );
     });
+
+    $("bootstrap-switch-container").find("bootstrap-switch-handle-on").text("Oui");
+    $("bootstrap-switch-container").find("bootstrap-switch-handle-off").text("Non");
+    $("[name='isSmall']").bootstrapSwitch();
+
+
+    $(".btn-personalize").click(function(e)
+    {
+        e.preventDefault();
+        $("#modal_out").modal("show");
+    })
 });
 

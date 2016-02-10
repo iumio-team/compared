@@ -17,6 +17,9 @@ unset($wui);
  * @since 0.02 PROTOTYPE
  * @version 0.60 BETA
  */
+
+use Compared\Router\Pointer;
+
 class Wui
 {
 
@@ -26,7 +29,7 @@ class Wui
      * @param null $request
      * @throws \GException\RuntimeError
      */
-    public function main($request = null):void
+    public function main($request = null)
     {
         $this->request = ($request != null) ? $request : null;
         require_once 'Starter.php';
@@ -38,7 +41,7 @@ class Wui
     /** To start app
      * @throws \GException\RuntimeError
      */
-    public function startApp():void
+    public function startApp()
     {
         isset($this->request['run']) ? $this->checker() : new GException\RuntimeError("Runnable doesn't exist!");
     }
@@ -46,7 +49,7 @@ class Wui
     /** Check arguments
      * @throws \GException\RuntimeError
      */
-    private function checker():void
+    private function checker()
     {
         if (isset($this->request['argument']))
             Pointer::runnable($this->request['run'], array($this->request['argument']));

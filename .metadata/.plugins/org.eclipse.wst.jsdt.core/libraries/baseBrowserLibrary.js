@@ -19,8 +19,9 @@
  * @since Level 2 Document Object Model Core Definition.
  * @see Object
  */
-function DOMException(){};
-DOMException.prototype = new Object();
+function DOMException() {
+}
+DOMException.prototype = {};
 /**
  * Constant DOMException.INDEX_SIZE_ERR=1
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
@@ -191,8 +192,9 @@ DOMException.prototype.code=0;
  * @since Level 2 Document Object Model Core Definition.
  * @see   Object     
  */
-function DOMImplementation(){};
-DOMImplementation.prototype = new Object();
+function DOMImplementation() {
+}
+DOMImplementation.prototype = {};
 /**
  * function hasFeature(feature, version)
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
@@ -243,7 +245,8 @@ DOMImplementation.prototype.createDocument = function(namespaceURI, qualifiedNam
  * @since Level 2 Document Object Model Core Definition.
  * @see   Node    
  */
-function DocumentFragment(){};
+function DocumentFragment() {
+}
 DocumentFragment.prototype=new Node(); 
 
 /**
@@ -255,8 +258,10 @@ DocumentFragment.prototype=new Node();
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.
  * @see Node  
- */ 
-function Document(){};
+ */
+
+function Document() {
+}
 Document.prototype = new Node();
 /**
  * Property defaultView
@@ -306,7 +311,7 @@ Document.prototype.documentElement= new HTMLElement();
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.    
  */ 
-Document.prototype.styleSheets= new Array(); 
+Document.prototype.styleSheets= [];
 /**
  * function createElement(tagName)  
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
@@ -449,7 +454,7 @@ Document.prototype.createElementNS=function(namespaceURI, qualifiedName){return 
  * @since Level 2 Document Object Model Core Definition.
  * @see Element        
  */
-Document.prototype.createEvent=function(eventType){return new Object();}; 
+Document.prototype.createEvent=function(eventType){return {};};
 /**
  * function createAttributeNS(namespaceURI, qualifiedName)
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
@@ -498,7 +503,8 @@ Document.prototype.getElementById=function(elementId){return new HTMLElement();}
  * @since Level 2 Document Object Model Core Definition.
  * @see EventTarget    
  */
-function Node(){};
+function Node() {
+}
 Node.prototype=new EventTarget(); 
 /**
  * Constant Node.ELEMENT_NODE=1
@@ -866,8 +872,9 @@ Node.prototype.hasAttributes=function(){return false;};
  * @since Level 2 Document Object Model Core Definition.
  * @see Object
  */
-function NodeList(){};
-NodeList.prototype = new Object();
+function NodeList() {
+}
+NodeList.prototype = {};
 /**
  * Property length   
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html 
@@ -900,8 +907,9 @@ NodeList.prototype.item = function(index){return new Node();};
  * @since Level 2 Document Object Model Core Definition.
  * @see Object
  */
-function NamedNodeMap(){};
-NamedNodeMap.prototype = new Object();
+function NamedNodeMap() {
+}
+NamedNodeMap.prototype = {};
 /**
  * Property length 
  * http://www.w3.org/TR/2000/REC-DOM-Level-2-Core-20001113/ecma-script-binding.html
@@ -1005,8 +1013,10 @@ NamedNodeMap.prototype.removeNamedItemNS=function(namespaceURI, localName){retur
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
- */ 
-function CharacterData(){};
+ */
+
+function CharacterData() {
+}
 CharacterData.prototype=new Node();
 /**
  * Property data
@@ -1094,7 +1104,8 @@ CharacterData.prototype.replaceData=function(offset, count, arg){};
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
  */
-function Attr(){};
+function Attr() {
+}
 Attr.prototype = new Node();
 /**
  * Property name
@@ -1145,7 +1156,8 @@ Attr.prototype.ownerElement = new Element();
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
  */
-function Element(){};
+function Element() {
+}
 Element.prototype=new Node(); 
 /**
  * Property tagName  
@@ -1368,7 +1380,8 @@ Element.prototype.hasAttributeNS=function(namespaceURI, localName){return false;
  * @since Level 2 Document Object Model Core Definition.
  * @see CharacterData
  */
-function Text(){};
+function Text() {
+}
 Text.prototype = new CharacterData();
 /**
  * function splitText(offset)
@@ -1393,7 +1406,8 @@ Text.prototype.splitText = function(offset) {return new Text();};
  * @since Level 2 Document Object Model Core Definition.
  * @see CharacterData
  */
-function Comment(){};
+function Comment() {
+}
 Comment.prototype = new CharacterData();
 
 /**
@@ -1406,7 +1420,8 @@ Comment.prototype = new CharacterData();
  * @since Level 2 Document Object Model Core Definition.
  * @see Text
  */
-function CDATASection(){};
+function CDATASection() {
+}
 CDATASection.prototype = new Text();
 
 /**
@@ -1419,7 +1434,8 @@ CDATASection.prototype = new Text();
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
  */
-function DocumentType(){};
+function DocumentType() {
+}
 DocumentType.prototype = new Node();
 /**
  * Property name
@@ -1486,7 +1502,8 @@ DocumentType.prototype.internalSubset="";
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
  */
-function Notation(){};
+function Notation() {
+}
 Notation.prototype=new Node(); 
 /**
  * Property publicId 
@@ -1516,8 +1533,10 @@ Notation.prototype.systemId="";
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
- */ 
-function Entity(){}; 
+ */
+
+function Entity() {
+}
 Entity.prototype=new Node();
 /**
  * Property publicId 
@@ -1556,8 +1575,10 @@ Entity.prototype.notationName="";
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
- */ 
-function EntityReference(){};
+ */
+
+function EntityReference() {
+}
 EntityReference.prototype=new Node();
 
 /**
@@ -1569,8 +1590,10 @@ EntityReference.prototype=new Node();
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Core Definition.
  * @see Node
- */ 
-function ProcessingInstruction(){}; 
+ */
+
+function ProcessingInstruction() {
+}
 ProcessingInstruction.prototype=new Node();
 /**
  * Property target  
@@ -1603,9 +1626,11 @@ ProcessingInstruction.prototype.data="";
  * @constructor
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model HTML Specification.
- */ 
-function HTMLCollection(){};
-HTMLCollection.prototype = new Object();
+ */
+
+function HTMLCollection() {
+}
+HTMLCollection.prototype = {};
 /**
  * Property length
  * http://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html
@@ -1644,9 +1669,11 @@ HTMLCollection.prototype.namedItem = function(index){return new Node();};
  * @constructor
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model HTML Specification.
- */ 
-function HTMLOptionsCollection(){};
-HTMLOptionsCollection.prototype = new Object();
+ */
+
+function HTMLOptionsCollection() {
+}
+HTMLOptionsCollection.prototype = {};
 /**
  * Property length
  * http://www.w3.org/TR/2003/REC-DOM-Level-2-HTML-20030109/html.html
@@ -1687,8 +1714,10 @@ HTMLOptionsCollection.prototype.namedItem = function(index){return new Node();};
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model HTML Specification.
  * @see Document
- */ 
-function HTMLDocument(){};
+ */
+
+function HTMLDocument() {
+}
 HTMLDocument.prototype = new Document();
 /**
  * Property title
@@ -1853,8 +1882,10 @@ HTMLDocument.prototype.getElementsByName = function(elementName){return new Node
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model HTML Specification.
  * @see Element
- */ 
-function HTMLElement(){};
+ */
+
+function HTMLElement() {
+}
 HTMLElement.prototype = new Element();
 /**
  * Property id
@@ -1978,7 +2009,8 @@ HTMLElement.prototype.style = new CSS2Properties();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLHtmlElement(){};
+function HTMLHtmlElement() {
+}
 HTMLHtmlElement.prototype = new HTMLElement();
 /**
  * Property version
@@ -2000,7 +2032,8 @@ HTMLHtmlElement.prototype.version="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLHeadElement(){};
+function HTMLHeadElement() {
+}
 HTMLHeadElement.prototype = new HTMLElement();
 /**
  * Property profile
@@ -2022,7 +2055,8 @@ HTMLHeadElement.prototype.profile="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLLinkElement(){};
+function HTMLLinkElement() {
+}
 HTMLLinkElement.prototype = new HTMLElement();
 /**
  * Property disabled
@@ -2116,7 +2150,8 @@ HTMLLinkElement.prototype.type="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTitleElement(){};
+function HTMLTitleElement() {
+}
 HTMLTitleElement.prototype = new HTMLElement();
 /**
  * Property text
@@ -2138,7 +2173,8 @@ HTMLTitleElement.prototype.text="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLMetaElement(){};
+function HTMLMetaElement() {
+}
 HTMLMetaElement.prototype = new HTMLElement();
 /**
  * Property content
@@ -2187,7 +2223,8 @@ HTMLMetaElement.prototype.scheme="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLBaseElement(){};
+function HTMLBaseElement() {
+}
 HTMLBaseElement.prototype = new HTMLElement();
 /**
  * Property href
@@ -2218,7 +2255,8 @@ HTMLBaseElement.prototype.target="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLIsIndexElement(){};
+function HTMLIsIndexElement() {
+}
 HTMLIsIndexElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -2249,7 +2287,8 @@ HTMLIsIndexElement.prototype.prompt="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLStyleElement(){};
+function HTMLStyleElement() {
+}
 HTMLStyleElement.prototype = new HTMLElement();
 /**
  * Property disabled
@@ -2289,7 +2328,8 @@ HTMLStyleElement.prototype.type="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLBodyElement(){};
+function HTMLBodyElement() {
+}
 HTMLBodyElement.prototype = new HTMLElement();
 /**
  * Property aLink
@@ -2356,7 +2396,8 @@ HTMLBodyElement.prototype.vLink="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLFormElement(){};
+function HTMLFormElement() {
+}
 HTMLFormElement.prototype = new HTMLElement();
 /**
  * Property elements
@@ -2457,7 +2498,8 @@ HTMLFormElement.prototype.reset = function(){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLSelectElement(){};
+function HTMLSelectElement() {
+}
 HTMLSelectElement.prototype = new HTMLElement();
 /**
  * Property type
@@ -2606,7 +2648,8 @@ HTMLSelectElement.prototype.focus = function(){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLOptGroupElement(){};
+function HTMLOptGroupElement() {
+}
 HTMLOptGroupElement.prototype = new HTMLElement();
 /**
  * Property disabled
@@ -2635,7 +2678,8 @@ HTMLOptGroupElement.prototype.label="";
  * @param {Boolean} defaultSelected
  * @param {Boolean} selected
  */
-function Option(text, value, defaultSelected, selected){};
+function Option(text, value, defaultSelected, selected) {
+}
 Option.prototype = new HTMLOptionElement();
 /**
  * Object HTMLOptionElement()
@@ -2647,7 +2691,8 @@ Option.prototype = new HTMLOptionElement();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLOptionElement(){};
+function HTMLOptionElement() {
+}
 HTMLOptionElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -2732,7 +2777,8 @@ HTMLOptionElement.prototype.value="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLInputElement(){};
+function HTMLInputElement() {
+}
 HTMLInputElement.prototype = new HTMLElement();
 /**
  * Property defaultValue
@@ -2939,7 +2985,8 @@ HTMLInputElement.prototype.click = function(){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTextAreaElement(){};
+function HTMLTextAreaElement() {
+}
 HTMLTextAreaElement.prototype = new HTMLElement();
 /**
  * Property defaultValue
@@ -3075,7 +3122,8 @@ HTMLTextAreaElement.prototype.select = function(){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLButtonElement(){};
+function HTMLButtonElement() {
+}
 HTMLButtonElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -3151,7 +3199,8 @@ HTMLButtonElement.prototype.value="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLLabelElement(){};
+function HTMLLabelElement() {
+}
 HTMLLabelElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -3191,7 +3240,8 @@ HTMLLabelElement.prototype.htmlFor="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLFieldSetElement(){};
+function HTMLFieldSetElement() {
+}
 HTMLFieldSetElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -3213,7 +3263,8 @@ HTMLFieldSetElement.prototype.form = new HTMLFormElement();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLLegendElement(){};
+function HTMLLegendElement() {
+}
 HTMLLegendElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -3253,7 +3304,8 @@ HTMLLegendElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLUListElement(){};
+function HTMLUListElement() {
+}
 HTMLUListElement.prototype = new HTMLElement();
 /**
  * Property compact
@@ -3284,7 +3336,8 @@ HTMLUListElement.prototype.type="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLOListElement(){};
+function HTMLOListElement() {
+}
 HTMLOListElement.prototype = new HTMLElement();
 /**
  * Property compact
@@ -3324,7 +3377,8 @@ HTMLOListElement.prototype.type="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLDListElement(){};
+function HTMLDListElement() {
+}
 HTMLDListElement.prototype = new HTMLElement();
 /**
  * Property compact
@@ -3346,7 +3400,8 @@ HTMLDListElement.prototype.compact=false;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLDirectoryElement(){};
+function HTMLDirectoryElement() {
+}
 HTMLDirectoryElement.prototype = new HTMLElement();
 /**
  * Property compact
@@ -3368,7 +3423,8 @@ HTMLDirectoryElement.prototype.compact=false;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLMenuElement(){};
+function HTMLMenuElement() {
+}
 HTMLMenuElement.prototype = new HTMLElement();
 /**
  * Property compact
@@ -3390,7 +3446,8 @@ HTMLMenuElement.prototype.compact=false;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLLIElement(){};
+function HTMLLIElement() {
+}
 HTMLLIElement.prototype = new HTMLElement();
 /**
  * Property type
@@ -3421,7 +3478,8 @@ HTMLLIElement.prototype.value=0;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLDivElement(){};
+function HTMLDivElement() {
+}
 HTMLDivElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -3443,7 +3501,8 @@ HTMLDivElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLParagraphElement(){};
+function HTMLParagraphElement() {
+}
 HTMLParagraphElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -3465,7 +3524,8 @@ HTMLParagraphElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLHeadingElement(){};
+function HTMLHeadingElement() {
+}
 HTMLHeadingElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -3487,7 +3547,8 @@ HTMLHeadingElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLQuoteElement(){};
+function HTMLQuoteElement() {
+}
 HTMLQuoteElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -3509,7 +3570,8 @@ HTMLQuoteElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLPreElement(){};
+function HTMLPreElement() {
+}
 HTMLPreElement.prototype = new HTMLElement();
 /**
  * Property width
@@ -3531,7 +3593,8 @@ HTMLPreElement.prototype.width=0;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLBRElement(){};
+function HTMLBRElement() {
+}
 HTMLBRElement.prototype = new HTMLElement();
 /**
  * Property clear
@@ -3553,7 +3616,8 @@ HTMLBRElement.prototype.clear="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLBaseFontElement(){};
+function HTMLBaseFontElement() {
+}
 HTMLBaseFontElement.prototype = new HTMLElement();
 /**
  * Property color
@@ -3593,7 +3657,8 @@ HTMLBaseFontElement.prototype.size=0;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLFontElement(){};
+function HTMLFontElement() {
+}
 HTMLFontElement.prototype = new HTMLElement();
 /**
  * Property color
@@ -3633,7 +3698,8 @@ HTMLFontElement.prototype.size=0;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLHRElement(){};
+function HTMLHRElement() {
+}
 HTMLHRElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -3682,7 +3748,8 @@ HTMLHRElement.prototype.width="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLModElement(){};
+function HTMLModElement() {
+}
 HTMLModElement.prototype = new HTMLElement();
 /**
  * Property cite
@@ -3713,7 +3780,8 @@ HTMLModElement.prototype.dateTime="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLAnchorElement(){};
+function HTMLAnchorElement() {
+}
 HTMLAnchorElement.prototype = new HTMLElement();
 /**
  * Property accessKey
@@ -3846,7 +3914,8 @@ HTMLAnchorElement.prototype.focus = function(){};
  * @param {Number} width
  * @param {Number} height
  */
-function Image(width, height){};
+function Image(width, height) {
+}
 Image.prototype = new HTMLImageElement();
 /**
  * Object HTMLImageElement()
@@ -3858,7 +3927,8 @@ Image.prototype = new HTMLImageElement();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLImageElement(){};
+function HTMLImageElement() {
+}
 HTMLImageElement.prototype = new HTMLElement();
 /**
  * Property name
@@ -3979,7 +4049,8 @@ HTMLImageElement.prototype.width=0;
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLObjectElement(){};
+function HTMLObjectElement() {
+}
 HTMLObjectElement.prototype = new HTMLElement();
 /**
  * Property form
@@ -4163,7 +4234,8 @@ HTMLObjectElement.prototype.contentDocument= new HTMLDocument();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLParamElement(){};
+function HTMLParamElement() {
+}
 HTMLParamElement.prototype = new HTMLElement();
 /**
  * Property name
@@ -4212,7 +4284,8 @@ HTMLParamElement.prototype.valueType="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLAppletElement(){};
+function HTMLAppletElement() {
+}
 HTMLAppletElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -4324,7 +4397,8 @@ HTMLAppletElement.prototype.width="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLMapElement(){};
+function HTMLMapElement() {
+}
 HTMLMapElement.prototype = new HTMLElement();
 /**
  * Property areas
@@ -4355,7 +4429,8 @@ HTMLMapElement.prototype.name="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLAreaElement(){};
+function HTMLAreaElement() {
+}
 HTMLAreaElement.prototype = new HTMLElement();
 /**
  * Property accessKey
@@ -4440,7 +4515,8 @@ HTMLAreaElement.prototype.target="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLScriptElement(){};
+function HTMLScriptElement() {
+}
 HTMLScriptElement.prototype = new HTMLElement();
 /**
  * Property text
@@ -4516,7 +4592,8 @@ HTMLScriptElement.prototype.type="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableElement(){};
+function HTMLTableElement() {
+}
 HTMLTableElement.prototype = new HTMLElement();
 /**
  * Property caption
@@ -4730,7 +4807,8 @@ HTMLTableElement.prototype.deleteRow = function(index){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableCaptionElement(){};
+function HTMLTableCaptionElement() {
+}
 HTMLTableCaptionElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -4752,7 +4830,8 @@ HTMLTableCaptionElement.prototype.align="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableColElement(){};
+function HTMLTableColElement() {
+}
 HTMLTableColElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -4819,7 +4898,8 @@ HTMLTableColElement.prototype.width="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableSelectionElement(){};
+function HTMLTableSelectionElement() {
+}
 HTMLTableSelectionElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -4898,7 +4978,8 @@ HTMLTableSelectionElement.prototype.deleteRow = function(index){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableRowElement(){};
+function HTMLTableRowElement() {
+}
 HTMLTableRowElement.prototype = new HTMLElement();
 /**
  * Property rowIndex
@@ -5004,7 +5085,8 @@ HTMLTableRowElement.prototype.deleteCell = function(index){};
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLTableCellElement(){};
+function HTMLTableCellElement() {
+}
 HTMLTableCellElement.prototype = new HTMLElement();
 /**
  * Property cellIndex
@@ -5152,7 +5234,8 @@ HTMLTableCellElement.prototype.width="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLFrameSetElement(){};
+function HTMLFrameSetElement() {
+}
 HTMLFrameSetElement.prototype = new HTMLElement();
 /**
  * Property cols
@@ -5183,7 +5266,8 @@ HTMLFrameSetElement.prototype.rows="";
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLFrameElement(){};
+function HTMLFrameElement() {
+}
 HTMLFrameElement.prototype = new HTMLElement();
 /**
  * Property frameBorder
@@ -5277,7 +5361,8 @@ HTMLFrameElement.prototype.contentDocument= new HTMLDocument();
  * @since Level 2 Document Object Model HTML Specification.
  * @see HTMLElement
  */
-function HTMLIFrameElement(){};
+function HTMLIFrameElement() {
+}
 HTMLIFrameElement.prototype = new HTMLElement();
 /**
  * Property align
@@ -5389,5 +5474,6 @@ HTMLIFrameElement.prototype.contentDocument= new HTMLDocument();
  * @since Standard ECMA-262 3rd. Edition
  * @since Level 2 Document Object Model Style Specification.
  */
-function CSS2Properties(){};
-CSS2Properties.prototype = new Object();
+function CSS2Properties() {
+}
+CSS2Properties.prototype = {};

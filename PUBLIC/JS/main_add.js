@@ -412,7 +412,7 @@ $(document).ready(function(){
     
     $("#enable").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').find("input").attr("run","authFM");
             $('#modalConnection').modal('show');
@@ -421,7 +421,7 @@ $(document).ready(function(){
     
     $("#disableComparator").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').find("input").attr("run","authCP");
              $('#modalConnection').find("input").attr("data-content","OFF");
@@ -431,7 +431,7 @@ $(document).ready(function(){
     
         $("#enableComparator").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').find("input").attr("run","authCP");
             $('#modalConnection').find("input").attr("data-content","ON");
@@ -443,7 +443,7 @@ $(document).ready(function(){
     
     $("#disable").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             $('#modalConnection').find("h3.error").text("");
             $('#modalConnection').modal('show');
         })
@@ -453,10 +453,10 @@ $(document).ready(function(){
     
     $(".PIN").find("img.btn").each(function(){
          $(this).bind('click',function(e){
-            e.preventDefault()
+            e.preventDefault();
             if($(this).attr("data-content") != "NULL" && $(this).attr("data-content") != "RM" && $(this).attr("data-content") != "VAL"){
                  $('#modalConnection').find("h3.error").text("");
-                var value = $("#password").val()
+                var value = $("#password").val();
                 var href = $("#password").attr("run");
                 $("#password").val(value+""+$(this).attr("data-content"))
             }
@@ -493,7 +493,7 @@ $(document).ready(function(){
                          }
 
 
-                       }}) 
+                       }});
                    break;
                     case 'authCP':
                         var modd =  $("#password").attr("data-content");
@@ -531,11 +531,10 @@ $(document).ready(function(){
                          }
 
 
-                       }}) 
+                       }});
                    break;
-                };
-      
-             }
+               }
+            }
         })
     
     });
@@ -554,8 +553,8 @@ $(document).ready(function(){
 
                  if(_data === "1"){
                     
-                     $('#modalMaintenance').find(".statuts").text("Activé")
-                     $('#modalMaintenance').find(".bt").text("Désactiver la maintenance")
+                     $('#modalMaintenance').find(".statuts").text("Activé");
+                     $('#modalMaintenance').find(".bt").text("Désactiver la maintenance");
                      $('#modalMaintenance').find(".bt").attr("id","disable");
                   $('#modalMaintenance').modal('show');
                   
@@ -564,8 +563,8 @@ $(document).ready(function(){
                 }
                 
                   if(_data === "0"){
-                     $('#modalMaintenance').find(".statuts").text("Désactivé")
-                     $('#modalMaintenance').find(".bt").text("Activer la maintenance")
+                     $('#modalMaintenance').find(".statuts").text("Désactivé");
+                     $('#modalMaintenance').find(".bt").text("Activer la maintenance");
                      $('#modalMaintenance').find(".bt").attr("id","enable");
                      $('#modalMaintenance').modal('show');
                    
@@ -591,7 +590,7 @@ $(document).ready(function(){
                  if(_data === '1'){
                       $('#myModal').find('.modal-footer').hide();
                        $('#myModal').attr("data-keyboard","false");
-                     $('.modal-body').html("<span>Suppresion effectuée </span>")
+                     $('.modal-body').html("<span>Suppresion effectuée </span>");
                      $('#myModal').modal('show');
                    
                      
@@ -604,7 +603,7 @@ $(document).ready(function(){
                 }
                 
                   if(_data === '0'){
-                     $('.modal-body').html("<span >Une erreur a été rencontré lors de la suppression du message </span>")
+                     $('.modal-body').html("<span >Une erreur a été rencontré lors de la suppression du message </span>");
                      $('#myModal').find('.modal-footer').hide();
                       $('#myModal').modal('show');
                    

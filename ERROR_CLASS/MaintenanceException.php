@@ -1,19 +1,14 @@
 <?php
 
 namespace GException;
-use Exception;
-error_reporting(0);
-class MaintenanceException extends Exception {
 
-    protected $message;
+class MaintenanceException extends AbstractException{
 
-    public function __construct($message) {
-        if( $_REQUEST['run'] == "getLoginView" && $_REQUEST['argument'] == "void"){
+    public function __construct(string $message)
+    {
+        if( $_REQUEST['run'] == "getLoginView" && $_REQUEST['argument'] == "void")
             header("Location:http://".$_SERVER['SERVER_ADDR']."/COMPARED/MAINTENANCE/Gui.php");
-        }
-        else {
-		echo  $_SESSION['twig']->render('viewError.html.twig',array('error' => $message));
-
-        }	
+        else
+            parent::__construct($message, 'Maintenance');
     }
 }

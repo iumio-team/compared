@@ -10,9 +10,8 @@
  * @PHPVersion 7.00 RC5
  */
 
-namespace LayerConnector;
+namespace Compared\LayerConnector;
 
-use ConnectorDB\Connector;
 use PDOStatement;
 use DateTime;
 
@@ -24,7 +23,7 @@ class MDA {
      * @param array $sqlArgs Argument to execute query
      * @return PDOStatement The query result
      */
-    public function customQuery(string $sqlQuery,array $sqlArgs = NULL): PDOStatement {
+    public function customQuery(string $sqlQuery, array $sqlArgs = NULL): PDOStatement {
         $query = $sqlQuery;
         $prepare = Connector::prepare($query,$sqlArgs);
         return $prepare;

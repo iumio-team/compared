@@ -1,5 +1,4 @@
 <?php
-//echo phpinfo();
 /**
  * This files enables to make verification of app .
  * @since 0.09
@@ -7,8 +6,10 @@
  * @version 0.30
  * @php_version 7.00 RTM
  */
+
 use GException\{LoadingError,EngineComparatorException,PDORNException,MaintenanceException};
-use LayerConnector\MDA;
+use Compared\LayerConnector\MDA;
+use Controller;
 
 class Starter {
 
@@ -17,8 +18,7 @@ class Starter {
 
     public function __construct()
     {
-        $array = $this->initAutoloader();
-        $this->__autoloader($array);
+        $this->__autoloader();
         $this->initTwig();
         $this->isMaintenance();
         $this->verifyDatabase();
@@ -27,41 +27,23 @@ class Starter {
     }
     
     
-    private function __autoloader($array) {
+    private function __autoloader() {
         include_once 'Autoloader.php';
-        foreach ($array as $one) {
-            Autoloader::register ($one);
-        }
     }
   
     public function isMaintenance() {
          $yamlFile = $this->getMasterFile();
          $isM = $yamlFile['MAINTENANCE'];
-         if($isM['MAINTENANCE_MODE'] == "ENABLED"){
+         if ($isM['MAINTENANCE_MODE'] == "ENABLED")
+         {
              $this->isReady = 0 ;
              $this->isMaintenance = 1;
-             throw new MaintenanceException("Maintenance de COMPARED");
+             throw new MaintenanceException("Désolé, COMPARED est en maintenance. Veuillez nous excuser.");
          }
          else {
              $this->isReady = 1;
              $this->isMaintenance = 0;
          }
-    }
-    protected function initAutoloader(){
-        try {
-         $this->initYamlAutoloader();
-         $array = $_SESSION['AUTOLOADER']['REGISTER_AUTOLOADER'];
-            $this->isReady = 1;
-         return  $array;
-            
-            
-        } catch (Exception $exc) {
-            $this->isReady = 0;
-            $error = "Erreur d'execution de l'autoloader ";
-            include 'VIEWS/viewError.html.twig';
-        }
-
-       
     }
 
     public function isComparatorAvailable() {
@@ -80,26 +62,30 @@ class Starter {
             $this->isReady = 1;
         else if ($this->isComparatorLink() == false)
             $this->isReady = 1;
-        else {
+        else
+        {
             $this->isReady = 0;
             throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $message->code . "]");
         }
     }
 
-    public function isComparatorLink() {
+    public function isComparatorLink():bool
+    {
         $yamlFile = $this->getMasterFile();
         $info = $yamlFile['ENGINE_COMPARATOR']['LINK'];
         return ($info === "NOTATTACHED")? false : true;
     }
     
-    public function getMasterFile() {
+    public function getMasterFile():array
+    {
         try {
             return Spyc::YAMLLoad('PRIVATE/AppInfo.yml');
         } catch (Exception $ex) {
             throw new LoadingError('Erreur de chargement du module YAML');
         }
     }
-    public function linkAppToComparator() {
+    public function linkAppToComparator():string
+    {
         $yamlFile = $this->getMasterFile();
         $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
         $data = array('Action' => 'linkCToA', 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'appname' => $yamlFile["APP_NAME"]);
@@ -119,44 +105,44 @@ class Starter {
         }
     }
 
-    private function verifyDatabase() {
+    private function verifyDatabase()
+    {
         try {
-            $result = MDA::checkAdministrator();
+            $model = new MDA();
+            $result = $model->checkAdministrator();
+            unset($model);
             if ($result)
                 $this->isReady = 1;
             else {
                 new PDORNException("Une erreur a été généré par COMPARED : Vous ne pouvez pas utiliser l'application COMPARED sans administrateur");
                 $this->isReady = 0;
             }
-        } catch (Exception $ex) {
+        }
+        catch (Exception $ex)
+        {
             new PDORNException('Une erreur a été généré par COMPARED : Erreur de base de donnée ', NULL, NULL);
             $this->isReady = 0;
         }
     }
 
-    private function initApp() {
-        if (file_exists('Pointer.php')) {
+    private function initApp()
+    {
+        if (file_exists('Pointer.php'))
             $this->isReady = 1;
-            if (class_exists('Pointer'))
-                $this->isReady = 1;
-            else {
-                $this->isReady = 0;
-                $loadingError = "Erreur de chargement du routeur de l'application";
-                throw new LoadingError($loadingError);
-            }
-        }
-        else {
-
+        else
+        {
             $this->isReady = 0;
-            $loadingError = "Erreur d'importation du routeur de l'application";
+            $loadingError = "Le routeur de l'application n'existe pas.";
             throw new LoadingError($loadingError);
         }
     }
 
-    protected function initTwig() {
+    protected function initTwig()
+    {
         try {
-            Twig_Autoloader::register();
-            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem('VIEWS_DEV'), array('cache' => false,'debug'=>true));
+            include_once 'ENGINE_TEMPLATES/Twig/vendor/autoload.php';
+            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem('VIEWS'), array('cache' => false, 'debug' => true));
+            $_SESSION['twig']->addExtension(new Twig_Extension_Debug());
             $this->isReady = 1;
         } catch (Exception $e) {
             $this->isReady = 0;

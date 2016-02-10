@@ -1,37 +1,10 @@
 <?php
 
 namespace GException;
-use Exception;
-error_reporting(0);
-class LoadingError extends Exception {
 
-	static private $errorMessage;
+class LoadingError extends AbstractException {
 
-	
-
-	public function __construct($loadingError) {
-                parent::__construct($loadingError, '800', NULL);
-		self::$errorMessage = $loadingError;
-		echo  $_SESSION['twig']->render('viewError.html.twig',array('error' => $loadingError,'type'=>'loader'));
-
-	
-
+	public function __construct(string $message) {
+		parent::__construct($message, 'Loader');
 	}
-
-	static public function getErrorMessage(){
-
-		return self::$errorMessage;
-
-	}
-
-	
-
-	static public function setErrorMessage($newErrorMessage){
-
-		self::$errorMessage = $newErrorMessage;
-
-	}
-
-	
-
 }

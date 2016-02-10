@@ -5,9 +5,9 @@ jQuery(document).ready(function () {
         var target = this.hash;
         var $target = $(target);
         $('.sidebar_compared').hide();
-        $(".sidebar_compared").removeClass("isShow")
+        $(".sidebar_compared").removeClass("isShow");
         $('html, body').stop().animate({
-            'scrollTop': $target.offset().top
+            'scrollTop': $target.offset()
         }, 900, 'swing', function () {
             window.location.hash = target;
         });
