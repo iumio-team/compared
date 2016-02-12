@@ -49,7 +49,7 @@ class Starter {
     public function isComparatorAvailable() {
         $yamlFile = $this->getMasterFile();
         $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
-        $data = array('Action' => 'ISAVAILABLE', 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'appname' => $yamlFile["APP_NAME"]);
+        $data = array('Action' => 'ISAVAILABLE', 'key' => $yamlFile['ENGINE_COMPARATOR']['KEY'], 'appname' => $yamlFile["APP_NAME"]);
         $ch = curl_init($url);
         $post = http_build_query($data, '', '&');
         curl_setopt($ch, CURLOPT_POST, 1);
@@ -88,7 +88,7 @@ class Starter {
     {
         $yamlFile = $this->getMasterFile();
         $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
-        $data = array('Action' => 'linkCToA', 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'appname' => $yamlFile["APP_NAME"]);
+        $data = array('Action' => 'linkCToA', 'key' => $yamlFile['ENGINE_COMPARATOR']['KEY'], 'appname' => $yamlFile["APP_NAME"]);
         $ch = curl_init($url);
         $post = http_build_query($data, '', '&');
         curl_setopt($ch, CURLOPT_POST, 1);

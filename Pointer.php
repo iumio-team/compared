@@ -154,7 +154,7 @@ class Pointer {
                 $controller->getArticles();
                 break;
             case 'submitFormComparator':
-                $controller->modifyInfoComparator($arg['name'], $arg['version'], $arg['slogan'], $arg['link'], $arg['token']);
+                $controller->modifyInfoComparator($arg['name'], $arg['version'], $arg['slogan'], $arg['link'], $arg['key']);
                 break;
             case 'newSmScore':
                 $controller->newSmScore($arg['sm'], $arg['score']);

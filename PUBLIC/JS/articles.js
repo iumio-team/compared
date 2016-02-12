@@ -268,6 +268,5 @@ $.each(oEvent.touches,function(idx,val){
   });
   
   setInterval(adjustScene,33);
-  
-  $('footer.badge').appendTo('body>header');
+
 });

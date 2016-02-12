@@ -15,6 +15,7 @@ use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Score,Constructor};
 use Compared\Router\Pointer;
 use Compared\Abs\Supervisor\AbstractController;
 use Spyc;
+use GException\RuntimeError;
 
 
 class Controller extends AbstractController
@@ -148,7 +149,7 @@ class Controller extends AbstractController
                 $sm2->getItem();
                 $yamlFile = $this->getMasterFile();
                 $url = $yamlFile['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
-                $data = array('Action' => 'MC', 'sm1' => serialize($sm1), 'sm2' => serialize($sm2), 'appname' => $yamlFile["APP_NAME"], 'key' => $yamlFile['ENGINE_COMPARATOR']['Token'], 'ORM' => $yamlFile['ORM'], 'resultType' => 'ARRAY');
+                $data = array('Action' => 'MC', 'sm1' => serialize($sm1), 'sm2' => serialize($sm2), 'appname' => $yamlFile["APP_NAME"], 'key' => $yamlFile['ENGINE_COMPARATOR']['KEY'], 'resultType' => 'ARRAY');
                 $ch = curl_init($url);
                 $post = http_build_query($data, '', '&');
                 curl_setopt($ch, CURLOPT_POST, 1);
@@ -495,7 +496,7 @@ class Controller extends AbstractController
         if ($this->isConnected()) {
             $yamlFile =    $this->getMasterFile();
             $info = $yamlFile['ENGINE_COMPARATOR'];
-            new Pointer('show', array('viewInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['ENGINE_COMPARATOR_SLOGAN'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['Token'], UtilityFunction::translateEnToFr($info['LINK']), $info['LINK']));
+            new Pointer('show', array('viewInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['ENGINE_COMPARATOR_SLOGAN'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['KEY'], UtilityFunction::translateEnToFr($info['LINK']), $info['LINK']));
         }
         else
             $this->failLogin('all');
@@ -506,7 +507,7 @@ class Controller extends AbstractController
         if ( $this->isConnected()) {
             $yamlFile = $this->getMasterFile();
             $info = $yamlFile['ENGINE_COMPARATOR'];
-            new Pointer('show', array('viewModInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['ENGINE_COMPARATOR_SLOGAN'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['Token'], $info['LINK'], $optionalMessage));
+            new Pointer('show', array('viewModInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['ENGINE_COMPARATOR_SLOGAN'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['KEY'], $info['LINK'], $optionalMessage));
         }
         else
             $this->failLogin('all');
@@ -567,7 +568,7 @@ class Controller extends AbstractController
                 $file['ENGINE_COMPARATOR']['ENGINE_COMPARATOR_VERSION'] = $version;
                 $file['ENGINE_COMPARATOR']['ENGINE_COMPARATOR_SLOGAN'] = $slogan;
                 $file['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'] = $href;
-                $file['ENGINE_COMPARATOR']['Token'] = $token;
+                $file['ENGINE_COMPARATOR']['KEY'] = $token;
                 $z = Spyc::YAMLDump($file);
                 $a = fopen('PRIVATE/AppInfo.yml', 'w');
                 fwrite($a, $z);

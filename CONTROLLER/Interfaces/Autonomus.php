@@ -10,6 +10,8 @@ namespace Compared\Interfaces\Services;
 
 interface Autonomus
 {
-    public function send_request();
-    public function set_interval();
+    public function disable();
+    public function enable();
+    public function setTimer();
+
 }

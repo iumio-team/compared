@@ -7,9 +7,11 @@
  */
 
 namespace Compared\Abs\Services;
+use Compared\Interfaces\Services\Autonomus;
+use Compared\Interfaces\Services\Services;
 use Spyc;
 
-class AbstractSender
+class AbstractSender implements  Autonomus, Services
 {
     protected function getMasterFile():array
     {
@@ -19,4 +21,31 @@ class AbstractSender
             throw new LoadingError('Erreur de chargement du module YAML');
         }
     }
+
+    public function disable()
+    {
+        // TODO: Implement disable() method.
+    }
+
+    public function enable()
+    {
+        // TODO: Implement enable() method.
+    }
+
+    public function setTimer()
+    {
+        // TODO: Implement setTimer() method.
+    }
+
+    public function to_send()
+    {
+        // TODO: Implement to_send() method.
+    }
+
+    public function get_response()
+    {
+        // TODO: Implement get_response() method.
+    }
+
+
 }
