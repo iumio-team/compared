@@ -1133,6 +1133,35 @@ span.startComparisonSentence {
     height: 100%!important;
 }
 
+.smallRelated_last_c > div
+{
+    width: 33.33333%!important;
+    height: 100%!important;
+}
+.resize-text
+{
+    font-size: 20px!important;
+    width: 100%;
+    background-color: rgba(4, 231, 255, 0.39);
+    text-align: center;
+}
+
+.left-img , .right-img
+{
+    width: 25%;
+    height: 100%;
+    position: absolute;
+}
+
+.left-img
+{
+    float: left!important;
+}
+
+.right-img
+{
+    float: right!important;
+}
 @media (max-width: 942px) {
     .smallRelated_long .item_carac
     {
@@ -1159,7 +1188,12 @@ span.startComparisonSentence {
 
 }
 
-
+text tspan
+{
+    font-size: 40px!important;
+    font-family: fantasy;
+    font-weight: 900;
+}
 .h_comparison
 {
     height: 500px!important;
@@ -1171,6 +1205,50 @@ span.startComparisonSentence {
     padding-right:0px!important;
 }
 
+
+.rounded-c
+{
+    background-color: #C0C0C0;
+
+    border-radius: 300px;
+    width: 200px;
+    height: 200px;
+}
+.i-r
+{
+    background-color: #193340;
+
+    border-radius: 300px;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    left: 25px;
+    top: 25px;
+
+}
+
+.t-c
+{
+    font-size: 16px!important;
+    font-family: fantasy;
+}
+.i-r p
+{
+    z-index: 4;
+    position: relative;
+    top: 63px;
+    font-size: 36px!important;
+    font-family: fantasy;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+
+}
+
+.rounded-c:hover
+{
+    animation: rubberBand 1s ease-in;
+}
 .smallRelated_long > div
 {
     width: 25%!important;
@@ -1178,6 +1256,16 @@ span.startComparisonSentence {
     border-color: #f5f5f5;
     border-style: double;
     border-top-width: 0px;
+}
+
+.diagram2 svg, .diagram svg
+{
+    margin-top: -142px;
+}
+
+path
+{
+    position: absolute;
 }
 
 .largeRelated

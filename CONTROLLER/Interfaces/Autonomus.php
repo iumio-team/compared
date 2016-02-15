@@ -10,8 +10,8 @@ namespace Compared\Interfaces\Services;
 
 interface Autonomus
 {
-    public function disable();
-    public function enable();
-    public function setTimer();
+    public function disable():bool;
+    public function enable():bool ;
+    public function setTimer(int $sequence):bool;
 
 }

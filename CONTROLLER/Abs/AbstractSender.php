@@ -8,11 +8,13 @@
 
 namespace Compared\Abs\Services;
 use Compared\Interfaces\Services\Autonomus;
-use Compared\Interfaces\Services\Services;
 use Spyc;
 
-class AbstractSender implements  Autonomus, Services
+class AbstractSender extends Services implements  Autonomus
 {
+    protected $service_status = "enabled";
+    protected $timer;
+
     protected function getMasterFile():array
     {
         try {
@@ -22,30 +24,43 @@ class AbstractSender implements  Autonomus, Services
         }
     }
 
-    public function disable()
+    public function disable():bool
     {
-        // TODO: Implement disable() method.
+        $this->service_status = "disabled";
+        return true;
     }
 
-    public function enable()
+    protected function thread()
     {
-        // TODO: Implement enable() method.
+        // TODO: Implement thread() method.
     }
 
-    public function setTimer()
+    public function enable():bool
     {
-        // TODO: Implement setTimer() method.
+        $this->service_status = "enabled";
+        return true;
     }
 
-    public function to_send()
+    public function setTimer(int $sequence):bool
     {
-        // TODO: Implement to_send() method.
+       $this->timer = $sequence;
+        return true;
     }
 
-    public function get_response()
+    protected function to_send(string $url, array $data):void
     {
-        // TODO: Implement get_response() method.
+        $ch = curl_init($url);
+        $post = http_build_query($data, '', '&');
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        $this->response = json_decode($response);
     }
 
-
+    protected function get_response()
+    {
+        return $this->response;
+    }
 }
