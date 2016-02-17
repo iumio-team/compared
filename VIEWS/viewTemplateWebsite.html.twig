@@ -210,9 +210,14 @@
                     <a class="is_menu" href="#articles"><i class=" fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
                 </li>
                 <li>
+                    <a class="is_menu" href="Wui.php?run=getTeam&argument=void"><i class="fa fa-users fa-2x"></i> <span class="new_font"> L'équipe</span></a>
+                </li>
+                <li>
                     <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
                                 class="new_font">Contact</span></a>
                 </li>
+
+
             </ul>
         </div>
         {% endblock %}
@@ -244,7 +249,7 @@
                 <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ lastSm.getPictureSm }}.jpg)"
                      alt="phSm" title="Smartphpone ">
                     <a href="Wui.php?run=getSpec&argument={{ lastSm.getIdSm }}">
-                        <h3>Smartphone le mieux noté : {{ lastSm.getConstructorSm.getName }} {{ lastSm.getFullNameSm }}
+                        <h3>Dernier smartphone dans COMPARED : <br>{{ lastSm.getConstructorSm.getName }} {{ lastSm.getFullNameSm }}
                         </h3></a></div>
                 <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/01/xScreen-shot-2015-01-12-at-14.36.571.png.pagespeed.ic.e5IsyuWVn6.png)">
                     <a href="http://www.webdesignermag.co.uk/5-html5-template-providers-that-ever-designer-needs-to-know/">
@@ -344,7 +349,7 @@
 <section class="features-list" id="bestSm" style="padding-top:20px;">
     <div class="row">
 
-        <div class="col-md-12 text-center lucidaFont " style="padding-top:20px;padding-bottom: 20px;">
+        <div class="col-md-12 text-center lucidaFont " style="padding-top:20px;padding-bottom: 6px;">
             <h1 class="padding-text"><i class="fa fa-space-shuttle"></i> Best smartphone</h1>
             <p class="font-resize ">Découvrez le smartphone le mieux noté sur le site <i
                         class="fa fa-smile-o"></i></p>
@@ -356,7 +361,7 @@
 
             <ul class="related-posts group center-block" style="margin-bottom: 0px">
 
-                <div class="smallRelated_mod smallRelated_best" style="margin: 0;width: 100%;height: 300px;">
+                <div class="smallRelated_mod smallRelated_best" style="margin: 0;width: 100%;height: 380px;">
 
 
                     <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">
@@ -459,7 +464,7 @@
 
                     <ul class="related-posts group center-block" style="margin-bottom: 0px">
 
-                        <div class="smallRelated_mod smallRelated_best" style="margin: 0;width: 100%;height: 300px;">
+                        <div class="smallRelated_mod smallRelated_best" style="margin: 0;width: 100%;height: 380px;">
 
 
                             <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ best['sm'].getPictureSm }}.jpg)">

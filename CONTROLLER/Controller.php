@@ -11,7 +11,7 @@
 namespace Compared\Supervisor;
 
 use Compared\Tools\UtilityFunction;
-use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Score,Constructor,User};
+use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Constructor,User,SScore};
 use Compared\Router\Pointer;
 use Compared\Abs\Supervisor\AbstractController;
 use Spyc;

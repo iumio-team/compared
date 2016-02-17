@@ -1345,6 +1345,11 @@ path
     margin-bottom: 0px;
 }
 
+.smallRelated_team > div
+{
+    width: 33.33333%!important;
+}
+
 
 .animate-text {
     animation: shake 7s infinite;

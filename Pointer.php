@@ -163,7 +163,7 @@ class Pointer {
                 $controller->modifyInfoComparator($arg['name'], $arg['version'], $arg['slogan'], $arg['link'], $arg['key']);
                 break;
             case 'newSmScore':
-                $controller->newSmScore($arg['sm'], $arg['score']);
+                $controller->newSmScore($arg[0]['sm'], $arg[0]['score']);
                 break;
             default :
                 throw new RuntimeError("Erreur d'exécution de l'instruction demandé");
