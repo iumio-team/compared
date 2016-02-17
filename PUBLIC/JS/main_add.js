@@ -496,14 +496,16 @@ $(document).ready(function(){
                        }});
                    break;
                     case 'authCP':
-                        var modd =  $("#password").attr("data-content");
-  
+                        var modd =  $("#disableComparator").attr("data");
+                        console.log(modd);
                             request = $.ajax({
                        url: "Wui.php?run="+href,
                        type: "POST",
-                       data :{ pin: pinn ,mod:modd},
+                       data :{ pin: $("#password").val() ,mod:modd},
                        dataType: "html",
                        success : function(_data){
+
+                           console.log(_data);
                           if(_data === "1"){
                            
                       

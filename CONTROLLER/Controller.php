@@ -11,7 +11,7 @@
 namespace Compared\Supervisor;
 
 use Compared\Tools\UtilityFunction;
-use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Score,Constructor};
+use ORM_Entity\{Smartphone,Compared,HelpMessage,Notice,Score,Constructor,User};
 use Compared\Router\Pointer;
 use Compared\Abs\Supervisor\AbstractController;
 use Spyc;
@@ -395,6 +395,11 @@ class Controller extends AbstractController
             throw new RuntimeError("Les fonctionnalités de comparaison ont été désactivées . Veuillez-contacter l'administrateur du site  ");
     }
 
+    public function getTeam()
+    {
+            new Pointer('show', array('viewTeam', array('date' => date('d/m/Y'))));
+    }
+
     public function getLegalNotice()
     {
         new Pointer('show', array('viewLegalNotice'));
@@ -513,8 +518,9 @@ class Controller extends AbstractController
             $this->failLogin('all');
     }
 
-    public function switchStatusComparator(int $pass, String $mod)
+    public function switchStatusComparator(String $pass, String $mod)
     {
+        echo $pass."\n";
         if ($this->PIN($pass) == 1) {
             $yamlFile = $this->getMasterFile();
             switch ($mod) {

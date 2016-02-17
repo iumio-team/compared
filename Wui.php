@@ -67,4 +67,3 @@ class Wui
             throw new GException\RuntimeError("Cette page n'existe pas");
     }
 }
-session_abort();

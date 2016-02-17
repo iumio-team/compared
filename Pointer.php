@@ -34,6 +34,9 @@ class Pointer {
             case 'viewStartCompared':
                 return $_SESSION['twig']->render('viewStartCompared.html.twig',array('phoneList' => $argArray[1], "date"=>$argArray[2]));
                 break;
+            case 'viewTeam':
+                return $_SESSION['twig']->render('viewTeam.html.twig',array("date"=>$argArray[1]));
+                break;
             case 'viewArticles':
                 return $_SESSION['twig']->render('viewArticles.html.twig', array('phoneList' => $argArray[1]));
                 break;
@@ -86,8 +89,8 @@ class Pointer {
         $controller = new Controller();
         switch ($run) {
             case 'connectUser':
-                $pseudo = $arg['id'];
-                $password = $arg['password'];
+                $pseudo = $arg[0]['id'];
+                $password = $arg[0]['password'];
                 $controller->login($pseudo, $password);
                 break;
             case 'logout':
@@ -145,13 +148,16 @@ class Pointer {
                 $controller->getInfoComparator();
                 break;
             case 'authCP' :
-                $controller->switchStatusComparator($arg['pin'], $arg['mod']);
+                $controller->switchStatusComparator($arg[0]['pin'], $arg[0]['mod']);
                 break;
             case 'getModInfoComparator':
                 $controller->getInfoComparatorToModify();
                 break;
             case 'getArticles':
                 $controller->getArticles();
+                break;
+            case 'getTeam':
+                $controller->getTeam();
                 break;
             case 'submitFormComparator':
                 $controller->modifyInfoComparator($arg['name'], $arg['version'], $arg['slogan'], $arg['link'], $arg['key']);

@@ -45,7 +45,7 @@ $(function() {
     });
 
     /* jQueryKnob */
-    $(".knob").knob();
+  //  $(".knob").knob();
 
     //jvectormap data
     var visitorsData = {
@@ -186,7 +186,7 @@ $(function() {
         ],
         hideHover: 'auto'
     });
-    /*Bar chart
+
     var bar = new Morris.Bar({
         element: 'bar-chart',
         resize: true,
@@ -204,7 +204,7 @@ $(function() {
         ykeys: ['a', 'b'],
         labels: ['CPU', 'DISK'],
         hideHover: 'auto'
-    });*/
+    });
     //Fix for charts under tabs
     $('.box ul.nav a').on('shown.bs.tab', function(e) {
         area.redraw();

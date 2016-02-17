@@ -3,6 +3,7 @@
 namespace ORM_Entity;
 
 use OmiumORM\Omium as ORM;
+use ORM_Entity\Usertype;
 use Compared\LayerConnector\MDA as Model;
 
 
