@@ -258,8 +258,8 @@ jQuery(document).ready(function(){
 
     $('a.callContact').each(function () {
         $(this).bind('click', function (e) {
-            console.log("aeaz");
             $('#contact').modal('show');
+            $('body').trigger('click');
         });
     });
     

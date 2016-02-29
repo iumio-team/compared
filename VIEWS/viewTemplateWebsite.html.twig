@@ -110,11 +110,13 @@
         <h2> <i class="fa fa-info"></i> Menu</h2>
 
         <ul>
+            <li><a class="icon icon-data" href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
             <li><a class="icon icon-data" href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
-            <li><a class="icon icon-location" href="#">Location</a></li>
-            <li><a class="icon icon-study" href="#">Study</a></li>
-            <li><a class="icon icon-photo" href="#">Collections</a></li>
-            <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            <li><a class="icon icon-location" href="Wui.php?run=getHomePage&argument=void#manufacturer">Constructeurs</a></li>
+            <li><a class="icon icon-study" href="Wui.php?run=getHomePage&argument=void#bestSm">Meilleur smartphone</a></li>
+            <li><a class="icon icon-photo" href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+            <li><a class="icon icon-wallet" href="Wui.php?run=getTeam&argument=void">&Eacute;quipe</a></li>
+            <li><a class="icon icon-wallet callContact" href="#">Contact</a></li>
         </ul>
     </nav>
 
@@ -714,111 +716,14 @@
     </div>
 </section>
 {% endblock %}
-{% block contact %}
-
-
-    <!-- modal contact form -->
-    <div id="contact" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header blackColor">
-                    <h4 class="modal-title white_font">
-                        <i class="fa fa-warning"></i> Remplisez les champs ci-dessous et nous vous recontactons dans les brefs délais.
-                    </h4>
-                </div>
-                <form id="form_help" class="form-group-lg form-modified btn-md" method="POST" action="Wui.php">
-                    <div class="modal-body" id="myModalBody">
-
-                        <div class="form-group">
-                            <label for="name">Nom</label>
-                            <input type="text" id="name" placeholder="Entrez votre nom" class="form-control" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="emailid">Email</label>
-                            <input type="text" id="emailid" placeholder="Email"  class="form-control" required="required"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Objet du message</label>
-                            <input type="text" id="subject" placeholder="Objet du message" class="form-control" required="required" />
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="4" placeholder="Message" class="form-control" required="required"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer mfmd">
-                        <button type="submit" class="btn btn-success">Envoyer</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
-                        <button type="reset" class="btn btn-danger">Reset </button>
-                                            </div>
-                                            </form>
-            </div>
-        </div>
-    </div>
-    </div>
-
-
-<div id="contactSuccess" data-backdrop="static" data-keyboard="false" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header blackColor">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h4 class="modal-title white_font">
-                    Status de votre message
-                </h4>
-            </div>
-            <div class="modal-body" id="myModalBody">
-                <span class="animated fadeInDownBig response" id="good" style="color:black!important;"></span>
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onClick="location.reload()">Fermer</button>
-            </div>
-        </div>
-    </div>
-</div>
-{%endblock%}
 {% block follow %}
 {% endblock %}
-</div>
-</div>
-</div>
-</div>
-
-<!--<footer class="blackColor">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-5">
-                <div class="footer-logo">
-                    <img class="img-logo" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="COMPARED LOGO"
-                         onClick="location.href = 'Wui.php?run=getHomePage&argument=void'">
-                    <span class="copyright">© COMPARED {{ "now"|date('Y') }} </span>
-                    <div class="text-center padding-each" style="width: 100%;">
-                        <a class="fa-fb" href="https://www.facebook.com/comparedsm "><i
-                                    class="fa fa-facebook-square fa-2x"></i> Facebook</a>
-
-                        <a class="fa-goo" href=""> <i class="fa fa-google-plus-square fa-2x"></i> Google+</a>
-
-                        <a href="" class="fa-tw"><i class="fa fa-twitter-square fa-2x "></i> Twitter</a>
                     </div>
-                </div>
-
-            </div>
-            <!--<div class="col-md-7">
-                <ul class="footer-nav">
-                    {% block menuB %}
-                        <li class="active"><a href="Wui.php?run=prepareComparison&argument=void">Faire une
-                                comparaison</a></li>
-                        <li><a href="#manufacturer">Les constructeurs</a></li>
-                        <li><a href="#articles">Articles</a></li>
-                        <li><a id="contact">Contact</a></li>
-                        <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
-                    {% endblock %}
-                </ul>
-            </div>
-        </div>
+</div>
+</div>
+</div>
+</div>
     </div>
-</footer>-->
 <section id="footer" style="border-left: 0">
     <div class="wrap about">
         <img class="logo center-block" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="Logo" height="60">
@@ -1029,5 +934,69 @@
 
     });
 </script>
+{% block contact %}
+
+
+    <!-- modal contact form -->
+    <div id="contact" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header blackColor">
+                    <h4 class="modal-title white_font">
+                        <i class="fa fa-warning"></i> Remplisez les champs ci-dessous et nous vous recontactons dans les brefs délais.
+                    </h4>
+                </div>
+                <form id="form_help" class="form-group-lg form-modified btn-md" method="POST" action="Wui.php">
+                    <div class="modal-body" id="myModalBody">
+
+                        <div class="form-group">
+                            <label for="name">Nom</label>
+                            <input type="text" id="name" placeholder="Entrez votre nom" class="form-control" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailid">Email</label>
+                            <input type="text" id="emailid" placeholder="Email"  class="form-control" required="required"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Objet du message</label>
+                            <input type="text" id="subject" placeholder="Objet du message" class="form-control" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="4" placeholder="Message" class="form-control" required="required"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer mfmd">
+                        <button type="submit" class="btn btn-success">Envoyer</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Fermer</button>
+                        <button type="reset" class="btn btn-danger">Reset </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="contactSuccess" data-backdrop="static" data-keyboard="false" class="modal fade" aria-labelledby="myModalLabel" aria-hidden="true" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header blackColor">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title white_font">
+                        Status de votre message
+                    </h4>
+                </div>
+                <div class="modal-body" id="myModalBody">
+                    <span class="animated fadeInDownBig response" id="good" style="color:black!important;"></span>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" onClick="location.reload()">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{%endblock%}
+{% block modal %}
+{% endblock %}
 </body>
 </html>

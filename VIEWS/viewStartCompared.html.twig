@@ -183,6 +183,11 @@
             </div>
         </div>
     </div>
+
+
+
+{%endblock%}
+{% block modal %}
     <div class="modal fade" id="modal_login" data-backdrop="static"  data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal_login">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -207,17 +212,17 @@
                     <span id="content_login">
                         <span class="text_logout">Je préfère plutôt un smartphone : </span>
                         <div class="bordered">
-                        <h3 class="text_logout">+ avec un grand écran : <input type="checkbox" name="isSmall" checked></h3>
-                        <h3 class="text_logout">+ fin : <input type="checkbox" name="isSmall" checked></h3>
-                         <h3 class="text_logout">+ avec le système : <select name="os" class="form-control form-mod-c">
-                                 <option value="android">+ Android</option>
-                                 <option value="ios">+ iOS</option>
-                                 <option value="windowsphone">+ Windows phone</option>
-                                 <option value="ubuntutouch">+ Ubuntu touch</option>
-                                 <option value="tizen">+ Tizen</option>
-                                 <option value="firefoxos">+ Firefox OS</option>
-                             </select></h3>
-                            </div>
+                            <h3 class="text_logout">+ avec un grand écran : <input type="checkbox" name="isSmall" checked></h3>
+                            <h3 class="text_logout">+ fin : <input type="checkbox" name="isSmall" checked></h3>
+                            <h3 class="text_logout">+ avec le système : <select name="os" class="form-control form-mod-c">
+                                    <option value="android">+ Android</option>
+                                    <option value="ios">+ iOS</option>
+                                    <option value="windowsphone">+ Windows phone</option>
+                                    <option value="ubuntutouch">+ Ubuntu touch</option>
+                                    <option value="tizen">+ Tizen</option>
+                                    <option value="firefoxos">+ Firefox OS</option>
+                                </select></h3>
+                        </div>
                     </span>
                 </div>
                 <div class='modal-footer'>
@@ -242,14 +247,7 @@
             </div>
         </div>
     </div>
-
-
-    <ul id="float_menu" style="display: none">
-        <li><a href="#"><i class="fa fa-arrow-right"></i> Démarrez votre comparaison</a></li>
-    </ul>
-
-
-{%endblock%}
+{% endblock %}
     {%block follow %} {%endblock%}
     {%block menuB %}
         <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>

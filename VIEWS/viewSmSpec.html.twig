@@ -333,6 +333,7 @@
             </div>
         </div>
     </section>
+{% block modal %}
     <div data-backdrop='static' data-keyboard='false' class='modal  fade ' id='modal_mark_smSpec' tabindex='-1'
          role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
         <div class='modal-dialog'>
@@ -358,6 +359,7 @@
             </div>
         </div>
     </div>
+    {% endblock %}
     <script>
         $(document).ready(function () {
             $(".starC").each(function () {
