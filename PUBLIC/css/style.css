@@ -23,6 +23,13 @@ a *
 {
     color:blue!important;
 }
+
+.hovers:hover
+{
+    animation: pulse 1s ease-in;
+    -webkit-animation: pulse 1s ease-in;
+}
+
 [class^="icon-"], [class*=" icon-"] {
     font-family: 'icomoon';
     speak: none;

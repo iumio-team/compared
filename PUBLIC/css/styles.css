@@ -180,8 +180,10 @@ body {
 
 .dotted
 {
-    border-top-style: dashed;
-    border-width: 2px;
+
+    border-top-style: double;
+    border-top-width: 3px;
+    background: #8a6d3b;
 }
 
 /*
@@ -1361,6 +1363,20 @@ path
     margin-top: 0px;
     padding-top: 160px;
 
+}
+
+.green
+{
+ background: rgb(78, 142, 74)!important;
+}
+
+.padd_20
+{
+    padding-bottom: 20px;
+}
+.blue
+{
+    background-color: rgb(55, 55, 158)!important;
 }
 .fa-fb
 {

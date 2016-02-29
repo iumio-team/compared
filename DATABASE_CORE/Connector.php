@@ -93,7 +93,7 @@ class Connector {
 
     /** Drop connection
      *
-     * @return boolean True if the connection is removinf
+     * @return boolean True if the connection is removed
      * @throws PDORNException Error of drop
      */
     static public function destroyConnection() :bool

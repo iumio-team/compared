@@ -23,15 +23,6 @@ jQuery(document).ready(function(){
     
     animatePie();
 
-
-    $(".iswinner").click(function(e)
-    {
-        e.preventDefault();
-        $("#modal_out").modal("show");
-        $("#modal_out").find(".font_logout").text($(this).attr("data-title"));
-        $("#modal_out").find(".text_logout").text($(this).attr("data-content"));
-
-    })
     function resetPie(_percent, _color){
        
         if (chart.length) {

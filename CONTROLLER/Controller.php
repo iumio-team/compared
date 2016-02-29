@@ -156,7 +156,6 @@ class Controller extends AbstractController
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
                 $response = unserialize(curl_exec($ch));
-                print_r($response);
                 curl_close($ch);
                 $countPSM1 = $response['DUALITY_POINT_SM1'];
                 $countPSM2 = $response['DUALITY_POINT_SM2'];

@@ -31,6 +31,11 @@
     <link rel="stylesheet" href="PUBLIC/css/style_dev.css">
     <link href="PUBLIC/css/simple-sidebar.css" rel="stylesheet">
     <link href="PUBLIC/css/bootstrap-switch.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="PUBLIC/SID_CSS/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="PUBLIC/SID_CSS/demo.css" />
+    <link rel="stylesheet" type="text/css" href="PUBLIC/SID_CSS/icons.css" />
+    <link rel="stylesheet" type="text/css" href="PUBLIC/SID_CSS/component.css" />
+    <script src="PUBLIC/JS/modernizr.custom.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Luckiest+Guy' rel='stylesheet' type='text/css'>
     <meta property="og:title" content=""/>
     <meta property="og:image" content=""/>
@@ -59,6 +64,128 @@
     <![endif]-->
 </head>
 <body>
+<div id="st-container" class="st-container">
+    {% block sidebar_menu %}
+    <!--<div class="sidebar_compared" id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand white-sep">
+                    <a href="#" class="text-center">
+                        <span class="border-white">Menu</span>
+                        <span class="border-white-nbg">Actualités</span>
+                    </a>
+                </li>
+                <li class="date">
+                    <p class="new_p">{{ date.getDayName }}</p>
+                    <p class="new_p md_p">{{ date.getDay }} {{ date.getMonth }}</p>
+                </li>
+                <li>
+                    <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-mobile fa-2x"></i> <span
+                                class="new_font">Faire une comparaison</span></a>
+                </li>
+                <li>
+                    <a class="is_menu" href="#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span
+                                class="new_font">Constructeurs</span></a>
+                </li>
+                <li>
+                    <a class="is_menu" href="#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
+                </li>
+                <li>
+                    <a class="is_menu" href="#articles"><i class=" fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
+                </li>
+                <li>
+                    <a class="is_menu" href="Wui.php?run=getTeam&argument=void"><i class="fa fa-users fa-2x"></i> <span class="new_font"> L'équipe</span></a>
+                </li>
+                <li>
+                    <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
+                                class="new_font">Contact</span></a>
+                </li>
+
+
+            </ul>
+        </div>-->
+
+
+
+    <nav class="st-menu st-effect-11" id="menu-11">
+        <h2> <i class="fa fa-info"></i> Menu</h2>
+
+        <ul>
+            <li><a class="icon icon-data" href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+            <li><a class="icon icon-location" href="#">Location</a></li>
+            <li><a class="icon icon-study" href="#">Study</a></li>
+            <li><a class="icon icon-photo" href="#">Collections</a></li>
+            <li><a class="icon icon-wallet" href="#">Credits</a></li>
+        </ul>
+    </nav>
+
+
+
+<!-- content push wrapper -->
+    <div class="st-pusher">
+        <!--
+            example menus
+            these menus will be under the push wrapper
+        -->
+        <nav class="st-menu st-effect-3" id="menu-3">
+            <h2 class="icon icon-lab">Sidebar</h2>
+            <ul>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        <nav class="st-menu st-effect-6" id="menu-6">
+            <h2 class="icon icon-stack">Sidebar</h2>
+            <ul>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        <nav class="st-menu st-effect-7" id="menu-7">
+            <h2 class="icon icon-lab">Sidebar</h2>
+            <ul>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        <nav class="st-menu st-effect-8" id="menu-8">
+            <h2 class="icon icon-stack">Sidebar</h2>
+            <ul>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        <nav class="st-menu st-effect-14" id="menu-14">
+            <h2 class="icon icon-stack">Sidebar</h2>
+            <ul>
+                <li><a class="icon icon-data" href="#">Data Management</a></li>
+                <li><a class="icon icon-location" href="#">Location</a></li>
+                <li><a class="icon icon-study" href="#">Study</a></li>
+                <li><a class="icon icon-photo" href="#">Collections</a></li>
+                <li><a class="icon icon-wallet" href="#">Credits</a></li>
+            </ul>
+        </nav>
+
+        {% endblock %}
+        <div class="st-content"><!-- this is the wrapper for the content -->
+            <div class="st-content-inner"><!-- extra div for emulating position:fixed of the menu -->
+                <!-- Top Navigation -->
+                <div class="codrops-top clearfix">
 <!--[if lt IE 7]>
 <p class="browsehappy">Oups !! Vous utilisez une version <strong>obselète </strong>de votre navigateur. Merci d'utiliser
     une version évoluée pour utiliser COMPARED.</p>
@@ -157,7 +284,9 @@
             }
         }
     </style>
+
     {% block navbar_head %}
+
     <section class="hero" style="padding-top: 51px;padding-bottom: 0;">
         <nav class="navbar navbar-default nav-justified navbar-fixed-top" style="border-radius:0;margin: 0">
             <div class="container-fluid">
@@ -171,9 +300,9 @@
 
                     </div>
                     <ul class="nav navbar-nav pull-right nav-md">
-                        <li>
+                        <li id="st-trigger-effects">
 
-                            <a class="cd-nav-trigger" style="width: 150px;" href="#menu-toggle" id="menu">
+                            <a class="cd-nav-trigger" style="width: 150px;" data-effect="st-effect-11" >
                                 <span></span>
                             </a>
                         </li>
@@ -181,45 +310,6 @@
                 </div>
             </div>
         </nav>
-        {% endblock %}
-        {% block sidebar_menu %}
-        <div class="sidebar_compared" id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand white-sep">
-                    <a href="#" class="text-center">
-                        <span class="border-white">Menu</span>
-                        <span class="border-white-nbg">Actualités</span>
-                    </a>
-                </li>
-                <li class="date">
-                    <p class="new_p">{{ date.getDayName }}</p>
-                    <p class="new_p md_p">{{ date.getDay }} {{ date.getMonth }}</p>
-                </li>
-                <li>
-                    <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-mobile fa-2x"></i> <span
-                                class="new_font">Faire une comparaison</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span
-                                class="new_font">Constructeurs</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#articles"><i class=" fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="Wui.php?run=getTeam&argument=void"><i class="fa fa-users fa-2x"></i> <span class="new_font"> L'équipe</span></a>
-                </li>
-                <li>
-                    <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
-                                class="new_font">Contact</span></a>
-                </li>
-
-
-            </ul>
-        </div>
         {% endblock %}
 {% block header %}
         <ul class="related-posts group" style="margin: 0">
@@ -600,7 +690,7 @@
                                 <a href="PUBLIC/img_dev/large/07.jpg" class="single_image">
                                     <i class="fa fa-search"></i><br>
                                     <p>Xiaomi</p>
-                                </a>
+                                </a>http://www.w3schools.com/bootstrap/bootstrap_grid_stacked_to_horizontal.asp
                             </div>
                         </figcaption>
                     </figure>
@@ -690,6 +780,11 @@
 {%endblock%}
 {% block follow %}
 {% endblock %}
+</div>
+</div>
+</div>
+</div>
+
 <!--<footer class="blackColor">
     <div class="container">
         <div class="row">
@@ -748,6 +843,8 @@
     <small>Copyright {{ ""|date("Y") }} COMPARED. All Rights Reserved.</small>
 
 </section>
+
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="PUBLIC/JS/jquery-ui-1.9.2.custom.js"></script>
 <script src="PUBLIC/JS/lc_ad.js"></script>
@@ -762,6 +859,8 @@
 <script src="PUBLIC/JS/min/scripts-min.js"></script>
 <script src="PUBLIC/JS/myscript.js"></script>
 <script src="PUBLIC/JS/main_dev.js"></script>
+<script src="PUBLIC/SID_JS/classie.js"></script>
+<script src="PUBLIC/SID_JS/sidebarEffects.js"></script>
 <!--<script src="PUBLIC/JS/classie.js"></script>
 <script src="PUBLIC/JS/menu.js"></script>-->
 {% block js %} {% endblock %}
@@ -922,6 +1021,9 @@
         $('.navmenu ul li a').click(function () {
             $('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 800);
             return false;
+        });
+        $(document).ready(function(){
+            $('[data-toggle="popover"]').popover();
         });
 
 
