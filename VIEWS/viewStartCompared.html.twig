@@ -145,11 +145,8 @@
             <div class="container" style="padding-bottom: 30px;">
                 <div class="row news ">
                     {% for item in phoneList %}
-                        <div class="col-md-3 col-sm-6 col-lg-3 text-center oneSm to-comparator blog grid clickSm">
-                            <span class="toShow redColor" style="display:none"><span class="fa-2x">TO COMPARE !</span> <i class="fa fa-2x fa-check"></i></span>
+                        <div class="col-md-3 col-sm-12 col-lg-3 text-center oneSm to-comparator blog grid clickSm">
                             <img class="img-responsive picsGall img-resizer center-block " src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg">
-
-
                             <div class="center-block text-center " style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);font-size: 16px;
                                      font-weight: 700;"> {{ item['constructorS']}} {{ item['fullNameS']}}</div>
                                 <span id="span_show" class="span_bg_blue span_font ">

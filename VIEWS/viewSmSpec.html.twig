@@ -1,46 +1,5 @@
 {% extends "viewTemplateWebsite.html.twig" %}
 {% block title %}COMPARED | Fiche Technique{% endblock %}
-{% block sidebar_menu %}
-    <div class="sidebar_compared" id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-            <li class="sidebar-brand white-sep">
-                <a href="#" class="text-center">
-                    <span class="border-white">Menu</span>
-                    <span class="border-white-nbg">Actualités</span>
-                </a>
-            </li>
-            <li class="date">
-                <p class="new_p">{{ day }}</p>
-                <p class="new_p md_p">{{ date_t }}</p>
-            </li>
-            <li>
-                <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-home fa-2x"></i> <span
-                            class="new_font">Accueil</span></a>
-            </li>
-            <li>
-                <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-mobile fa-2x"></i> <span
-                            class="new_font">Faire une comparaison</span></a>
-            </li>
-            <li>
-                <a href="Wui.php?run=getHomePage&argument=void#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span
-                            class="new_font">Constructeurs</span></a>
-            </li>
-            <li>
-                <a href="Wui.php?run=getHomePage&argument=void#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
-            </li>
-            <li>
-                <a  href="Wui.php?run=getHomePage&argument=void#articles"><i class="fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
-            </li>
-            <li>
-                <a class="is_menu" href="Wui.php?run=getTeam&argument=void"><i class="fa fa-users fa-2x"></i> <span class="new_font"> L'équipe</span></a>
-            </li>
-            <li>
-                <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
-                            class="new_font">Contact</span></a>
-            </li>
-        </ul>
-    </div>
-{% endblock %}
 {% block style %}
     <style>
 
@@ -251,12 +210,6 @@
 </ul>
 {% endblock %}
     {% block silder %}
-
-        <div class="row ">
-
-
-        </div>
-
 {%endblock%}
 {% block content %}
     <div class="row animated fadeInDown">
@@ -366,7 +319,6 @@
                 $(this).bind('click', function () {
                     var score = $(this).val();
                     var sm = $(".inputIdSm").val();
-                    console.log("aze");
                     $.ajax({
                         url: "Wui.php?run=newSmScore",
                         type: "POST",
@@ -387,11 +339,4 @@
 {% endblock %}
                                 {% block follow %} {% endblock %}
                                 {% block menuB %}
-                                    <li class="active"><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
-                                    <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a>
-                                    </li>
-                                    <li><a href="#manufacturer">Les constructeurs</a></li>
-                                    <li><a href="#articles">Articles</a></li>
-                                    <li><a class="callContact">Contact</a></li>
-                                    <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
                                 {% endblock %}

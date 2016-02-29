@@ -66,46 +66,6 @@
 <body>
 <div id="st-container" class="st-container">
     {% block sidebar_menu %}
-    <!--<div class="sidebar_compared" id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand white-sep">
-                    <a href="#" class="text-center">
-                        <span class="border-white">Menu</span>
-                        <span class="border-white-nbg">Actualités</span>
-                    </a>
-                </li>
-                <li class="date">
-                    <p class="new_p">{{ date.getDayName }}</p>
-                    <p class="new_p md_p">{{ date.getDay }} {{ date.getMonth }}</p>
-                </li>
-                <li>
-                    <a href="Wui.php?run=prepareComparison&argument=void"> <i class="fa fa-mobile fa-2x"></i> <span
-                                class="new_font">Faire une comparaison</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#manufacturer"><i class="fa fa-chain-broken fa-2x"></i> <span
-                                class="new_font">Constructeurs</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#bestSm"><i class="fa fa-mobile-phone fa-2x"></i> <span class="new_font"> Meilleur smartphone</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="#articles"><i class=" fa fa-newspaper-o fa-2x"></i> <span class="new_font">Articles</span></a>
-                </li>
-                <li>
-                    <a class="is_menu" href="Wui.php?run=getTeam&argument=void"><i class="fa fa-users fa-2x"></i> <span class="new_font"> L'équipe</span></a>
-                </li>
-                <li>
-                    <a class="is_menu callContact" href="#"><i class="fa fa-envelope fa-2x"></i> <span
-                                class="new_font">Contact</span></a>
-                </li>
-
-
-            </ul>
-        </div>-->
-
-
-
     <nav class="st-menu st-effect-11" id="menu-11">
         <h2> <i class="fa fa-info"></i> Menu</h2>
 
@@ -448,7 +408,7 @@
         </div>
 
 
-        <div class="col-md-12 feature-2 wp2 delay-05s">
+        <div class="col-md-12 feature-2 ">
 
 
             <ul class="related-posts group center-block" style="margin-bottom: 0px">
@@ -551,7 +511,7 @@
                                 <a href="#">Lire d'avantage ...</a>
                             </span>
                 </div>-->
-                <div class="col-md-12 feature-2 wp2 delay-05s">
+                <div class="col-md-12 feature-2">
 
 
                     <ul class="related-posts group center-block" style="margin-bottom: 0px">
@@ -718,36 +678,38 @@
 {% endblock %}
 {% block follow %}
 {% endblock %}
+
+    <section id="footer" style="border-left: 0">
+        <div class="wrap about">
+            <img class="logo center-block" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="Logo" height="60">
+            <p>COMPARED, The french smartphone comparator!</p>
+            <ul class="row">
+                <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                class="fa-fb fa fa-facebook-square fa-4x"></i></a><br class="frame"><br>Facebook
+                </li>
+                <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                class="fa-tw fa fa-twitter-square fa-4x"></i></a><br class="frame"><br>Twitter
+                </li>
+                <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
+                                class=" fa-goo fa fa-google-plus-square fa-4x"></i></a><br class="frame"><br>Google+
+                </li>
+
+            </ul>
+        </div>
+        <div class="wrap follow">
+            <p>Application propulsé par SENGINE <em> Moteur de comparaison </em>.</p>
+            <p><a class="onml" href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></p>
+        </div>
+        <small>Copyright {{ ""|date("Y") }} COMPARED. All Rights Reserved.</small>
+
+    </section>
                     </div>
 </div>
 </div>
 </div>
 </div>
     </div>
-<section id="footer" style="border-left: 0">
-    <div class="wrap about">
-        <img class="logo center-block" src="PUBLIC/IMAGE/logoCompared4_white.png" alt="Logo" height="60">
-        <p>COMPARED, The french smartphone comparator!</p>
-        <ul class="row">
-            <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
-                            class="fa-fb fa fa-facebook-square fa-4x"></i></a><br class="frame"><br>Facebook
-            </li>
-            <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
-                            class="fa-tw fa fa-twitter-square fa-4x"></i></a><br class="frame"><br>Twitter
-            </li>
-            <li class="col-md-4 col-sm-12"><a href="http://twitter.com/tapbot_paul"><i
-                            class=" fa-goo fa fa-google-plus-square fa-4x"></i></a><br class="frame"><br>Google+
-            </li>
 
-        </ul>
-    </div>
-    <div class="wrap follow">
-        <p>Application propulsé par SENGINE <em> Moteur de comparaison </em>.</p>
-        <p><a class="onml" href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></p>
-    </div>
-    <small>Copyright {{ ""|date("Y") }} COMPARED. All Rights Reserved.</small>
-
-</section>
 
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
