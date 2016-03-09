@@ -1148,6 +1148,12 @@ span.startComparisonSentence {
     text-align: center;
 }
 
+.rt
+{
+    top: -19px!important;
+    bottom: auto!important;
+}
+
 .left-img , .right-img
 {
     width: 25%;
@@ -1350,6 +1356,17 @@ path
 .smallRelated_team > div
 {
     width: 33.33333%!important;
+}
+
+.sM > div
+{
+    border: 1px white;
+    border-style: ridge;
+}
+
+.sM
+{
+    width: 50%!important;
 }
 
 

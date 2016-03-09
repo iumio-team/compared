@@ -501,7 +501,7 @@ class Controller extends AbstractController
         if ($this->isConnected()) {
             $yamlFile =    $this->getMasterFile();
             $info = $yamlFile['ENGINE_COMPARATOR'];
-            new Pointer('show', array('viewInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['ENGINE_COMPARATOR_SLOGAN'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['KEY'], UtilityFunction::translateEnToFr($info['LINK']), $info['LINK']));
+            new Pointer('show', array('viewInfoComparator', $info['ENGINE_COMPARATOR_NAME'], $info['ENGINE_COMPARATOR_VERSION'], $info['LINK_TO_ENGINE_COMPARATOR'], $info['KEY'], UtilityFunction::translateEnToFr($info['LINK']), $info['LINK']));
         }
         else
             $this->failLogin('all');

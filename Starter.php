@@ -9,7 +9,6 @@
 
 use GException\{LoadingError,EngineComparatorException,PDORNException,MaintenanceException};
 use Compared\LayerConnector\MDA;
-use Controller;
 
 class Starter {
 

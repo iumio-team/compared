@@ -22,7 +22,6 @@
                     <!-- The time line -->
                     <h4>Nom : {{comparator_name}} </h4>
                     <h4>Version {{comparator_version}}</h4>
-                    <h4>Slogan : {{comparator_slogan}}</h4>
                 </div>
                 <div class="col-md-12">
                  
@@ -37,8 +36,30 @@
                             {%else %}
                                 <button id="enableComparator" data="enable" type='button' class='btn btn-success'>Activer</button>
                                 {%endif%}
-                    <button type='button' class='btn btn-info' onClick="location.href='../Wui.php'">Modifier les informations</button>
+                    <button type='button' class='btn btn-info modComp'>Modifier les informations</button>
                     </div>
+                </div>
+            <div data-backdrop='static' data-keyboard='false' class='modal  fade ' id='modalInfoComp' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+                <div class='modal-dialog' >
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <div class=" row">
+                                <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-user-secret"></i>&nbsp; Connexion </h4></div>
+                        </div>
+                        <div class='modal-body text-center '>
+                            <img height="15%" width="15%" src="PUBLIC/IMAGE/{{userLastName|lower}}.jpg" class="img-circle" alt="User Image" />
+
+                            <h3>{{userLastName}} {{userFirstName}}</h3>
+                            <input  id="password" type="password" name="PIN" pattern="[0-9]4" run="NULL" disabled="disabled" placeholder="Code secret" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+
+                            <h3 class="error"></h3>
+
+
+                        </div>
+                        <div class='modal-footer'>
+                            <h5 class="pull-left "><em><strong>&copy; 2015</strong> COMPARED Web App</em></h5>
+                            <button type='button' class='btn btn-danger pull-right' data-dismiss='modal'>Annuler</button>
+                        </div></div></div></div>
                     </section><!-- /.content -->
     </aside><!-- /.right-side -->
 {%endblock%}
