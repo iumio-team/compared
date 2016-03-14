@@ -97,7 +97,30 @@
   </div>
 </div>
 <div class='bg-img'></div>
+<script type="text/javascript" src="PUBLIC/JS/jquery.js"></script>
+{% if type == "Engine comparator" %}
+<script>
+  /**
+   * Created by rafina on 11/03/16.
+   */
+  var s = {
+    check: function () {
+      $.ajax({
+        type: "POST",
+        url: "Wui.php?run=Service&argument=Comparator",
+        success: function (_data) {
+          if (_data == 1) {
+            location.reload();
+            console.log("ed")
+          }
+          }
+      });
+    }
+  }
 
+  window.setInterval(s.check, 1000);
+</script>
+{% endif %}
 </body>
 
 

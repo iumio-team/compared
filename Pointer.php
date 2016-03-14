@@ -7,6 +7,7 @@
 
 namespace Compared\Router;
 use GException\{RuntimeError, LoadingError};
+use Compared\Services\ComparatorServices;
 use Compared\Supervisor\Controller;
 
 class Pointer {
@@ -16,7 +17,10 @@ class Pointer {
     }
 
     public static function runnable(String $run, array $arg) {
-        echo self::__callController($run, $arg);
+        if ($run == "Service")
+            self::__callService($arg);
+        else
+            echo self::__callController($run, $arg);
     }
 
     static public function showView(array $argArray) {
@@ -84,7 +88,7 @@ class Pointer {
         }
     }
 
-    static public function __callController(String $run, array $arg = null)
+    static private function __callController(String $run, array $arg = null)
     {
         $controller = new Controller();
         switch ($run) {
@@ -171,4 +175,15 @@ class Pointer {
         unset($controller);
     }
 
+    static private function __callService($arg)
+    {
+        switch ($arg[0])
+        {
+            case "Comparator" :
+                $service  = new ComparatorServices();
+                $service->start();
+                break;
+        }
+
+    }
 }

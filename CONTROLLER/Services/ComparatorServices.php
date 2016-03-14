@@ -8,7 +8,7 @@
 
 namespace Compared\Services;
 use Compared\Abs\Services\AbstractSender;
-
+use GException\EngineComparatorException;
 
 class ComparatorServices extends AbstractSender
 {
@@ -41,5 +41,19 @@ class ComparatorServices extends AbstractSender
     public function is_linked():bool
     {
         return ($this->status === "NOTATTACHED")? false : true;
+    }
+
+    public function start()
+    {
+        $r = $this->is_available();
+        if ($r == 1)
+        {
+            $r = $this->is_linked();
+            if ($r)
+                echo 1;
+            else
+                throw new EngineComparatorException("Le moteur de comparaison n'est pas disponible");
+        }
+
     }
 }

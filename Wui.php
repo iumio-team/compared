@@ -43,7 +43,7 @@ class Wui
      */
     public function startApp()
     {
-        isset($this->request['run']) ? $this->checker() : new GException\RuntimeError("Runnable doesn't exist!");
+        (isset($this->request['run'])) ? $this->checker() : new GException\RuntimeError("Runnable doesn't exist!");
     }
 
     /** Check arguments

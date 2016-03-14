@@ -12,7 +12,7 @@ abstract class Services
 {
     protected $response = NULL;
 
-    protected abstract function to_send(string $url, array $data):void;
+    protected abstract function to_send(string $url, array $data);
     protected abstract function get_response();
     protected abstract function thread();
 

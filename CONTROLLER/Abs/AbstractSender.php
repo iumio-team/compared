@@ -47,7 +47,7 @@ class AbstractSender extends Services implements  Autonomus
         return true;
     }
 
-    protected function to_send(string $url, array $data):void
+    protected function to_send(string $url, array $data)
     {
         $ch = curl_init($url);
         $post = http_build_query($data, '', '&');
