@@ -182,8 +182,13 @@ img {
 }
 /* Display inline */
 .inline {
-  display: inline;
+  display: inline!important;
   width: auto;
+}
+
+.btn-margin-tp7
+{
+  margin-top: -7px;
 }
 /* Background colors */
 .bg-red,

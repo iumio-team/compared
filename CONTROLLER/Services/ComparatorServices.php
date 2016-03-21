@@ -38,19 +38,34 @@ class ComparatorServices extends AbstractSender
             throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $response->code . "]");
     }
 
+    public function linkAppToComparator():array
+    {
+        $data = array('Action' => 'linkCToA', 'key' => $this->key, 'appname' => $this->appName);
+        $res = $this->to_send($this->url, $data);
+        if (is_array($res) && isset($res[0]) && $res[0] == 'ISAVAILABLE')
+            return array("status"=>"AVAILABLE");
+        else
+            return array("status"=>"ERROR", "message"=>$res);
+    }
+
     public function is_linked():bool
     {
         return ($this->status === "NOTATTACHED")? false : true;
     }
 
-    public function start()
+    public function start($result_mod = null)
     {
         $r = $this->is_available();
         if ($r == 1)
         {
             $r = $this->is_linked();
             if ($r)
-                echo 1;
+            {
+                if ($result_mod == "program")
+                    return 1;
+                else
+                    echo 1;
+            }
             else
                 throw new EngineComparatorException("Le moteur de comparaison n'est pas disponible");
         }

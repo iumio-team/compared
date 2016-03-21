@@ -50,6 +50,7 @@
     <script type="text/javascript" src="PUBLIC/JS/startCompared.js"></script>
     <script type="text/javascript" src="PUBLIC/JS/ListeEtoile.js"></script>
     <script type="text/javascript" src="PUBLIC/JS/callComparatorService.js"></script>
+
     <!---- DIAGRAM --->
 
     <!--<link href="PUBLIC/css/default.css" rel="stylesheet" type="text/css" />
@@ -156,6 +157,7 @@
 <div>
     {% block style %}
     {% endblock %}
+
     <style>
         .related-posts .largeRelated {
             float: left;
@@ -729,6 +731,26 @@
 <script src="PUBLIC/JS/main_dev.js"></script>
 <script src="PUBLIC/SID_JS/classie.js"></script>
 <script src="PUBLIC/SID_JS/sidebarEffects.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.2.1/annyang.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.2.1/annyang.min.js"></script>
+<script>
+    if (annyang) {
+        // Let's define a command.
+        var commands = {
+            'start': function() {
+                location.href = "Wui.php?run=prepareComparison&argument=void"
+            },
+            'home': function() { location.href="Wui.php?run=getHomePage&argument=void"; }
+        };
+
+        // Add our commands to annyang
+        annyang.addCommands(commands);
+
+        // Start listening.
+        annyang.start();
+    }
+</script>
+
 <!--<script src="PUBLIC/JS/classie.js"></script>
 <script src="PUBLIC/JS/menu.js"></script>-->
 {% block js %} {% endblock %}
@@ -898,6 +920,8 @@
     });
     window.setTimeout(s.check, 3000);
 </script>
+
+
 {% block contact %}
 
 

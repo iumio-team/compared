@@ -10,7 +10,7 @@ namespace Compared\Abs\Services;
 use Compared\Interfaces\Services\Autonomus;
 use Spyc;
 
-class AbstractSender extends Services implements  Autonomus
+class AbstractSender extends ServicesSR implements  Autonomus
 {
     protected $service_status = "enabled";
     protected $timer;

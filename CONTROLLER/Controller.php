@@ -337,6 +337,11 @@ class Controller extends AbstractController
         return (array("sm" => $s, "score" => $scoreV));
     }
 
+    public function vocal():void
+    {
+
+    }
+
     public function switchMaintenance(String $mode,String $sentence)
     {
         if ( $this->isConnected()) {

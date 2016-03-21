@@ -16,7 +16,7 @@ use PDOException;
 use GException\PDORNException;
 use Spyc;
 
-class Connector {
+final class Connector {
 
     static private $DSN ;
     static private $USERNAME ;
