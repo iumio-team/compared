@@ -42,7 +42,21 @@ final class Connector {
         }
     }
 
-
+    private function check_role_auth($email, $id_user, $role = null)
+    {
+        $model = new Model();
+        $result = $model->get_user_by_email($email)->fetch(PDO::FETCH_ASSOC);
+        if ($role == null)
+            $result2 =  array("role" => $role);
+        else
+            $result2 = $model->get_user_by_id($id_user)->fetch(PDO::FETCH_ASSOC);
+                if (!(empty($result)) && "normal" == $result["role"] && $result2["role"]== "admin")
+                    return 0;
+                else if (!(empty($result)) && "normal" == $result["role"] && $result2["role"]== "normal")
+                    return 1;
+                else
+                    return 2;
+        }
 
     /** Get connection
      *
