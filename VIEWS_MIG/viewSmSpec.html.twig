@@ -1,0 +1,429 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{% block title %}COMPARED | Fiche Technique{% endblock %}
+{% block style %}
+    <style xmlns="http://www.w3.org/1999/html">
+
+
+        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+           follow these rules. Every browser that supports :checked also supports :not(), so
+           it doesn’t make the test unnecessarily selective */
+        .rating:not(:checked) > input {
+            position: absolute;
+            top: -9999px;
+            clip: rect(0, 0, 0, 0);
+        }
+
+        .rating:not(:checked) > label {
+            float: right;
+            width: 1em;
+            padding: 0 .1em;
+            overflow: hidden;
+            white-space: nowrap;
+            cursor: pointer;
+            font-size: 200%;
+            line-height: 1.2;
+            color: #ddd;
+            text-shadow: 1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rating > input:checked ~ label {
+            color: #f70;
+            text-shadow: 1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+            color: gold;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > input:checked + label:hover,
+        .rating > input:checked + label:hover ~ label,
+        .rating > input:checked ~ label:hover,
+        .rating > input:checked ~ label:hover ~ label,
+        .rating > label:hover ~ input:checked ~ label {
+            color: #ea0;
+            text-shadow: 1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0, 0, 0, .5);
+        }
+
+        .rating > label:active {
+            position: relative;
+            top: 2px;
+            left: 2px;
+        }
+    </style>
+{% endblock %}
+{% block header %}
+<ul class="related-posts group" style="margin: 0;width: 100%!important;">
+    <div class="largeRelated" style="width: 100%!important;height: 700px!important;">
+        <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}-landscape.jpg)">
+            <a href="http://www.webdesignermag.co.uk/site-of-the-week-kikk/" class="bgOp">
+                <h2 style="bottom: 225px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                    {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}<br>
+                    Référence : {{ sm.codeNameSm }}<br>
+                    Date de sortie : {{ sm.releaseDateSm | date('d-m-Y') }}
+                     {% if  sm.prixSm != NULL %}
+                        <br> Prix : {{ sm.prixSm }}
+                        {% endif %}
+                    <div class="mark center-block" style="border-radius:50px;width: 50px;height: 50px;padding: 5px">{% if moy != "/" %} {{moy}} {% else %} {{moy}} {%endif%}</div>
+                </h2>
+
+
+            </a>
+        </div>
+    </div>
+    </ul>
+{% endblock %}
+    {% block silder %}
+{%endblock%}
+{% block content %}
+
+
+
+    <section class="features-list" style="padding-bottom: 0;">
+<!--<div class="row">
+    <ul class="related-posts group" style="margin: 0">
+        <div class="smallRelated">
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/09/xJamesDeeley.png.pagespeed.ic.4g7xeLzhaZ.webp)">
+                <a href="http://www.webdesignermag.co.uk/james-deeley-context-is-king/"><h3>JAMES DEELEY: Context is
+                        King</h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/01/xScreen-shot-2015-01-12-at-14.36.571.png.pagespeed.ic.e5IsyuWVn6.png)">
+                <a href="http://www.webdesignermag.co.uk/5-html5-template-providers-that-ever-designer-needs-to-know/">
+                    <h3>5 HTML5 template providers that ever designer needs to know</h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/02/xScreen-shot-2015-02-16-at-09.31.25.png.pagespeed.ic.qhz30B6ftr.png)">
+                <a href="http://www.webdesignermag.co.uk/site-of-the-week-fieldwork/"><h3>Site of the week:
+                        Fieldwork</h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/04/xRayKing.png.pagespeed.ic.0-G0eZuTgi.webp)">
+                <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Designing a new domain</h3>
+                </a>
+            </div>
+        </div>
+        <div class="smallRelated_mod ">
+            <div style="background-image:url(PUBLIC/IMAGE/smartphones/appleiphone6.jpg)" alt="phSm" title="Smartphpone ">
+                <a href="Wui.php?run=getSpec&amp;argument=4">
+                    <h3>Dernier smartphone dans COMPARED : <br>Apple iPhone 6 16Go
+                    </h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/01/xScreen-shot-2015-01-12-at-14.36.571.png.pagespeed.ic.e5IsyuWVn6.png)">
+                <a href="http://www.webdesignermag.co.uk/5-html5-template-providers-that-ever-designer-needs-to-know/">
+                    <h3>Comparaison récentes :  Lorem Ipsume vs Ipsum vitae olegadro</h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/02/xScreen-shot-2015-02-16-at-09.31.25.png.pagespeed.ic.qhz30B6ftr.png)">
+                <a href="http://www.webdesignermag.co.uk/site-of-the-week-fieldwork/"><h3>Site of the week:
+                        Fieldwork</h3></a></div>
+            <div style="background-image:url(http://www.webdesignermag.co.uk/wp-content/uploads/2015/04/xRayKing.png.pagespeed.ic.0-G0eZuTgi.webp)">
+                <a href="http://www.webdesignermag.co.uk/designing-a-new-domain/"><h3>Designing a new domain</h3>
+                </a>
+            </div>
+        </div>
+
+
+    </ul>-->
+
+
+        <ul class="related-posts group" style="margin: 0;width: 50%!important;float: right!important;">
+            <div class="largeRelated" style="float: right!important;width: 100%!important;height: 630px">
+                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}-1.jpg)">
+                    <a href="http://www.webdesignermag.co.uk/site-of-the-week-kikk/" class="bgOp">
+                       <!-- <h2 style="bottom: 225px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                            {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}<br>
+                            Référence : {{ sm.codeNameSm }}<br>
+                            Date de sortie : {{ sm.releaseDateSm | date('d-m-Y') }}
+                            {% if  sm.prixSm != NULL %}
+                                <br> Prix : {{ sm.prixSm }}
+                            {% endif %}
+                            <div class="mark center-block" style="border-radius:50px;width: 50px;height: 50px;padding: 5px">{% if moy != "/" %} {{moy}} {% else %} {{moy}} {%endif%}</div>
+                        </h2>-->
+
+
+                    </a>
+                </div>
+            </div>
+        </ul>
+
+       <ul class="related-posts group" style="margin: 0;">
+            <div class="smallRelated sM" style="height: 630px!important;">
+
+                <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/proc.jpg')">
+                    <a href="#">
+                        <div class="carac">
+                            <h3 class="resize-text rt">Processeur</h3>
+                            <p>----</p>
+                            {{ sm.processor.constructorP }} {{ sm.processor.nameP }} {{ sm.processor.versionP }}
+                            <div >Fréquence : {{ sm.processor.frequencyP }} Ghz</div>
+                            <div >Nombre de coeurs : {{ sm.processor.nbOfCoreP }}</div>
+                            <div >Architecture
+                                :{% if sm.processor.archP != 0 %} {{ sm.processor.archP }} bits{% else %} ARM {% endif %}</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/sm.jpg')">
+                    <a href="#">
+                        <div  class="carac">
+                            <h3 class="resize-text rt" >&Eacute;cran</h3>
+                            <p>----</p>
+                            {{ sm.screen.typeS }}
+                            <div >Taille : {{ sm.screen.sizeS }} pouces</div>
+                            <div > Densité : {{ sm.screen.sizeS }} </div>
+                            <div > Définition : {{ sm.screen.capacityS }}</div>
+                            <div > Résolution : {{ sm.screen.resolutionS }} pixels</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/memory.jpg')">
+                    <a href="#">
+                        <div  class="carac">
+                            <h3 class="resize-text rt" >Mémoires</h3>
+                            <p>----</p>
+                            <div > Mémoire vive : {{ sm.ramSm }} Go</div>
+                            <div > Mémoire interne : {{ sm.internalStSm }} Go</div>
+                            <div > Mémoire externe :
+                                {% if sm.ExternalStSm != "NULL" %}
+                                    Oui ({{ sm.ExternalStSm }} Go MAX)
+                                {% else %}
+                                    Non
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/batt.jpg')">
+                    <a href="#">
+                        <div  class="carac">
+                            <h3 class="resize-text rt">Dimensions et Autonomie</h3>
+                            <p>----</p>
+                            <div>  Poids {{ sm.weightSm }} g </div>
+                            <div class="col-md-12 col-sm-4 "> Largeur : {{ sm.heightSm }} mm</div>
+                            <div class="col-md-12 col-sm-4">Longueur : {{ sm.widthSm }} mm</div>
+                            <div class="col-md-12 col-sm-4">&Eacute;ppaisseur : {{ sm.thinknessSm }} mm</div>
+                            <div> Capacité batterie : {{ sm.batteryCSm }} mAh</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </ul>
+        <ul class="related-posts group" style="margin: 0;width: 50%!important;float: right!important;">
+            <div class="largeRelated" style="float: right!important;width: 100%!important;height: 630px">
+                <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ sm.pictureSm }}-2.jpg)">
+                    <a href="http://www.webdesignermag.co.uk/site-of-the-week-kikk/" class="bgOp">
+                        <!-- <h2 style="bottom: 225px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                            {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}<br>
+                            Référence : {{ sm.codeNameSm }}<br>
+                            Date de sortie : {{ sm.releaseDateSm | date('d-m-Y') }}
+                            {% if  sm.prixSm != NULL %}
+                                <br> Prix : {{ sm.prixSm }}
+                            {% endif %}
+                            <div class="mark center-block" style="border-radius:50px;width: 50px;height: 50px;padding: 5px">{% if moy != "/" %} {{moy}} {% else %} {{moy}} {%endif%}</div>
+                        </h2>-->
+
+
+                    </a>
+                </div>
+            </div>
+        </ul>
+        <ul class="related-posts group" style="margin: 0;">
+        <div class="smallRelated sM" style="height: 630px!important;">
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/gpu.jpg')">
+            <a href="#">
+                <div class="carac">
+                    <h3 class="resize-text rt">Puce graphique</h3>
+                    <p>---</p>
+                    <div > {{ sm.gpu.constructor }} {{ sm.gpu.name }} {{ sm.gpu.version }}</div>
+                    <div> Fréquence : {{ sm.gpu.frequency }} Mhz</div>
+                    <div>{% if sm.gpu.gflops != '' %}
+                            Flops :  {{ sm.gpu.gflops }} GFlops
+                        {% else %}
+                            Flops : Non renseigné
+                        {% endif %}
+                    </div>
+                    <div> {% if sm.gpu.print != '' %}
+                            Gravure :  {{ sm.gpu.print }} nanomètre
+                        {% else %}
+                            Gravure : Non renseigné
+                        {% endif %}</div>
+                    <div > {% if sm.gpu.directXV != '' %} Version DirectX :  {{ sm.gpu.directXV }} {% else %} Version DirectX : Non renseigné {% endif %}</div>
+                </div>
+            </a>
+        </div>
+            <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/picture.jpg')">
+                <a href="#">
+                    <div  class="carac">
+                        <h3 class="resize-text rt"> Appareil photo</h3>
+                        <p>---</p>
+                        <div>Avant : {{ sm.photoFrontSm }} Mpx </div>
+                        <div>Arrière : {{ sm.photoBackSm }} Mpx </div>
+                    </div>
+                </a>
+            </div>
+        <div class="text-center item_carac" style="background-image:url('PUBLIC/IMAGE/icon/camera.jpg')">
+            <a href="#">
+                <div  class="carac">
+                    <h3 class="resize-text rt">Caméra </h3>
+                    <p>---</p>
+                        <div>Avant : {{ sm.videoFrontSm }} ({{ sm.resolutionVideoFrontSm }} pixels) </div>
+                        <div>Arrière : {{ sm.videoBackSm }} ({{ sm.resolutionVideoBackSm }} pixels) </div>
+                    </div>
+            </a>
+        </div>
+
+        <div class="text-center item_carac1" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg')">
+            <a href="#">
+                <div  class="carac">
+
+                    <h3 class="resize-text rt"> Système d'exploitation</h3>
+                    <div style="padding-top: 25px;">
+                        {% set icon = "" %}
+                        {% if  "Android" in sm.os.name %}
+                            {% set icon = "android" %}
+                        {% elseif  "Windows" in sm.os.name %}
+                            {% set icon = "windows" %}
+                        {% elseif  "iOS" in sm.os.name %}
+                            {% set icon = "apple" %}
+                        {% elseif  "Ubuntu" in sm.os.name %}
+                            {% set icon = "ubuntu" %}
+                        {% endif %}
+                        <img src="PUBLIC/IMAGE/os_logo/{{ icon }}.png" class="icon-proc " alt=""/>
+                    </div>
+                    <p>---</p>
+                        <div>{{ sm.os.constructor }} {{ sm.os.name }} {{ sm.os.version }}</div>
+                        <div class="col-md-12 col-sm-12 text-center full_wd">Date de sortie
+                            : {{ sm.os.releaseDate  | date('d-m-Y') }}</div>
+                    </div>
+            </a>
+        </div>
+
+    </div>
+
+</ul>
+</div>
+    </section >
+    <!--<div class="row animated fadeInDown">
+            <div class="cd-folding-panel">
+
+                <div class="fold-left"></div> <!-- this is the left fold -->
+
+                <!--<div class="fold-right"></div> <!-- this is the right fold -->
+
+<!--                <div class="cd-fold-content">
+                    <!-- content will be loaded using javascript -->
+                <!--</div>
+
+                <a class="cd-close" href="#0"></a>
+            </div>
+        </div>
+    </div>-->
+    <!-- end test -->
+
+   <!-- <section class="showcase borderSection">
+        <div class="showcase-wrap" style="padding:30px 0 ;min-height: 350px!important">
+            <div class="texture-overlay"></div>
+            <div class="container">
+                <div class="row news">
+                    <div class="col-md-6">
+                        <input class="inputIdSm" type="hidden" value="{{ sm.idSm }}"/>
+                        <h2 class="white_font ">Notez le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
+                                    class="fa fa-mobile"></i></h2>
+                        <p style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Ce smarphone vous plaît ? Ou
+                            alors il est horrible ? Exprimez-vous alors avec cette note !</p>
+
+                        <fieldset class="rating">
+                            <legend> De 1 à 5:</legend>
+                            <input type="radio" class="starC" id="star5" name="rating" value="5"/><label for="star5"
+                                                                                                         title="Rocks!">5
+                                stars</label>
+                            <input type="radio" class="starC" id="star4" name="rating" value="4"/><label for="star4"
+                                                                                                         title="Pretty good">4
+                                stars</label>
+                            <input type="radio" class="starC" id="star3" name="rating" value="3"/><label for="star3"
+                                                                                                         title="Meh">3
+                                stars</label>
+                            <input type="radio" class="starC" id="star2" name="rating" value="2"/><label for="star2"
+                                                                                                         title="Kinda bad">2
+                                stars</label>
+                            <input type="radio" class="starC" id="star1" name="rating" value="1"/><label for="star1"
+                                                                                                         title="Sucks big time">1
+                                star</label>
+                        </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="white_font">Partager cette page sur les réseaux sociaux <i
+                                    class="fa fa-facebook"></i> <i class="fa fa-twitter"></i></h2>
+                        <p style="padding: 0px 20px 0px 20px;color:white;font-size: 20px;">Donnez la possibilité à
+                            d'autres personnes de connaître ce smartphone en le partageant !</p>
+
+                        <div class=" col-md-12  " style="padding-bottom: 45px;">
+                            <ul class="list-unstyled list-group text-center screenshots-new">
+                                <li class=" col-md-6 list-group-item social-network-item"><i
+                                            class="fa fa-facebook-square"></i> <a
+                                            href="https://www.facebook.com/comparedsm?ref=hl">Facebook</a></li>
+
+
+                                <li class="col-md-6 list-group-item social-network-item"><i
+                                            class="fa fa-google-plus-square"></i><a
+                                            href="https://plus.google.com/u/0/b/103067557431411454608/103067557431411454608/about/p/pub?sig=ALjLGbPVO-2FOKyzj29SP9oLnQAqxRw_6g">Google+</a>
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>-->
+{% block modal %}
+    <div data-backdrop='static' data-keyboard='false' class='modal  fade ' id='modal_mark_smSpec' tabindex='-1'
+         role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+        <div class='modal-dialog'>
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <div class=" row">
+                        <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-star"></i>&nbsp;Notation
+                        </h4></div>
+                </div>
+                <div class='modal-body text-center '>
+                    Merci d'avoir noté le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
+                            class="fa fa-hand-o-left"></i> <br>
+                    Retournez sur la page d'accueil pour découvrir de nouveau smartphone
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-success'
+                            onClick="location.href = 'Wui.php?run=getHomePage&agrgument=void'">Retour à l'accueil
+                    </button>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal' onClick='location.reload()'>
+                        Fermer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    <script>
+        $(document).ready(function () {
+            $(".starC").each(function () {
+                $(this).bind('click', function () {
+                    var score = $(this).val();
+                    var sm = $(".inputIdSm").val();
+                    $.ajax({
+                        url: "Wui.php?run=newSmScore",
+                        type: "POST",
+                        data: {"sm": sm, "score": score},
+                        success: function (_data) {
+                            console.log(_data);
+                            $("#modal_mark_smSpec").modal('show');
+                        },
+                        error: function (request, status, error) {
+                            alert(error)
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+{% endblock %}
+                                {% block follow %} {% endblock %}
+                                {% block menuB %}
+                                {% endblock %}

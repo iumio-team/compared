@@ -34,8 +34,12 @@ class ComparatorServices extends AbstractSender
         $response = $this->get_response();
         if (is_array($response) && isset($response[0]) && $response[0] == 'ISAVAILABLE' )
            return 1;
-        else
-            throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $response->code . "]");
+        else {
+            if (isset($response->code))
+                throw new EngineComparatorException("Impossible de lier COMPARED au moteur de comparaison [ERROR " . $response->code . "]");
+            else
+                throw new EngineComparatorException("Le moteur de comparaison ne répond pas");
+        }
     }
 
     public function linkAppToComparator():array

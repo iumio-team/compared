@@ -1971,32 +1971,7 @@ footer ul {
         transition: transform 0.2s;
     }
 
-.img-logo {
-    width: 146px;
-    margin-top: -16px;
-}
 
-body #footer .wrap.about {
-    width: 100%;
-    padding: 0 10%;
-    margin-bottom: 20px;
-    text-align: center;
-
-}
-
-body .wrap {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-body #footer p {
-    font-size: 20px;
-    font-weight: 100;
-    color: #fff;
-    line-height: 1.25em;
-    margin-bottom: 40px;
-    text-align: center;
-}
 
 .onml
 {
