@@ -1,0 +1,54 @@
+{% extends "viewTemplateDashboard.html.twig" %}
+{%block title %}COMPARED | Avis{%endblock%}
+{%block other %}
+
+    <!-- Right side column. Contains the navbar and content of the page -->
+    <aside class="right-side">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <h1>
+              Avis
+
+            </h1>
+
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+
+            <!-- row -->
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- The time line -->
+                    <ul class="timeline">
+                        <!-- timeline time label -->
+
+                        <!-- /.timeline-label -->
+                        <!-- timeline item -->
+
+                        {%for item in notices|reverse %}
+                            <li>
+                                <i class="fa fa-envelope bg-blue"></i>
+                                <div class="timeline-item">
+                                  
+                                    <h3 class="timeline-header"><a href="#">{{item['nomInter']}}</a> </h3>
+                                    <div class="timeline-body">
+                                        {{item['content']}}
+
+                                    </div>
+                                  
+                                </div>
+                            </li>
+                        {%endfor%}
+                        
+                    </ul>
+                       {%if notices is empty %}
+                        <h2>Il n'y a aucun avis</h2>
+                    {%endif%}
+                </div>
+                        
+            </div><!-- /.row -->
+
+        </section><!-- /.content -->
+    </aside><!-- /.right-side -->
+{%endblock%}

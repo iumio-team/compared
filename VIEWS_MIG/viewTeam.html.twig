@@ -1,0 +1,96 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | Mentions Légales {%endblock%}
+{%block menu %}
+{%endblock%}
+{%block sectionHero %} <section class="hero" style="height: 0px!important;"> {%endblock%}
+{% block header %}
+{% endblock %}
+{%block silder %}
+{%endblock%}
+{%block content %}
+
+
+    <section class="features-list" id="bestSm" style="padding-top:20px;">
+    <div class="row">
+
+        <div class="col-md-12 text-center lucidaFont " style="padding-top:20px;">
+            <h1 class="padding-text"><i class="fa fa-users"></i> COMPARED Team</h1>
+            <p class="font-resize ">Découvrez l'équipe de COMPARED <i class="fa fa-smile-o"></i></p>
+        </div>
+
+
+        <div class="col-md-12 feature-2">
+
+
+            <ul class="related-posts group center-block" style="margin-bottom: 0px">
+
+                <div class="smallRelated_mod smallRelated_team smallRelated_best" style="margin: 0;width: 100%;height: 600px;">
+
+
+                    <div style="background-image:url(PUBLIC/IMAGE/profil/rafinadany1/rafinadany1-profil.jpg); background-size: cover; background-repeat: no-repeat no-repeat;">
+                        <a href="Wui.php?run=getProfil&argument=rafina-dany-1">
+                        <h3 class="resize-text">RAFINA Dany   <br><em>"Créateur , développeur, passionné par les nouvelles technologies"</em></h3>
+
+                        </a>
+                    </div>
+
+                    <div style="background-image:url(PUBLIC/IMAGE/profil/huronkevin2/huronkevin-profil.jpg); background-size: cover; background-repeat: no-repeat no-repeat;">
+
+                        <a href="Wui.php?run=getProfil&argument=huron-kevin-2">
+                            <h3 class="resize-text">HURON Kevin <br><em>"Designer , développeur, passionné par les nouvelles technologies"</em></h3>
+
+                            </a>
+                    </div>
+
+                       <div style="background-image:url(PUBLIC/IMAGE/profil/huronkevin2/huronkevin-profil.jpg); background-size: cover; background-repeat: no-repeat no-repeat;">
+
+                        <a href="Wui.php?run=getProfil&argument=huron-kevin-2">
+                            <h3 class="resize-text">Peut-être vous! <br><em>"? , ?"</em></h3>
+
+                            </a>
+                    </div>
+
+
+                </div>
+
+
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+     <section class="features-list borderSection" >
+            <div class="row">
+
+        <div class="col-md-12 text-center lucidaFont " style="padding-top:30px;padding-bottom: 0px;">
+            <h1 class="padding-text"><i class="fa fa-space-shuttle"></i> Histoire de COMPARED</h1>
+            <p class="font-resize ">Découvrez comment et pourquoi COMPARED a été créé <i
+                        class="fa fa-smile-o"></i></p>
+        </div>
+
+
+        <div class="col-md-12 feature-2">
+
+
+             COMPARED est issu du projet Ium (Projet visant a créer 3 site).
+        </div>
+    </div>
+        </section>
+<script>
+$(document).ready(function()
+{
+$(".hero").css("min-height","0px");
+$(".hero").css("padding-top","38px");
+})
+</script>
+    {%endblock%}
+{%block menuB %}
+    <ul id="downMenu">
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#manufacturer">Les constructeurs</a></li>
+        <li><a href="Wui.php?run=getHomePage&argument=void#articles">Articles</a></li>
+        <li ><a class="callContact">Contact</a></li>
+    </ul>
+{%endblock%}

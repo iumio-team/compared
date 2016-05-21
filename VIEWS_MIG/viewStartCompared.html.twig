@@ -1,0 +1,257 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | Comparez deux smartphone{%endblock%}
+{% block header %}
+    <div class="row">
+    <ul class="related-posts group col-md-6 no-padding" style="margin: 0;">
+        <div class="largeRelated h_comparison w_100 sm1 n_lgr">
+              <span id="span_show" class="span_bg_blue span_bg_green span_font " style="opacity: 0;">
+                                    <i class="fa fa-remove"></i>
+                                    <a class="removeSm2" href="#">Supprimer</a>
+                                    <br>
+                                        <i class="fa fa-gear"></i>
+                                        <a class="ft2" href="#">Voir fiche technique</a>
+                                </span>
+            <div class="pic1 img_c">
+                <a href="#" class="bgOp">
+                        <h2 class="textName1" style="bottom: 197px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                            Aucun smartphone <i class="fa fa-frown-o"></i>
+                        </h2>
+                </a>
+            </div>
+        </div>
+    </ul>
+    <ul class="related-posts group col-md-6 no-padding" style="margin: 0;">
+        <div class="largeRelated h_comparison  sm2 w_100 n_lgr">
+            <div class="pic2 img_c">
+                <a href="#" class="bgOp">
+                    <h2 class="textName2" style="bottom: 197px;width: 100%;background-color: rgba(0,0,0,0.5);">
+                         Aucun smartphone <i class="fa fa-frown-o"></i>
+                    </h2>
+
+
+                </a>
+            </div>
+        </div>
+    </ul>
+        </div>
+{% endblock %}
+{%block menu %}
+    <style>
+        .hero {
+            min-height: 503px!important;
+        }
+    </style>
+{%endblock%}
+
+{%block silder %}
+    <!--<div class="col-md-12 gallery" style="height: 260px!important">
+        <div class="camera_wrap camera_white_skin"  id="camera_wrap_1" >
+            <div data-thumb="" data-src="PUBLIC/IMAGE/slides/blank.gif">
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 class="col-md-12" style="font-size:40px;margin-top: 0px"><span class="text_pr startComparisonSentence">Votre comparaison ! </span></h2>
+                    <div >
+                        <div class="col-md-3 col-sm-3" ></div>
+                        <div class="col-md-3 col-sm-3 sm1_alpha "><i class="fa fa-mobile fa-9x"></i></div>
+                        <div class="col-md-3 col-sm-3 col-lg-3 text-center sm1 text-center blog grid" style="display: none;">
+                            <img class="img-responsive picsGall img-resizer center-block pic1" src="PUBLIC/IMAGE/smartphones/sonyxperiaz3.jpg">
+                            <div class="center-block text-center textName1" style="position: relative;bottom:20px;background-color: rgba(6, 62, 10, 0.6);font-size: 15px;
+                                     font-weight: 700;"> NO DATA</div>
+                                <span id="span_show" class="span_bg_blue span_bg_aqua span_font " style="opacity: 0;">
+                                    <i class="fa fa-remove"></i>
+                                    <a class="removeSm1" href="#">Supprimer</a>
+                                    <br>
+                                        <i class="fa fa-gear"></i>
+                                        <a class="ft1" href="">Voir fiche technique</a>
+                                </span>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-lg-3 text-center sm2 blog grid" style="display: none;">
+                            <img class="img-responsive picsGall img-resizer center-block pic2" src="PUBLIC/IMAGE/smartphones/sonyxperiaz3.jpg">
+                            <div class="center-block text-center textName2" style="position: relative;bottom:20px;background-color: rgba(6, 62, 10, 0.6);font-size: 15px;
+                                     font-weight: 700;"> NO DATA </div>
+                                <span id="span_show" class="span_bg_blue span_bg_green span_font " style="opacity: 0;">
+                                    <i class="fa fa-remove"></i>
+                                    <a class="removeSm2" href="#">Supprimer</a>
+                                    <br>
+                                        <i class="fa fa-gear"></i>
+                                        <a class="ft2" href="#">Voir fiche technique</a>
+                                </span>
+                        </div>
+                        <div class="col-md-3 sm2_alpha col-sm-3 "><i class="fa fa-mobile fa-9x"></i></div>
+                        <div class="col-md-3 col-sm-3" ></div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>-->
+{%endblock%}
+{%block content %}
+    <div id="nav_start" class="container bgBlackMediumOpacity container_modified " style="display: none">
+        <div class="row">
+            <div class="col-md-12 cBusiness text-center">
+                <form method="GET" action="Wui.php" id="form_compared" class="form-compared">
+                    <input id="ftsm" class="ftsm" type="hidden" name="sm1" value="NULL" />
+                    <input id="sdsm" class="sdsm" type="hidden" name="sm2" value="NULL" />
+                    <input type="hidden" name="run" value="compared" />
+                    <button class="col-md-12 col-sm-12 button_hidden" id="starter" href="#">   <h3 class="textH3_alpha"> <i class="fa fa-check"></i> <span class="text1_alpha">Démarrez votre comparaison</span></h3></button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="w_100" >
+        <div class="progress progress_mod">
+            <div class="progress-bar progress-bar-striped active progress_bar_mod" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width:0%">0</div>
+        </div>
+    </div>
+    <div class="container">
+
+        <div class="row">
+
+            <!--<div class="col-md-12" >
+                <div class="progress progress_mod">
+                    <div class="progress-bar progress-bar-striped active progress_bar_mod" role="progressbar" aria-valuenow="2" aria-valuemin="0" aria-valuemax="100" style="width:0%">0</div>
+                </div>
+            </div>-->
+
+            <div class="center-block text-center col-md-4" style="padding-bottom: 50px;">
+                <form method="GET" action="Wui.php" id="" class="form">
+                    <input  class="form-control display_inline" id="searchPattern" type="search" placeholder="Rechercher un smartphone" style="margin-top: 43px;width:70%"/>
+                    <input class="display_inline btn btn-success btn_search" type="submit">
+                </form>
+            </div>
+
+            <div class="col-md-5 text-center margin-top-text" >
+                <button class="btn btn-primary btn-personalize">+ Personnalisez votre comparaison</button>
+            </div>
+            <!--<div class="col-md-4 project"> 
+            <form method="GET" action="Wui.php" id="form_compared" class="form-compared">
+            <input class="ftsm" type="hidden" name="sm1" value=""/>
+            <input class="sdsm" type="hidden" name="sm2" value=""/>
+            <input type="hidden" name="run" value="compared"/>
+            <span class="sm1" style="display: none"></span>
+            <span class="sm2" style="display: none"></span>
+            <button type="submit" id="starter" class="btn btn-danger fa-2x " style="display:none">Commencer la comparaison</button>
+            </form>
+            </div>-->
+
+        </div>
+
+        <div id="unknown">
+
+            <div class="container" style="padding-bottom: 30px;">
+                <div class="row news ">
+                    {% for item in phoneList %}
+                        <div class="col-md-3 col-sm-12 col-lg-3 text-center oneSm to-comparator blog grid clickSm">
+                            <img class="img-responsive picsGall img-resizer center-block " src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg">
+                            <div class="center-block text-center " style="position: relative;bottom:20px;background-color: rgba(0,255,255,0.6);font-size: 16px;
+                                     font-weight: 700;"> {{ item['constructorS']}} {{ item['fullNameS']}}</div>
+                                <span id="span_show" class="span_bg_blue span_font ">
+                                    <i class="fa fa-arrow-right"></i>
+                                    <a class="" >Comparer
+                                        <input class="input" type="hidden" name="phone" value="{{item['idS']}}" />
+                                        <input class="inputImg" type="hidden" value="{{ item['pictureS']}}" />
+                                        <input class="inputName" type="hidden" value="{{ item['constructorS']}} {{ item['fullNameS']}}" />
+                                    </a>
+                                </span>
+                            <!--<input class="inputS" type="hidden" name="phone" value="{{item['idS']}}" />-->
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{item['mark']| round(1)}}" aria-valuemin="0" aria-valuemax="100" style="width:{{(item['mark']| round(1)) * 20}}%">
+                                    {{item['mark']| round(1)}}
+                                </div>
+                            </div>
+
+                        </div>
+                        <!--<div class="col-md-4 text-center hovered to-comparator " style="padding-bottom: 20px;"  >
+                        <h2 class="borderA">{{ item['constructorS']}} {{ item['fullNameS']}}</h2>
+                        
+                        <span class="toShow redColor" style="display:none"><span class="fa-2x">TO COMPARE !</span> <i class="fa fa-2x fa-check"></i></span>
+                        <img class="img-responsive picsGall img-resize center-block" src="PUBLIC/IMAGE/smartphones/{{ item['pictureS']}}.jpg"/>
+                        <input type="hidden" name="phone" value="{{item['idS']}}" />
+                        </div>-->
+                    {% endfor %}
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{%endblock%}
+{% block modal %}
+    <div class="modal fade" id="modal_login" data-backdrop="static"  data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal_login">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-body text-center animated pulse">
+                    <div class="font_logout ">Comparaison prête !</div>
+                    <hr>
+                    <span id="content_login">
+                        <span class="text_logout">Voulez-vous effectuer cette comparaison ? </span>
+                        <button type="button" class="btn btn-success" id="toStart">Oui</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Non</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal_out" data-backdrop="static"  data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal_login">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" style="height: 400px!important;">
+                <div class="modal-body text-center animated pulse">
+                    <div class="font_logout ">Personnaliser votre comparaison <i class="fa fa-gears"></i> </div>
+                    <hr>
+                    <span id="content_login">
+                        <span class="text_logout">Je préfère plutôt un smartphone : </span>
+                        <div class="bordered">
+                            <h3 class="text_logout">+ avec un grand écran : <input type="checkbox" name="isSmall" checked></h3>
+                            <h3 class="text_logout">+ fin : <input type="checkbox" name="isSmall" checked></h3>
+                            <h3 class="text_logout">+ avec le système : <select name="os" class="form-control form-mod-c">
+                                    <option value="android">+ Android</option>
+                                    <option value="ios">+ iOS</option>
+                                    <option value="windowsphone">+ Windows phone</option>
+                                    <option value="ubuntutouch">+ Ubuntu touch</option>
+                                    <option value="tizen">+ Tizen</option>
+                                    <option value="firefoxos">+ Firefox OS</option>
+                                </select></h3>
+                        </div>
+                    </span>
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-danger center-block' data-dismiss='modal'>Valider</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div data-backdrop='static' data-keyboard='true' class='modal  fade ' id='modal_start_comp' tabindex='-1' role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+        <div class='modal-dialog' >
+            <div class='modal-content'>
+                <div class='modal-header'>
+                    <div class=" row">
+                        <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-remove"></i> <i class="fa fa-mobile-phone"></i>&nbsp;Suppression d'un smartphone </h4></div>
+                </div>
+                <div class='modal-body text-center '>
+                    Vous devez supprimer le second smartphone avant d'entamer cette action ...
+                </div>
+                <div class='modal-footer'>
+                    <button type='button' class='btn btn-danger' data-dismiss='modal'>Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    {%block follow %} {%endblock%}
+    {%block menuB %}
+        <li class="active" ><a href="Wui.php?run=getHomePage&argument=void">Accueil</a></li>
+        <li ><a href="Wui.php?run=prepareComparison&argument=void">Faire une comparaison</a></li>
+        <li><a href="#manufacturer">Les constructeurs</a></li>
+        <li><a href="#articles">Articles</a></li>
+        <li ><a class="callContact">Contact</a></li>
+        <li><a href="Wui.php?run=getLegalNotice&argument=void">Mentions Légales</a></li>
+    {%endblock%}
+
