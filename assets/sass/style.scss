@@ -1106,6 +1106,7 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
 		box-shadow: 0 0.125em 0.125em 0 rgba(0, 0, 0, 0.125);
 		margin-bottom: 30px;
 		border-bottom: none;
+		height: 360px;
 		bottom: 0;
 		@include transition(.3s);
 		img {
@@ -1113,6 +1114,7 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
 		}
 		.fh5co-card-body {
 			padding: 30px;
+			background-color: silver;
 			h3 {
 				font-size: 20px;
 				color: #8b969c;

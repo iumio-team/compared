@@ -71,7 +71,7 @@ class MDA {
      * @param string $idName
      * @return PDOStatement Query result
      */
-     public function countLine(string $table, string $idName, array $argument = NULL) {
+     public function countLine(string $table, string $idName, array $argument = NULL):PDOStatement {
         if($argument == NULL){
             $query = "SELECT count($idName) as count from $table;";
             $prepare = Connector::prepare($query, NULL);
@@ -82,6 +82,16 @@ class MDA {
             
         }
 
+        return $prepare;
+    }
+
+    /** Get all Manufacturer
+     *
+     * @return PDOStatement Query result
+     */
+    public function getAllManufacturer():PDOStatement {
+            $query = "SELECT * FROM Constructor";
+            $prepare = Connector::prepare($query);
         return $prepare;
     }
     

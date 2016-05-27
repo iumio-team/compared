@@ -4,5 +4,6 @@ Options +FollowSymlinks
 RewriteEngine On
 # Réécriture de index.html vers index.php
 RewriteRule ^(([a-z]||[A-Z])+)$ Wui.php?run=$1&argument=void [L]
+RewriteRule ^SPEC/([0-9]+)$ Wui.php?run=getSpec&argument=$1 [L]
 RewriteRule ^admin-login$ Wui.php?run=getLoginView&argument=void [L]
 RewriteRule ^prepare-comparison$ Wui.php?run=prepareComparison&argument=void [L]

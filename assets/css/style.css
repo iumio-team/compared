@@ -687,6 +687,23 @@ textarea {
   z-index: 20;
   color: #ffffff;
 }
+
+.move #fh5co-hero,  .move #fh5co-main,  .move  #fh5co-footer
+{
+  transform-style: preserve-3d;
+  position: relative;
+  left: 0;
+  z-index: 99;
+  height: 100%;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+}
+.move #fh5co-hero, .move #fh5co-main, .move #fh5co-footer
+{
+
+  -webkit-transform: translate3d(100px, 0, -600px) rotateY(-20deg);
+  transform: translate3d(100px, 0, -610px) rotateY(-20deg);
+}
 #fh5co-hero .overlay {
   position: absolute;
   top: 0;
@@ -694,7 +711,7 @@ textarea {
   right: 0;
   bottom: 0;
   z-index: -1;
-  background: #57cecd;
+  /*background: #57cecd;*/
   opacity: .97;
 }
 @media screen and (max-width: 768px) {
@@ -704,7 +721,7 @@ textarea {
 }
 #fh5co-hero .fh5co-arrow {
   position: absolute;
-  bottom: -25px;
+  bottom: -52px;
   left: 50%;
   margin-left: -30px;
   display: table;
@@ -736,7 +753,7 @@ textarea {
   outline: none;
 }
 #fh5co-hero .fh5co-hero-wrap {
-  padding-top: 15em;
+  padding-top: 13em;
   display: table;
   height: 650px;
   width: 100%;

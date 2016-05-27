@@ -27,7 +27,7 @@ class TwigServices
     {
         try {
             include_once 'ENGINE_TEMPLATES/Twig/vendor/autoload.php';
-            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem(($this->dirViews == null)? 'VIEWS_MIG' : $this->dirViews), array('cache' => $this->cache, 'debug' => $this->debug));
+            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem(($this->dirViews == null)? 'VIEWS_N' : $this->dirViews), array('cache' => $this->cache, 'debug' => $this->debug));
             $_SESSION['twig']->addExtension(new Twig_Extension_Debug());
             return 1;
         } catch (Exception $e) {

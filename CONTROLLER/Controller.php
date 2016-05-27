@@ -121,6 +121,8 @@ class Controller extends AbstractController
         $model = $this->getModel();
         $nbS = $model->countLine('Smartphone', 'idS')->fetch()['count'];
         $nbC = $model->countLine('COMPARED', 'idCOMPARED')->fetch()['count'];
+        $manufacturer = $model->getAllManufacturer()->fetchAll();
+        $cManufacturer =  count($manufacturer);
         $listAv = $model->findAll('Notice')->fetchAll();
         $recentComparison = $this->getRecentComparison();
 
@@ -129,7 +131,7 @@ class Controller extends AbstractController
         $sm->getItem();
         $best = $this->getBestSm();
         new Pointer("show", array("viewHomePage", array('nbS' => $nbS, 'nbC' => $nbC, 'noticeList' => $listAv,
-            'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best, "date"=>UtilityFunction::getToday())));
+            'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best, "date"=>UtilityFunction::getToday(), "manufacturer"=>$manufacturer, "nbM"=>$cManufacturer)));
     }
 
     /** This is the essential function of Application which compare all smartphone caracteristics

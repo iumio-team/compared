@@ -100,10 +100,42 @@ $(function(){
      * Toggle menu
      *
      */
-
+    var u ;
+    var canget = true;
     $("#sidebar-menu-toggle").click(function() {
         var toggle_menu = $(this).data("toggle");
+        clearInterval(u);
         $(toggle_menu).toggleClass("open-sidebar-menu");
+        $(toggle_menu).toggleClass("move");
+        console.log("dzedez")
+        var t = 1;
+        var i = $("#sidebar-menu-content").find('.hvr-ripple-out').length;
+        var z = $("#sidebar-menu-content").find('.hvr-ripple-out');
+        $("#sidebar-menu-content").find('.hvr-ripple-out').hover()
+            var e = 0;
+           if (canget == false)
+           {
+               clearInterval(u);
+               return false;
+           }
+
+             u = setInterval(function() {
+                 var canget = false;
+                console.log("HELLO")
+                if (t) {
+                    z.mouseenter()
+                } else {
+                   z.mouseleave();
+                }
+                t = t?0:1;
+                e++;
+                console.log(e)
+                if ((e + 1) > i) {
+                    clearInterval(u);
+                    var canget = true;
+                }
+
+            }, 500);
     });
 
     /*
@@ -114,6 +146,8 @@ $(function(){
     $("#sidebar-user-toggle").click(function() {
         var toggle_menu = $(this).data("toggle");
         $(toggle_menu).toggleClass("open-sidebar-user");
+
+
     });
 
 

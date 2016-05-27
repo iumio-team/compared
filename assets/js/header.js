@@ -112,23 +112,6 @@ var COMPARED = {
             }
         });
 
-        $(".lang-selected").click(function(e){
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            var lang = $(this).html();
-            $.ajax({
-                url: "index.php",
-                type: "POST",
-                data : {"lang": lang},
-                success : function(_data){
-                    console.log(_data)
-                    location.reload();
-                }
-            });
-        });
-
-        $('.lang-selector').dropdown();
-
     },
 
     animCascade : function(_divId,_element){
@@ -266,6 +249,8 @@ $(document).ready(function(){
 
     Stage.init();
     COMPARED.init();
+
+
 
 });/**
  * Created by rafina on 21/05/16.
