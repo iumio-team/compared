@@ -4156,6 +4156,8 @@ a.more-product:focus::before {
   color: white;
   border-bottom: 1px solid white;
 }
+
+
 #fh5co-hero .fh5co-hero-wrap .fh5co-hero-intro > h1 {
   font-size: 36px;
   line-height: 47px;
@@ -4265,6 +4267,8 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
   background-position: center center;
   padding: 7em;
 }
+
+
 @media screen and (max-width: 768px) {
   .fh5co-product-2 .img {
     height: 500px;

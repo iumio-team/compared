@@ -4,6 +4,12 @@ Options +FollowSymlinks
 RewriteEngine On
 # Réécriture de index.html vers index.php
 RewriteRule ^(([a-z]||[A-Z])+)$ Wui.php?run=$1&argument=void [L]
-RewriteRule ^SPEC/([0-9]+)$ Wui.php?run=getSpec&argument=$1 [L]
+RewriteRule ^spec/([0-9]+)$ Wui.php?run=getSpec&argument=$1 [L]
+RewriteRule ^compared/([0-9]+)/([0-9]+)$  Wui.php?run=compared&sm1=$1&sm2=$2 [L]
+RewriteRule ^legalNotice$               Wui.php?run=getLegalNotice&argument=void [L]
+RewriteRule ^manufacturer/([a-z]*)$  Wui.php?run=phoneList&argument=$1 [L]
+RewriteRule ^Service/([A-z]*)$  Wui.php?run=Service&argument=$1 [L]
+RewriteRule ^([A-z]*)$  Wui.php?run=$1 [L]
 RewriteRule ^admin-login$ Wui.php?run=getLoginView&argument=void [L]
 RewriteRule ^prepare-comparison$ Wui.php?run=prepareComparison&argument=void [L]
+Options -Indexes

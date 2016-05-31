@@ -15,4 +15,5 @@ else {
 spliterArray = ls.split('|');
         $('#comparedUser').html("<a class='text-center link' href=Wui.php?run=compared&sm1="+spliterArray[0]+"&sm2="+spliterArray[1]+"> Le "+spliterArray[2]+" à "+spliterArray[3]+"  <br> "+spliterArray[4]+"<br> vs <br> "+spliterArray[5]+" </a>");
 
-} });
+}
+});
