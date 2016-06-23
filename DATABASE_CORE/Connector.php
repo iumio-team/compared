@@ -65,7 +65,6 @@ final class Connector {
      */
     static public function getInstance():PDO
     {
-
         try {
             if (self::$instance == NULL)
                 new Connector();

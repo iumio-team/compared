@@ -20,7 +20,7 @@ class MaintenanceServices extends AbstractMaintenance
     public function __construct()
     {
         $info = $this->getMasterFile();
-        $this->mode = $info['MAINTENANCE']['MAINTENANCE_MOD'];
+        $this->mode = $info['MAINTENANCE']['MAINTENANCE_MODE'];
     }
 
     protected function is_maintenance():int

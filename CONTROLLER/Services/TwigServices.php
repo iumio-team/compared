@@ -7,7 +7,8 @@
  */
 
 namespace Compared\Services;
-use Twig_Environment, Twig_Loader_Filesystem, Twig_Extension_Debug, Twig_SimpleTest;
+use Twig_Environment, Twig_Loader_Filesystem, Twig_Extension_Debug;
+use Compared\Tools\UtilityFunction as UF;
 
 class TwigServices
 {
@@ -26,16 +27,13 @@ class TwigServices
     protected function declare_twig():int
     {
         try {
-            include_once 'ENGINE_TEMPLATES/Twig/vendor/autoload.php';
-            $_SESSION['twig'] = new Twig_Environment(new Twig_Loader_Filesystem(($this->dirViews == null)? 'VIEWS_N' : $this->dirViews), array('cache' => $this->cache, 'debug' => $this->debug));
+            include_once UF::getRootProject().'/ENGINE_TEMPLATES/Twig/vendor/autoload.php';
+            $_SESSION['twig'] = $e = new Twig_Environment(new Twig_Loader_Filesystem(($this->dirViews == null)? array(UF::getRootProject().'/VIEWS_N', UF::getRootProject().'/VIEWS_N/modules') : $this->dirViews), array('cache' => $this->cache, 'debug' => $this->debug));
             $_SESSION['twig']->addExtension(new Twig_Extension_Debug());
-            $test = new Twig_SimpleTest('ondisk', function ($file) {
-                return file_exists($file);
-            });
             return 1;
         } catch (Exception $e) {
             $error = "Twig n'est pas disponible";
-            include '../VIEWS/viewError.html.twig';
+            include UF::getRootProject().'/VIEWS/viewError.html.twig';
             return 0;
         }
     }

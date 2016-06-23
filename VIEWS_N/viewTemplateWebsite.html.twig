@@ -83,6 +83,9 @@
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="/recherche.php?d=parfumeur&amp;term=tout">Les constructeurs</a></li>
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="/recherche.php?d=famille-facette&amp;term=tout">ComparedBlog</a></li>
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="/recherche.php?d=histoire&amp;term=tout">L'équipe</a></li>
+                {% for mod in modules %}
+                    <li class="hvr-ripple-out hvr-bounce-to-right"><a href="/{{ mod['location'] }}">{{ mod['name'] }}</a></li>
+                {% endfor %}
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="#">Ium</a></li>
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="#">Zoctimum</a></li>
                 <li class="hvr-ripple-out hvr-bounce-to-right"><a href="#" class="callContact">Contact</a></li>

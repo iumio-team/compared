@@ -9,6 +9,7 @@
 namespace Compared\Abs\Services;
 use Compared\Interfaces\Services\Autonomus;
 use MongoDB\BSON\Timestamp;
+use Compared\Tools\UtilityFunction as UF;
 use Spyc;
 
 class AbstractMaintenance implements  Autonomus
@@ -18,7 +19,7 @@ class AbstractMaintenance implements  Autonomus
     protected function getMasterFile():array
     {
         try {
-            return Spyc::YAMLLoad('PRIVATE/AppInfo.yml');
+            return Spyc::YAMLLoad(UF::getRootProject().'/PRIVATE/AppInfo.yml');
         } catch (Exception $ex) {
             throw new LoadingError('Erreur de chargement du module YAML');
         }

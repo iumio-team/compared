@@ -1,0 +1,5 @@
+# On suit les liens symboliquesOptions +FollowSymlinks
+# Activation du mod rewrite d'Apache
+RewriteEngine On
+# Réécriture de index.html vers index.php
+RewriteRule ^question/[0-9]$  /index.php?run=question&id=$1 [L]

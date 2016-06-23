@@ -9,16 +9,18 @@
 namespace Compared\Abs\Services;
 use Compared\Interfaces\Services\Autonomus;
 use Spyc;
+use GException\LoadingError;
+use Compared\Tools\UtilityFunction as UF;
 
 class AbstractSender extends ServicesSR implements  Autonomus
 {
     protected $service_status = "enabled";
     protected $timer;
 
-    protected function getMasterFile():array
+    protected function get_master_file():array
     {
         try {
-            return Spyc::YAMLLoad('PRIVATE/AppInfo.yml');
+            return Spyc::YAMLLoad(UF::getRootProject().'/PRIVATE/AppInfo.yml');
         } catch (Exception $ex) {
             throw new LoadingError('Erreur de chargement du module YAML');
         }

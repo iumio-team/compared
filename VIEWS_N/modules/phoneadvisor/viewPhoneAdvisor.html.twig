@@ -1,0 +1,68 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{% import "macro.html.twig" as function %}
+{% block title %}COMPARED | Phone Advisor {% endblock %}
+{% block style %}
+    {{ function.css('phoneadvisor', 'customModal') }}
+{% endblock %}
+{% block silder %}{% endblock %}
+  {% block header %}
+  {% endblock %}
+{% block content %}
+
+    <form class="text-center center-block form_phoneadvisor" data-question="1">
+        <p class="question"></p>
+        <p class="response">
+        <ul>
+            <li>Un homme <input type="radio" name=""></li>
+            <li>Une femme <input type="radio" name=""></li>
+        </ul>
+        </p>
+    </form>
+    <p class="smartphone text-center">
+        Pas encore de smartphone qui vous correspond
+    </p>
+
+
+{% endblock %}
+    {% block manufacturer %}
+    {% endblock %}
+    {% block bestSm %}
+    {% endblock %}
+    {% block recentComparison %}
+    {% endblock %}
+    {% block articles %}
+    {% endblock %}
+    {% block modal %}
+        <div class="modal fade" id="startPhoneAdvisor" data-backdrop="static" data-keyboard="false" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title text-center">Bienvenue sur Phone Advisor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Phone Advisor</strong> est un conseillé de smartphone.</p>
+                        <p>Il vous permettra peut-être de choisir votre futur smartphone.</p>
+                        <p>Ile vous posera quelques questions afin de déterminer quel smarphone vous convient le
+                            mieux.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <p class="text-center">Voulez-vous continuer ?</p>
+                        <div class="text-center">
+                            <button type="button" class="btn btn-success" data-dismiss="modal">Oui</button>
+                            <button type="button" class="btn btn-default" onclick="location.href='../'">Non</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    {% endblock %}
+    {% block js %}
+        {{ function.js('phoneadvisor', 'phoneadvisor') }}
+        <script>
+            $(window).load(function(){
+            });
+        </script>
+    {% endblock %}

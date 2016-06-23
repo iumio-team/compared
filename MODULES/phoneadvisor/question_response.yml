@@ -1,0 +1,16 @@
+IUM_MODULE:
+  Q1: Vous êtes ?
+    1 : Un homme
+    2 : Une femme
+  Q2 : Dans quel pays résidez-vous ?
+    1 : SELECT ALL COUNTRY
+  Q3 : Vous aimez ?
+    1 : Des écrans supérieurs à 4,5 pouces (Grand écran)
+    2 : Des écran inférieurs à 4,5 pouces (Petit écran)
+  Q4 : Vous êtes plutôt ?
+    1: Grand joueur (Je joue à des gros jeux sur mon smartphone)
+    2: Petit joueur (Je préfère jouer à candy crush)
+  Q5 : Vous laissez ?
+    1 : Ouvert toutes mes applications (Je ne veux pas les perdres bien sûr)
+    2 : Je préfère les fermer pour conserver la batterie
+  Q6 :

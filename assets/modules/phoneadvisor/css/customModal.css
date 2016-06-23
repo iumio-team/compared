@@ -1,0 +1,32 @@
+#startPhoneAdvisor .modal-content
+{
+background: transparent;
+}
+
+#startPhoneAdvisor .modal-title
+{
+    color: white;
+    font-size: 20px;
+}
+
+#startPhoneAdvisor .modal-backdrop.in {
+    opacity: 0.9!important;
+}
+
+.form_phoneadvisor
+{
+    //margin-top: 30px;
+    margin: 30px 30px 30px 30px;
+    border: 1px black solid;
+}
+
+.form_phoneadvisor .question
+{
+    padding: 10px 10px 10px 10px;
+  border-bottom: 1px black solid;
+}
+
+.form_phoneadvisor ul{
+    list-style: none;
+}
+

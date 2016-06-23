@@ -20,7 +20,7 @@ class ComparatorServices extends AbstractSender
 
     public function __construct()
     {
-        $info = $this->getMasterFile();
+        $info = $this->get_master_file();
         $this->url = $info['ENGINE_COMPARATOR']['LINK_TO_ENGINE_COMPARATOR'];
         $this->appName = $info["APP_NAME"];
         $this->key = $info['ENGINE_COMPARATOR']['KEY'];

@@ -3,6 +3,7 @@
 namespace Compared\Tools;
 
 use GException\LoadingError;
+use Compared\Services\YamlServices;
 use Spyc;
 
 class UtilityFunction {
@@ -32,6 +33,14 @@ class UtilityFunction {
         }
     }
 
+    /** Return the project root : Compatible with linux server
+     * @return string project root
+     */
+    static public function getRootProject()
+    {
+        return "/var/www/html/COMPARED";
+    }
+
     static public function getToday():Date\FrenchDate
     {
         $now = new Date\FrenchDate("now");
@@ -44,11 +53,12 @@ class UtilityFunction {
      */ 
     static public function getMasterFile():array
     {
-        try {
-            return Spyc::YAMLLoad('./PRIVATE/AppInfo.yml');
-        } catch (Exception $ex) {
-            throw new LoadingError('Erreur de chargement du module YAML');
-        }
+        $service = new YamlServices(self::getRootProject().'/PRIVATE/AppInfo.yml');
+        $e = $service->start();
+        if ($e == 1)
+            return $service->getContent();
+        else
+            return array();
     }
     
     /**

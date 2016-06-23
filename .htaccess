@@ -3,6 +3,7 @@ Options +FollowSymlinks
 # Activation du mod rewrite d'Apache 
 RewriteEngine On
 # Réécriture de index.html vers index.php
+RewriteRule ^phoneadvisor$  /MODULES/phoneadvisor/index.php?run=start [L]
 RewriteRule ^(([a-z]||[A-Z])+)$ Wui.php?run=$1&argument=void [L]
 RewriteRule ^spec/([0-9]+)$ Wui.php?run=getSpec&argument=$1 [L]
 RewriteRule ^compared/([0-9]+)/([0-9]+)$  Wui.php?run=compared&sm1=$1&sm2=$2 [L]
