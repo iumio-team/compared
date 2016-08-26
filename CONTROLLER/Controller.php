@@ -66,44 +66,13 @@ class Controller extends AbstractController
     }
 
 
-    /**
-     * Load some modules
-     */
-    public function loadModules():array
-    {
-        $arrm = array();
-        $ms = $this->getMasterFile();
-        $modules = $ms['MODULES'];
-        if (count($modules) > 0) {
 
-            foreach ($modules as $one) {
-                $module_location = $one['MODULE_LOCATION'] . '/app.yml';
-                $service = new YamlServices($module_location);
-                $service->start();
-                $info = $service->getContent()['IUM_MODULE'];
-                array_push($arrm, array('name' => $info['DISPLAY_NAME'], 'location' => $one['MODULE_NAME']));
-                return ($arrm);
-            }
-        }
-        else
-            return array();
-
-    }
 
     public function getArticles()
     {
         new Pointer("show", array("viewArticles", array("date"=>UtilityFunction::getToday())));
     }
 
-    public function getMasterFile():array
-    {
-        $service = new YamlServices('PRIVATE/AppInfo.yml');
-        $e = $service->start();
-        if ($e == 1)
-            return $service->getContent();
-        else
-            return array();
-    }
 
     public function logout()
     {
@@ -140,26 +109,26 @@ class Controller extends AbstractController
     }
 
     /** This function prepare all items on homepage such as smartphone counter
-     * @return
      *
      */
     public function prepareHomepageItem()
     {
         $model = $this->getModel();
-        $nbS = $model->countLine('Smartphone', 'idS')->fetch()['count'];
+        $components = $this->loadEssentialComponents();
+        //$nbS = $model->countLine('Smartphone', 'idS')->fetch()['count'];
         $nbC = $model->countLine('COMPARED', 'idCOMPARED')->fetch()['count'];
         $manufacturer = $model->getAllManufacturer()->fetchAll();
         $cManufacturer =  count($manufacturer);
         $listAv = $model->findAll('Notice')->fetchAll();
         $recentComparison = $this->getRecentComparison();
-
-        $modules = $this->loadModules();
+        //$modules = $this->loadModules();
         $finalAddedSm = $model->customQuery("SELECT idS FROM Smartphone ORDER BY idS DESC LIMIT 1;")->fetch();
         $sm = new Smartphone($finalAddedSm['idS']);
         $sm->getItem();
         $best = $this->getBestSm();
-        new Pointer("show", array("viewHomePage", array('nbS' => $nbS, 'nbC' => $nbC, 'noticeList' => $listAv,
-           'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best, "date"=>UtilityFunction::getToday(), "manufacturer"=>$manufacturer, "nbM"=>$cManufacturer, 'modules'=>$modules)));
+        $best = $this->getBestSm();
+        new Pointer("show", array("viewHomePage", array('nbS' => $components['sm_number'], 'nbC' => $nbC, 'noticeList' => $listAv,
+           'recentC' => $recentComparison, 'lastSm' => $sm, 'best' => $best, "date"=>UtilityFunction::getToday(), "manufacturer"=>$manufacturer, "nbM"=>$cManufacturer, 'modules' => $components['modules'] )));
     }
 
     /** This is the essential function of Application which compare all smartphone caracteristics
@@ -242,7 +211,7 @@ class Controller extends AbstractController
         $date = date('Y-m-d H:i:s');
         $objectScore = new SScore(0, $scoreValue, $date, $smartphone);
         $result = $objectScore->create();
-        echo ($result)? '1' : '0';
+        echo json_encode(array("context" => "score", "result" => ($result)? '1' : '0'));
     }
 
 
@@ -273,8 +242,10 @@ class Controller extends AbstractController
             $icr++;
         }
         $moy = ($icr > 0)? UtilityFunction::calculateAverage($sum, $icr) : "/";
+
         unset($model);
-        new Pointer('show', array('viewSmSpec', $sm, $moy, "date"=>UtilityFunction::getToday()));
+        $components = $this->loadEssentialComponents();
+        new Pointer('show', array('viewSmSpec', $sm, $moy, "date"=>UtilityFunction::getToday(), 'nbS' => $components['sm_number'], 'modules' => $components['modules']));
     }
 
     /** Get 3 recent comparison

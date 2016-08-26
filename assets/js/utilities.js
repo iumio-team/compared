@@ -14,3 +14,4 @@ function tresponse(imageUrl, imageUrl2, cible) {
         document.getElementById(cible).innerHTML = '<img class="img-responsive img-pc center-block" src="'+imageUrl+'">'
     });
 }
+

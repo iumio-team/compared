@@ -1,15 +1,7 @@
-/**
- * Created by rafina on 21/05/16.
- */
-/*
- *
- *
- */
 
 function create_desc_li_autocomplete(ul , item){
 
     var result = $( document.createElement('li') ).data( "item.autocomplete", item );
-    console.log("dzez")
     if (item.desc != '')
         return result
             .append($( document.createElement('a') ).append($( document.createElement('span') ).addClass('autocomplete-value').append( item.label)
@@ -107,7 +99,6 @@ $(function(){
         clearInterval(u);
         $(toggle_menu).toggleClass("open-sidebar-menu");
         $(toggle_menu).toggleClass("move");
-        console.log("dzedez")
         var t = 1;
         var i = $("#sidebar-menu-content").find('.hvr-ripple-out').length;
         var z = $("#sidebar-menu-content").find('.hvr-ripple-out');
@@ -121,7 +112,6 @@ $(function(){
 
              u = setInterval(function() {
                  var canget = false;
-                console.log("HELLO")
                 if (t) {
                     z.mouseenter()
                 } else {
@@ -129,7 +119,6 @@ $(function(){
                 }
                 t = t?0:1;
                 e++;
-                console.log(e)
                 if ((e + 1) > i) {
                     clearInterval(u);
                     var canget = true;
@@ -169,6 +158,12 @@ $(function(){
         hide_end_table(this , true);
     });
 
+    $('#call_mark').click(function (e) {
+        e.preventDefault();
+        $('#modal_mark_smSpec').modal("show");
+    })
+
+
 
     /*
      *
@@ -199,7 +194,6 @@ $(function(){
             type: "POST",
             data : {"edit_profil":  "true", "form" : $(this).serialize()},
             success : function(_data){
-                console.log(_data)
                 var rs = JSON.parse(_data);
                 if (rs['id'] == -3) {
                     $("#mail").css({"border":"1px solid red"});

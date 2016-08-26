@@ -1,0 +1,167 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | {{ phoneList[0]['constructorS']}} {%endblock%}
+    {% block header %}
+        <link rel="stylesheet" href="PUBLIC/css/reset.css">
+        <link rel="stylesheet" href="PUBLIC/css/articles.css">
+        <div class="container" >
+            <div class="row news txt-compare-head">
+                <div class="col-md-12 text-center"> Listes des smartphones de la marque <strong>{{phoneList[0]['constructorS']}}</strong> </div>
+            </div>
+        </div>
+        <div class="animate-box fh5co-product-2 border-best-sm">
+            <div class=" img sideleft col-md-4 col-lg-4" >
+                <img src="assets/images/core/manufacturer/{{constructor.name|lower}}.png" class="img-responsive" >
+            </div>
+            <div class="fh5co-half pahalf sideright  col-md-8 col-lg-8" style="width: 66.66666667%;padding-top: 45px!important;">
+                <h3> {{phoneList[0]['constructorS']}}</h3>
+                <br>
+                <p>Date de création : </p>
+                <br>
+                <p>{{constructor.description | raw}}</p>
+                <br>
+                <a href="#" class="btn btn-outline btn-md">Partagez-la</a></p>
+            </div>
+        </div>
+    {%endblock%}
+    {% block content %}
+
+        <section class="showcase borderSection" >
+            <div class="showcase-wrap" style="padding:30px 0 ;" >
+                <div class="texture-overlay"></div>
+                <div class="container">
+                    <div class="row news">
+
+                        <div id="main" class="publication-v4">    <div id="article-content" class="content">
+                                <div class="content">
+                                    <div class="f2f-slider hidden">
+                                        <a class="l-arrow hidden" href="#"></a>
+                                        <a class="r-arrow" href="#"></a>
+                                        <div class="f2f-wrapper">
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                            <span class="f2f-vignette"></span>
+                                        </div>
+                                    </div>
+                                    <div id="stickyF2F-sticky-wrapper" class="sticky-wrapper" style="height: 40px;"><div class="f2f-sticky" id="stickyF2F" style="width: 880px;">
+    <span class="f2f-title">
+        Sélectionnez. Comparez. Trouvez !
+    </span>
+                                            <a class="f2f-button" href="http://www.lesnumeriques.com/telephone-portable/face-a-face" data-link="http://www.lesnumeriques.com/telephone-portable/face-a-face">
+                                                <span class="f2f-counter">0</span>
+                                                Envoyer au face à face
+                                            </a>
+                                        </div></div>
+
+                                    <div class="comparo-products">
+
+
+                                        <p class="comparo-products-counter">
+        <span class="button-choice button-choice-small">
+            <span id="comparo-count">260</span> produits sur 260
+        </span>
+                                            <span class="pull-right" style="margin-right: 25px;">
+          <input type="search" placeholder="Rechercher un smartphone">
+       <input type="submit">
+</span>
+
+                                        </p>
+
+
+                                        <div id="comparo-products">
+                                            {% for item in phoneList %}
+
+
+
+
+
+                                                <div>
+                                                    <div class="comparo-product">
+                                                        <a href="/telephone-portable/asus-zenfone-2-ze551ml-p23221/test.html">
+
+                                                            <img src="assets/images/core/smartphones/extra/{{ item['pictureS']}}-s.jpg" data-id="23221" class="product-thumbnail">
+                                                        </a>
+                                                        <h4 style="height: 52px;">
+                                                            <a href="/telephone-portable/asus-zenfone-2-ze551ml-p23221/test.html">{{ item['constructorS']}} {{ item['fullNameS']}} ({{  item['codeNameS'] }})</a>
+                                                        </h4>
+                                                        <br>
+                                                        {%  set mark = 0 %}
+                                                        {% if item['mark'] is defined  %}
+                                                            {% set mark = item['mark'] %}
+                                                        {% endif %}
+                                                        {% if item['mark'] is defined %}
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="{{item['mark']| round(1)}}" aria-valuemin="0" aria-valuemax="100" style="width:{{(mark| round(1)) * 10}}%">
+                                                                    {{item['mark']| round(1)}}
+                                                                </div>
+                                                            </div>
+
+                                                        {% else %}
+                                                            <div class="progress">
+                                                                <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width:100%;background: black;">
+                                                                    Non noté
+                                                                </div>
+                                                            </div>
+                                                        {% endif %}
+
+
+                                                        <a class="button-choice"  href="spec/{{item['idS']}}" data-title="Comparé">
+                                                            Voir sa fiche
+                                                        </a>
+                                                        {% if item['priceS'] is not empty  %}
+                                                            <div class="lowest-price" style="height: 36px;">
+
+                                                                Prix de lancement
+                                                                <span class="suggested">{{ item['priceS'] }} €</span>
+
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+
+                                            {% else %}
+                                                <div id="box-no-result" class="no-result hidden-box">
+                                                    <strong>Aucun produit ne correspond à votre recherche</strong><br>
+                                                    Modifiez vos critères.
+                                                </div>
+                                            {% endfor %}
+
+
+
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div></div>
+        </section>
+        <div id="scene">
+        </div>
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    {%endblock%}
+    {% block manufacturer %}
+    {% endblock %}
+    {% block bestSm %}
+    {% endblock %}
+    {% block recentComparison %}
+    {% endblock %}
+    {% block articles %}
+    {% endblock %}
+    {% block js %}
+    {% endblock %}
+{%block contact %}{%endblock%}
+{%block menu %}
+{%endblock%}
+{%block menuB %}
+{%endblock%}

@@ -53,6 +53,8 @@ class Wui
     {
         if (isset($this->request['run']) && isset($this->request['argument']) && empty($this->request['run']) && $this->request['argument'] == 'void')
             Pointer::runnable("getHomePage", array($this->request));
+        else if (isset($this->request['argument'], $this->request['type']))
+            Pointer::runnable($this->request['run'], array(0 => $this->request['argument'], 1 => $this->request['type']));
         else if (isset($this->request['argument']))
             Pointer::runnable($this->request['run'], array($this->request['argument']));
         else if ((isset($this->request['id']) && isset($this->request['password'])) ||

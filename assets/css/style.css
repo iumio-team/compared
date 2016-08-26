@@ -8,8 +8,8 @@ DESIGNED & DEVELOPED by FREEHTML5.CO
 */
 @font-face {
   font-family: 'themify';
-  src: url("../fonts/themify/themify.eot?-fvbane");
-  src: url("../fonts/themify/themify.eot?#iefix-fvbane") format("embedded-opentype"), url("../fonts/themify/themify.woff?-fvbane") format("woff"), url("../fonts/themify/themify.ttf?-fvbane") format("truetype"), url("../fonts/themify/themify.svg?-fvbane#themify") format("svg");
+  src: url("fonts/themify/themify.eot?-fvbane");
+  src: url("fonts/themify/themify.eot?#iefix-fvbane") format("embedded-opentype"), url("fonts/themify/themify.woff?-fvbane") format("woff"), url("fonts/themify/themify.ttf?-fvbane") format("truetype"), url("fonts/themify/themify.svg?-fvbane#themify") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -46,6 +46,14 @@ body {
 ::-moz-selection {
   color: #ffffff;
   background: #57cecd;
+}
+
+.block {
+  display: block;
+}
+
+.menu-item {
+  padding-top: 16px;
 }
 
 ::selection {
@@ -677,6 +685,37 @@ textarea {
   list-style: none;
 }
 
+/** TEST ***/
+/* Styling */
+.blue,
+.red {
+  border-style: dashed;
+  border-width: 2px;
+  padding: 2px;
+  margin-bottom: 2px;
+}
+/* This will be out "vertical-fixed" element */
+.red {
+  border-color: red;
+  height: 120px;
+  position: fixed;
+  width: 500px;
+}
+/* Container so we can see when we scroll */
+.blue {
+  border-color: blue;
+  width: 50%;
+  display: inline-block;
+  height: 800px;
+}
+/* Positiioning blue divs side-by-side */
+#wholePage {
+  white-space: nowrap;
+}
+
+
+/**** ENDTEST****/
+
 #fh5co-hero {
   background-color: white;
   background-size: cover;
@@ -687,16 +726,13 @@ textarea {
   height: 300px;
   display: table;
   position: relative;
-  z-index: 20;
+  z-index: 0;
   color: #ffffff;
 }
 
 .box:hover
 {
   background-color: rgba(45,25,75,0.5);
-  -ms-transform: rotate(3deg); /* IE 9 */
-  -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
-  transform: rotate(3deg);
 
 }
 
@@ -1074,7 +1110,7 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
 
 .fh5co-cards {
   background: whitesmoke;
-  padding: 7em 0 0 0;
+  padding: 3em 0 0 0;
 }
 
 .thishead
@@ -1102,7 +1138,7 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
   background: #ffffff;
   position: relative;
   overflow: hidden;
-  height: 329px;
+  height: 301px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -1130,6 +1166,12 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   background: rgb(206, 206, 206);
+}
+
+.no-desc{
+  margin-top: 18px;
+  margin-bottom: 0!important;
+  padding-bottom: 0!important;
 }
 
 .fh5co-cards .fh5co-card .fh5co-card-body h3, .fh5co-cards .fh5co-card .fh5co-card-body p
@@ -1176,6 +1218,14 @@ body.fh5co-mobile-menu-visible #fh5co-mobile-menu {
   font-size: 20px;
   font-style: normal;
 }
+
+/**** STAR ****/
+
+
+
+
+
+/*** END START ***/
 @media screen and (max-width: 768px) {
   .quote {
     font-size: 20px;
@@ -1603,23 +1653,59 @@ Components
   top: 16px;
 }
 
-/* Progress Bars */
-.progress {
-  height: 15px;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
+.main-menu
+{
+  margin-top: -478px;
+  position: fixed;
+  text-align: center;
+  margin-left: 10px
 }
 
+
+
+@media screen and (max-width:1208px) {
+  .main-menu
+  {
+    margin-top: -477px;
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .main-menu{
+    display: block;
+    width: 100%;
+    margin-left: 0px;
+    overflow: auto;
+    height: 226px;
+    margin-top: -326px;
+    display: none;
+  }
+}
+@media screen and (max-width:767px) and (min-height: 531px) {
+
+  .main-menu {
+    width: 100%;
+    margin-left: 0px;
+    overflow: auto;
+    height: 363px;
+    margin-top: -461px;
+  }
+}
+
+
+/* Progress Bars */
+.progress {
+  height: 21px;
+}
+
+
+.responsive-img
+{
+  max-width: 50% !important;
+}
 .progress-bar {
   box-shadow: none;
-  -webkit-border-radius: 30px;
-  -moz-border-radius: 30px;
-  -ms-border-radius: 30px;
-  -o-border-radius: 30px;
-  border-radius: 30px;
 }
 .progress-bar.progress-bar-default {
   background: #57cecd;

@@ -8,7 +8,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}COMPARED | Le comparateur de smartphone {% endblock %}<</title>
+    <base href="http://localhost:8888/COMPARED/">
+    <title>{% block title %}COMPARED | Le comparateur de smartphone {% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scal=1">
     <meta name="description" content="Comparateur de smartphone" />
     <meta name="keywords" content="compared, smartphone, comparateur, comparer, compare, processor, processeur, écran, screen, téléphone, mobile" />
@@ -28,11 +29,11 @@
 
 
 
-    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="/assets/css/default.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/hover.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/default_2.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/default.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/hover.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/default_2.css" />
     {% block style %}{% endblock %}
 
 
@@ -48,20 +49,20 @@
     <meta name="twitter:card" content="" />
 
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <link rel="shortcut icon" href="favicon.ico">
+    <!--<link rel="shortcut icon" href="favicon.ico">
 
     <!-- Google Webfont --
     <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
     <!-- Themify Icons -->
-    <link rel="stylesheet" href="/assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
 
     <!-- Theme Style -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
 
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="/assets/js/respond.min.js"></script>
+    <script src="assets/js/respond.min.js"></script>
     <![endif]-->
 
 </head>
@@ -73,7 +74,7 @@
     <div id="sidebar-menu">
         <div id="sidebar-menu-content">
             <div class="navigation">
-                <div class="hidden-tablet logo-sidebar"><a href="index.php"><img src="/assets/images/default/logoCompared4.png" alt="logo compared"></a></div>
+                <div class="hidden-tablet logo-sidebar"><a href="index.php"><img src="assets/images/default/logoCompared4.png" alt="logo compared"></a></div>
                 <div class="text-center white">Navigation</div>
             </div>
             <ul>
@@ -95,7 +96,7 @@
         </div>
         <div class="hidden-phone">
             <div class="user-bar">
-                <a href="#" data-connect="online" id="sidebar-user-toggle-mobile"><img src="http://olfatheque.localhost/template/img/compte-black.png"></a>
+
 
 
                 <div id="bloc-langue-content"><div id="lang-drop" class="dropdown">
@@ -126,11 +127,9 @@
 
                 <!--TOP NAV BUTTONS -->
 
-                <a href="#" data-toggle=".container" id="sidebar-menu-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </a>
+                <!--<a href="#" data-toggle=".container" id="sidebar-menu-toggle">
+                   <i class="fa fa-th fa-2x"></i>
+                </a>-->
                 <div id="bloc-user">
 
                     <div id="bloc-langue-content">
@@ -143,7 +142,7 @@
 
                 </div>
                 <div id="logo-compared">
-                    <a href="index.html"><img width="200" style="border: 0;" alt="Logo de COMPARED" src="/assets/images/default/logoCompared4.png"></a>
+                    <a href="index.html"><img width="200" style="border: 0;" alt="Logo de COMPARED" src="assets/images/default/logoCompared4.png"></a>
                 </div>
 
                 <div>
@@ -167,7 +166,7 @@
 
                 <div class="container">
                     <div class="col-md-3 col-sm-12 side-left no-padding" onClick="location.href='spec/{{ lastSm.getIdSm }}'">
-                        <div class="square box" style="background-image: url(/assets/images/core/smartphones/normal/{{ lastSm.getPictureSm }}.jpg);background-size:cover">
+                        <div class="square box" style="background-image: url(assets/images/core/smartphones/normal/{{ lastSm.getPictureSm }}.jpg);background-size:cover">
                             <h3 class="text-center bottom-text">
                                 Dernier smartphone ajouté
                                 <br>
@@ -175,14 +174,14 @@
                             </h3>
                         </div>
 
-                        <div class="square box" style="background-image: url(/assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg);background-size:cover">
+                        <div class="square box" style="background-image: url(assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg);background-size:cover">
                             <h3 class="text-center bottom-text">
                                 Le meilleur smartphone du site
                                 <br>
                                 <strong> {{ (best['sm']).getConstructorSm.getName }} {{ best['sm'].getFullNameSm }}</strong>
                             </h3>
                         </div>
-                        <div class="square box" style="background-image: url(/assets/images/core/smartphones/default/template.png);background-size: cover;">
+                        <div class="square box" style="background-image: url(assets/images/core/smartphones/default/template.png);background-size: cover;">
                             <h3 class="text-center bottom-text">
                                 Comparaison effectuée
                                 <br>
@@ -204,7 +203,7 @@
                             </ol>
                             <div class="carousel-inner" role="listbox">
                                 <div class="item active left">
-                                    <img class="first-slide center-block" src="/assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="First slide">
+                                    <img class="first-slide center-block" src="assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="First slide">
                                     <div class="container">
                                         <div class="carousel-caption">
                                             <h1>Example headline.</h1>
@@ -214,7 +213,7 @@
                                     </div>
                                 </div>
                                 <div class="item next left">
-                                    <img class="second-slide center-block" src="/assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="Second slide">
+                                    <img class="second-slide center-block" src="assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="Second slide">
                                     <div class="container">
                                         <div class="carousel-caption">
                                             <h1>Another example headline.</h1>
@@ -224,7 +223,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                    <img class="third-slid center-block" src="/assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="Third slide">
+                                    <img class="third-slid center-block" src="assets/images/core/smartphones/normal/{{ best['sm'].getPictureSm }}.jpg" alt="Third slide">
                                     <div class="container">
                                         <div class="carousel-caption">
                                             <h1>One more for good measure.</h1>
@@ -246,18 +245,18 @@
 
                     </div>
                     <div class="col-md-3 side-right col-sm-12 no-padding">
-                        <div class="square box" style="background-image: url(/assets/images/landscape.jpg);background-size:cover">
+                        <div class="square box" style="background-image: url(assets/images/landscape.jpg);background-size:cover">
                             <h3 class="text-center bottom-text">
                                 Lorem Ipsum vitae alocal mimum meramun sabadium ...
                             </h3>
                         </div>
 
-                        <div class="square box" style="background-image: url(/assets/images/landscape2.jpg);background-size: cover;">
+                        <div class="square box" style="background-image: url(assets/images/landscape2.jpg);background-size: cover;">
                             <h3 class="text-center bottom-text">
                                 Lorem Ipsum vitae alocal mimum meramun sabadium ...
                             </h3>
                         </div>
-                        <div class="square box" style="background-image: url(/assets/images/landscape4.jpg);background-size: cover;">
+                        <div class="square box" style="background-image: url(assets/images/landscape4.jpg);background-size: cover;">
                             <h3 class="text-center bottom-text">
                                 Lorem Ipsum vitae alocal mimum meramun sabadium ...
                             </h3>
@@ -272,21 +271,20 @@
             {% block manufacturer %}
                 <div class="fh5co-cards">
                     <div class="container-fluid">
-                        <div class="row animate-box">
+                        <div class="row animate-box" id="manufacturer">
                             <div class="col-md-12 text-center"><h2>Les constructeurs</h2></div>
                             <div class="col-md-12 text-center"><h2>Faites une recherche parmi les {{ nbM }} constructeurs de smartphones</h2></div>
                         </div>
                         <hr>
-                        <div class="row">
+                        <div class="row" >
                             {% for oneElement in manufacturer %}
                                 <div class="col-lg-3 col-md-6 col-sm-6 animate-box box-manufacurer" onClick="location.href='manufacturer/{{ oneElement['name'] }}'">
                                     <a class="fh5co-card" href="#">
                                         <div class="container-img">
-                                            <img src="/assets/images/core/manufacturer/{{ (oneElement['name']) | lower }}.png" alt="" class="img-responsive center-block manufacturer-img">
+                                            <img src="assets/images/core/manufacturer/{{ (oneElement['name']) | lower }}.png" alt="" class="img-responsive center-block manufacturer-img">
                                         </div>
                                         <div class="fh5co-card-body">
-                                            <h3>{{ oneElement['name'] }} </h3>
-                                            <p class="descriptionshort">{{ oneElement['description'] }}.</p>
+                                            <h3 class="text-center">{{ oneElement['name'] }} </h3>
                                         </div>
                                     </a>
                                 </div>
@@ -297,16 +295,16 @@
                 </div>
                 {% endblock %}
                 {% block bestSm %}
-                <div class="row animate-box thishead">
+                <div class="row animate-box thishead" id="bestSm" >
                     <div class="col-md-12 text-center thist"><h2>Le meilleur smartphone</h2></div>
                     <div class="col-md-12 text-center thisb"><h2>Découvrez le smartphone le plus populaire sur COMPARED</h2></div>
                 </div>
                 <div class="animate-box fh5co-product-2 fh5co-reverse fadeInUp animated border-best-sm">
-                    <div class="fh5co-half img" style="background-image: url(/assets/images/core/smartphones/extra/{{ best['sm'].getPictureSm }}-1.jpg);background-size:cover"></div>
+                    <div class="fh5co-half img" style="background-image: url(assets/images/core/smartphones/extra/{{ best['sm'].getPictureSm }}-1.jpg);background-size:cover"></div>
                     <div class="fh5co-half">
                         <h3>{{ (best['sm']).getConstructorSm.getName }} {{ best['sm'].getFullNameSm }}</h3>
                         <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. </p>
-                        <p>Note : <span class="score center-block">{{ best['score'] | round(1, 'floor') }}/5 </span></p>
+                        <p>Note : <span class="score center-block">{{ best['score'] | round(1, 'floor') }}/10 </span></p>
 
                         <p><a href="spec/{{ best['sm'].getIdSm }}" class="btn btn-outline btn-md">Découvrez-le </a><a href="#" class="btn btn-outline btn-md">Comparez-le </a></p>
                     </div>
@@ -316,7 +314,7 @@
                 <div class="container">
 
                     <div class="row text-center" id="fh5co-features">
-                        <div class="row animate-box ">
+                        <div class="row animate-box " id="comparison">
                             <div class="col-md-12 text-center thist"><h2>Comparaisons récentes</h2></div>
                             <div class="col-md-12 text-center thisb border-b-1"><h2>Découvrez les 3 dernières comparaisons faites sur COMPARED</h2></div>
                         </div>
@@ -327,7 +325,7 @@
                                 <div class="fh5co-feature-icon">
                                     <i class="ti-mobile"></i><i class="ti-mobile"></i>
                                 </div>
-                                <h3 class="heading text-center">Comparaison {{ number }}<br>{{ oneC['sm1']['fullName'] }} vs {{ oneC['sm2']['fullName'] }}</h3>
+                                <h3 class="heading text-center">Comparaison {{ number }}<br>{{ oneC['sm1']['fullName'] }} <br>vs <br>{{ oneC['sm2']['fullName'] }}</h3>
                                 <p><a href="compare/{{ oneC['sm1']['id'] }}/{{ oneC['sm2']['id'] }}" class="btn btn-outline btn-md">Comparez-les</a></p>
                             </div>
                             {% set number = number + 1 %}
@@ -340,8 +338,8 @@
                 {% endblock %}
                 <!-- END container -->
                 {% block articles %}
-                <div class="animate-box fh5co-product-2 border-best-sm">
-                    <div class="fh5co-half img" style="background-image: url(/assets/images/img_large_4.jpg);">
+                <div  id="articles" class="animate-box fh5co-product-2 border-best-sm">
+                    <div class="fh5co-half img" style="background-image: url(assets/images/img_large_4.jpg);">
 
                     </div>
                     <div class="fh5co-half pahalf">
@@ -408,9 +406,68 @@
                     </div>
                 </div>
             </div>
+            <div style="height: 100px"></div>
         </footer>
 
 
+
+<div class="navbar navbar-fixed text-center" style="display: block;
+    position: fixed;
+    bottom: -20px;
+    width: 100%;
+    background-color: white;
+    height: 100px;
+    cursor: pointer;
+    transition: all 0.3s ease;border : 1px solid black;border-radius: 0px">
+
+    <ul class="dropdown-menu mega-dropdown-menu row close main-menu">
+
+        <li class="col-sm-6">
+            <ul>
+                <li class="dropdown-header">Smartphone</li>
+                <li><a  href="prepare-comparison"> <i class="fa fa-2x fa-mobile "></i>&nbsp;<i class="fa fa-2x fa-mobile "></i> &nbsp;Faire une comparaison</a></li>
+                <li><a class="closeup" href="#comparison"> <i class="fa fa-2x fa-check "></i>  Voir les dernières comparaisons</a></li>
+                <li><a class="closeup" href="#bestSm"> <i class="fa fa-2x fa-mobile "></i>&nbsp; Voir le meilleur smartphone</a></li>
+                <li><a class="closeup" href="#manufacturer"> <i class="fa fa-2x fa-bolt "></i>  Voir les différentes marques</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Autres liens</li>
+                <li><a href="team">L'équipe de COMPARED</a></li>
+                <li><a href="#">Contactez-nous</a></li>
+                <li><a href="legal-mention">Mentions légales</a></li>
+                <li><a href="http://sengine.compared.fr">SENGINE - API COMPARATOR</a></li>
+            </ul>
+        </li>
+        <li class="col-sm-6">
+            <ul>
+                <li class="dropdown-header">Blog</li>
+                <li><a class="closeup" href="#articles"><i class="fa fa-2x fa-newspaper-o "></i>  Voir tous les articles</a></li>
+                <li><a href="tutorials"><i class="fa fa-2x fa-gear "></i>  Voir les tutoriels</a></li>
+                <li><a href="fight"><i class="fa fa-2x fa-fighter-jet "></i>  Voir les confrontations</a></li>
+                <li><a href="tips"><i class="fa fa-2x fa-hand-o-right "></i>  Voir les astuces</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Utilitaires</li>
+                {% for mod in modules %}
+                    <li><a href="/{{ mod['location'] }}"><i class="fa fa-2x fa-user "></i>  {{ mod['name'] }} {% if mod['small_desc'] != "" %} ({{ mod['small_desc'] }}) {% endif %}</a></li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+
+
+   <div class="col-md-3 col-sm-3 col-xs-3 menu-item" ><a href="#" class="showM"><i class="fa fa-2x fa-th block"></i> Menu</a>
+
+
+
+   </div>
+    <div class="col-md-3 col-sm-3 col-xs-3 menu-item" onclick="location.href='prepare-comparison'"><div><i class="fa fa-2x fa-mobile"></i>&nbsp;<i class="fa fa-2x fa-mobile"></i></div> Faire une comparaison</div>
+    {% for modS in modules %}
+        {% if modS['menu'] == "YES" %}
+            <div class="col-md-3 col-sm-3 col-xs-3 menu-item" onclick="location.href='/{{ modS['location'] }}'"><i class="fa fa-2x fa-user block"></i> {{ modS['name'] }}</div>
+        {% endif %}
+     {% endfor %}
+    <div class="col-md-3 col-sm-3 col-xs-3 menu-item" class="callContact"><i class="fa fa-2x fa-phone block"></i> Contact</div>
+
+</div>
     </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -496,42 +553,72 @@
 {% block modal %}
 {% endblock %}
 
-<span class="back-to-top active"><i class="fa fa-arrow-circle-up"></i></span><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog">Contactez nous</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog" style="" class="ui-dialog-content ui-widget-content">
+<!--<span class="back-to-top active"><i class="fa fa-arrow-circle-up"></i></span>--><div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-draggable ui-resizable" tabindex="-1" role="dialog" aria-labelledby="ui-dialog-title-dialog" style="display: none; z-index: 1000; outline: 0px; position: absolute;"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span class="ui-dialog-title" id="ui-dialog-title-dialog">Contactez nous</span><a href="#" class="ui-dialog-titlebar-close ui-corner-all" role="button"><span class="ui-icon ui-icon-closethick">close</span></a></div><div id="dialog" style="" class="ui-dialog-content ui-widget-content">
 
     </div><div class="ui-resizable-handle ui-resizable-n"></div><div class="ui-resizable-handle ui-resizable-e"></div><div class="ui-resizable-handle ui-resizable-s"></div><div class="ui-resizable-handle ui-resizable-w"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-icon-grip-diagonal-se" style="z-index: 1001;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 1002;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 1003;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 1004;"></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Envoyer</span></button><button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button"><span class="ui-button-text">Annuler</span></button></div></div></div></div>
 
 
 
 <!-- jQuery -->
-<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="assets/js/jquery-1.10.2.min.js"></script>
 <!-- jQuery Easing -->
-<script src="/assets/js/jquery.easing.1.3.js"></script>
+<script src="assets/js/jquery.easing.1.3.js"></script>
 <!-- Bootstrap -->
-<script type="text/javascript" src="/assets/js/bootstrap.js"></script>
+<script type="text/javascript" src="assets/js/bootstrap.js"></script>
 
-<script type="text/javascript" src="/assets/js/header.js"></script>
-<script type="text/javascript" src="/assets/js/functions.js"></script>
+<script type="text/javascript" src="assets/js/header.js"></script>
+<script type="text/javascript" src="assets/js/functions.js"></script>
 <!-- Owl carousel -->
-<script src="../assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
 <!-- Magnific Popup -->
-<script src="/assets/js/jquery.magnific-popup.min.js"></script>
+<script src="assets/js/jquery.magnific-popup.min.js"></script>
 <!-- Superfish -->
-<script src="/assets/js/hoverIntent.js"></script>
-<script src="/assets/js/superfish.js"></script>
+<script src="assets/js/hoverIntent.js"></script>
+<script src="assets/js/superfish.js"></script>
 <!-- Easy Responsive Tabs -->
-<script src="/assets/js/easyResponsiveTabs.js"></script>
+<script src="assets/js/easyResponsiveTabs.js"></script>
 <!-- FastClick for Mobile/Tablets -->
-<script src="/assets/js/fastclick.js"></script>
+<script src="assets/js/fastclick.js"></script>
 <!-- Parallax -->
-<script src="/assets/js/parallax.min.js"></script>
+<script src="assets/js/parallax.min.js"></script>
 <!-- Waypoints -->
-<script src="/assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
 <!-- Main JS -->
-<script src="/assets/js/main.js"></script>
+<script src="assets/js/main.js"></script>
 
-<script type="text/javascript" src="/assets/js/template.js"></script>
+<script src="assets/js/starPlugin.js"></script>
 
+<script type="text/javascript" src="assets/js/template.js"></script>
 {% block js %} {% endblock %}
+<script type="text/javascript">
+    jQuery(document).on('click', '.mega-dropdown', function(e) {
+        e.stopPropagation()
+    })
+    $('.showM').click(function (e) {
+        e.preventDefault;
+        if ($('.mega-dropdown-menu').hasClass("open"))
+        {
+            $('.mega-dropdown-menu').removeClass("open")
+            $('.mega-dropdown-menu').addClass("close")
+            $('.mega-dropdown-menu').hide();
+        }
+        else
+        {
+            $('.mega-dropdown-menu').removeClass("close")
+            $('.mega-dropdown-menu').addClass("open")
+            $('.mega-dropdown-menu').show();
+        }
+
+    })
+
+    $(".closeup").click(function (e) {
+        e.preventDefault();
+        location.href=$(this).attr("href");
+        $('.mega-dropdown-menu').removeClass("open")
+        $('.mega-dropdown-menu').addClass("close")
+        $('.mega-dropdown-menu').hide();
+    })
+</script>
 
 </body>
 </html>

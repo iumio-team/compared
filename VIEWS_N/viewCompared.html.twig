@@ -1,0 +1,1106 @@
+{% extends "viewTemplateWebsite.html.twig" %}
+{%block title %}COMPARED | La comparaison {%endblock%}
+    {%block menu %}
+    {%endblock%}
+    {% block header %}
+        <div class="container">
+            <div class=" news txt-compare-head col-md-6 col-lg-6" style="border-right: 1px solid black" >
+                <div class="text-center" ><span>{{count1}}</span> points pour le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}</div>
+            </div>
+            <div class="news txt-compare-head col-md-6 col-lg-6" >
+                <div class="text-center"><span>{{count2}}</span> points pour le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</div>
+            </div>
+        </div>
+        <div class="animate-box fh5co-product-2 border-best-sm">
+            <div class="fh5co-half img sideleft col-md-6" style="border-right: 1px solid black" >
+                <img src="assets/images/core/smartphones/extra/{{ sm1.pictureSm }}-s.jpg" class="img-responsive center-block" style="width: 50%">
+            </div>
+            <div class="fh5co-half img sideleft col-md-6" >
+                <img src="assets/images/core/smartphones/extra/{{ sm2.pictureSm }}-s.jpg" class="img-responsive center-block" style="width: 50%">
+            </div>
+        </div>
+        <div class="news txt-compare-head col-md-12 col-lg-12" style="    background-color: #58b1e5;    padding: 33px 0px 15px 0px;" >
+            <div class="text-center"> <p><a href="#" class="btn btn-outline btn-md">Envoyer par e-mail</a><a href="#" class="btn btn-outline btn-md" id="call_mark">Exporter en PDF</a><a href="#" class="btn btn-outline btn-md">Détails</a><a href="#" class="btn btn-outline btn-md">Conclusion</a></p>
+            </div>
+        </div>
+
+
+      <!--  <ul class="related-posts group" style="margin: 0;">
+            <div class="smallRelated smallRelated_long" style="width: 100%;height: 80px">
+                <div class="text-center item_carac animated fadeInUp" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg');width: 50%!important;">
+                    <a href="#">
+                        <div class="carac" onClick="javascript:window.open('Wui.php?run=getSpec&argument={{sm1.idSm}}')">
+                            <i class="fa fa-search fa-2x"></i> Caractéristiques du  {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}
+                        </div>
+                    </a>
+                </div>
+                <div class="text-center item_carac animated fadeInUp" style="background-image:url('PUBLIC/IMAGE/icon/os.jpg');width:50%!important">
+                    <a href="#">
+                        <div class="carac" onClick="javascript:window.open('Wui.php?run=getSpec&argument={{sm2.idSm}}')">
+                            <i class="fa fa-search fa-2x"></i> Caractéristiques du  {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </ul>-->
+
+        <ul class="related-posts group" style="margin: 0;">
+
+        </ul>
+
+    {% endblock %}
+    {% block silder %}
+        <!-- <div class="row hero-content padding-text">
+            <div class="col-md-5  col-sm-5 text-center ">
+                <h2 class="blackColor">{{phoneList[0]['constructorS']|upper}}</h2>
+                <h2 class="animated fadeInUp" style="font-size:30px; ">Comparaison terminée </h2>
+                <img src="PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg" class="border_numbers img-responsive scrollpoint sp-effect5 center-block width_12 display_inline " alt=""/>
+                <img src="PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg" class="border_numbers img-responsive scrollpoint sp-effect5 center-block width_12 display_inline" alt=""/>
+            </div>
+            <div class="col-md-7  col-sm-7 text-center font-resize padding-top-desc bgBlackMediumOpacity">
+
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 class="animated fadeInUp" style="font-size:25px;"> <span class="border_numbers"> {{count1}}</span> points pour le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}</h2>
+
+                </div>
+
+                <div class="img-responsive camera_caption fadeFromBottom col-md-12 text-center">
+                    <h2 class="animated fadeInUp" style="font-size:25px;"><span class="border_numbers"> {{count2}}</span> points pour le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2>
+                </div>
+
+
+
+
+            </div>
+            <div class=" animated fadeInUp  col-md-6 col-sm-6 text-center bgBlackMediumOpacity margin-top-text">
+                <a  href="javascript:window.open('Wui.php?run=getSpec&argument={{sm1.idSm}}')"><h2 id="sm1" > <i class="fa fa-search"></i> Caractéristiques du  {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}</h2></a>
+            </div>
+            <div class="animated fadeInUp  col-md-6 col-sm-6 text-center bgBlackMediumOpacity margin-top-text ">
+                <a  href="javascript:window.open('Wui.php?run=getSpec&argument={{sm2.idSm}}')"><h2 id="sm2" > <i class="fa fa-search"></i> Caractéristiques du  {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2></a>
+            </div>-->
+
+
+
+    {%endblock%}
+
+    {% block content %}
+
+        <div id="wholePage">
+            <div class="blue">
+                <div class="red">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 pull-left">
+            <div class="">
+                daezdaedea
+            </div>
+            <div class="">
+                daezdaedea
+            </div>
+            <div class="">
+                daezdaedea
+            </div>
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+
+            <div class="">
+                daezdaedea
+            </div>
+        </div>
+
+
+        <div class="col-md-6 pull-right">
+            <div class="fh5co-half img sideleft col-md-6" style="border-right: 1px solid black;position: fixed" >
+                <img src="assets/images/core/smartphones/extra/{{ sm1.pictureSm }}-s.jpg" class="img-responsive center-block" style="width: 50%">
+            </div>
+        </div>
+
+
+
+
+
+     <!--   {%if winner != 'EQUIVALENT' %}
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Taille et poids</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+        {%if dimens['width'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['width']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['width']['pointFor'] == 'LEFT'%} title="Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['width']['sentence']}}"  data-toggle="popover" {% endif %}>
+                    {%if dimens['width']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-h">
+                            <i class="fa fa-arrow-up fa-3x block"></i><i class="fa fa-arrow-down fa-3x "></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Longueur : {{ dimens['width']['sm1']}} mm</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['width']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['width']['pointFor'] == 'RIGHT'%} title="Est plus grand de {{dimens['width']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['width']['sentence']}}"  data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if dimens['width']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-h">
+                            <i class="fa fa-arrow-up fa-3x block"></i><i class="fa fa-arrow-down fa-3x "></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Longueur : {{ dimens['width']['sm2']}} mm</span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if dimens['height'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['height']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['height']['pointFor'] == 'LEFT'%} title="Est plus grand de {{dimens['height']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['height']['sentence']}}" data-toggle="popover" {% endif %}>
+                    {%if dimens['height']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-w">
+                            <i class="fa fa-arrow-left fa-3x"></i><i class="fa fa-arrow-right fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Largeur : {{ dimens['height']['sm1']}} mm</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['height']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['height']['pointFor'] == 'RIGHT'%} title="Est plus large de {{dimens['height']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['height']['sentence']}}"  data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if dimens['height']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-w">
+                            <i class="fa fa-arrow-left fa-3x"></i><i class="fa fa-arrow-right fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Largeur : {{ dimens['height']['sm2']}} mm</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+        {%if dimens['thickness'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['thickness']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['thickness']['pointFor'] == 'LEFT'%} title="Est moins épais de  {{dimens['thickness']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['thickness']['sentence']}}"   data-toggle="popover" {% endif %}>
+                    {%if dimens['thickness']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-h">
+                            <i class="fa fa-arrow-down fa-3x block"></i><i class="fa fa-arrow-up fa-3x "></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Epaisseur : {{ dimens['thickness']['sm1']}} mm</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['thickness']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['thickness']['pointFor'] == 'RIGHT'%} title="Est moins épais de {{dimens['thickness']['difference']|round(1, 'floor')}} mm"
+                    data-content="{{ dimens['thickness']['sentence']}}"  data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if dimens['thickness']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-h">
+                            <i class="fa fa-arrow-down fa-3x block"></i><i class="fa fa-arrow-up fa-3x "></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Epaisseur : {{ dimens['thickness']['sm2']}} mm</span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if dimens['weight'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if dimens['weight']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['weight']['pointFor'] == 'LEFT'%} title="Est moins lourd de  {{dimens['weight']['difference']|round(1, 'floor')}} g"
+                    data-content="{{ dimens['weight']['sentence']}}"  data-toggle="popover"  {% endif %}>
+                    {%if dimens['weight']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-balance-scale fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Poids : {{ dimens['weight']['sm1']}} g</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if dimens['weight']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if dimens['weight']['pointFor'] == 'RIGHT'%} title="Est moins lourd de {{dimens['weight']['difference']|round(1, 'floor')}} g"
+                    data-content="{{ dimens['weight']['sentence']}}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if dimens['weight']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-balance-scale fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Poids : {{ dimens['weight']['sm2']}} g</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Autonomie</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+        {%if battery != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if battery['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if battery['pointFor'] == 'LEFT'%} title="Possède {{battery['difference']}} mAh en plus"
+                    data-content="{{ battery['sentence']}}" data-toggle="popover" {% endif %}>
+                    {%if battery['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-battery-full fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Capacité : {{ battery['battery1'] }} mAh</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if battery['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if battery['pointFor'] == 'RIGHT'%} title="Possède {{battery['difference']}} mAh en plus"
+                    data-content="{{ battery['sentence']}}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if battery['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-battery-full fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em"> Capacité : {{ battery['battery2'] }} mAh</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Processeur</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if processor['version'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['version']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if processor['version']['pointFor'] == 'LEFT'%} title="Dispose d'une version plus récente"
+                    data-content="{{ processor['version']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if processor['version']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-code-fork fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ processor['version']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['version']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if processor['version']['pointFor'] == 'RIGHT'%} title="Dispose d'une version plus récente"
+                    data-content="{{ processor['version']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if processor['version']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-code-fork fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ processor['version']['sm2']}} </span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if processor['frequency'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['frequency']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if processor['frequency']['pointFor'] == 'LEFT'%} title="Possède {{ processor['frequency']['difference']}} Ghz de plus"
+                    data-content="{{ processor['frequency']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if processor['frequency']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-fighter-jet fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Vitesse d'horloge : {{ processor['frequency']['sm1']}} GHz</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['frequency']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if processor['frequency']['pointFor'] == 'RIGHT'%} title="Possède {{ processor['frequency']['difference']}} Ghz de plus"
+                    data-content="{{ processor['frequency']['sentence'] }}" data-toggle="popover" data-placement="left"{% endif %}>
+                    {%if processor['frequency']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-fighter-jet fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Vitesse d'horloge : {{ processor['frequency']['sm2']}} GHz</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {%if processor['nbCore'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['nbCore']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                        {%if processor['nbCore']['pointFor'] == 'LEFT' %} title="Possède {{ processor['nbCore']['difference']}} coeur(s) de plus"
+                    data-content="{{ processor['nbCore']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if processor['nbCore']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-heart fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Nombre de coeur :  {{ processor['nbCore']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['nbCore']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if processor['nbCore']['pointFor'] == 'RIGHT'%} title="Possède {{ processor['nbCore']['difference']}} coeur(s) de plus"
+                    data-content="{{ processor['nbCore']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if processor['nbCore']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-heart fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Nombre de coeur :  {{ processor['nbCore']['sm2']}}</span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if processor['arch'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if processor['arch']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                        {%if processor['arch']['pointFor'] == 'LEFT' %} title="Possède une architecture supérieure"
+                    data-content="{{ processor['arch']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if processor['arch']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-building fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Architecture :  {{ processor['arch']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if processor['arch']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if processor['arch']['pointFor'] == 'RIGHT'%} title="Possède une architecture supérieure"
+                    data-content="{{ processor['arch']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if processor['arch']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-building fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Architecture :  {{ processor['arch']['sm2']}}</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">&Eacute;cran</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if screen['size'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['size']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if screen['size']['pointFor'] == 'LEFT'%} title="Possède {{ screen['size']['difference']}} pouces de plus"
+                    data-content="{{ screen['size']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if screen['size']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-desktop fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Taille : {{ screen['size']['sm1']}} pouces</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['size']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if screen['size']['pointFor'] == 'RIGHT'%} title="Possède {{ screen['size']['difference']}} pouces de plus"
+                    data-content="{{ screen['size']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if screen['size']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-desktop fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Taille : {{ screen['size']['sm2'] }} pouces </span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if screen['definition'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['definition']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if screen['definition']['pointFor'] == 'LEFT'%} title="Dispose de la {{ screen['definition']['difference']}}"
+                    data-content="{{ screen['definition']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if screen['definition']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-magic fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Définition : {{ screen['definition']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['definition']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if screen['definition']['pointFor'] == 'RIGHT'%} title="Dispose de la {{ screen['definition']['difference'] }}"
+                    data-content="{{ screen['definition']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if screen['definition']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-magic fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Définition : {{ screen['definition']['sm2']}}</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {%if screen['density'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if screen['density']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if screen['density']['pointFor'] == 'LEFT'%} title="Possède {{ screen['density']['difference']}} pixels par pouce en plus"
+                    data-content="{{ screen['density']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if screen['density']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Densité : {{ screen['density']['sm1']}} ppp</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if screen['density']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if screen['density']['pointFor'] == 'RIGHT'%} title="Possède {{ screen['density']['difference']}} pixels par pouce en plus"
+                    data-content="{{ screen['density']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if screen['density']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Densité : {{ screen['density']['sm2']}} ppp</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Processeur graphique (GPU)</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if gpu['GPUVersion'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} title="Dispose d'une version plus récente"
+                    data-content="{{ gpu['version']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if gpu['GPUVersion']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-code-fork fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ gpu['GPUVersion']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} title="Dispose d'une version plus récente"
+                    data-content="{{ gpu['GPUVersion']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if gpu['GPUVersion']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-code-fork fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ gpu['GPUVersion']['sm2']}} </span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if gpu['GPUFrequency'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} title="Possède {{ gpu['GPUFrequency']['difference']}} Mhz de plus"
+                    data-content="{{ gpu['GPUFrequency']['sentence'] }}" data-toggle="popover"  {% endif %}>
+                    {%if gpu['GPUFrequency']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-fighter-jet fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Fréquence : {{ gpu['GPUFrequency']['sm1']}} MHz</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} title="Possède {{ gpu['GPUFrequency']['difference']}} Mhz de plus"
+                    data-content="{{ gpu['GPUFrequency']['sentence'] }}" data-toggle="popover" data-placement="left"{% endif %}>
+                    {%if gpu['GPUFrequency']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-fighter-jet fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Fréquence : {{ gpu['GPUFrequency']['sm2']}} MHz</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {%if gpu['GPUFlops'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUFlops']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUFlops']['pointFor'] == 'LEFT' %} title="Possède {{ gpu['GPUFlops']['difference']}} GFlops en plus"
+                    data-content="{{ gpu['GPUFlops']['sentence'] }}" data-toggle="popover"  {% endif %}>
+                    {%if gpu['GPUFlops']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-laptop fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Opération à virgule flottante :  {{ gpu['GPUFlops']['sm1']}} GFlops</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} title=" Possède {{ gpu['GPUFlops']['difference']}} GFlops en plus"
+                    data-content="{{ gpu['GPUFlops']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if gpu['GPUFlops']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-laptop fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Opération à virgule flottante :  {{ gpu['GPUFlops']['sm2']}} GFlops</span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if gpu['GPUPrint'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUPrint']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUPrint']['pointFor'] == 'LEFT' %} title="Est plus petit de {{ gpu['GPUPrint']['difference']}} nanomètres"
+                    data-content="{{ gpu['GPUPrint']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if gpu['GPUPrint']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-print fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Taille de la gravure :  {{ gpu['GPUPrint']['sm1']}} nm</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} title="Est plus petit de {{ gpu['GPUPrint']['difference']}} nanomètres"
+                    data-content="{{ gpu['GPUPrint']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if gpu['GPUPrint']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-print fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Taille de la gravure :  {{ gpu['GPUPrint']['sm2']}} nm</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+        {%if gpu['GPUDirectx'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if gpu['GPUDirectx']['pointFor'] == 'LEFT' %} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUDirectx']['pointFor'] == 'LEFT' %} title="Dispose de la version supérieure"
+                    data-content="{{ gpu['GPUDirectx']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if gpu['GPUDirectx']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-gamepad fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Version de DirectX :  {{ gpu['GPUDirectx']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} title="Dispose de la version supérieure"
+                    data-content="{{ gpu['GPUDirectx']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if gpu['GPUDirectx']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-gamepad fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Version de DirectX :  {{ gpu['GPUDirectx']['sm2']}}</span>
+                </div>
+            </div>
+        {%endif%}
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Système d'exploitation (SE/OS)</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if os != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if os['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if os['pointFor'] == 'LEFT'%} title="Dispose d'une version supérieure"
+                    data-content="{{ os['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if os['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            {% if 'ANDROID' in os['os1'] %}
+                                <i class="fa fa-android fa-3x"></i>
+                            {% elseif 'IOS' in os['os1'] %}
+                                <i class="fa fa-apple fa-3x"></i>
+                            {% elseif 'WINDOWS' in os['os1'] %}
+                                <i class="fa fa-windows fa-3x"></i>
+                            {% elseif 'FIREFOX' in os['os1'] %}
+                                <i class="fa fa-firefox fa-3x"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ os['os1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if os['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if os['pointFor'] == 'RIGHT'%} title="Dispose d'une version plus récente"
+                    data-content="{{ os['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if os['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            {% if 'ANDROID' in os['os1'] %}
+                                <i class="fa fa-android fa-3x"></i>
+                            {% elseif 'IOS' in os['os1'] %}
+                                <i class="fa fa-apple fa-3x"></i>
+                            {% elseif 'WINDOWS' in os['os1'] %}
+                                <i class="fa fa-windows fa-3x"></i>
+                            {% elseif 'FIREFOX' in os['os1'] %}
+                                <i class="fa fa-firefox fa-3x"></i>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ os['os2']}} </span>
+                </div>
+            </div>
+        {%endif%}
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Réseaux mobiles</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if network != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if network['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if network['pointFor'] == 'LEFT'%} title="Possède la {{network['difference']}}"
+                    data-content="{{ network['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if network['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-net">
+                            <i class="fa fa-wifi fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ network['network1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if network['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if network['pointFor'] == 'RIGHT'%} title="Possède la {{network['difference']}}"
+                    data-content="{{ network['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if network['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-net">
+                            <i class="fa fa-wifi fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{{ network['network2']}} </span>
+                </div>
+            </div>
+        {%endif%}
+
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Mémoires</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if ram != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if ram['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if ram['pointFor'] == 'LEFT'%} title="Possède {{ ram['difference']}} gigaoctect(s) de ram en plus"
+                    data-content="{{ ram['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if ram['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-calculator fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Mémoire vive (RAM) : {{ ram['ram1']}} Go</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if ram['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if ram['pointFor'] == 'RIGHT'%} title="Possède {{ ram['difference']}} gigaoctect(s) de ram en plus"
+                    data-content="{{ ram['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if ram['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-calculator fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Mémoire vive (RAM) : {{ ram['ram2']}} Go </span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if storage['internal'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if storage['internal']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if storage['internal']['pointFor'] == 'LEFT'%} title="Possède {{ storage['internal']['difference']}} gigaoctect(s) en plus"
+                    data-content="{{ storage['internal']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if storage['internal']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-info fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Mémoire de stokage interne : {{ storage['internal']['sm1']}} Go</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if storage['internal']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if storage['internal']['pointFor'] == 'RIGHT'%} title="Possède {{ storage['internal']['difference']}} gigaoctect(s) en plus"
+                    data-content="{{ storage['internal']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if storage['internal']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-info fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Mémoire de stokage inerne : {{ storage['internal']['sm2']}} Go</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+        {%if storage['external'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if storage['external']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if storage['external']['pointFor'] == 'LEFT'%} title="Possède {{ storage['external']['difference']}} gigaoctect(s) en plus"
+                    data-content="{{ storage['external']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if storage['external']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-info fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em"> {% if storage['external']['sm1'] != 'NULL' %}Mémoire extensible jusqu'à : {{ storage['external']['sm1']}} Go {% else %} Ne dispose pas de slot microSD {% endif %}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if storage['external']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if storage['external']['pointFor'] == 'RIGHT'%} title="Possède {{ storage['external']['difference']}} gigaoctect(s) en plus"
+                    data-content="{{ storage['external']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if storage['external']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-info fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">{% if storage['external']['sm2'] != 'NULL' %}Mémoire extensible jusqu'à : {{ storage['external']['sm2']}} Go {% else %} Ne dispose pas de slot microSD {% endif %}</span>
+                </div>
+            </div>
+        {% endif %}
+
+
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Capteurs photos</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if photo['photoFront'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if photo['photoFront']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if photo['photoFront']['pointFor'] == 'LEFT'%} title="Possède {{ photo['photoFront']['difference']}} mégapixels de plus "
+                    data-content="{{ photo['photoFront']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if photo['photoFront']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-picture-o fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Capteur frontal : {{ photo['photoFront']['sm1']}} Mpx</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if photo['photoFront']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if photo['photoFront']['pointFor'] == 'RIGHT'%} title="Possède {{ photo['photoFront']['difference']}} mégapixels de plus"
+                    data-content="{{ photo['photoFront']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if photo['photoFront']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-picture-o fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Capteur frontal : {{ photo['photoFront']['sm2']}} Mpx </span>
+                </div>
+            </div>
+        {%endif%}
+
+        {%if photo['photoBack'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if photo['photoBack']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if photo['photoBack']['pointFor'] == 'LEFT'%} title="Possède {{ photo['photoBack']['difference']}} mégapixels de plus "
+                    data-content="{{ photo['photoBack']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if photo['photoBack']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-picture-o fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Capteur arrière : {{ photo['photoBack']['sm1']}} Mpx</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if photo['photoBack']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if photo['photoBack']['pointFor'] == 'RIGHT'%} title="Possède {{ photo['photoBack']['difference']}} mégapixels de plus"
+                    data-content="{{ photo['photoBack']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if photo['photoBack']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-picture-o fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Capteur arrière : {{ photo['photoBack']['sm2']}} Mpx </span>
+                </div>
+            </div>
+        {%endif%}
+
+            <div class="row padding_top_carac">
+                <hr class="dotted w_100">
+                <div class="col-md-12 hr1 text-center padd_20">
+                    <span class="luckiest f3em">Capteurs vidéos</span>
+                </div>
+                <hr class="dotted w_100">
+            </div>
+
+        {%if video['videoFront'] != NULL %}
+            <div class="row text-center padd_row">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if video['videoFront']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if video['videoFront']['pointFor'] == 'LEFT'%} title="Capable de filmer en {{ video['videoFront']['difference']}}"
+                    data-content="{{ video['videoFront']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if video['videoFront']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate blue">
+                        <div class="inner-we">
+                            <i class="fa fa-video-camera fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Caméra avant : {{ video['videoFront']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if video['videoFront']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if video['videoFront']['pointFor'] == 'RIGHT'%} title="Capable de filmer en {{ video['videoFront']['difference']}}"
+                    data-content="{{ video['videoFront']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if video['videoFront']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n  blue">
+                        <div class="inner-we">
+                            <i class="fa fa-video-camera fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Caméra avant : {{ video['videoFront']['sm2']}}</span>
+                </div>
+            </div>
+        {% endif %}
+
+        {%if video['videoBack'] != NULL %}
+            <div class="row text-center padd_row ">
+                <div class="col-md-6 col-lg-6 col-sm-6  {%if video['videoBack']['pointFor'] == 'LEFT'%} iswinner {% endif %} padd_25"
+                        {%if video['videoBack']['pointFor'] == 'LEFT'%} title="Capable de filmer en {{ video['videoBack']['difference']}}"
+                    data-content="{{ video['videoBack']['sentence'] }}" data-toggle="popover" {% endif %}>
+                    {%if video['videoBack']['pointFor'] == 'LEFT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-video-camera fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Caméra arrière : {{ video['videoBack']['sm1']}}</span>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 {%if video['videoBack']['pointFor'] == 'RIGHT'%} iswinner {% endif %} padd_25"
+                        {%if video['videoBack']['pointFor'] == 'RIGHT'%} title="Capable de filmer en {{ video['videoBack']['difference']}}"
+                    data-content="{{ video['videoBack']['sentence'] }}" data-toggle="popover" data-placement="left" {% endif %}>
+                    {%if video['videoBack']['pointFor'] == 'RIGHT'%} <span class="text-vs ">Pourquoi ? (Cliquez sur le logo)</span> {% endif %}
+                    <div class="icon_n rotate green">
+                        <div class="inner-we">
+                            <i class="fa fa-video-camera fa-3x"></i>
+                        </div>
+                    </div>
+                    <span class="luckiest f2em">Caméra arrière : {{ video['videoBack']['sm2']}}</span>
+                </div>
+            </div>
+        {%endif%}
+-->
+
+            <!--<hr class="dotted w_100">
+            <div class="col-md-12 hr1 text-center padd_20">
+                <span class="luckiest f3em">Conclusion</span>
+            </div>
+            <hr class="dotted w_100">
+            <div class=" feature-2 wp2 delay-05s">
+
+
+                <ul class="related-posts group center-block" style="margin-bottom: 0px">
+
+                    <div class="smallRelated_mod smallRelated_best" style="margin: 0;width: 100%;height: 380px;">
+
+
+                        <div style="background-image:url(PUBLIC/IMAGE/smartphones/{{ sm1.pictureSm }}.jpg);">
+                            <a href="#" style="{%if winner =='LEFT' %} background-color: rgba(46, 88, 181, 0.57); {% endif %}"> <h3>{{ sm1.getConstructorSm.getName }} {{ sm1.getFullNameSm }}</h3></a>
+                        </div>
+
+                        <div style="background-image:url('PUBLIC/IMAGE/smartphones/{{ sm2.pictureSm }}.jpg')">
+                            <a href="#"  style="{%if winner =='RIGHT' %} background-color: rgba(46, 88, 181, 0.57); {% endif %}" >
+                                <h3>{{ sm2.getConstructorSm.getName }} {{ sm2.getFullNameSm }}</h3>
+                            </a>
+                        </div>
+
+
+                    </div>
+
+
+                </ul>
+
+            </div>
+            <div id="result" style="position: relative;">
+
+                <div class="container">
+                    <div class="row about">
+                        <div class="text-center">
+                            <h2 class="weight_700" style="background-color: rgba(177, 223, 255, 0.5);padding: 20px 0px 20px 0px;">Selon la comparaison effectuée, il serait préférable de choisir le
+                                {%if winner =='LEFT' %}
+                                    {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }} plûtot que le {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}
+                                {%elseif winner =='RIGHT' %}
+                                    {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }} plûtot que le {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }}
+                                {%endif %}
+                            </h2>
+
+                            <h2 class="weight_700 style_result" style="line-height:35px;background-color: rgba(177, 223, 255, 0.5);padding: 20px 0px 20px 0px;">  <span class="border_numbers">{{count1}}</span>  point(s) en faveur du {{ sm1.getConstructorSm.name}} {{ sm1.getFullNameSm }} contre <span class="border_numbers">{{count2}}</span> point(s) en faveur du {{ sm2.getConstructorSm.name}} {{ sm2.getFullNameSm }}</h2>
+                            <h2 class="weight_700 style_result" style="background: none">Partagez cette comparaison sur les réseau sociaux <i class="fa fa-smile-o"></i></h2>
+                            <ul class="row" style="list-style: none;border: 1px dotted;padding: 20px 0px 20px 0px;">
+                                <li class="col-md-4 col-sm-12 animated pulse "><a href="http://twitter.com/tapbot_paul"><i
+                                                class="fa-fb fa fa-facebook-square fa-4x hovers"></i></a><br class="frame"><br>Facebook
+                                </li>
+                                <li class="col-md-4 col-sm-12 animated pulse hovers"><a href="http://twitter.com/tapbot_paul"><i
+                                                class="fa-tw fa fa-twitter-square fa-4x"></i></a><br class="frame"><br>Twitter
+                                </li>
+                                <li class="col-md-4 col-sm-12 animated pulse hovers"><a href="http://twitter.com/tapbot_paul"><i
+                                                class=" fa-goo fa fa-google-plus-square fa-4x"></i></a><br class="frame"><br>Google+
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </div>-->
+                </div></div>
+
+        {%else%}
+            <script>
+                $(document).ready(function()
+                {
+                    $('#modal_login').modal('show');
+                });
+            </script>
+            {% block modal %}
+            <div class="modal fade" id="modal_out" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content" style="height: 225px!important">
+                        <div class="modal-header">
+                            <div class="modal-title text-center">
+                                <div class="font_logout"></div>
+                            </div>
+                            <div class="modal-body text-center">
+                                <span class="text_logout"></span>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary center-block" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="modal_login" data-backdrop="static"  data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="modal_login">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-body text-center animated pulse">
+                            <div class="font_logout ">
+                                {% if sm1.idSm != sm2.idSm %}
+                                    Votre comparaison a aboutie à une équivalence des deux smartphones
+                                {% else %}
+                                    N'essayer pas de faire l'escro !
+                                {% endif %}
+                            </div>
+                            <hr>
+                    <span id="content_login">
+                        <span class="text_logout">
+                         {% if sm1.idSm != sm2.idSm %}
+                            Mais n'abandonnez pas ! Refaite une comparaison </span>
+                        <button type="button" class="btn btn-success" onclick="location.href='Wui.php?run=prepareComparison&argument=void'">Je refais une comparaison </button>
+                        <button type="button" class="btn btn-primary" onclick="location.href='Wui.php?run=prepareHomePage&argument=void'">J'abandonne</button>
+                        {% else %}
+                        On a bien vu, les deux smartphones sont les mêmes !  Deux possibilité s'offrent à vous : </span>
+                            <button type="button" class="btn btn-success" onclick="location.href='Wui.php?run=prepareComparison&argument=void'">Je refais une comparaison correct </button>
+                            <button type="button" class="btn btn-primary" onclick="location.href='Wui.php?run=prepareHomePage&argument=void'">J'abandonne car vous m'avez démasqué </button>
+                            {% endif %}
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endblock %}
+
+        {%endif%}
+    {%endblock%}
+    {% block menuB %}
+{%endblock%}
+  {% block manufacturer %}
+  {% endblock %}
+    {% block bestSm %}
+    {% endblock %}
+    {% block recentComparison %}
+    {% endblock %}
+    {% block articles %}
+    {% endblock %}

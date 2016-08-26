@@ -6,8 +6,10 @@
  */
 
 namespace Compared\Router;
-use GException\{RuntimeError, LoadingError};
-use Compared\Services\ComparatorServices;
+use GException\{
+    RuntimeError, LoadingError, ServiceError
+};
+use Compared\Services\{ComparatorServices, ErrorServices};
 use Compared\Supervisor\Controller;
 
 class Pointer {
@@ -48,7 +50,7 @@ class Pointer {
                 return $_SESSION['twig']->render('viewPhoneList.html.twig', array('phoneList' => $argArray[1], 'constructor' => $argArray[2], 'countSm' => $argArray[3], "date"=>$argArray[4]));
                 break;
             case 'viewSmSpec':
-                return $_SESSION['twig']->render('viewSmSpec.html.twig', array('sm' => $argArray[1], 'moy' => $argArray[2]));
+                return $_SESSION['twig']->render('viewSmSpec.html.twig', array('sm' => $argArray[1], 'moy' => $argArray[2], 'nbS' => $argArray['nbS'], 'modules' => $argArray['modules']));
                 break;
             case 'viewLegalNotice':
                 return $_SESSION['twig']->render('viewLegalNotice.html.twig');
@@ -183,6 +185,12 @@ class Pointer {
                 $service  = new ComparatorServices();
                 $service->start();
                 break;
+            case "Error" :
+                $service  = new ErrorServices($arg[1]);
+                $service->start();
+                break;
+            default :
+                throw new ServiceError("Le service appellé n'existe pas");
         }
 
     }

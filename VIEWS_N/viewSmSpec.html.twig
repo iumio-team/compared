@@ -1,14 +1,14 @@
 {% extends "viewTemplateWebsite.html.twig" %}
-{% block title %}COMPARED | Fiche Technique{% endblock %}
+{% block title %}COMPARED | Fiche Technique {% endblock %}
 {% block style %}
-    <link rel="stylesheet" type="text/css" href="/assets/css/template.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/template.css" />
 {% endblock %}
 {% block silder %}{% endblock %}
 {%  block content %}
-    <script src="/assets/js/utilities.js"></script>
+    <script src="assets/js/utilities.js"></script>
     <div class="animate-box fh5co-product-2 border-best-sm">
         <div class="fh5co-half img sideleft col-md-6" >
-            <img src="/assets/images/core/smartphones/normal/{{ sm.getPictureSm }}.jpg" class="img-responsive">
+            <img src="assets/images/core/smartphones/normal/{{ sm.getPictureSm }}.jpg" class="img-responsive">
         </div>
         <div class="fh5co-half pahalf sideright  col-md-6">
             <h3> {{ sm.getConstructorSm.name}} {{ sm.getFullNameSm }}</h3>
@@ -17,20 +17,21 @@
             {% if  sm.prixSm != NULL %}
                 <p> Prix : {{ sm.prixSm }} </p>
             {% endif %}
-            <p>Note : <span class="score center-block">{% if moy != "/" %} {{moy}}/5 {% else %} Non noté  {%endif%} </span></p>
+            <p>Note : <span class="score center-block">{% if moy != "/" %} {{moy}} / 10 {% else %} Non noté  {%endif%} </span></p>
             <p>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. </p>
-            <p><a href="#" class="btn btn-outline btn-md">Comparez-le</a><a href="#" class="btn btn-outline btn-md">Notez-le</a><a href="#" class="btn btn-outline btn-md">Partagez-le</a></p>
+            <p><a href="#" class="btn btn-outline btn-md">Comparez-le</a><a href="#" class="btn btn-outline btn-md" id="call_mark">Notez-le</a><a href="#" class="btn btn-outline btn-md">Partagez-le</a></p>
+            <input type="hidden" name="smID" value="{{ sm.idSm }}" class="smID">
         </div>
     </div>
 
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-3 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Processeur</h2>
                 <div class="padd35">
                     <script>
-                        var u1 = "/assets/images/core/processor_manufacturer/{{ sm.processor.constructorP | lower }}/{{ sm.processor.nameP | lower }}{{ sm.processor.versionP }}.jpg";
-                        var u2 = "/assets/images/core/processor_manufacturer/{{ sm.processor.constructorP | lower }}/{{ sm.processor.nameP | lower }}.jpg";
+                        var u1 = "assets/images/core/processor_manufacturer/{{ sm.processor.constructorP | lower }}/{{ sm.processor.nameP | lower }}{{ sm.processor.versionP }}.jpg";
+                        var u2 = "assets/images/core/processor_manufacturer/{{ sm.processor.constructorP | lower }}/{{ sm.processor.nameP | lower }}.jpg";
                         tresponse(u1, u2, 'img');
                     </script>
                     <span id="img"></span>
@@ -47,12 +48,12 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">&Eacute;cran</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/screen.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/screen.png" class="img-responsive img50 center-block">
                     <p><strong><h2>{{ sm.screen.typeS }}</h2></strong></p>
                 </div>
             </div>
@@ -67,12 +68,12 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Mémoires</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/memory.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/memory.png" class="img-responsive img50 center-block">
                     <p><strong><h2>RAM & Stockage</h2></strong></p>
                 </div>
             </div>
@@ -93,12 +94,12 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Dimensions</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/size.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/size.png" class="img-responsive img50 center-block">
                     <p><strong><h2>(L, l, E)</h2></strong></p>
                 </div>
             </div>
@@ -112,14 +113,14 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Batterie & Poids</h2>
                 <div class="padd15">
-                    <img src="/assets/images/core/icon/battery.png" class="img-responsive img25 center-block">
+                    <img src="assets/images/core/icon/battery.png" class="img-responsive img25 center-block">
                     <br>
-                    <img src="/assets/images/core/icon/weight.png" class="img-responsive img25 center-block">
+                    <img src="assets/images/core/icon/weight.png" class="img-responsive img25 center-block">
                     <p><strong><h2>(Capacité, Poids)</h2></strong></p>
                 </div>
             </div>
@@ -132,12 +133,12 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Puce graphique</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/gpu.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/gpu.png" class="img-responsive img50 center-block">
                     <p><strong><h2>{{ sm.gpu.constructor }} {{ sm.gpu.name }} {{ sm.gpu.version }}</h2></strong></p>
                 </div>
             </div>
@@ -159,12 +160,12 @@
         </div>
     </div>
 
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Appareil photo</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/photo.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/photo.png" class="img-responsive img50 center-block">
                     <p><strong><h2>(Avant & Arrière)</h2></strong></p>
                 </div>
             </div>
@@ -177,12 +178,12 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Caméra</h2>
                 <div class="padd35">
-                    <img src="/assets/images/core/icon/video.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/icon/video.png" class="img-responsive img50 center-block">
                     <p><strong><h2>(Avant & Arrière)</h2></strong></p>
                 </div>
             </div>
@@ -195,7 +196,7 @@
             </div>
         </div>
     </div>
-    <div class="flip-container" ontouchstart="this.classList.toggle('hover');">
+    <div class="flip-container col-sm-4 col-md-3 col-lg-3" ontouchstart="this.classList.toggle('hover');">
         <div class="flipper">
             <div class="front text-center gradien">
                 <h2 class="compared-background">Système d'exploitation</h2>
@@ -210,7 +211,7 @@
                     {% elseif  "Ubuntu" in sm.os.name %}
                         {% set icon = "ubuntu" %}
                     {% endif %}
-                    <img src="/assets/images/core/os/{{ icon }}.png" class="img-responsive img50 center-block">
+                    <img src="assets/images/core/os/{{ icon }}.png" class="img-responsive img50 center-block">
                     <p><strong><h2>{{ sm.os.constructor }}  {{ sm.os.name }} </h2></strong></p>
                 </div>
             </div>
@@ -238,14 +239,14 @@
         </ol>
         <div class="carousel-inner carousel-mod" role="listbox" style="height: 700px!important;">
             <div class="item active left">
-                <img class="first-slide center-block" src="/assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-1.jpg" alt="First slide">
+                <img class="first-slide center-block" src="assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-1.jpg" alt="First slide">
             </div>
             <div class="item next left">
-                <img class="second-slide center-block" src="/assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-2.jpg" alt="Second slide">
+                <img class="second-slide center-block" src="assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-2.jpg" alt="Second slide">
 
             </div>
             <div class="item">
-                <img class="third-slid center-block" src="/assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-landscape.jpg" alt="Third slide">
+                <img class="third-slid center-block" src="assets/images/core/smartphones/extra/{{ sm.getPictureSm }}-landscape.jpg" alt="Third slide">
             </div>
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -257,35 +258,6 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-    <div class="row animate-box thishead">
-        <div class="col-md-12 text-center thist"><h2>Notez-le</h2></div>
-        <div class="col-md-12 text-center thisb"><h2>Notez le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }}</h2></div>
-    </div>
-    <div class="row news">
-        <div class="col-md-12 center-block text-center">
-            <input class="inputIdSm" type="hidden" value="{{ sm.idSm }}"/>
-            <fieldset class="rating">
-                <legend> De 1 à 5:</legend>
-                <input type="radio" class="starC" id="star5" name="rating" value="5"/><label for="star5"
-                                                                                             title="Rocks!">5
-                    stars</label>
-                <input type="radio" class="starC" id="star4" name="rating" value="4"/><label for="star4"
-                                                                                             title="Pretty good">4
-                    stars</label>
-                <input type="radio" class="starC" id="star3" name="rating" value="3"/><label for="star3"
-                                                                                             title="Meh">3
-                    stars</label>
-                <input type="radio" class="starC" id="star2" name="rating" value="2"/><label for="star2"
-                                                                                             title="Kinda bad">2
-                    stars</label>
-                <input type="radio" class="starC" id="star1" name="rating" value="1"/><label for="star1"
-                                                                                             title="Sucks big time">1
-                    star</label>
-            </fieldset>
-        </div>
-    </div>
-
     {% block header %}
     {% endblock %}
     {% block manufacturer %}
@@ -307,23 +279,45 @@
                             </h4></div>
                     </div>
                     <div class='modal-body text-center '>
-                        Merci d'avoir noté le {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
+                        <div class="row lead">
+                            <div id="stars" class="starrr"><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span><span class="glyphicon .glyphicon-star-empty glyphicon-star-empty"></span></div>
+                            Vous avez donné <span id="count">0</span> sur 10 à ce smartphone
+                        </div>
+                        Veuillez valider la note du {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }} <i
                                 class="fa fa-hand-o-left"></i> <br>
                         Retournez sur la page d'accueil pour découvrir de nouveau smartphone
                     </div>
                     <div class='modal-footer'>
-                        <button type='button' class='btn btn-success'
-                                onClick="location.href = 'Wui.php?run=getHomePage&agrgument=void'">Retour à l'accueil
+                        <button type='button' class='btn btn-danger' data-dismiss='modal' id="not_valid_mark">
+                               Annuler
                         </button>
-                        <button type='button' class='btn btn-danger' data-dismiss='modal' onClick='location.reload()'>
-                            Fermer
+                        <button type='button' class='btn btn-success' data-dismiss='modal' id="valid_mark">
+                            Valider
                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-backdrop='static' data-keyboard='false' class='modal  fade ' id='modal_confirm_mark' tabindex='-1'
+             role='dialog' aria-labelledby='myModalLabel' aria-hidden='true'>
+            <div class='modal-dialog'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <div class="row">
+                            <h4 class='modal-title text-center ' id='myModalLabel'><i class="fa fa-star"></i>&nbsp;Confirmation de la notation
+                            </h4></div>
+                    </div>
+                    <div class='modal-body text-center '>
+                        {{ sm.getConstructorSm.name }} {{ sm.getFullNameSm }}
                     </div>
                 </div>
             </div>
         </div>
     {% endblock %}
     {% block js %}
+        <script type="text/javascript">
+
+        </script>
     {% endblock %}
 
 {% endblock %}

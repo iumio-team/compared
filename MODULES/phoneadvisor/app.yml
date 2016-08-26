@@ -2,6 +2,9 @@ IUM_MODULE:
   MODULE_NAME: phoneadvisor
   DISPLAY_NAME: Phone Advisor
   VERSION: 0.1
+  SMALL_DESCRIPTION_FR : Conseillé en smartphone
+  SMALL_DESCRIPTION_EN :
   DESCRIPTION_FR : Phone Advisor est un conseillé permet de choisir votre prochain smartphone
   DESCRIPTION_EN :
+  SHOW_IN_MENU : YES
   COPYRIGHT: &copy; Copyright Phone Advisor. Is a Ium module

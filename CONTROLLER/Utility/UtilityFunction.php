@@ -33,12 +33,12 @@ class UtilityFunction {
         }
     }
 
-    /** Return the project root : Compatible with linux server
+    /** Return the project root : Change the absolute route
      * @return string project root
      */
     static public function getRootProject()
     {
-        return "/var/www/html/COMPARED";
+        return "/Applications/MAMP/htdocs/COMPARED/";
     }
 
     static public function getToday():Date\FrenchDate
@@ -68,10 +68,10 @@ class UtilityFunction {
      * @return float Average
      */
     static public function calculateAverage(int $sum, int $divisor):float
-        {
+    {
             $result = 0;
             $result = $sum / $divisor ;
             return (round($result, 1));
-        }
+    }
 
 }

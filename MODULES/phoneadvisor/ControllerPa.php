@@ -22,7 +22,8 @@ class ControllerPa extends  AbstractController
         {
             $quest = "Vous êtes ?";
             $resp = array("un homme", "une femme");
-            echo json_encode(array("question" => $quest, "response" => $resp));
+            $resType = "radio";
+            echo json_encode(array("question" => $quest, "response" => $resp, "responseType" => $resType));
         }
     }
 

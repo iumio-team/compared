@@ -20,10 +20,21 @@ function getQuestion()
         type: "POST",
         dataType: "JSON",
         success : function(_data){
-            console.log(_data)
-            var ar = $.parseJSON(_data);
+           $(".question").append(_data["question"])
+            var res = _data["response"];
+            var type = _data['responseType'];
+            if (type == "radio")
+            {
+                var temp = "<ul>";
+               for (var i = 0; i < res.length; i++)
+                {
+                    console.log(res[i])
+                    temp += "<li>" + res[i] + " &nbsp; <input type='checkbox' name='response'></li>";
+                }
 
-           $(".question").html(ar[0]);
+                temp += "</ul>";
+                $(".response").append(temp);
+            }
 
         }
     });

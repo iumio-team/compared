@@ -4,7 +4,7 @@ $(document).ready(function () {
         check: function () {
             $.ajax({
                 type: "POST",
-                url: "/Service/Comparator",
+                url: "./Service/Comparator",
                 success: function (_data) {
                     if (_data != 1)
                         location.reload();
@@ -72,17 +72,25 @@ $(document).ready(function () {
         },
       score : function(score)
       {
-                var sm = $(".inputIdSm").val();
+          var sm = $(".smID").val();
+          var smName =  $("#modal_confirm_mark").find(".modal-body").text();
+          $('#modal_mark_smSpec').modal("hide");
+          $("#modal_confirm_mark").find(".modal-body").html("Application de la note en cours, veuillez patienter... <br><i class='fa fa-2x fa-pulse fa-fw fa-spinner'></i>");
+          $("#modal_confirm_mark").modal('show');
                 $.ajax({
                     url: "Wui.php?run=newSmScore",
                     type: "POST",
                     data: {"sm": sm, "score": score},
+
                     success: function (_data) {
-                        console.log(_data);
-                        $("#modal_mark_smSpec").modal('show');
+                        $("#modal_confirm_mark").find(".modal-body").html("<i class='fa fa-check fa-2x' style='color: green'></i> &nbsp; Merci d'avoir noté le smartphone "+ smName);
+
+                        window.setTimeout(function () {
+                            location.reload();
+                        }, 2000)
                     },
                     error: function (request, status, error) {
-                        alert(error)
+                        $("#modal_confirm_mark").find(".modal-body").html("Une erreur est survenue lors de la notation");
                     }
                 });
         }
@@ -91,6 +99,13 @@ $(document).ready(function () {
     $(".starC").each(function () {
         $(this).bind('click', function () {
             var score = $(this).val();
+            functions.score(score);
+        });
+    });
+
+    $("#valid_mark").each(function () {
+        $(this).bind('click', function () {
+            var score = $("#count").text();
             functions.score(score);
         });
     });
@@ -111,7 +126,76 @@ $(document).ready(function () {
         });
     });
 
-    window.setInterval(functions.check, 2000);
+    //window.setInterval(functions.check, 2000);
+
+    /*** TEST ***/
+
+    $(function () {
+        var $blue = $(".blue"),
+            $pg = $("#wholePage"),
+            $document = $(document),
+            left = 0,
+            scrollTimer = 0;
+
+        // Not part of the solution, just duplicating the elements.
+        for(var i=0; i<5; i++) {
+            $blue.clone().appendTo($pg);
+        }
+
+        // Detect horizontal scroll start and stop.
+        $document.on("scroll", function () {
+            var docLeft = $document.scrollLeft();
+            if(left !== docLeft) {
+                var self = this, args = arguments;
+                if(!scrollTimer) {
+                    // We've not yet (re)started the timer: It's the beginning of scrolling.
+                    startHScroll.apply(self, args);
+                }
+                window.clearTimeout(scrollTimer);
+                scrollTimer = window.setTimeout(function () {
+                    scrollTimer = 0;
+                    // Our timer was never stopped: We've finished scrolling.
+                    stopHScroll.apply(self, args);
+                }, 100);
+                left = docLeft;
+            }
+        });
+
+        // Horizontal scroll started - Make div's absolutely positioned.
+        function startHScroll () {
+            console.log("Scroll Start");
+            $(".red")
+            // Clear out any left-positioning set by stopHScroll.
+                .css("left","")
+                .each(function () {
+                    var $this = $(this),
+                        pos = $this.offset();
+                    // Preserve our current vertical position...
+                    $this.css("top", pos.top)
+                })
+                // ...before making it absolutely positioned.
+                .css("position", "absolute");
+        }
+
+        // Horizontal scroll stopped - Make div's float again.
+        function stopHScroll () {
+            var leftScroll = $(window).scrollLeft();
+            console.log("Scroll Stop");
+            $(".red")
+            // Clear out any top-positioning set by startHScroll.
+                .css("top","")
+                .each(function () {
+                    var $this = $(this),
+                        pos = $this.position();
+                    // Preserve our current horizontal position, munus the scroll position...
+                    $this.css("left", pos.left-leftScroll);
+                })
+                // ...before making it fixed positioned.
+                .css("position", "fixed");
+        }
+    });
+
+    /**** END TEST ****/
 
     $(document).ready(function(){
         $('[data-toggle="popover"]').popover();

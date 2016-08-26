@@ -223,7 +223,6 @@ var Stage = {
 var UTIL = {
     fire: function(func, funcname, args) {
         var namespace = COMPARED;
-        console.log(func);
         funcname = (funcname === undefined) ? 'init' : funcname;
         if (func !== '' && namespace[func] && typeof namespace[func][funcname] === 'function') {
             namespace[func][funcname](args);
